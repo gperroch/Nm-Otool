@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gperroch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 14:12:13 by gperroch          #+#    #+#             */
-/*   Updated: 2017/03/27 17:36:43 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/09/21 10:31:17 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <unistd.h>
 #include <mach-o/loader.h>
 #include "libft.h"
+
+void		dump_mem(void *ptr, int len, int col, char *name);
 
 //http://mirror.informatimago.com/next/developer.apple.com/documentation/DeveloperTools/Conceptual/MachORuntime/index.html?http://mirror.informatimago.com/next/developer.apple.com/documentation/DeveloperTools/Conceptual/MachORuntime/8rt_file_format/chapter_10_section_1.html
 void 		print_data(void *tmp, int size);
@@ -45,7 +47,7 @@ int							main(int argc, char **argv)
 	printf("sizeofcmds: %d\n", header->sizeofcmds);
 	printf("flags: %x\n", header->flags);
 	printf("reserved: %x\n", header->reserved);
-	
+
 	// Enregistrement des load commands dans un buffer
 	load_commands = malloc(header->sizeofcmds + 1);
 	ft_bzero(load_commands, header->sizeofcmds + 1);
@@ -60,6 +62,8 @@ int							main(int argc, char **argv)
 		printf("load_command_struct = %p\n", load_command_struct);
 		load_command_struct = load_command_struct + load_command_struct->cmdsize;
 	}
+	dump_mem(header, 32 * 10, 32, "cmds");
+
 	close(fd);
 	return 0;
 }
