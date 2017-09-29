@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 09:35:47 by gperroch          #+#    #+#             */
-/*   Updated: 2017/09/29 13:26:09 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/09/29 15:53:47 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,6 @@
 #include <mach-o/nlist.h>
 #include "libft.h"
 #include "nm.h"
-
-int				ft_mapping_file(char *file_name, void **file_content,
-	struct stat *stats);
-void			ft_display_header(struct mach_header_64 *header);
-void			ft_display_load_command(struct load_command *load_command, int ncmds);
-void			dump_mem(void *ptr, int len, int col, char *name);
-char			*load_command_type(uint32_t cmd);
-void			display_load_symtab(struct load_command *load_command);
-void			display_load_dysymtab(struct load_command *load_command);
-void			test_strtab(char *ptr, int size);
 
 void			ft_display_header(struct mach_header_64 *header)
 {
@@ -140,114 +130,4 @@ void						display_load_dysymtab(struct load_command *load_command)
 	printf("nextrel:%u\n", ptr->nextrel);
 	printf("locreloff:%u\n", ptr->locreloff);
 	printf("nlocrel:%u\n", ptr->nlocrel);
-}
-
-////////////////////APPLICATIF////////////////////////
-
-void						find_symtab(struct mach_header_64 *header)
-{
-	struct load_command		*load_command;
-	struct symtab_command	*symtab_command;
-	void					*symtab;
-	void					*strtab;
-	struct nlist_64			*nlist;
-	t_symbol_display		*list;
-	t_symbol_display		*ptr;
-	int						i;
-
-	load_command = (struct load_command*)((char*)header + sizeof(struct mach_header_64));
-	i = 0;
-	while (i < header->ncmds)
-	{
-		load_command = (struct load_command*)((char*)load_command + load_command->cmdsize);
-		i++;
-		if (load_command->cmd == LC_SYMTAB)
-			i = header->ncmds;
-	}
-	symtab_command = (struct symtab_command*)load_command;
-//	display_load_symtab(load_command);
-	symtab = (char*)header + symtab_command->symoff;
-	strtab = (char*)header + symtab_command->stroff;
-
-	// Display des nlists
-	i = 0;
-	nlist = symtab;
-	list = NULL;
-	while (i < symtab_command->nsyms)
-	{
-		if (!list)
-		{
-			list = (t_symbol_display*)malloc(sizeof(t_symbol_display));
-			ptr = list;
-			ptr->next = NULL;
-			ptr->previous = NULL;
-		}
-		else
-		{
-			ptr->next = (t_symbol_display*)malloc(sizeof(t_symbol_display));
-			ptr->next->previous = ptr;
-			ptr = ptr->next;
-			ptr->next = NULL;
-		}
-		ptr->value = nlist->n_value;
-		ptr->type = 'U';
-		ptr->type = nlist->n_type & N_STAB ? '-' : ptr->type;
-		ptr->type = (nlist->n_type & N_TYPE) & N_UNDF ? 'T' : ptr->type;
-		ptr->type = (nlist->n_type & N_TYPE) & N_ABS ? 'A' : ptr->type;
-		ptr->type = (nlist->n_type & N_TYPE) & N_SECT ? 'S' : ptr->type; // => T, D, B. Ou est C ?
-		ptr->type = (nlist->n_type & N_TYPE) & N_PBUD ? 'T' : ptr->type;
-//		ptr->type = nlist->n_type & N_EXT ? 'I' : ptr->type;
-		ptr->name = &((char*)strtab)[(nlist->n_un).n_strx];
-
-		nlist = (struct nlist_64*)((char*)nlist + sizeof(struct nlist_64));
-		i++;
-	}
-	sort_list_symbols(&list);
-	ptr = list;
-	while (ptr)
-	{
-		if (ptr->value)
-			printf("%016lx %c %s\n", ptr->value, ptr->type, ptr->name);
-		else
-			printf("%16c %c %s\n", ' ', ptr->type, ptr->name);
-		ptr = ptr->next;
-	}
-	//////////////////////////////
-
-
-
-	nlist = symtab;
-}
-
-void					sort_list_symbols(t_symbol_display **list)
-{
-	t_symbol_display	*ptr;
-	t_symbol_display	*ptr2;
-	char				modified;
-
-	modified = 1;
-	while (modified)
-	{
-		modified = 0;
-		ptr = *list;
-		while (ptr && ptr->next)
-		{
-			ptr2 = ptr->next;
-			if (ft_strcmp(ptr->name, ptr2->name) > 0)
-			{
-				if (ptr->previous)
-					(ptr->previous)->next = ptr2;
-				else
-					*list = ptr2;
-				if (ptr2->next)
-					(ptr2->next)->previous = ptr;
-				ptr->next = ptr2->next;
-				ptr2->previous = ptr->previous;
-				ptr->previous = ptr2;
-				ptr2->next = ptr;
-				modified = 1;
-			}
-			ptr = ptr2;
-		}
-	}
 }
