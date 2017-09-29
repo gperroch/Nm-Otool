@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/09/29 17:12:59 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/09/29 17:28:56 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,28 +55,25 @@ void						find_symtab(struct mach_header_64 *header)
 	while (i < symtab_command->nsyms)
 	{
 		init_element(&list, &ptr);
-		ptr->value = nlist->n_value;
-		ptr->name = &((char*)strtab)[(nlist->n_un).n_strx];
-
-		ptr->type = 'U';
-		ptr->type = nlist->n_type & N_STAB ? '-' : ptr->type;
-		ptr->type = (nlist->n_type & N_TYPE) & N_UNDF ? 'U' : ptr->type;
-		ptr->type = (nlist->n_type & N_TYPE) & N_ABS ? 'A' : ptr->type;
-		ptr->type = (nlist->n_type & N_TYPE) & N_INDR ? 'I' : ptr->type;
-		ptr->type = (nlist->n_type & N_TYPE) & N_PBUD ? 'U' : ptr->type;
-		ptr->type = (nlist->n_type & N_TYPE) & N_SECT ? find_section(header, nlist->n_sect) : ptr->type;
-
-		//Passage en minuscule pour les symboles locaux
-//		printf("nlist->n_desc:%hd value:%ld [%s]\n", nlist->n_desc, nlist->n_value, ptr->name);
-//		if ((nlist->n_desc & REFERENCE_TYPE) & REFERENCE_FLAG_DEFINED || (nlist->n_desc & REFERENCE_TYPE) & REFERENCE_FLAG_PRIVATE_DEFINED)
-//			printf("==> %s is LOCAL SYMBOL\n", ptr->name);
-		///////////////////////////////////////////////
-
+		set_element(&ptr, nlist, header, strtab);
 		nlist = (struct nlist_64*)((char*)nlist + sizeof(struct nlist_64));
 		i++;
 	}
 	sort_list_symbols(&list);
 	display_symbols(list);
+}
+
+void						set_element(t_symbol_display **ptr, struct nlist_64 *nlist, struct mach_header_64 *header, void *strtab)
+{
+	(*ptr)->value = nlist->n_value;
+	(*ptr)->name = &((char*)strtab)[(nlist->n_un).n_strx];
+	(*ptr)->type = 'U';
+	(*ptr)->type = nlist->n_type & N_STAB ? '-' : (*ptr)->type;
+	(*ptr)->type = (nlist->n_type & N_TYPE) & N_UNDF ? 'U' : (*ptr)->type;
+	(*ptr)->type = (nlist->n_type & N_TYPE) & N_ABS ? 'A' : (*ptr)->type;
+	(*ptr)->type = (nlist->n_type & N_TYPE) & N_INDR ? 'I' : (*ptr)->type;
+	(*ptr)->type = (nlist->n_type & N_TYPE) & N_PBUD ? 'U' : (*ptr)->type;
+	(*ptr)->type = (nlist->n_type & N_TYPE) & N_SECT ? find_section(header, nlist->n_sect) : (*ptr)->type;
 }
 
 void						init_element(t_symbol_display **list, t_symbol_display **ptr)
@@ -127,7 +124,7 @@ char						find_section(void *header, int section_number)
 	}
 	res = 'S';
 	res = !ft_strcmp(((struct section_64*)section)->sectname, "__text") ? 'T' : res;
-	res = !ft_strcmp(((struct section_64*)section)->sectname, "__data") ? 'D' : res;
+	res = !ft_strcmp(((struct section_64*)section)->sectname, "__data") ? 'D' : res; // Sur l'exe du COREWAR un symbol est en D, le miens est en S
 	res = !ft_strcmp(((struct section_64*)section)->sectname, "__bss") ? 'B' : res;
 	res = !ft_strcmp(((struct section_64*)section)->sectname, "__common") ? 'C' : res;
 
