@@ -90,10 +90,10 @@
 0000000100005d40 T _ft_tabjoin_int
 0000000100005bc0 T _ft_tabjoin_str
 00000001000022d0 T _ft_ustr
-000000010000d110 T _g_colors
-000000010000d470 T _g_op_function
-000000010000d140 T _g_op_tab
-000000010000d570 T _g_op_tab
+000000010000d110 S _g_colors
+000000010000d470 S _g_op_function
+000000010000d140 S _g_op_tab
+000000010000d570 S _g_op_tab
 0000000100002b20 T _get_args
 000000010000a360 T _get_champ_by_nb
 0000000100001270 T _get_flag1
@@ -194,7 +194,7 @@
 000000010000ade0 T _pause_menu
 000000010000ba20 T _print_campeon
 0000000100005f40 T _print_error
-000000010000d8a0 T _print_error.msg
+000000010000d8a0 S _print_error.msg
 0000000100006310 T _process_execution
 0000000100006440 T _process_is_waiting
 0000000100002040 T _put_padding_left

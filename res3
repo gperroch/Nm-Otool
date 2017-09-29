@@ -99,10 +99,10 @@
 > 0000000100005540 t _ft_record
 > 0000000100000bd0 t _ft_space
 93,97c93,97
-< 000000010000d110 T _g_colors
-< 000000010000d470 T _g_op_function
-< 000000010000d140 T _g_op_tab
-< 000000010000d570 T _g_op_tab
+< 000000010000d110 S _g_colors
+< 000000010000d470 S _g_op_function
+< 000000010000d140 S _g_op_tab
+< 000000010000d570 S _g_op_tab
 < 0000000100002b20 T _get_args
 ---
 > 000000010000d110 s _g_colors
@@ -215,7 +215,7 @@
 ---
 > 000000010000ba20 t _print_campeon
 197c197
-< 000000010000d8a0 T _print_error.msg
+< 000000010000d8a0 S _print_error.msg
 ---
 > 000000010000d8a0 d _print_error.msg
 199c199

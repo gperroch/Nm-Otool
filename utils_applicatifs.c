@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/09/29 15:53:08 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/09/29 17:12:59 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,7 @@ void						find_symtab(struct mach_header_64 *header)
 	list = NULL;
 	while (i < symtab_command->nsyms)
 	{
-		if (!list)
-		{
-			list = (t_symbol_display*)malloc(sizeof(t_symbol_display));
-			ptr = list;
-			ptr->next = NULL;
-			ptr->previous = NULL;
-		}
-		else
-		{
-			ptr->next = (t_symbol_display*)malloc(sizeof(t_symbol_display));
-			ptr->next->previous = ptr;
-			ptr = ptr->next;
-			ptr->next = NULL;
-		}
+		init_element(&list, &ptr);
 		ptr->value = nlist->n_value;
 		ptr->name = &((char*)strtab)[(nlist->n_un).n_strx];
 
@@ -80,26 +67,34 @@ void						find_symtab(struct mach_header_64 *header)
 		ptr->type = (nlist->n_type & N_TYPE) & N_SECT ? find_section(header, nlist->n_sect) : ptr->type;
 
 		//Passage en minuscule pour les symboles locaux
-		printf("nlist->n_desc:%hd value:%ld [%s]\n", nlist->n_desc, nlist->n_value, ptr->name);
-		if ((nlist->n_desc & REFERENCE_TYPE) & REFERENCE_FLAG_DEFINED || (nlist->n_desc & REFERENCE_TYPE) & REFERENCE_FLAG_PRIVATE_DEFINED)
-			printf("==> %s is LOCAL SYMBOL\n", ptr->name);
+//		printf("nlist->n_desc:%hd value:%ld [%s]\n", nlist->n_desc, nlist->n_value, ptr->name);
+//		if ((nlist->n_desc & REFERENCE_TYPE) & REFERENCE_FLAG_DEFINED || (nlist->n_desc & REFERENCE_TYPE) & REFERENCE_FLAG_PRIVATE_DEFINED)
+//			printf("==> %s is LOCAL SYMBOL\n", ptr->name);
 		///////////////////////////////////////////////
 
 		nlist = (struct nlist_64*)((char*)nlist + sizeof(struct nlist_64));
 		i++;
 	}
 	sort_list_symbols(&list);
-	ptr = list;
-	while (ptr)
+	display_symbols(list);
+}
+
+void						init_element(t_symbol_display **list, t_symbol_display **ptr)
+{
+	if (!*list)
 	{
-		if (ptr->value)
-			printf("%016lx %c %s\n", ptr->value, ptr->type, ptr->name);
-		else
-			printf("%16c %c %s\n", ' ', ptr->type, ptr->name);
-		ptr = ptr->next;
+		*list = (t_symbol_display*)malloc(sizeof(t_symbol_display));
+		*ptr = *list;
+		(*ptr)->next = NULL;
+		(*ptr)->previous = NULL;
 	}
-	//////////////////////////////
-	nlist = symtab;
+	else
+	{
+		(*ptr)->next = (t_symbol_display*)malloc(sizeof(t_symbol_display));
+		(*ptr)->next->previous = *ptr;
+		(*ptr) = (*ptr)->next;
+		(*ptr)->next = NULL;
+	}
 }
 
 char						find_section(void *header, int section_number)
@@ -170,4 +165,21 @@ void					sort_list_symbols(t_symbol_display **list)
 			ptr = ptr2;
 		}
 	}
+}
+
+void				display_symbols(t_symbol_display *list)
+{
+	while (list)
+	{
+		if (list->value)
+			printf("%016lx %c %s\n", list->value, list->type, list->name);
+		else
+			printf("%16c %c %s\n", ' ', list->type, list->name);
+		list = list->next;
+	}
+}
+
+void				listing_symbols()
+{
+
 }

@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/09/29 15:53:52 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/09/29 16:20:48 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,9 @@ void			display_load_symtab(struct load_command *load_command);
 void			display_load_dysymtab(struct load_command *load_command);
 void			test_strtab(char *ptr, int size);
 char			find_section(void *header, int section_number);
+void				display_symbols(t_symbol_display *list);
+void						init_element(t_symbol_display **list, t_symbol_display **ptr);
+
+void					listing_symbols(struct load_command *tmp_load_command, t_symbol_display **list, struct mach_header_64 *header, int i);
 
 #endif
