@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/01 07:41:47 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/01 11:36:19 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int							main(int argc, char **argv)
 //		test_strtab(file_content, stats.st_size);
 //		ft_display_header(header);
 //		ft_display_load_command(load_command, header->ncmds);
-		find_symtab(header);
+		find_symtab(header, 1);
 	}
 	else
-		is_static_library(file_content);
+		is_static_library(file_content, argv[1]);
 	munmap(file_content, stats.st_size);
 	return (0);
 }

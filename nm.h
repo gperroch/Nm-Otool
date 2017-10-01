@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/01 08:45:56 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/01 11:38:53 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ typedef struct				s_static_lib
 
 typedef struct				s_lib_symbol
 {
-	char					*symbol;
-	char					*file;
+	char					*symbol_name;
+	char					*file_object_name;
+	void					*file_object;
+	char					symbol_in_file_object;
+	struct s_lib_symbol		*next;
+	struct s_lib_symbol		*previous;
 }							t_lib_symbol;
 
 void					sort_list_symbols(t_symbol_display **list);
@@ -60,11 +64,13 @@ void			ft_display_header(struct mach_header_64 *header);
 void			ft_display_load_command(struct load_command *load_command, int ncmds);
 void			dump_mem(void *ptr, int len, int col, char *name);
 char			*load_command_type(uint32_t cmd);
-void			find_symtab(struct mach_header_64 *header);
+t_symbol_display			*find_symtab(struct mach_header_64 *header, char to_display);
 ////////////////////////////////
 void		test_strtab(char *ptr, int size);
 //////////////////////////////////
-void				is_static_library(void *file_content);
-
+void				is_static_library(void *file_content, char *file_name);
+void					sort_list_lib_symbols(t_lib_symbol **list);
+void				ft_list_lib_symbols(t_lib_symbol **list, char *symbol_name, char *file_object_name, void *file_object);
+int				ft_check_symbol_in_file_object(char *symbol_name, void *file_object);
 
 #endif

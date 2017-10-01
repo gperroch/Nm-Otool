@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/01 10:16:37 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/01 12:03:09 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include "libft.h"
 #include "nm.h"
 
-void						find_symtab(struct mach_header_64 *header)
+t_symbol_display			*find_symtab(struct mach_header_64 *header, char to_display)
 {
 	struct load_command		*load_command;
 	struct load_command		*tmp_load_command;
@@ -60,7 +60,9 @@ void						find_symtab(struct mach_header_64 *header)
 		i++;
 	}
 	sort_list_symbols(&list);
-	display_symbols(list);
+	if (to_display)
+		display_symbols(list);
+	return (list);
 }
 
 void						set_element(t_symbol_display **ptr, struct nlist_64 *nlist, struct mach_header_64 *header, void *strtab)
@@ -177,7 +179,7 @@ void				display_symbols(t_symbol_display *list)
 	}
 }
 
-void				is_static_library(void *file_content)
+void				is_static_library(void *file_content, char *file_name)
 {
 	char			arch[8];
 	t_static_lib	*lib;
@@ -189,34 +191,85 @@ void				is_static_library(void *file_content)
 	void			*file_object;
 	int diff;
 	int	distance;
+	t_lib_symbol	*list;
+	t_lib_symbol	*ptr;
 
-	ft_strncpy(arch, file_content, 7);
-	if (!ft_strcmp(arch, "!<arch>"))
-		printf("StATIC LIB OK [%s]\n", arch);
+//	if (!ft_strcmp(file_content, "!<arch>"))
+//		printf("StATIC LIB OK [%s]\n", arch);
 	lib = file_content;
-	printf("file_identifier:[%s]\n", lib->file_identifier);
-	printf("end_identifier:[%s]\n", lib->end_identifier);
-	printf("sort_order:[%s]\n", lib->sort_order);
-	printf("ranlibs_size:[%ld]\n", lib->ranlibs_size);
 	ranlibs_size = lib->ranlibs_size;
 	ranlib = (char*)file_content + sizeof(t_static_lib);
-	//ranlibs_size -= sizeof(struct ranlib);
+	ranlibs_size -= sizeof(struct ranlib);
+	list = NULL;
 	while (ranlibs_size)
 	{
 		symbol_name = (char*)file_content + sizeof(t_static_lib) + lib->ranlibs_size + ranlib->ran_off;
-
-		file_object_header_line = (char*)file_content + (ranlib->ran_un).ran_strx; // Rename tmp en file_object_header_line
+		file_object_header_line = (char*)file_content + (ranlib->ran_un).ran_strx;
 		diff = (char*)file_object_header_line->end_identifier + ft_strlen(file_object_header_line->end_identifier) - (char*)file_object_header_line;
 		distance = ((diff / 8) + 1) * 8;
 		distance = diff % 8 > 4 ? distance + 8 : distance;
-
 		file_object_name = (char*)file_content + sizeof(lib->file_identifier) + (ranlib->ran_un).ran_strx;
-		printf("symbol_name:%s file_object_name:%s\n", symbol_name, file_object_name);
 		file_object = (char*)file_object_header_line + distance;
-//		printf("\n%s:\n", file_object_name);
-//		find_symtab(file_object);
-		dump_mem(file_object, 32, 16, "object");
+		ft_list_lib_symbols(&list, symbol_name, file_object_name, file_object);
 		ranlib = (char*)ranlib + sizeof(ranlib); // VERIFIER LA PRESENCE DE ran_name AVEC UN IFDEF __LP64__
 		ranlibs_size -= sizeof(struct ranlib);
 	}
+	ptr = list;
+	while (ptr)
+	{
+		printf("\n%s(%s):\n", file_name, ptr->file_object_name);
+		find_symtab(ptr->file_object, 1);
+		ptr = ptr->next;
+	}
+}
+
+void				ft_list_lib_symbols(t_lib_symbol **list, char *symbol_name, char *file_object_name, void *file_object)
+{
+	t_lib_symbol	*new_symbol;
+	t_lib_symbol	*ptr;
+	// Parsing pour les NULL a faire ici
+	ptr = *list;
+	new_symbol = (t_lib_symbol*)malloc(sizeof(t_lib_symbol));
+	ft_bzero(new_symbol, sizeof(t_lib_symbol));
+	if (ft_check_symbol_in_file_object(symbol_name, file_object))
+		new_symbol->symbol_in_file_object = 1;
+	if (!*list)
+		*list = new_symbol;
+	else
+	{
+		if (!ft_strcmp(ptr->file_object_name, file_object_name) && ptr->symbol_in_file_object)
+		{
+			free(new_symbol);
+			return ;
+		}
+		while (ptr->next)
+		{
+			ptr = ptr->next;
+			if (!ft_strcmp(ptr->file_object_name, file_object_name) && ptr->symbol_in_file_object)
+			{
+				free(new_symbol);
+				return ;
+			}
+		}
+		ptr->next = new_symbol;
+		new_symbol->previous = ptr;
+		ptr = ptr->next;
+	}
+	new_symbol->symbol_name = symbol_name;
+	new_symbol->file_object_name = file_object_name;
+	new_symbol->file_object = file_object;
+}
+
+int				ft_check_symbol_in_file_object(char *symbol_name, void *file_object)
+{
+	t_symbol_display	*list;
+
+	list = find_symtab(file_object, 0);
+	while (list)
+	{
+		if (!ft_strcmp(list->name, symbol_name) && list->type >= 65 && list->type <= 90 && list->type != 'U')
+			return (1);
+		list = list->next;
+	}
+	return (0);
 }
