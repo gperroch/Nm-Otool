@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/09/29 14:36:20 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/01 07:41:47 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,6 @@
 // Affichage formate de la table des symboles.
 // Attention aux symboles venant de shared libraries.
 
-int				ft_mapping_file(char *file_name, void **file_content,
-	struct stat *stats);
-void			ft_display_header(struct mach_header_64 *header);
-void			ft_display_load_command(struct load_command *load_command, int ncmds);
-void			dump_mem(void *ptr, int len, int col, char *name);
-char			*load_command_type(uint32_t cmd);
-void			find_symtab(struct mach_header_64 *header);
-////////////////////////////////
-void		test_strtab(char *ptr, int size);
-//////////////////////////////////
-
 int							main(int argc, char **argv)
 {
 	void					*file_content; // Buffer contenant le fichier.
@@ -51,12 +40,17 @@ int							main(int argc, char **argv)
 		printf("ERROR in ft_mapping_file().\n");
 		return (-1);
 	}
-	header = file_content;
-	load_command = (struct load_command*)((char*)file_content + sizeof(struct mach_header_64));
-//	test_strtab(file_content, stats.st_size);
-//	ft_display_header(header);
-//	ft_display_load_command(load_command, header->ncmds);
-	find_symtab(header);
+	header = file_content; // Parsing a faire a ce niveau.
+	if (header->magic == 0xfeedfacf)
+	{
+		load_command = (struct load_command*)((char*)file_content + sizeof(struct mach_header_64));
+//		test_strtab(file_content, stats.st_size);
+//		ft_display_header(header);
+//		ft_display_load_command(load_command, header->ncmds);
+		find_symtab(header);
+	}
+	else
+		is_static_library(file_content);
 	munmap(file_content, stats.st_size);
 	return (0);
 }
@@ -69,7 +63,6 @@ int				ft_mapping_file(char *file_name, void **file_content,
 	fd = open(file_name, O_RDONLY);
     if (fstat(fd, stats))
 		return (-1);
-//	printf("file size (bytes):%lld\n", stats->st_size);
 	if ((*file_content = mmap(0, stats->st_size, PROT_READ, MAP_PRIVATE, fd, 0)) == MAP_FAILED)
 		return (-1);
 	close(fd);

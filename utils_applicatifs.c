@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/09/29 17:28:56 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/01 10:16:37 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void						set_element(t_symbol_display **ptr, struct nlist_64 *nlist, struct mac
 	(*ptr)->type = (nlist->n_type & N_TYPE) & N_INDR ? 'I' : (*ptr)->type;
 	(*ptr)->type = (nlist->n_type & N_TYPE) & N_PBUD ? 'U' : (*ptr)->type;
 	(*ptr)->type = (nlist->n_type & N_TYPE) & N_SECT ? find_section(header, nlist->n_sect) : (*ptr)->type;
+	if (!(nlist->n_type & N_EXT))
+		(*ptr)->type = ft_tolower((*ptr)->type);
 }
 
 void						init_element(t_symbol_display **list, t_symbol_display **ptr)
@@ -115,19 +117,18 @@ char						find_section(void *header, int section_number)
 	}
 	i -= ((struct segment_command_64*)tmp_load_command)->nsects;
 	i++;
-	segment_command = tmp_load_command;
+	segment_command = (struct segment_command_64*)tmp_load_command;
 	section = (char*)segment_command + sizeof(struct segment_command_64);
 	while (i < section_number)
 	{
-		section = (char*)section + ((struct section_64*)section)->size;
+		section = (char*)section + sizeof(struct section_64);
 		i++;
 	}
 	res = 'S';
 	res = !ft_strcmp(((struct section_64*)section)->sectname, "__text") ? 'T' : res;
-	res = !ft_strcmp(((struct section_64*)section)->sectname, "__data") ? 'D' : res; // Sur l'exe du COREWAR un symbol est en D, le miens est en S
+	res = !ft_strcmp(((struct section_64*)section)->sectname, "__data") ? 'D' : res;
 	res = !ft_strcmp(((struct section_64*)section)->sectname, "__bss") ? 'B' : res;
 	res = !ft_strcmp(((struct section_64*)section)->sectname, "__common") ? 'C' : res;
-
 	return (res);
 }
 
@@ -168,7 +169,7 @@ void				display_symbols(t_symbol_display *list)
 {
 	while (list)
 	{
-		if (list->value)
+		if (list->type != 'U')
 			printf("%016lx %c %s\n", list->value, list->type, list->name);
 		else
 			printf("%16c %c %s\n", ' ', list->type, list->name);
@@ -176,7 +177,46 @@ void				display_symbols(t_symbol_display *list)
 	}
 }
 
-void				listing_symbols()
+void				is_static_library(void *file_content)
 {
+	char			arch[8];
+	t_static_lib	*lib;
+	t_static_lib	*file_object_header_line;
+	struct ranlib	*ranlib;
+	long int		ranlibs_size;
+	char			*symbol_name;
+	char			*file_object_name;
+	void			*file_object;
+	int diff;
+	int	distance;
 
+	ft_strncpy(arch, file_content, 7);
+	if (!ft_strcmp(arch, "!<arch>"))
+		printf("StATIC LIB OK [%s]\n", arch);
+	lib = file_content;
+	printf("file_identifier:[%s]\n", lib->file_identifier);
+	printf("end_identifier:[%s]\n", lib->end_identifier);
+	printf("sort_order:[%s]\n", lib->sort_order);
+	printf("ranlibs_size:[%ld]\n", lib->ranlibs_size);
+	ranlibs_size = lib->ranlibs_size;
+	ranlib = (char*)file_content + sizeof(t_static_lib);
+	//ranlibs_size -= sizeof(struct ranlib);
+	while (ranlibs_size)
+	{
+		symbol_name = (char*)file_content + sizeof(t_static_lib) + lib->ranlibs_size + ranlib->ran_off;
+
+		file_object_header_line = (char*)file_content + (ranlib->ran_un).ran_strx; // Rename tmp en file_object_header_line
+		diff = (char*)file_object_header_line->end_identifier + ft_strlen(file_object_header_line->end_identifier) - (char*)file_object_header_line;
+		distance = ((diff / 8) + 1) * 8;
+		distance = diff % 8 > 4 ? distance + 8 : distance;
+
+		file_object_name = (char*)file_content + sizeof(lib->file_identifier) + (ranlib->ran_un).ran_strx;
+		printf("symbol_name:%s file_object_name:%s\n", symbol_name, file_object_name);
+		file_object = (char*)file_object_header_line + distance;
+//		printf("\n%s:\n", file_object_name);
+//		find_symtab(file_object);
+		dump_mem(file_object, 32, 16, "object");
+		ranlib = (char*)ranlib + sizeof(ranlib); // VERIFIER LA PRESENCE DE ran_name AVEC UN IFDEF __LP64__
+		ranlibs_size -= sizeof(struct ranlib);
+	}
 }
