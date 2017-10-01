@@ -1,17 +1,17 @@
-Archive : LIBFT/libft.a
-LIBFT/libft.a(ft_isprint.o):
+Archive : libft/libft.a
+libft/libft.a(ft_isprint.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 89 7d f8 83 7d f8 7e 0f 8f 16 00 00 
 0000000000000010	00 83 7d f8 20 0f 8c 0c 00 00 00 c7 45 fc 01 00 
 0000000000000020	00 00 e9 07 00 00 00 c7 45 fc 00 00 00 00 8b 45 
 0000000000000030	fc 5d c3 
-LIBFT/libft.a(ft_memdel.o):
+libft/libft.a(ft_memdel.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 10 48 89 7d f8 48 83 7d f8 
 0000000000000010	00 0f 84 17 00 00 00 48 8b 45 f8 48 8b 38 e8 00 
 0000000000000020	00 00 00 48 8b 45 f8 48 c7 00 00 00 00 00 48 83 
 0000000000000030	c4 10 5d c3 
-LIBFT/libft.a(ft_putnbr_fd.o):
+libft/libft.a(ft_putnbr_fd.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 89 7d fc 89 75 f8 48 63 
 0000000000000010	45 fc 48 3d 00 00 00 80 0f 85 1f 00 00 00 48 8d 
@@ -26,13 +26,13 @@ Contents of (__TEXT,__text) section
 00000000000000a0	e0 f7 f9 8b 75 f8 89 d7 e8 53 ff ff ff e9 13 00 
 00000000000000b0	00 00 8b 45 fc 83 c0 30 88 c1 8b 75 f8 0f be f9 
 00000000000000c0	e8 00 00 00 00 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_strdel.o):
+libft/libft.a(ft_strdel.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 10 48 89 7d f8 48 83 7d f8 
 0000000000000010	00 0f 84 17 00 00 00 48 8b 45 f8 48 8b 38 e8 00 
 0000000000000020	00 00 00 48 8b 45 f8 48 c7 00 00 00 00 00 48 83 
 0000000000000030	c4 10 5d c3 
-LIBFT/libft.a(ft_strmapi.o):
+libft/libft.a(ft_strmapi.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f0 48 89 75 e8 
 0000000000000010	c7 45 e4 00 00 00 00 c7 45 e0 00 00 00 00 48 83 
@@ -50,7 +50,7 @@ Contents of (__TEXT,__text) section
 00000000000000d0	e0 e9 bd ff ff ff 48 63 45 e0 48 8b 4d d8 c6 04 
 00000000000000e0	01 00 48 8b 45 d8 48 89 45 f8 48 8b 45 f8 48 83 
 00000000000000f0	c4 30 5d c3 
-LIBFT/libft.a(ft_strstr.o):
+libft/libft.a(ft_strstr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 48 89 75 e8 c7 45 e4 00 
 0000000000000010	00 00 00 48 8b 75 e8 0f be 06 83 f8 00 0f 85 0d 
@@ -70,7 +70,7 @@ Contents of (__TEXT,__text) section
 00000000000000f0	00 00 00 e9 00 00 00 00 8b 45 e4 83 c0 01 89 45 
 0000000000000100	e4 e9 2f ff ff ff 48 c7 45 f8 00 00 00 00 48 8b 
 0000000000000110	45 f8 5d c3 
-LIBFT/libft.a(ft_atoi.o):
+libft/libft.a(ft_atoi.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 c7 45 f4 00 
 0000000000000010	00 00 00 c7 45 f0 00 00 00 00 c7 45 ec 00 00 00 
@@ -102,7 +102,7 @@ Contents of (__TEXT,__text) section
 00000000000001b0	55 f8 0f be 34 0a 01 f0 83 e8 30 89 45 ec e9 95 
 00000000000001c0	ff ff ff 83 7d f0 01 0f 85 07 00 00 00 6b 45 ec 
 00000000000001d0	ff 89 45 ec 8b 45 ec 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_itoa.o):
+libft/libft.a(ft_itoa.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 89 7d f4 c7 45 e0 00 00 
 0000000000000010	00 00 c7 45 e4 00 00 00 00 48 63 45 f4 48 3d 00 
@@ -141,7 +141,7 @@ Contents of (__TEXT,__text) section
 0000000000000220	34 38 8b 55 e4 44 8b 4d e4 44 89 c8 89 55 d8 99 
 0000000000000230	f7 f9 44 8b 4d d8 41 29 d1 44 89 c8 99 f7 f9 89 
 0000000000000240	45 e4 e9 62 ff ff ff 48 8b 45 e8 5d c3 
-LIBFT/libft.a(ft_memmove.o):
+libft/libft.a(ft_memmove.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 48 89 75 f0 48 89 55 e8 
 0000000000000010	48 8b 55 f8 48 89 55 e0 48 8b 55 f0 48 89 55 d8 
@@ -156,7 +156,7 @@ Contents of (__TEXT,__text) section
 00000000000000a0	d8 8a 14 01 48 63 45 d4 48 8b 4d e0 88 14 01 e9 
 00000000000000b0	ce ff ff ff e9 00 00 00 00 e9 00 00 00 00 48 8b 
 00000000000000c0	45 f8 5d c3 
-LIBFT/libft.a(ft_putstr.o):
+libft/libft.a(ft_putstr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 c7 45 f4 00 
 0000000000000010	00 00 00 48 83 7d f8 00 0f 85 05 00 00 00 e9 48 
@@ -166,7 +166,7 @@ Contents of (__TEXT,__text) section
 0000000000000050	f8 48 89 ce e8 00 00 00 00 8b 7d f4 83 c7 01 89 
 0000000000000060	7d f4 48 89 45 e8 e9 bd ff ff ff 48 83 c4 20 5d 
 0000000000000070	c3 
-LIBFT/libft.a(ft_strdup.o):
+libft/libft.a(ft_strdup.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f0 48 8b 7d f0 
 0000000000000010	e8 00 00 00 00 89 c1 89 4d e4 8b 4d e4 83 c1 01 
@@ -179,7 +179,7 @@ Contents of (__TEXT,__text) section
 0000000000000080	48 63 45 e4 48 8b 4d e8 88 14 01 e9 d1 ff ff ff 
 0000000000000090	48 8b 45 e8 48 89 45 f8 48 8b 45 f8 48 83 c4 20 
 00000000000000a0	5d c3 
-LIBFT/libft.a(ft_strncat.o):
+libft/libft.a(ft_strncat.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 48 89 75 f0 48 89 55 e8 
 0000000000000010	48 c7 45 e0 00 00 00 00 48 c7 45 d8 00 00 00 00 
@@ -191,7 +191,7 @@ Contents of (__TEXT,__text) section
 0000000000000070	88 14 01 48 8b 45 d8 48 83 c0 01 48 89 45 d8 e9 
 0000000000000080	c7 ff ff ff 48 8b 45 e0 48 03 45 d8 48 8b 4d f8 
 0000000000000090	c6 04 01 00 48 8b 45 f8 5d c3 
-LIBFT/libft.a(ft_strsub.o):
+libft/libft.a(ft_strsub.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f0 89 75 ec 48 
 0000000000000010	89 55 e0 c7 45 d4 00 00 00 00 48 83 7d f0 00 0f 
@@ -206,7 +206,7 @@ Contents of (__TEXT,__text) section
 00000000000000a0	ff ff ff 48 63 45 d4 48 8b 4d d8 c6 04 01 00 48 
 00000000000000b0	8b 45 d8 48 89 45 f8 48 8b 45 f8 48 83 c4 30 5d 
 00000000000000c0	c3 
-LIBFT/libft.a(ft_memset.o):
+libft/libft.a(ft_memset.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 89 75 f4 48 89 55 e8 48 
 0000000000000010	8b 55 f8 48 89 55 e0 48 8b 45 e8 48 89 c1 48 83 
@@ -214,7 +214,7 @@ Contents of (__TEXT,__text) section
 0000000000000030	8b 45 f4 88 c1 48 8b 55 e0 48 89 d6 48 83 c6 01 
 0000000000000040	48 89 75 e0 88 0a e9 cc ff ff ff 48 8b 45 f8 5d 
 0000000000000050	c3 
-LIBFT/libft.a(ft_putstr_fd.o):
+libft/libft.a(ft_putstr_fd.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 89 75 f4 c7 
 0000000000000010	45 f0 00 00 00 00 48 83 7d f8 00 0f 85 05 00 00 
@@ -224,7 +224,7 @@ Contents of (__TEXT,__text) section
 0000000000000050	4d f8 48 89 ce e8 00 00 00 00 8b 7d f0 83 c7 01 
 0000000000000060	89 7d f0 48 89 45 e8 e9 bf ff ff ff 48 83 c4 20 
 0000000000000070	5d c3 
-LIBFT/libft.a(ft_strequ.o):
+libft/libft.a(ft_strequ.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 48 89 75 e8 c7 45 e4 00 
 0000000000000010	00 00 00 48 83 7d f0 00 0f 84 0b 00 00 00 48 83 
@@ -242,7 +242,7 @@ Contents of (__TEXT,__text) section
 00000000000000d0	48 8b 4d e8 0f be 14 01 83 fa 00 0f 85 0c 00 00 
 00000000000000e0	00 c7 45 fc 01 00 00 00 e9 07 00 00 00 c7 45 fc 
 00000000000000f0	00 00 00 00 8b 45 fc 5d c3 
-LIBFT/libft.a(ft_strncmp.o):
+libft/libft.a(ft_strncmp.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 48 89 75 e8 48 89 55 e0 
 0000000000000010	48 c7 45 d8 00 00 00 00 31 c0 88 c1 48 8b 55 d8 
@@ -261,7 +261,7 @@ Contents of (__TEXT,__text) section
 00000000000000e0	01 83 fa 00 0f 84 1a 00 00 00 48 8b 45 d8 48 3b 
 00000000000000f0	45 e0 0f 84 0c 00 00 00 c7 45 fc ff ff ff ff e9 
 0000000000000100	07 00 00 00 c7 45 fc 00 00 00 00 8b 45 fc 5d c3 
-LIBFT/libft.a(ft_strtrim.o):
+libft/libft.a(ft_strtrim.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f0 48 83 7d f0 
 0000000000000010	00 0f 85 0d 00 00 00 48 c7 45 f8 00 00 00 00 e9 
@@ -299,14 +299,14 @@ Contents of (__TEXT,__text) section
 0000000000000210	00 e9 17 00 00 00 8b 45 ec 83 c0 01 89 45 ec 8b 
 0000000000000220	45 f0 83 c0 ff 89 45 f0 e9 8e ff ff ff 8b 45 ec 
 0000000000000230	5d c3 
-LIBFT/libft.a(ft_bzero.o):
+libft/libft.a(ft_bzero.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 48 89 75 f0 48 8b 75 f8 
 0000000000000010	48 89 75 e8 48 8b 45 f0 48 89 c1 48 83 c1 ff 48 
 0000000000000020	89 4d f0 48 83 f8 00 0f 84 17 00 00 00 48 8b 45 
 0000000000000030	e8 48 89 c1 48 83 c1 01 48 89 4d e8 c6 00 00 e9 
 0000000000000040	d0 ff ff ff 5d c3 
-LIBFT/libft.a(ft_memalloc.o):
+libft/libft.a(ft_memalloc.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f0 48 8b 7d f0 
 0000000000000010	48 c1 e7 00 e8 00 00 00 00 48 89 45 e8 48 83 f8 
@@ -314,19 +314,19 @@ Contents of (__TEXT,__text) section
 0000000000000030	15 00 00 00 48 8b 7d e8 48 8b 75 f0 e8 00 00 00 
 0000000000000040	00 48 8b 75 e8 48 89 75 f8 48 8b 45 f8 48 83 c4 
 0000000000000050	20 5d c3 
-LIBFT/libft.a(ft_putchar.o):
+libft/libft.a(ft_putchar.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 10 40 88 f8 bf 01 00 00 00 
 0000000000000010	48 8d 75 ff b9 01 00 00 00 89 ca 88 45 ff e8 00 
 0000000000000020	00 00 00 48 89 45 f0 48 83 c4 10 5d c3 
-LIBFT/libft.a(ft_strcat.o):
+libft/libft.a(ft_strcat.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 48 89 75 f0 
 0000000000000010	48 8b 75 f8 48 8b 7d f8 48 89 75 e8 e8 00 00 00 
 0000000000000020	00 48 8b 75 e8 48 01 c6 48 8b 45 f0 48 89 f7 48 
 0000000000000030	89 c6 e8 00 00 00 00 48 8b 75 f8 48 89 45 e0 48 
 0000000000000040	89 f0 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_striter.o):
+libft/libft.a(ft_striter.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 48 89 75 f0 
 0000000000000010	c7 45 ec 00 00 00 00 48 83 7d f8 00 0f 84 0b 00 
@@ -336,7 +336,7 @@ Contents of (__TEXT,__text) section
 0000000000000050	48 63 4d ec 48 03 4d f8 48 89 cf ff d0 8b 55 ec 
 0000000000000060	83 c2 01 89 55 ec e9 cc ff ff ff 48 83 c4 20 5d 
 0000000000000070	c3 
-LIBFT/libft.a(ft_strncpy.o):
+libft/libft.a(ft_strncpy.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 48 89 75 f0 48 89 55 e8 
 0000000000000010	48 8b 55 f8 48 89 55 e0 31 c0 88 c1 48 83 7d e8 
@@ -350,20 +350,20 @@ Contents of (__TEXT,__text) section
 0000000000000090	e0 48 89 c1 48 83 c1 01 48 89 4d e0 c6 00 00 48 
 00000000000000a0	8b 45 e8 48 83 c0 ff 48 89 45 e8 e9 d2 ff ff ff 
 00000000000000b0	48 8b 45 f8 5d c3 
-LIBFT/libft.a(ft_tolower.o):
+libft/libft.a(ft_tolower.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 89 7d f8 83 7d f8 5a 0f 8f 18 00 00 
 0000000000000010	00 83 7d f8 41 0f 8c 0e 00 00 00 8b 45 f8 83 c0 
 0000000000000020	20 89 45 fc e9 06 00 00 00 8b 45 f8 89 45 fc 8b 
 0000000000000030	45 fc 5d c3 
-LIBFT/libft.a(ft_isalnum.o):
+libft/libft.a(ft_isalnum.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 10 89 7d f8 8b 7d f8 e8 00 
 0000000000000010	00 00 00 83 f8 00 0f 85 11 00 00 00 8b 7d f8 e8 
 0000000000000020	00 00 00 00 83 f8 00 0f 84 0c 00 00 00 c7 45 fc 
 0000000000000030	01 00 00 00 e9 07 00 00 00 c7 45 fc 00 00 00 00 
 0000000000000040	8b 45 fc 48 83 c4 10 5d c3 
-LIBFT/libft.a(ft_memccpy.o):
+libft/libft.a(ft_memccpy.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 48 89 75 e8 89 55 e4 48 
 0000000000000010	89 4d d8 48 8b 4d f0 48 89 4d d0 48 8b 4d e8 48 
@@ -381,13 +381,13 @@ Contents of (__TEXT,__text) section
 00000000000000d0	45 c0 48 8b 4d d0 88 14 01 48 8b 45 c0 48 83 c0 
 00000000000000e0	01 48 03 45 d0 48 89 45 f8 e9 08 00 00 00 48 c7 
 00000000000000f0	45 f8 00 00 00 00 48 8b 45 f8 5d c3 
-LIBFT/libft.a(ft_putchar_fd.o):
+libft/libft.a(ft_putchar_fd.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 10 40 88 f8 48 8d 4d ff bf 
 0000000000000010	01 00 00 00 89 fa 88 45 ff 89 75 f8 8b 7d f8 48 
 0000000000000020	89 ce e8 00 00 00 00 48 89 45 f0 48 83 c4 10 5d 
 0000000000000030	c3 
-LIBFT/libft.a(ft_strchr.o):
+libft/libft.a(ft_strchr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 89 75 ec c7 45 e8 00 00 
 0000000000000010	00 00 48 63 45 e8 48 8b 4d f0 0f be 14 01 83 fa 
@@ -398,7 +398,7 @@ Contents of (__TEXT,__text) section
 0000000000000060	ae ff ff ff 83 7d ec 00 0f 85 11 00 00 00 48 63 
 0000000000000070	45 e8 48 03 45 f0 48 89 45 f8 e9 08 00 00 00 48 
 0000000000000080	c7 45 f8 00 00 00 00 48 8b 45 f8 5d c3 
-LIBFT/libft.a(ft_striteri.o):
+libft/libft.a(ft_striteri.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 48 89 75 f0 
 0000000000000010	c7 45 ec 00 00 00 00 48 83 7d f8 00 0f 84 0b 00 
@@ -408,7 +408,7 @@ Contents of (__TEXT,__text) section
 0000000000000050	f0 8b 7d ec 8b 4d ec 89 ca 48 03 55 f8 48 89 d6 
 0000000000000060	ff d0 8b 4d ec 83 c1 01 89 4d ec e9 c7 ff ff ff 
 0000000000000070	48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_strnequ.o):
+libft/libft.a(ft_strnequ.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 48 89 75 e8 48 89 55 e0 
 0000000000000010	48 c7 45 d8 00 00 00 00 48 83 7d f0 00 0f 84 0b 
@@ -432,20 +432,20 @@ Contents of (__TEXT,__text) section
 0000000000000130	e8 0f be 14 01 83 fa 00 0f 85 0c 00 00 00 c7 45 
 0000000000000140	fc 01 00 00 00 e9 0c 00 00 00 e9 00 00 00 00 c7 
 0000000000000150	45 fc 00 00 00 00 8b 45 fc 5d c3 
-LIBFT/libft.a(ft_toupper.o):
+libft/libft.a(ft_toupper.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 89 7d f8 83 7d f8 7a 0f 8f 18 00 00 
 0000000000000010	00 83 7d f8 61 0f 8c 0e 00 00 00 8b 45 f8 83 e8 
 0000000000000020	20 89 45 fc e9 06 00 00 00 8b 45 f8 89 45 fc 8b 
 0000000000000030	45 fc 5d c3 
-LIBFT/libft.a(ft_isalpha.o):
+libft/libft.a(ft_isalpha.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 89 7d f8 83 7d f8 5a 0f 8f 0a 00 00 
 0000000000000010	00 83 7d f8 41 0f 8d 14 00 00 00 83 7d f8 7a 0f 
 0000000000000020	8f 16 00 00 00 83 7d f8 61 0f 8c 0c 00 00 00 c7 
 0000000000000030	45 fc 01 00 00 00 e9 07 00 00 00 c7 45 fc 00 00 
 0000000000000040	00 00 8b 45 fc 5d c3 
-LIBFT/libft.a(ft_memchr.o):
+libft/libft.a(ft_memchr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 89 75 ec 48 89 55 e0 48 
 0000000000000010	8b 55 f0 48 89 55 d8 48 8b 45 e0 48 89 c1 48 83 
@@ -455,7 +455,7 @@ Contents of (__TEXT,__text) section
 0000000000000050	f8 e9 19 00 00 00 48 8b 45 d8 48 83 c0 01 48 89 
 0000000000000060	45 d8 e9 b0 ff ff ff 48 c7 45 f8 00 00 00 00 48 
 0000000000000070	8b 45 f8 5d c3 
-LIBFT/libft.a(ft_putendl.o):
+libft/libft.a(ft_putendl.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 c7 45 f4 00 
 0000000000000010	00 00 00 48 83 7d f8 00 0f 85 05 00 00 00 e9 64 
@@ -466,7 +466,7 @@ Contents of (__TEXT,__text) section
 0000000000000060	7d f4 48 89 45 e8 e9 bd ff ff ff bf 01 00 00 00 
 0000000000000070	48 8d 35 16 00 00 00 b8 01 00 00 00 89 c2 e8 00 
 0000000000000080	00 00 00 48 89 45 e0 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_strclr.o):
+libft/libft.a(ft_strclr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 c7 45 f4 00 00 00 00 48 
 0000000000000010	83 7d f8 00 0f 85 05 00 00 00 e9 34 00 00 00 e9 
@@ -474,7 +474,7 @@ Contents of (__TEXT,__text) section
 0000000000000030	83 fa 00 0f 84 1a 00 00 00 48 63 45 f4 48 8b 4d 
 0000000000000040	f8 c6 04 01 00 8b 55 f4 83 c2 01 89 55 f4 e9 d1 
 0000000000000050	ff ff ff 5d c3 
-LIBFT/libft.a(ft_strlcat.o):
+libft/libft.a(ft_strlcat.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 50 48 89 7d f0 48 89 75 e8 
 0000000000000010	48 89 55 e0 48 8b 55 f0 48 89 55 d8 48 8b 55 e8 
@@ -496,18 +496,18 @@ Contents of (__TEXT,__text) section
 0000000000000110	89 45 d0 e9 b1 ff ff ff 48 8b 45 d8 c6 00 00 48 
 0000000000000120	8b 45 c0 48 8b 4d d0 48 8b 55 e8 48 29 d1 48 01 
 0000000000000130	c8 48 89 45 f8 48 8b 45 f8 48 83 c4 50 5d c3 
-LIBFT/libft.a(ft_strnew.o):
+libft/libft.a(ft_strnew.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 10 48 89 7d f8 48 8b 7d f8 
 0000000000000010	48 83 c7 01 e8 00 00 00 00 48 89 45 f0 48 8b 45 
 0000000000000020	f0 48 83 c4 10 5d c3 
-LIBFT/libft.a(ft_isascii.o):
+libft/libft.a(ft_isascii.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 89 7d f8 83 7d f8 7f 0f 8f 16 00 00 
 0000000000000010	00 83 7d f8 00 0f 8c 0c 00 00 00 c7 45 fc 01 00 
 0000000000000020	00 00 e9 07 00 00 00 c7 45 fc 00 00 00 00 8b 45 
 0000000000000030	fc 5d c3 
-LIBFT/libft.a(ft_memcmp.o):
+libft/libft.a(ft_memcmp.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 48 89 75 e8 48 89 55 e0 
 0000000000000010	48 8b 55 f0 48 89 55 d8 48 8b 55 e8 48 89 55 d0 
@@ -519,7 +519,7 @@ Contents of (__TEXT,__text) section
 0000000000000070	89 55 fc e9 18 00 00 00 48 8b 45 c8 48 83 c0 01 
 0000000000000080	48 89 45 c8 e9 9f ff ff ff c7 45 fc 00 00 00 00 
 0000000000000090	8b 45 fc 5d c3 
-LIBFT/libft.a(ft_putendl_fd.o):
+libft/libft.a(ft_putendl_fd.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 89 75 f4 c7 
 0000000000000010	45 f0 00 00 00 00 48 83 7d f8 00 0f 85 05 00 00 
@@ -530,7 +530,7 @@ Contents of (__TEXT,__text) section
 0000000000000060	89 7d f0 48 89 45 e8 e9 bf ff ff ff 48 8d 35 19 
 0000000000000070	00 00 00 b8 01 00 00 00 89 c2 8b 7d f4 e8 00 00 
 0000000000000080	00 00 48 89 45 e0 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_strcmp.o):
+libft/libft.a(ft_strcmp.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 48 89 75 e8 c7 45 e4 00 
 0000000000000010	00 00 00 48 63 45 e4 48 8b 4d f0 0f be 14 01 48 
@@ -542,13 +542,13 @@ Contents of (__TEXT,__text) section
 0000000000000070	45 e4 e9 9c ff ff ff 48 63 45 e4 48 8b 4d f0 0f 
 0000000000000080	b6 14 01 48 63 45 e4 48 8b 4d e8 0f b6 34 01 29 
 0000000000000090	f2 89 55 fc 8b 45 fc 5d c3 
-LIBFT/libft.a(ft_strlen.o):
+libft/libft.a(ft_strlen.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 48 c7 45 f0 00 00 00 00 
 0000000000000010	48 8b 45 f0 48 8b 4d f8 0f be 14 01 83 fa 00 0f 
 0000000000000020	84 11 00 00 00 48 8b 45 f0 48 83 c0 01 48 89 45 
 0000000000000030	f0 e9 da ff ff ff 48 8b 45 f0 5d c3 
-LIBFT/libft.a(ft_strnstr.o):
+libft/libft.a(ft_strnstr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 48 89 75 e8 48 89 55 e0 
 0000000000000010	c7 45 dc 00 00 00 00 48 8b 55 e8 0f be 02 83 f8 
@@ -572,13 +572,13 @@ Contents of (__TEXT,__text) section
 0000000000000130	03 45 f0 48 89 45 f8 e9 1b 00 00 00 e9 00 00 00 
 0000000000000140	00 8b 45 dc 83 c0 01 89 45 dc e9 ea fe ff ff 48 
 0000000000000150	c7 45 f8 00 00 00 00 48 8b 45 f8 5d c3 
-LIBFT/libft.a(ft_isdigit.o):
+libft/libft.a(ft_isdigit.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 89 7d f8 83 7d f8 39 0f 8f 16 00 00 
 0000000000000010	00 83 7d f8 30 0f 8c 0c 00 00 00 c7 45 fc 01 00 
 0000000000000020	00 00 e9 07 00 00 00 c7 45 fc 00 00 00 00 8b 45 
 0000000000000030	fc 5d c3 
-LIBFT/libft.a(ft_memcpy.o):
+libft/libft.a(ft_memcpy.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 48 89 75 f0 48 89 55 e8 
 0000000000000010	48 8b 55 f8 48 89 55 e0 48 8b 55 f0 48 89 55 d8 
@@ -587,7 +587,7 @@ Contents of (__TEXT,__text) section
 0000000000000040	48 83 c1 01 48 89 4d d8 8a 10 48 8b 45 e0 48 89 
 0000000000000050	c1 48 83 c1 01 48 89 4d e0 88 10 e9 c0 ff ff ff 
 0000000000000060	48 8b 45 f8 5d c3 
-LIBFT/libft.a(ft_putnbr.o):
+libft/libft.a(ft_putnbr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 89 7d fc 48 63 45 fc 48 
 0000000000000010	3d 00 00 00 80 0f 85 21 00 00 00 bf 01 00 00 00 
@@ -602,7 +602,7 @@ Contents of (__TEXT,__text) section
 00000000000000a0	f9 89 d7 e8 58 ff ff ff e9 10 00 00 00 8b 45 fc 
 00000000000000b0	83 c0 30 88 c1 0f be f9 e8 00 00 00 00 48 83 c4 
 00000000000000c0	20 5d c3 
-LIBFT/libft.a(ft_strcpy.o):
+libft/libft.a(ft_strcpy.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 48 89 75 f0 c7 45 ec 00 
 0000000000000010	00 00 00 48 63 45 ec 48 8b 4d f0 0f be 14 01 83 
@@ -610,7 +610,7 @@ Contents of (__TEXT,__text) section
 0000000000000030	8a 14 01 48 63 45 ec 48 8b 4d f8 88 14 01 8b 75 
 0000000000000040	ec 83 c6 01 89 75 ec e9 c7 ff ff ff 48 63 45 ec 
 0000000000000050	48 8b 4d f8 c6 04 01 00 48 8b 45 f8 5d c3 
-LIBFT/libft.a(ft_strmap.o):
+libft/libft.a(ft_strmap.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f0 48 89 75 e8 
 0000000000000010	c7 45 e4 00 00 00 00 c7 45 e0 00 00 00 00 48 83 
@@ -628,7 +628,7 @@ Contents of (__TEXT,__text) section
 00000000000000d0	ff ff ff 48 63 45 e0 48 8b 4d d8 c6 04 01 00 48 
 00000000000000e0	8b 45 d8 48 89 45 f8 48 8b 45 f8 48 83 c4 30 5d 
 00000000000000f0	c3 
-LIBFT/libft.a(ft_strrchr.o):
+libft/libft.a(ft_strrchr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f0 89 75 ec 48 
 0000000000000010	8b 7d f0 e8 00 00 00 00 89 c6 89 75 e8 48 83 7d 
@@ -640,7 +640,7 @@ Contents of (__TEXT,__text) section
 0000000000000070	00 00 00 8b 45 e8 83 c0 ff 89 45 e8 e9 b9 ff ff 
 0000000000000080	ff 48 c7 45 f8 00 00 00 00 48 8b 45 f8 48 83 c4 
 0000000000000090	20 5d c3 
-LIBFT/libft.a(ft_strsplit.o):
+libft/libft.a(ft_strsplit.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 40 88 f0 48 89 7d f0 88 
 0000000000000010	45 ef c7 45 d4 ff ff ff ff 48 83 7d f0 00 0f 84 
@@ -685,7 +685,7 @@ Contents of (__TEXT,__text) section
 0000000000000280	84 09 00 00 00 8b 45 f0 83 c0 01 89 45 f0 8b 45 
 0000000000000290	ec 83 c0 01 89 45 ec e9 85 ff ff ff 8b 45 f0 5d 
 00000000000002a0	c3 
-LIBFT/libft.a(ft_strjoin.o):
+libft/libft.a(ft_strjoin.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f0 48 89 75 e8 
 0000000000000010	c7 45 dc 00 00 00 00 48 83 7d f0 00 0f 84 0b 00 
@@ -704,7 +704,7 @@ Contents of (__TEXT,__text) section
 00000000000000e0	88 34 0a 8b 45 dc 83 c0 01 89 45 dc e9 9d ff ff 
 00000000000000f0	ff 48 63 45 dc 48 8b 4d e0 c6 04 01 00 48 8b 45 
 0000000000000100	e0 48 89 45 f8 48 8b 45 f8 48 83 c4 30 5d c3 
-LIBFT/libft.a(ft_lstiter.o):
+libft/libft.a(ft_lstiter.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 48 89 75 f0 
 0000000000000010	48 83 7d f8 00 0f 84 0b 00 00 00 48 83 7d f0 00 
@@ -714,7 +714,7 @@ Contents of (__TEXT,__text) section
 0000000000000050	7d e8 ff d0 48 8b 45 e0 48 89 45 e8 48 8b 45 e0 
 0000000000000060	48 8b 40 10 48 89 45 e0 e9 d2 ff ff ff 48 8b 45 
 0000000000000070	f0 48 8b 7d e8 ff d0 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_lstnew.o):
+libft/libft.a(ft_lstnew.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 b8 18 00 00 00 89 c1 48 
 0000000000000010	89 7d f0 48 89 75 e8 48 89 cf e8 00 00 00 00 48 
@@ -730,7 +730,7 @@ Contents of (__TEXT,__text) section
 00000000000000b0	48 8b 75 e0 48 89 56 08 48 89 45 d0 48 8b 45 e0 
 00000000000000c0	48 c7 40 10 00 00 00 00 48 8b 45 e0 48 89 45 f8 
 00000000000000d0	48 8b 45 f8 48 83 c4 30 5d c3 
-LIBFT/libft.a(ft_lstdelone.o):
+libft/libft.a(ft_lstdelone.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 48 89 75 f0 
 0000000000000010	48 8b 75 f0 48 8b 7d f8 48 8b 3f 48 8b 3f 48 8b 
@@ -738,7 +738,7 @@ Contents of (__TEXT,__text) section
 0000000000000030	48 8b 45 e8 ff d0 48 8b 45 f8 48 8b 00 48 89 c7 
 0000000000000040	e8 00 00 00 00 48 8b 45 f8 48 c7 00 00 00 00 00 
 0000000000000050	48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_lstdel.o):
+libft/libft.a(ft_lstdel.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 48 89 75 f0 
 0000000000000010	48 8b 75 f8 48 8b 36 48 89 75 e8 48 8b 75 f8 48 
@@ -751,12 +751,12 @@ Contents of (__TEXT,__text) section
 0000000000000080	71 08 ff d0 48 8b 45 e8 48 89 c7 e8 00 00 00 00 
 0000000000000090	48 8b 45 f8 48 c7 00 00 00 00 00 48 83 c4 20 5d 
 00000000000000a0	c3 
-LIBFT/libft.a(ft_lstadd.o):
+libft/libft.a(ft_lstadd.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 48 89 75 f0 48 8b 75 f8 
 0000000000000010	48 8b 36 48 8b 7d f0 48 89 77 10 48 8b 75 f0 48 
 0000000000000020	8b 7d f8 48 89 37 5d c3 
-LIBFT/libft.a(ft_lstmap.o):
+libft/libft.a(ft_lstmap.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 40 48 89 7d f0 48 89 75 e8 
 0000000000000010	48 8b 75 f0 48 89 75 c8 48 83 7d f0 00 0f 84 0b 
@@ -777,14 +777,14 @@ Contents of (__TEXT,__text) section
 0000000000000100	48 8b 45 c8 48 8b 40 10 48 89 45 c8 e9 8f ff ff 
 0000000000000110	ff 48 8b 45 d0 48 89 45 f8 48 8b 45 f8 48 83 c4 
 0000000000000120	40 5d c3 
-LIBFT/libft.a(ft_lstlen.o):
+libft/libft.a(ft_lstlen.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 48 c7 45 e8 00 00 00 00 
 0000000000000010	48 8b 7d f8 48 89 7d f0 48 83 7d f0 00 0f 84 1d 
 0000000000000020	00 00 00 48 8b 45 e8 48 83 c0 01 48 89 45 e8 48 
 0000000000000030	8b 45 f0 48 8b 40 10 48 89 45 f0 e9 d8 ff ff ff 
 0000000000000040	48 8b 45 e8 5d c3 
-LIBFT/libft.a(ft_lstdup.o):
+libft/libft.a(ft_lstdup.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f0 48 83 7d f0 
 0000000000000010	00 0f 85 0d 00 00 00 48 c7 45 f8 00 00 00 00 e9 
@@ -800,7 +800,7 @@ Contents of (__TEXT,__text) section
 00000000000000b0	e0 48 8b 45 d8 48 8b 40 10 48 89 45 d8 e9 a5 ff 
 00000000000000c0	ff ff 48 8b 45 e0 48 c7 40 10 00 00 00 00 48 8b 
 00000000000000d0	45 e8 48 89 45 f8 48 8b 45 f8 48 83 c4 30 5d c3 
-LIBFT/libft.a(ft_strlenchr.o):
+libft/libft.a(ft_strlenchr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f0 89 75 ec 48 c7 45 e0 00 
 0000000000000010	00 00 00 48 83 7d f0 00 0f 85 0d 00 00 00 48 c7 
@@ -812,7 +812,7 @@ Contents of (__TEXT,__text) section
 0000000000000070	00 00 00 48 8b 45 e0 48 83 c0 01 48 89 45 e0 e9 
 0000000000000080	ac ff ff ff 48 8b 45 e0 48 89 45 f8 48 8b 45 f8 
 0000000000000090	5d c3 
-LIBFT/libft.a(ft_strdupchr.o):
+libft/libft.a(ft_strdupchr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f0 89 75 ec 48 
 0000000000000010	8b 7d f0 8b 75 ec e8 00 00 00 00 89 c6 89 75 dc 
@@ -825,7 +825,7 @@ Contents of (__TEXT,__text) section
 0000000000000080	8b 4d f0 8a 14 01 48 63 45 dc 48 8b 4d e0 88 14 
 0000000000000090	01 e9 d1 ff ff ff 48 8b 45 e0 48 89 45 f8 48 8b 
 00000000000000a0	45 f8 48 83 c4 30 5d c3 
-LIBFT/libft.a(ft_strndup.o):
+libft/libft.a(ft_strndup.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f0 48 89 75 e8 
 0000000000000010	48 8b 7d f0 e8 00 00 00 00 48 89 45 d8 48 8b 45 
@@ -839,7 +839,7 @@ Contents of (__TEXT,__text) section
 0000000000000090	14 01 48 8b 45 d8 48 8b 4d e0 88 14 01 e9 cc ff 
 00000000000000a0	ff ff 48 8b 45 e0 48 89 45 f8 48 8b 45 f8 48 83 
 00000000000000b0	c4 30 5d c3 
-LIBFT/libft.a(ft_sqrt.o):
+libft/libft.a(ft_sqrt.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 f2 0f 11 45 f8 c7 45 ec 00 00 00 00 
 0000000000000010	f2 0f 10 45 f8 f2 0f 11 45 f0 8b 45 ec 89 c1 83 
@@ -847,7 +847,7 @@ Contents of (__TEXT,__text) section
 0000000000000030	f2 0f 10 05 28 00 00 00 f2 0f 10 4d f0 f2 0f 10 
 0000000000000040	55 f8 f2 0f 5e 55 f0 f2 0f 58 ca f2 0f 5e c8 f2 
 0000000000000050	0f 11 4d f0 e9 c1 ff ff ff f2 0f 10 45 f0 5d c3 
-LIBFT/libft.a(ft_tabjoin_int.o):
+libft/libft.a(ft_tabjoin_int.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f0 89 75 ec 89 
 0000000000000010	55 e8 48 c7 45 e0 00 00 00 00 83 7d ec 00 0f 8d 
@@ -863,7 +863,7 @@ Contents of (__TEXT,__text) section
 00000000000000b0	d0 ff ff ff 48 8b 45 f0 48 8b 00 48 89 c7 e8 00 
 00000000000000c0	00 00 00 48 8b 45 e0 48 8b 7d f0 48 89 07 48 8b 
 00000000000000d0	45 e0 48 89 45 f8 48 8b 45 f8 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_tabjoin_str.o):
+libft/libft.a(ft_tabjoin_str.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 40 48 89 7d f0 89 75 ec 48 
 0000000000000010	89 55 e0 83 7d ec 00 0f 8c 0b 00 00 00 8b 45 ec 
@@ -890,7 +890,7 @@ Contents of (__TEXT,__text) section
 0000000000000160	00 48 89 c7 e8 00 00 00 00 48 8b 45 d0 48 8b 7d 
 0000000000000170	f0 48 89 07 48 8b 45 d0 48 89 45 f8 48 8b 45 f8 
 0000000000000180	48 83 c4 40 5d c3 
-LIBFT/libft.a(ft_freetab_str.o):
+libft/libft.a(ft_freetab_str.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 89 75 f4 c7 
 0000000000000010	45 f0 ff ff ff ff 48 83 7d f8 00 0f 85 05 00 00 
@@ -903,7 +903,7 @@ Contents of (__TEXT,__text) section
 0000000000000080	45 f0 48 8b 4d f8 48 8b 3c c1 e8 00 00 00 00 48 
 0000000000000090	63 45 f0 48 8b 4d f8 48 c7 04 c1 00 00 00 00 e9 
 00000000000000a0	87 ff ff ff 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_printf.o):
+libft/libft.a(ft_printf.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 81 ec b0 01 00 00 84 c0 0f 29 bd 
 0000000000000010	10 ff ff ff 0f 29 b5 00 ff ff ff 0f 29 ad f0 fe 
@@ -945,7 +945,7 @@ Contents of (__TEXT,__text) section
 0000000000000250	75 f8 48 39 f2 48 89 85 58 fe ff ff 89 8d 54 fe 
 0000000000000260	ff ff 0f 85 0f 00 00 00 8b 85 54 fe ff ff 48 81 
 0000000000000270	c4 b0 01 00 00 5d c3 e8 00 00 00 00 
-LIBFT/libft.a(ft_print_conv.o):
+libft/libft.a(ft_print_conv.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 40 88 d0 ba 03 00 00 00 41 
 0000000000000010	89 d0 48 89 7d f0 48 89 75 e8 88 45 e7 48 89 4d 
@@ -997,7 +997,7 @@ Contents of (__TEXT,__text) section
 00000000000002f0	8b 45 f8 8a 50 01 48 8b 45 f8 88 50 02 48 8b 45 
 0000000000000300	f8 c6 40 01 6c 48 8b 45 f8 0f be 48 02 83 f9 6c 
 0000000000000310	0f 84 08 00 00 00 48 8b 45 f8 c6 40 02 00 5d c3 
-LIBFT/libft.a(ft_print_extra.o):
+libft/libft.a(ft_print_extra.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 50 88 d0 48 89 7d f0 48 89 
 0000000000000010	75 e8 88 45 e7 48 8b 45 f0 0f be 08 83 f9 2b 0f 
@@ -1072,12 +1072,12 @@ Contents of (__TEXT,__text) section
 0000000000000460	f8 78 0f 84 1a 00 00 00 0f be 45 f7 83 f8 58 0f 
 0000000000000470	84 0d 00 00 00 0f be 45 f7 83 f8 70 0f 85 08 00 
 0000000000000480	00 00 48 8b 45 e8 c6 40 04 00 5d c3 
-LIBFT/libft.a(ft_swap.o):
+libft/libft.a(ft_swap.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 48 89 75 f0 48 8b 75 f8 
 0000000000000010	8a 06 88 45 ef 48 8b 75 f0 8a 06 48 8b 75 f8 88 
 0000000000000020	06 8a 45 ef 48 8b 75 f0 88 06 5d c3 
-LIBFT/libft.a(ft_print_integers.o):
+libft/libft.a(ft_print_integers.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 50 48 89 7d f0 48 89 75 e8 
 0000000000000010	c7 45 d4 0a 00 00 00 48 8b 75 f0 0f be 3e e8 00 
@@ -1214,7 +1214,7 @@ Contents of (__TEXT,__text) section
 0000000000000840	45 f4 48 8b 4d f8 0f be 14 01 83 fa 7a 0f 8f 16 
 0000000000000850	00 00 00 48 63 45 f4 48 8b 4d f8 0f be 14 01 83 
 0000000000000860	ea 20 40 88 d6 40 88 34 01 e9 a1 ff ff ff 5d c3 
-LIBFT/libft.a(ft_print_ptr.o):
+libft/libft.a(ft_print_ptr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 50 31 c0 89 c1 4c 8d 05 66 
 0000000000000010	03 00 00 48 89 7d f0 48 89 75 e8 48 89 55 e0 4c 
@@ -1272,7 +1272,7 @@ Contents of (__TEXT,__text) section
 0000000000000350	0f 84 0c 00 00 00 48 8b 45 f0 48 0b 45 e8 48 89 
 0000000000000360	45 e8 48 8b 45 f0 48 c1 e0 01 48 89 45 f0 e9 bc 
 0000000000000370	ff ff ff 48 8b 45 e8 5d c3 
-LIBFT/libft.a(ft_close_regex.o):
+libft/libft.a(ft_close_regex.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 40 88 f0 48 89 7d f8 88 45 f7 48 8b 
 0000000000000010	45 f8 48 8b 00 0f be 08 0f be 55 f7 39 d1 0f 84 
@@ -1296,7 +1296,7 @@ Contents of (__TEXT,__text) section
 0000000000000130	f8 43 0f 84 0d 00 00 00 0f be 45 fb 83 f8 25 0f 
 0000000000000140	85 0c 00 00 00 c7 45 fc 00 00 00 00 e9 07 00 00 
 0000000000000150	00 c7 45 fc 01 00 00 00 8b 45 fc 5d c3 
-LIBFT/libft.a(ft_print_regex.o):
+libft/libft.a(ft_print_regex.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 40 48 89 7d f0 48 89 75 e8 
 0000000000000010	c7 45 d8 00 00 00 00 c7 45 d4 01 00 00 00 48 8b 
@@ -1320,7 +1320,7 @@ Contents of (__TEXT,__text) section
 0000000000000130	0c 00 00 00 c7 45 d8 01 00 00 00 e9 05 00 00 00 
 0000000000000140	e9 00 00 00 00 8b 45 d8 89 45 fc 8b 45 fc 48 83 
 0000000000000150	c4 40 5d c3 
-LIBFT/libft.a(ft_print_specifier.o):
+libft/libft.a(ft_print_specifier.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 c7 45 f4 ff ff ff ff b0 
 0000000000000010	01 8b 4d f4 83 c1 01 89 4d f4 48 63 d1 48 8b 75 
@@ -1344,7 +1344,7 @@ Contents of (__TEXT,__text) section
 0000000000000130	40 88 75 f2 8a 45 f2 88 45 f3 8a 45 f3 a8 01 0f 
 0000000000000140	85 05 00 00 00 e9 05 00 00 00 e9 c0 fe ff ff 48 
 0000000000000150	63 45 f4 48 8b 4d f8 0f be 04 01 5d c3 
-LIBFT/libft.a(ft_modif_flags.o):
+libft/libft.a(ft_modif_flags.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 88 d0 48 89 7d f8 48 89 
 0000000000000010	75 f0 88 45 ef 48 89 4d e0 48 8b 4d e0 80 79 01 
@@ -1463,7 +1463,7 @@ Contents of (__TEXT,__text) section
 0000000000000720	48 89 45 f0 48 8b 45 f8 48 8b 38 e8 00 00 00 00 
 0000000000000730	48 8b 7d f0 e8 00 00 00 00 48 8b 4d f8 48 89 01 
 0000000000000740	48 8b 7d f0 e8 00 00 00 00 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_itoabase.o):
+libft/libft.a(ft_itoabase.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 40 48 89 7d f0 89 75 ec c7 
 0000000000000010	45 e8 00 00 00 00 48 8b 7d f0 48 89 7d d8 c7 45 
@@ -1490,7 +1490,7 @@ Contents of (__TEXT,__text) section
 0000000000000160	00 00 48 8d 3d 1f 00 00 00 48 8b 75 d0 e8 00 00 
 0000000000000170	00 00 48 89 45 d0 48 8b 45 d0 48 89 45 f8 48 8b 
 0000000000000180	45 f8 48 83 c4 40 5d c3 
-LIBFT/libft.a(ft_itoabase_unsigned.o):
+libft/libft.a(ft_itoabase_unsigned.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f0 89 75 ec c7 
 0000000000000010	45 e8 00 00 00 00 48 8b 7d f0 48 89 7d e0 48 83 
@@ -1510,7 +1510,7 @@ Contents of (__TEXT,__text) section
 00000000000000f0	7d d8 88 0c 07 48 8b 45 f0 48 63 7d ec 31 d2 48 
 0000000000000100	f7 f7 48 89 45 f0 e9 87 ff ff ff 48 8b 45 d8 48 
 0000000000000110	89 45 f8 48 8b 45 f8 48 83 c4 30 5d c3 
-LIBFT/libft.a(ft_bitoint.o):
+libft/libft.a(ft_bitoint.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 48 8b 7d f8 
 0000000000000010	e8 00 00 00 00 89 c1 89 4d ec c7 45 e8 ff ff ff 
@@ -1520,13 +1520,13 @@ Contents of (__TEXT,__text) section
 0000000000000050	f8 0f be 04 0a 83 f8 31 0f 85 09 00 00 00 8b 45 
 0000000000000060	f4 0b 45 f0 89 45 f4 8b 45 f0 c1 e0 01 89 45 f0 
 0000000000000070	e9 ba ff ff ff 8b 45 f4 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_power.o):
+libft/libft.a(ft_power.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 89 7d fc 89 75 f8 c7 45 f4 01 00 00 
 0000000000000010	00 8b 45 f8 83 c0 ff 89 45 f8 83 f8 00 0f 8c 0f 
 0000000000000020	00 00 00 8b 45 fc 0f af 45 f4 89 45 f4 e9 df ff 
 0000000000000030	ff ff 8b 45 f4 5d c3 
-LIBFT/libft.a(ft_wchar_display.o):
+libft/libft.a(ft_wchar_display.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 be 02 00 00 00 48 89 7d 
 0000000000000010	f0 48 8b 7d f0 89 f8 89 45 e8 8b 45 e8 89 c7 e8 
@@ -1633,7 +1633,7 @@ Contents of (__TEXT,__text) section
 0000000000000660	8b 3d 00 00 00 00 48 8b 3f 48 8b 4d f8 48 39 cf 
 0000000000000670	48 89 45 a0 0f 85 0a 00 00 00 48 8b 45 a0 48 83 
 0000000000000680	c4 60 5d c3 e8 00 00 00 00 
-LIBFT/libft.a(ft_intostring.o):
+libft/libft.a(ft_intostring.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 40 48 89 7d f8 89 75 f4 8b 
 0000000000000010	75 f4 c1 e6 02 89 75 e0 8b 75 f4 83 c6 01 48 63 
@@ -1661,7 +1661,7 @@ Contents of (__TEXT,__text) section
 0000000000000170	d8 04 0f 85 0a 00 00 00 31 c0 89 45 cc e9 06 00 
 0000000000000180	00 00 8b 45 d8 89 45 cc 8b 45 cc 89 45 d8 e9 b5 
 0000000000000190	fe ff ff 48 8b 45 e8 48 83 c4 40 5d c3 
-LIBFT/libft.a(ft_precision.o):
+libft/libft.a(ft_precision.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 40 88 d0 48 89 7d f0 48 89 
 0000000000000010	75 e8 88 45 e7 89 4d e0 48 8b 75 e8 48 8b 3e e8 
@@ -1750,7 +1750,7 @@ Contents of (__TEXT,__text) section
 0000000000000540	e0 48 89 01 48 8b 45 e0 48 8b 30 e8 00 00 00 00 
 0000000000000550	48 8b 4d f0 48 89 01 48 8b 45 e0 48 8b 38 e8 00 
 0000000000000560	00 00 00 48 83 c4 40 5d c3 
-LIBFT/libft.a(ft_freetab_str.o):
+libft/libft.a(ft_freetab_str.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 89 75 f4 c7 
 0000000000000010	45 f0 ff ff ff ff 48 83 7d f8 00 0f 85 05 00 00 
@@ -1763,7 +1763,7 @@ Contents of (__TEXT,__text) section
 0000000000000080	45 f0 48 8b 4d f8 48 8b 3c c1 e8 00 00 00 00 48 
 0000000000000090	63 45 f0 48 8b 4d f8 48 c7 04 c1 00 00 00 00 e9 
 00000000000000a0	87 ff ff ff 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_printtab_str.o):
+libft/libft.a(ft_printtab_str.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 40 48 89 7d f8 89 75 f4 48 
 0000000000000010	89 55 e8 c7 45 e4 ff ff ff ff c7 45 e0 00 00 00 
@@ -1782,7 +1782,7 @@ Contents of (__TEXT,__text) section
 00000000000000e0	d0 e8 00 00 00 00 bf 01 00 00 00 48 8b 75 d0 48 
 00000000000000f0	89 c2 e8 00 00 00 00 48 89 45 c8 e9 89 ff ff ff 
 0000000000000100	48 83 c4 40 5d c3 
-LIBFT/libft.a(ft_tabjoin_str.o):
+libft/libft.a(ft_tabjoin_str.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 40 48 89 7d f0 89 75 ec 48 
 0000000000000010	89 55 e0 83 7d ec 00 0f 8c 0b 00 00 00 8b 45 ec 
@@ -1809,7 +1809,7 @@ Contents of (__TEXT,__text) section
 0000000000000160	00 48 89 c7 e8 00 00 00 00 48 8b 45 d0 48 8b 7d 
 0000000000000170	f0 48 89 07 48 8b 45 d0 48 89 45 f8 48 8b 45 f8 
 0000000000000180	48 83 c4 40 5d c3 
-LIBFT/libft.a(ft_tablen_str.o):
+libft/libft.a(ft_tablen_str.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 89 7d f8 c7 45 f0 ff ff ff ff c7 
 0000000000000010	45 f4 00 00 00 00 31 c0 88 c1 48 83 7d f8 00 88 
@@ -1818,7 +1818,7 @@ Contents of (__TEXT,__text) section
 0000000000000040	c6 40 88 75 ef 8a 45 ef a8 01 0f 85 05 00 00 00 
 0000000000000050	e9 0e 00 00 00 8b 45 f4 83 c0 01 89 45 f4 e9 b3 
 0000000000000060	ff ff ff 8b 45 f4 5d c3 
-LIBFT/libft.a(ft_freetab_int.o):
+libft/libft.a(ft_freetab_int.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f8 89 75 f4 c7 
 0000000000000010	45 f0 ff ff ff ff 48 83 7d f8 00 0f 85 05 00 00 
@@ -1831,7 +1831,7 @@ Contents of (__TEXT,__text) section
 0000000000000080	45 f0 48 8b 4d f8 48 8b 04 c1 48 89 c7 e8 00 00 
 0000000000000090	00 00 48 63 45 f0 48 8b 4d f8 48 c7 04 c1 00 00 
 00000000000000a0	00 00 e9 84 ff ff ff 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_printtab_int.o):
+libft/libft.a(ft_printtab_int.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f8 89 75 f4 48 
 0000000000000010	89 55 e8 c7 45 e4 ff ff ff ff 48 83 7d f8 00 0f 
@@ -1843,7 +1843,7 @@ Contents of (__TEXT,__text) section
 0000000000000070	00 00 00 bf 01 00 00 00 48 8b 75 d8 48 89 c2 e8 
 0000000000000080	00 00 00 00 48 89 45 d0 e9 a2 ff ff ff 48 83 c4 
 0000000000000090	30 5d c3 
-LIBFT/libft.a(ft_tabjoin_int.o):
+libft/libft.a(ft_tabjoin_int.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 20 48 89 7d f0 89 75 ec 89 
 0000000000000010	55 e8 48 c7 45 e0 00 00 00 00 83 7d ec 00 0f 8d 
@@ -1859,7 +1859,7 @@ Contents of (__TEXT,__text) section
 00000000000000b0	d0 ff ff ff 48 8b 45 f0 48 8b 00 48 89 c7 e8 00 
 00000000000000c0	00 00 00 48 8b 45 e0 48 8b 7d f0 48 89 07 48 8b 
 00000000000000d0	45 e0 48 89 45 f8 48 8b 45 f8 48 83 c4 20 5d c3 
-LIBFT/libft.a(ft_tabjoin_tabstr.o):
+libft/libft.a(ft_tabjoin_tabstr.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 30 48 89 7d f8 89 75 f4 48 
 0000000000000010	89 55 e8 89 4d e4 c7 45 e0 ff ff ff ff 83 7d f4 
@@ -1880,7 +1880,7 @@ Contents of (__TEXT,__text) section
 0000000000000100	55 e8 48 8b 3c ca e8 00 00 00 00 48 63 4d e0 48 
 0000000000000110	8b 55 d8 48 89 04 ca e9 94 ff ff ff 48 8b 45 d8 
 0000000000000120	48 83 c4 30 5d c3 
-LIBFT/libft.a(get_next_line.o):
+libft/libft.a(get_next_line.o):
 Contents of (__TEXT,__text) section
 0000000000000000	55 48 89 e5 48 83 ec 50 48 89 7d f0 48 89 75 e8 
 0000000000000010	48 89 55 e0 89 4d dc 48 8b 55 e0 c7 02 01 00 00 
