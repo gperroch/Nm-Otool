@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/01 11:38:53 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/01 14:29:52 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct				s_symbol_display
 	struct s_symbol_display	*previous;
 }							t_symbol_display;
 
-typedef struct				s_static_lib
+typedef struct				s_static_lib // ATTENTION A LA TAILLE DU NOM DU FICHIER. HEADER A MODIFIER. AJOUTER LES 5 VARIABLES DU FILE_IDENTIFIER
 {
 	char					file_identifier[60];
 	char					end_identifier[8];
@@ -72,5 +72,8 @@ void				is_static_library(void *file_content, char *file_name);
 void					sort_list_lib_symbols(t_lib_symbol **list);
 void				ft_list_lib_symbols(t_lib_symbol **list, char *symbol_name, char *file_object_name, void *file_object);
 int				ft_check_symbol_in_file_object(char *symbol_name, void *file_object);
+void					find_texttext_section(struct mach_header_64 *header);
+void		ft_dump_mem(void *ptr, int len, int col, void *header);
+void			find_texttext_static_library(void *file_content, char *argv);
 
 #endif

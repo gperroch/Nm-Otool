@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/01 11:36:19 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/01 12:49:28 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,15 @@
 // Affichage formate de la table des symboles.
 // Attention aux symboles venant de shared libraries.
 
-int							main(int argc, char **argv)
+// PARSING ET CAS D'ERREURS (+return adequat) DANS TOUTES LES FONCTIONS
+// VERIFIER LES LEAKS
+// METTRE TOUTES LES FONCTIONS EN FT_...
+// GERER LES DIFFERENTS TYPES DE HEADER (pas seulement mach_header_64)
+// GERER LES MULTIPLES FICHIERS EN PARAMETRES
+// AFFICHER AVEC AUTRE CHOSE QUE PRINTF
+
+//int							main(int argc, char **argv)
+int							ft_nm(int argc, char **argv)
 {
 	void					*file_content; // Buffer contenant le fichier.
 	struct stat				stats;
@@ -43,7 +51,7 @@ int							main(int argc, char **argv)
 	header = file_content; // Parsing a faire a ce niveau.
 	if (header->magic == 0xfeedfacf)
 	{
-		load_command = (struct load_command*)((char*)file_content + sizeof(struct mach_header_64));
+//		load_command = (struct load_command*)((char*)file_content + sizeof(struct mach_header_64)); //load_command useless ici ?
 //		test_strtab(file_content, stats.st_size);
 //		ft_display_header(header);
 //		ft_display_load_command(load_command, header->ncmds);

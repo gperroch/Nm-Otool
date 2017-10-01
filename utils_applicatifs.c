@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/01 12:03:09 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/01 14:39:02 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,20 +198,20 @@ void				is_static_library(void *file_content, char *file_name)
 //		printf("StATIC LIB OK [%s]\n", arch);
 	lib = file_content;
 	ranlibs_size = lib->ranlibs_size;
-	ranlib = (char*)file_content + sizeof(t_static_lib);
+	ranlib = (struct ranlib*)((char*)file_content + sizeof(t_static_lib));
 	ranlibs_size -= sizeof(struct ranlib);
 	list = NULL;
 	while (ranlibs_size)
 	{
 		symbol_name = (char*)file_content + sizeof(t_static_lib) + lib->ranlibs_size + ranlib->ran_off;
-		file_object_header_line = (char*)file_content + (ranlib->ran_un).ran_strx;
+		file_object_header_line = (t_static_lib*)((char*)file_content + (ranlib->ran_un).ran_strx);
 		diff = (char*)file_object_header_line->end_identifier + ft_strlen(file_object_header_line->end_identifier) - (char*)file_object_header_line;
 		distance = ((diff / 8) + 1) * 8;
 		distance = diff % 8 > 4 ? distance + 8 : distance;
 		file_object_name = (char*)file_content + sizeof(lib->file_identifier) + (ranlib->ran_un).ran_strx;
 		file_object = (char*)file_object_header_line + distance;
 		ft_list_lib_symbols(&list, symbol_name, file_object_name, file_object);
-		ranlib = (char*)ranlib + sizeof(ranlib); // VERIFIER LA PRESENCE DE ran_name AVEC UN IFDEF __LP64__
+		ranlib = (struct ranlib*)((char*)ranlib + sizeof(ranlib)); // VERIFIER LA PRESENCE DE ran_name AVEC UN IFDEF __LP64__
 		ranlibs_size -= sizeof(struct ranlib);
 	}
 	ptr = list;
@@ -272,4 +272,107 @@ int				ft_check_symbol_in_file_object(char *symbol_name, void *file_object)
 		list = list->next;
 	}
 	return (0);
+}
+
+/////////////////// OTOOL FUNCTIONS ////////////////////////
+
+void					find_texttext_section(struct mach_header_64 *header) // Dans les .o le segment n'a pas de nom
+{
+	struct load_command	*load_command;
+	struct section_64	*section;
+	void				*content;
+	int					ncmds;
+	int					nsects;
+
+	ncmds = 0;
+	load_command = (struct load_command*)((char*)header + sizeof(struct mach_header_64));
+	while (ncmds < header->ncmds)
+	{
+		nsects = 0;
+		section = (struct section_64*)((char*)load_command + sizeof(struct segment_command_64));
+		while (nsects < ((struct segment_command*)load_command)->nsects && ft_strcmp(section->sectname, "__text") && ft_strcmp(section->segname, "__TEXT"))
+		{
+			section = (struct section_64*)((char*)section + sizeof(struct section_64));
+			nsects++;
+		}
+		if (!ft_strcmp(section->sectname, "__text") && !ft_strcmp(section->segname, "__TEXT"))
+		{
+			content = (char*)header + section->offset;
+			ft_dump_mem(content, section->size, 16, header);
+			ncmds = header->ncmds;
+		}
+		load_command = (struct load_command*)((char*)load_command + load_command->cmdsize);
+		ncmds++;
+	}
+}
+
+void		ft_dump_mem(void *ptr, int len, int col, void *header)
+{
+	int		i;
+	char	*mem;
+	char	*init;
+
+	mem = ptr;
+	init = ptr;
+	i = 0;
+	while (i < len)
+	{
+		if ((i == 0 || i % col == 0) && ((struct mach_header_64*)header)->filetype == MH_OBJECT)
+			printf("%016lx\t", (long)ptr - (long)init);
+		else if ((i == 0 || i % col == 0) && ((struct mach_header_64*)header)->filetype == MH_EXECUTE)
+			printf("%016lx\t", (long)ptr - (int)header);
+		else if (i == 0 || i % col == 0)
+			printf("%016lx\t", (long)ptr);
+		printf("%02hhx ", mem[i]);
+		ptr++;
+		i++;
+		if (i == len || i % col == 0)
+			printf("\n");
+	}
+}
+
+void			find_texttext_static_library(void *file_content, char *argv)
+{
+	char			arch[8];
+	t_static_lib	*lib;
+	t_static_lib	*file_object_header_line;
+	struct ranlib	*ranlib;
+	long int		ranlibs_size;
+	char			*symbol_name;
+	char			*file_object_name;
+	void			*file_object;
+	int diff;
+	int	distance;
+	t_lib_symbol	*list;
+	t_lib_symbol	*ptr;
+
+/*	dump_mem(file_content, 64, 16, "init");
+	dump_mem((char*)file_content + 60, 64, 16, "+60");
+	dump_mem((char*)file_content + 88, 64, 16, "+88"); // Le +88 doit dependre du nom du fichier. Comme pour atteindre les headers mach des objets avec la variable 'distance'.
+*/
+	lib = file_content;
+	ranlibs_size = lib->ranlibs_size;
+	ranlib = (struct ranlib*)((char*)file_content + sizeof(t_static_lib));
+	ranlibs_size -= sizeof(struct ranlib);
+	list = NULL;
+	while (ranlibs_size)
+	{
+		symbol_name = (char*)file_content + sizeof(t_static_lib) + lib->ranlibs_size + ranlib->ran_off;
+		file_object_header_line = (t_static_lib*)((char*)file_content + (ranlib->ran_un).ran_strx);
+		diff = (char*)file_object_header_line->end_identifier + ft_strlen(file_object_header_line->end_identifier) - (char*)file_object_header_line;
+		distance = ((diff / 8) + 1) * 8;
+		distance = diff % 8 > 4 ? distance + 8 : distance;
+		file_object_name = (char*)file_content + sizeof(lib->file_identifier) + (ranlib->ran_un).ran_strx;
+		file_object = (char*)file_object_header_line + distance;
+		ft_list_lib_symbols(&list, symbol_name, file_object_name, file_object);
+		ranlib = (struct ranlib*)((char*)ranlib + sizeof(ranlib)); // VERIFIER LA PRESENCE DE ran_name AVEC UN IFDEF __LP64__
+		ranlibs_size -= sizeof(struct ranlib);
+	}
+	ptr = list;
+	while (ptr)
+	{
+		printf("%s(%s):\nContents of (__TEXT,__text) section\n", argv, ptr->file_object_name);
+		find_texttext_section(ptr->file_object);
+		ptr = ptr->next;
+	}
 }

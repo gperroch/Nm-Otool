@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 09:35:47 by gperroch          #+#    #+#             */
-/*   Updated: 2017/09/29 15:53:47 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/01 13:51:44 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ void					ft_display_load_command(struct load_command *load_command, int ncmds)
 		{
 			display_load_dysymtab(ptr);
 			dump_mem(ptr, ptr->cmdsize + sizeof(struct load_command), 16, ft_itoa(i));
+		}
+		if (ptr->cmd == LC_SEGMENT_64 || ptr->cmd == LC_SEGMENT)
+		{
+			printf("segname:%s\nnsects:%d\n", ((struct segment_command_64*)ptr)->segname, ((struct segment_command_64*)ptr)->nsects);
 		}
 		ptr = (struct load_command*)((char*)ptr + ptr->cmdsize);
 		i++;
