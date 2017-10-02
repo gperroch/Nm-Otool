@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/02 15:05:29 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/02 18:31:21 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int							main(int argc, char **argv)
 		if (!(argc == 2 && file_number == 1 && !ft_strcmp(file_name, "a.out")))
 			file_name = argv[file_number];
 		if (ft_mapping_file(file_name, &file_content, &stats))
-			printf("ERROR in ft_mapping_file() for the file %s.\n", file_name);
+			ft_printf("ERROR in ft_mapping_file() for %s.\n", file_name);
 		else
 			ft_analyse_file(file_content, file_name);
 		munmap(file_content, stats.st_size);
@@ -56,20 +56,16 @@ int							main(int argc, char **argv)
 
 void					ft_analyse_file(void *file_content, char *file_name)
 {
-	struct mach_header_64	*header;
+	t_mach_header_64	*header;
 	char					*file_start;
 
 	header = file_content; // Parsing a faire a ce niveau.
 	file_start = ft_strncpy(ft_strnew(7), file_content, 7);
 	if (header->magic == 0xfeedfacf)
-		find_symtab(header, 1);
+		ft_find_symtab(header, 1);
 	else if (!ft_strcmp(file_start, "!<arch>"))
-		is_static_library(file_content, file_name);
+		ft_static_library(file_content, file_name);
 	else
-	{
-		ft_putstr_fd("ft_nm: ", 2);
-		ft_putstr_fd(file_name, 2);
-		ft_putendl_fd(" The file was not recognized as a valid object file", 2);
-	}
+		ft_printf("ft_nm: %s The file was not recognized as a valid object file\n", file_name);
 	free(file_start);
 }

@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2017/10/02 14:57:35 by gperroch         ###   ########.fr        #
+#    Updated: 2017/10/02 18:35:37 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,22 @@ NAME_OTOOL = ft_otool
 SRC_NM_PATH = ./SOURCES/
 SRC_NM_NAME =	nm.c \
 				utils_applicatifs.c \
+				symbol_list.c \
+				sort_list_symbols.c \
+				static_library.c \
+				lib_list_symbol.c \
+				utils.c \
 				dump_mem.c
 
 SRC_OTOOL_PATH = ./SOURCES/
 SRC_OTOOL_NAME =	otool.c \
-					utils_applicatifs.c
+					utils_applicatifs.c \
+					symbol_list.c \
+					sort_list_symbols.c \
+					static_library.c \
+					lib_list_symbol.c \
+					utils.c \
+					dump_mem.c
 
 OBJ_NM_PATH = ./OBJECTS/
 OBJ_OTOOL_PATH = ./OBJECTS/
