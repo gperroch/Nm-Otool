@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/01 15:49:28 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/02 14:49:24 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,8 +189,6 @@ void				is_static_library(void *file_content, char *file_name)
 	t_lib_symbol	*list;
 	t_lib_symbol	*ptr;
 
-//	if (!ft_strcmp(file_content, "!<arch>"))
-//		printf("StATIC LIB OK [%s]\n", arch);
 	lib = file_content;
 	ranlibs_size = lib->ranlibs_size;
 	ranlib = (struct ranlib*)((char*)file_content + sizeof(t_static_lib));

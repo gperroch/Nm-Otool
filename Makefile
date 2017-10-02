@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2017/10/01 15:36:13 by gperroch         ###   ########.fr        #
+#    Updated: 2017/10/02 14:57:35 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME_OTOOL = ft_otool
 
 SRC_NM_PATH = ./SOURCES/
 SRC_NM_NAME =	nm.c \
-				utils_applicatifs.c
+				utils_applicatifs.c \
+				dump_mem.c
 
 SRC_OTOOL_PATH = ./SOURCES/
 SRC_OTOOL_NAME =	otool.c \

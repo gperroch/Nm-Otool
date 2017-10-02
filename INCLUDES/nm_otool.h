@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm-otool.h                                         :+:      :+:    :+:   */
+/*   nm_otool.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/01 15:00:09 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/02 14:52:11 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int				ft_check_symbol_in_file_object(char *symbol_name, void *file_object);
 void					find_texttext_section(struct mach_header_64 *header);
 void		ft_dump_mem(void *ptr, int len, int col, void *header);
 void			find_texttext_static_library(void *file_content, char *argv);
+void					ft_analyse_file(void *file_content, char *file_name);
 
 #endif

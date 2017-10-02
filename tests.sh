@@ -10,6 +10,8 @@ echo "./ft_nm ft_nm.o" && sleep 3
 ./ft_nm nm.o > res1 && nm nm.o > res2 && diff res1 res2
 echo "./ft_nm libft.a" && sleep 3
 ./ft_nm libft/libft.a > res1 && nm libft/libft.a > res2 && diff res1 res2
+echo "./ft_nm INCLUDES/nm_otool.h" && sleep 3
+./ft_nm INCLUDES/nm_otool.h > res1 && nm INCLUDES/nm_otool.h > res2 && diff res1 res2
 
 
 echo "./ft_otool ft_otool" && sleep 3
@@ -22,3 +24,5 @@ echo "./ft_otool nm.o" && sleep 3
 ./ft_otool nm.o > res1 && otool -t nm.o > res2 && diff res1 res2
 echo "./ft_otool libft.a" && sleep 3
 ./ft_otool libft/libft.a > res1 && otool -t libft/libft.a > res2 && diff res1 res2
+echo "./ft_otool INCLUDES/nm_otool.h" && sleep 3
+./ft_otool INCLUDES/nm_otool.h > res1 && otool -t INCLUDES/nm_otool.h > res2 && diff res1 res2
