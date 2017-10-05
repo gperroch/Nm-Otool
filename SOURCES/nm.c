@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/02 18:31:21 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/05 13:38:24 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 // AFFICHER AVEC AUTRE CHOSE QUE PRINTF
 
 // Attention aux arguments de la forme libx.a(x.o)
+static void				ft_analyse_file(void *file_content, char *file_name);
 
 int							main(int argc, char **argv)
 {
@@ -54,10 +55,10 @@ int							main(int argc, char **argv)
 	return (0);
 }
 
-void					ft_analyse_file(void *file_content, char *file_name)
+static void				ft_analyse_file(void *file_content, char *file_name)
 {
 	t_mach_header_64	*header;
-	char					*file_start;
+	char				*file_start;
 
 	header = file_content; // Parsing a faire a ce niveau.
 	file_start = ft_strncpy(ft_strnew(7), file_content, 7);

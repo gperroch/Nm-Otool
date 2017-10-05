@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/02 18:03:03 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/05 14:49:11 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct				s_lib_symbol
 	struct s_lib_symbol		*previous;
 }							t_lib_symbol;
 
-void				ft_analyse_file(void *file_content, char *file_name);
 t_symbol_display	*ft_find_symtab(struct mach_header_64 *header, char to_display);
 void				ft_locate_symbol_table(struct mach_header_64 *header, void **symtab, void **strtab, struct symtab_command **symtab_command);
 t_symbol_display 	*ft_create_symbol_list(void *symtab, void *strtab, struct symtab_command *symtab_command, struct mach_header_64 *header);
@@ -68,9 +67,18 @@ void				ft_static_library(void *file_content, char *file_name);
 void				ft_display_static_library_symbols(t_lib_symbol *list, char *file_name);
 void				ft_find_ranlib_symtab(void *file_content, t_static_lib *lib, struct ranlib *ranlib, t_lib_symbol **list);
 int					ft_add_symbol_to_list(t_lib_symbol *ptr, t_lib_symbol *new_symbol, char *file_object_name);
-
 int				ft_mapping_file(char *file_name, void **file_content,
 	struct stat *stats);
+void				ft_iter_texttext_sections(t_load_command *load_command,
+	t_mach_header_64 *header, uint32_t *ncmds);
+void			*ft_find_ranlib_symbols(void *file_content, struct ranlib *ranlib, t_static_lib *lib, t_lib_symbol **list);
+void					ft_find_texttext_section(struct mach_header_64 *header);
+int					ft_calculate_distance_file_object(t_static_lib *file_object_header_line);
+
+
+
+
+
 void			ft_display_header(struct mach_header_64 *header);
 void			ft_display_load_command(struct load_command *load_command, int ncmds);
 void			dump_mem(void *ptr, int len, int col, char *name);
@@ -92,7 +100,7 @@ char			*load_command_type(uint32_t cmd);
 void					sort_list_lib_symbols(t_lib_symbol **list);
 void				ft_list_lib_symbols(t_lib_symbol **list, char *symbol_name, char *file_object_name, void *file_object);
 int				ft_check_symbol_in_file_object(char *symbol_name, void *file_object);
-void					find_texttext_section(struct mach_header_64 *header);
+
 void		ft_dump_mem(void *ptr, int len, int col, void *header);
 void			find_texttext_static_library(void *file_content, char *argv);
 
