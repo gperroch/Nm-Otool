@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:28:40 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 11:08:00 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 12:49:49 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void				ft_static_library(void *file_content, char *file_name)
 	while (ranlibs_size)
 	{
 		ft_find_ranlib_symtab(file_content, lib, ranlib, &list);
-		ranlib = (struct ranlib*)((char*)ranlib + sizeof(ranlib)); // VERIFIER LA PRESENCE DE ran_name AVEC UN IFDEF __LP64__
+		ranlib = (struct ranlib*)((char*)ranlib + sizeof(ranlib));
 		ranlibs_size -= sizeof(struct ranlib);
 	}
 	ft_display_static_library_symbols(list, file_name);
@@ -63,7 +63,7 @@ void				ft_display_static_library_symbols(t_lib_symbol *list,
 {
 	while (list)
 	{
-		ft_printf("\n%s(%s):\n", file_name, list->file_object_name); // !!!!!!!!
+		ft_printf("\n%s(%s):\n", file_name, list->file_object_name);
 		ft_find_symtab(list->file_object, 1);
 		list = list->next;
 	}

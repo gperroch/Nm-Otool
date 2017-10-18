@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:26:54 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 10:24:32 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 12:49:34 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void					ft_list_lib_symbols(t_lib_symbol **list,
 	t_lib_symbol		*new_symbol;
 	t_lib_symbol		*ptr;
 
-	ptr = *list; 	// Parsing pour les NULL a faire ici
+	ptr = *list;
 	new_symbol = (t_lib_symbol*)malloc(sizeof(t_lib_symbol));
 	ft_bzero(new_symbol, sizeof(t_lib_symbol));
 	if (ft_check_symbol_in_file_object(symbol_name, file_object))

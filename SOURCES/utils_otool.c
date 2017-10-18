@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 13:41:07 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 10:51:31 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 12:50:10 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void				ft_find_texttext_static_library(void *file_content,
 	list = NULL;
 	while (ranlibs_size)
 	{
-		ft_find_ranlib_symbols(file_content, ranlib, lib, &list); 		// VERIFIER LA PRESENCE DE ran_name AVEC UN IFDEF __LP64__
+		ft_find_ranlib_symbols(file_content, ranlib, lib, &list);
 		ranlib = (struct ranlib*)((char*)ranlib + sizeof(ranlib));
 		ranlibs_size -= sizeof(struct ranlib);
 	}

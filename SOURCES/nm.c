@@ -6,30 +6,28 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 11:11:57 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 12:47:23 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 
-///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-migrator/sdks/MacOSX.sdk/usr/include/mach-o/
-// Attention aux symboles venant de shared libraries.
-
-// PARSING ET CAS D'ERREURS (+return adequat) DANS TOUTES LES FONCTIONS
 // VERIFIER LES LEAKS
-// GERER LES MULTIPLES FICHIERS EN PARAMETRES
 
-// Attention aux arguments de la forme libx.a(x.o) A PRENDRE EN COMPTE
-
-static void				ft_analyse_file(void *file_content, char *file_name)
+static void				ft_analyse_file(void *file_content, char *file_name,
+	int argc)
 {
 	t_mach_header_64	*header;
 	char				*file_start;
 
-	header = file_content; // Parsing a faire a ce niveau.
+	header = file_content;
 	file_start = ft_strncpy(ft_strnew(7), file_content, 7);
 	if (header->magic == 0xfeedfacf)
+	{
+		if (argc > 2)
+			ft_printf("\n%s:\n", file_name);
 		ft_find_symtab(header, 1);
+	}
 	else if (!ft_strcmp(file_start, "!<arch>"))
 		ft_static_library(file_content, file_name);
 	else
@@ -59,7 +57,7 @@ int						main(int argc, char **argv)
 		if (ft_mapping_file(file_name, &file_content, &stats))
 			ft_printf("ERROR in ft_mapping_file() for %s.\n", file_name);
 		else
-			ft_analyse_file(file_content, file_name);
+			ft_analyse_file(file_content, file_name, argc);
 		munmap(file_content, stats.st_size);
 	}
 	return (0);
