@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 11:02:03 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 11:11:57 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 // PARSING ET CAS D'ERREURS (+return adequat) DANS TOUTES LES FONCTIONS
 // VERIFIER LES LEAKS
 // GERER LES MULTIPLES FICHIERS EN PARAMETRES
-// AFFICHER AVEC AUTRE CHOSE QUE PRINTF
 
 // Attention aux arguments de la forme libx.a(x.o) A PRENDRE EN COMPTE
 

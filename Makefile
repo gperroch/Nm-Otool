@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2017/10/18 10:59:01 by gperroch         ###   ########.fr        #
+#    Updated: 2017/10/18 11:10:57 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC_NM_NAME =	nm.c \
 				static_library.c \
 				lib_list_symbol.c \
 				mapping_file.c \
-				dump_mem.c
+				ft_dump_mem.c
 
 SRC_OTOOL_PATH = ./SOURCES/
 SRC_OTOOL_NAME =	otool.c \
