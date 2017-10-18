@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:11:17 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/02 16:29:44 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 10:24:57 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void					ft_sort_list_symbols(t_symbol_display **list)
 	}
 }
 
-void				ft_set_previous_and_next(t_symbol_display *ptr,
+void					ft_set_previous_and_next(t_symbol_display *ptr,
 	t_symbol_display *ptr2, t_symbol_display **list)
 {
 	if (ptr->previous)

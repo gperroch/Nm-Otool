@@ -6,11 +6,13 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:28:40 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/02 18:28:44 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 10:35:39 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
+#define DIFF values[0]
+#define DISTANCE values[1]
 
 void				ft_static_library(void *file_content, char *file_name)
 {
@@ -34,12 +36,11 @@ void				ft_static_library(void *file_content, char *file_name)
 }
 
 void				ft_find_ranlib_symtab(void *file_content, t_static_lib *lib,
-	 struct ranlib *ranlib, t_lib_symbol **list)
+	struct ranlib *ranlib, t_lib_symbol **list)
 {
 	char			*symbol_name;
 	t_static_lib	*obj_header;
-	int				diff;
-	int				distance;
+	int				values[2];
 	char			*file_object_name;
 	void			*file_object;
 
@@ -47,13 +48,13 @@ void				ft_find_ranlib_symtab(void *file_content, t_static_lib *lib,
 		+ lib->ranlibs_size + ranlib->ran_off;
 	obj_header = (t_static_lib*)((char*)file_content
 		+ (ranlib->ran_un).ran_strx);
-	diff = (char*)obj_header->end_identifier
+	DIFF = (char*)obj_header->end_identifier
 		+ ft_strlen(obj_header->end_identifier) - (char*)obj_header;
-	distance = ((diff / 8) + 1) * 8;
-	distance = diff % 8 > 4 ? distance + 8 : distance;
+	DISTANCE = ((DIFF / 8) + 1) * 8;
+	DISTANCE = DIFF % 8 > 4 ? DISTANCE + 8 : DISTANCE;
 	file_object_name = (char*)file_content + sizeof(lib->file_identifier)
 		+ (ranlib->ran_un).ran_strx;
-	file_object = (char*)obj_header + distance;
+	file_object = (char*)obj_header + DISTANCE;
 	ft_list_lib_symbols(list, symbol_name, file_object_name, file_object);
 }
 
@@ -62,7 +63,7 @@ void				ft_display_static_library_symbols(t_lib_symbol *list,
 {
 	while (list)
 	{
-		printf("\n%s(%s):\n", file_name, list->file_object_name);
+		printf("\n%s(%s):\n", file_name, list->file_object_name); // !!!!!!!!
 		ft_find_symtab(list->file_object, 1);
 		list = list->next;
 	}

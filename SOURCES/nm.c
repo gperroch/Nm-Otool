@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/05 13:38:24 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 10:30:04 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,31 @@
 // GERER LES MULTIPLES FICHIERS EN PARAMETRES
 // AFFICHER AVEC AUTRE CHOSE QUE PRINTF
 
-// Attention aux arguments de la forme libx.a(x.o)
-static void				ft_analyse_file(void *file_content, char *file_name);
+// Attention aux arguments de la forme libx.a(x.o) A PRENDRE EN COMPTE
 
-int							main(int argc, char **argv)
+static void				ft_analyse_file(void *file_content, char *file_name)
 {
-	char					*file_name;
-	int						file_number;
-	void					*file_content; // Buffer contenant le fichier.
-	struct stat				stats;
+	t_mach_header_64	*header;
+	char				*file_start;
+
+	header = file_content; // Parsing a faire a ce niveau.
+	file_start = ft_strncpy(ft_strnew(7), file_content, 7);
+	if (header->magic == 0xfeedfacf)
+		ft_find_symtab(header, 1);
+	else if (!ft_strcmp(file_start, "!<arch>"))
+		ft_static_library(file_content, file_name);
+	else
+		ft_printf("ft_nm: %s %s\n",
+			file_name, "The file was not recognized as a valid object file");
+	free(file_start);
+}
+
+int						main(int argc, char **argv)
+{
+	char				*file_name;
+	int					file_number;
+	void				*file_content;
+	struct stat			stats;
 
 	file_name = "";
 	file_number = 0;
@@ -53,20 +69,4 @@ int							main(int argc, char **argv)
 		munmap(file_content, stats.st_size);
 	}
 	return (0);
-}
-
-static void				ft_analyse_file(void *file_content, char *file_name)
-{
-	t_mach_header_64	*header;
-	char				*file_start;
-
-	header = file_content; // Parsing a faire a ce niveau.
-	file_start = ft_strncpy(ft_strnew(7), file_content, 7);
-	if (header->magic == 0xfeedfacf)
-		ft_find_symtab(header, 1);
-	else if (!ft_strcmp(file_start, "!<arch>"))
-		ft_static_library(file_content, file_name);
-	else
-		ft_printf("ft_nm: %s The file was not recognized as a valid object file\n", file_name);
-	free(file_start);
 }

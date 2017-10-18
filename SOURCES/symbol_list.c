@@ -6,18 +6,18 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 15:39:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/02 16:04:09 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 10:38:52 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 
-t_symbol_display 			*ft_create_symbol_list(void *symtab, void *strtab,
+t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab,
 	t_symtab_command *symtab_command, t_mach_header_64 *header)
 {
 	struct nlist_64			*nlist;
-	t_symbol_display 		*list;
-	t_symbol_display 		*ptr;
+	t_symbol_display		*list;
+	t_symbol_display		*ptr;
 	uint32_t				symbol_counter;
 
 	symbol_counter = 0;
@@ -72,7 +72,7 @@ void						ft_init_element(t_symbol_display **list,
 	}
 }
 
-void				ft_display_symbols(t_symbol_display *list)
+void						ft_display_symbols(t_symbol_display *list)
 {
 	while (list)
 	{
