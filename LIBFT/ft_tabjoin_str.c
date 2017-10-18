@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 09:54:06 by gperroch          #+#    #+#             */
-/*   Updated: 2016/05/16 15:11:45 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 10:43:57 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ char		**ft_tabjoin_str(char ***tab, int length, char *str)
 		new_tab[i] = ft_strdup((*tab)[i]);
 	ft_freetab_str(*tab, length);
 	free(*tab);
-	*tab = new_tab;
-	return (new_tab);
+	return (*tab = new_tab);
 }
