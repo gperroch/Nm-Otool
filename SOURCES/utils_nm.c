@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/05 14:54:57 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 10:47:25 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_symbol_display			*ft_find_symtab(t_mach_header_64 *header,
 	char to_display)
 {
-	t_symtab_command	*symtab_command;
+	t_symtab_command		*symtab_command;
 	void					*symtab;
 	void					*strtab;
 	t_symbol_display		*list;
@@ -28,11 +28,11 @@ t_symbol_display			*ft_find_symtab(t_mach_header_64 *header,
 	return (list);
 }
 
-void					ft_locate_symbol_table(t_mach_header_64 *header,
+void						ft_locate_symbol_table(t_mach_header_64 *header,
 	void **symtab, void **strtab, t_symtab_command **symtab_command)
 {
-	t_load_command	*load_command;
-	uint32_t			lc_counter;
+	t_load_command			*load_command;
+	uint32_t				lc_counter;
 
 	lc_counter = 0;
 	load_command = (t_load_command*)((char*)header
@@ -54,8 +54,8 @@ char						ft_find_section(void *header, int section_number)
 {
 	t_load_command			*load_cmd;
 	t_segment_command_64	*segment_command;
-	void						*section;
-	int							section_counter;
+	void					*section;
+	int						section_counter;
 
 	section_counter = 0;
 	load_cmd = (t_load_command*)((char*)header + sizeof(t_mach_header_64));
@@ -77,9 +77,9 @@ char						ft_find_section(void *header, int section_number)
 	return (ft_section_type(section));
 }
 
-char					ft_section_type(t_section_64 *section)
+char						ft_section_type(t_section_64 *section)
 {
-	char				res;
+	char					res;
 
 	res = 'S';
 	res = !ft_strcmp(section->sectname, "__text") ? 'T' : res;

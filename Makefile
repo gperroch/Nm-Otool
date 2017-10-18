@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2017/10/05 14:55:59 by gperroch         ###   ########.fr        #
+#    Updated: 2017/10/18 10:59:01 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ SRC_NM_NAME =	nm.c \
 				sort_list_symbols.c \
 				static_library.c \
 				lib_list_symbol.c \
-				utils.c \
 				mapping_file.c \
 				dump_mem.c
 
@@ -41,7 +40,7 @@ INC_PATH = ./INCLUDES/
 LIBFT = libft/libft.a
 LIB_PATH = ./libft/
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -fPIC -g
+CFLAGS = -Wall -Wextra -Werror
 
 OBJ_NM_NAME = $(SRC_NM_NAME:.c=.o)
 OBJ_NM = $(addprefix $(OBJ_NM_PATH),$(OBJ_NM_NAME))

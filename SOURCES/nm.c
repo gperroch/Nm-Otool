@@ -6,22 +6,17 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 10:30:04 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 11:02:03 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 
 ///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-migrator/sdks/MacOSX.sdk/usr/include/mach-o/
-// Recuperation du contenu de l'executable.
-// Mapping des donnees recuperees avec les structures adequat.
-// Affichage formate de la table des symboles.
 // Attention aux symboles venant de shared libraries.
 
 // PARSING ET CAS D'ERREURS (+return adequat) DANS TOUTES LES FONCTIONS
 // VERIFIER LES LEAKS
-// METTRE TOUTES LES FONCTIONS EN FT_...
-// GERER LES DIFFERENTS TYPES DE HEADER (pas seulement mach_header_64)
 // GERER LES MULTIPLES FICHIERS EN PARAMETRES
 // AFFICHER AVEC AUTRE CHOSE QUE PRINTF
 

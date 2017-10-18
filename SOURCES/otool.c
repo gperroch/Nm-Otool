@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/01 12:06:51 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 10:23:34 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 10:51:20 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void					ft_analyse_file(void *file_content, char *file_name)
 	else if (!ft_strcmp(file_start, "!<arch>"))
 	{
 		ft_printf("Archive : %s\n", file_name);
-		find_texttext_static_library(file_content, file_name);
+		ft_find_texttext_static_library(file_content, file_name);
 	}
 	else
 		ft_printf("ft_otool: '%s': %s\n",
