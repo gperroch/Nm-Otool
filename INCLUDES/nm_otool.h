@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 10:58:18 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 12:56:06 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct				s_symbol_display
 	struct s_symbol_display	*next;
 	struct s_symbol_display	*previous;
 }							t_symbol_display;
-typedef struct				s_static_lib // ATTENTION A LA TAILLE DU NOM DU FICHIER. HEADER A MODIFIER. AJOUTER LES 5 VARIABLES DU FILE_IDENTIFIER
+typedef struct				s_static_lib
 {
 	char					file_identifier[60];
 	char					end_identifier[8];

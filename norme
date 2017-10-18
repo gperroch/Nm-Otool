@@ -1,3 +1,118 @@
+Norme: ./SOURCES/dump_mem.c
+Norme: ./SOURCES/ft_dump_mem.c
+Norme: ./SOURCES/nm.c
+Error (line 15): C++ comment
+Norme: ./SOURCES/lib_list_symbol.c
+Norme: ./SOURCES/otool.c
+Norme: ./SOURCES/sort_list_symbols.c
+Norme: ./SOURCES/static_library.c
+Norme: ./SOURCES/utils_nm.c
+Norme: ./SOURCES/symbol_list.c
+Norme: ./libft/ft_atoi.c
+Norme: ./libft/ft_bitoint.c
+Norme: ./SOURCES/utils_otool.c
+Norme: ./libft/ft_close_regex.c
+Norme: ./libft/ft_freetab_int.c
+Norme: ./libft/ft_freetab_str.c
+Norme: ./libft/ft_intostring.c
+Norme: ./SOURCES/mapping_file.c
+Norme: ./libft/ft_isalpha.c
+Norme: ./libft/ft_isascii.c
+Norme: ./SOURCES/utils.c
+Error: global scope bad aligned
+Error (line 35): function ft_display_load_command has 28 lines
+Error (line 35): line has 94 characters
+Error (line 43): Empty line
+Error (line 46): line has 102 characters
+Error (line 51): line has 87 characters
+Error (line 56): line has 87 characters
+Error (line 60): line has 134 characters
+Error (line 67): function load_command_type has 28 lines
+Error (line 94): line has 85 characters
+Error (line 99): line has 83 characters
+Error (line 112): line has 85 characters
+Norme: ./libft/ft_bzero.c
+Norme: ./libft/ft_isprint.c
+Norme: ./libft/ft_isalnum.c
+Norme: ./libft/ft_isdigit.c
+Norme: ./libft/ft_lstadd.c
+Norme: ./libft/ft_itoabase_unsigned.c
+Norme: ./libft/ft_lstdel.c
+Norme: ./libft/ft_itoabase.c
+Norme: ./libft/ft_lstdelone.c
+Norme: ./libft/ft_lstlen.c
+Norme: ./libft/ft_lstiter.c
+Norme: ./libft/ft_lstnew.c
+Norme: ./libft/ft_itoa.c
+Norme: ./libft/ft_lstmap.c
+Norme: ./libft/ft_memchr.c
+Norme: ./libft/ft_memccpy.c
+Norme: ./libft/ft_lstdup.c
+Norme: ./libft/ft_memcpy.c
+Norme: ./libft/ft_memcmp.c
+Norme: ./libft/ft_memalloc.c
+Norme: ./libft/ft_memdel.c
+Norme: ./libft/ft_memset.c
+Norme: ./libft/ft_power.c
+Norme: ./libft/ft_memmove.c
+Norme: ./libft/ft_print_conv.c
+Norme: ./libft/ft_print_extra.c
+Norme: ./libft/ft_precision.c
+Norme: ./libft/ft_print_regex.c
+Norme: ./libft/ft_print_specifier.c
+Norme: ./libft/ft_printf.c
+Norme: ./libft/ft_print_ptr.c
+Norme: ./libft/ft_printtab_str.c
+Norme: ./libft/ft_putchar.c
+Norme: ./libft/ft_putchar_fd.c
+Norme: ./libft/ft_putendl.c
+Norme: ./libft/ft_modif_flags.c
+Norme: ./libft/ft_putnbr.c
+Norme: ./libft/ft_putnbr_fd.c
+Norme: ./libft/ft_putstr.c
+Norme: ./libft/ft_putstr_fd.c
+Norme: ./libft/ft_print_integers.c
+Norme: ./libft/ft_strcat.c
+Norme: ./libft/ft_printtab_int.c
+Norme: ./libft/ft_strchr.c
+Norme: ./libft/ft_putendl_fd.c
+Norme: ./libft/ft_strclr.c
+Norme: ./libft/ft_sqrt.c
+Norme: ./libft/ft_strdel.c
+Norme: ./libft/ft_strcmp.c
+Norme: ./libft/ft_strcpy.c
+Norme: ./libft/ft_striter.c
+Norme: ./libft/ft_strdup.c
+Norme: ./libft/ft_strdupchr.c
+Norme: ./libft/ft_striteri.c
+Norme: ./libft/ft_strlcat.c
+Norme: ./libft/ft_strjoin.c
+Norme: ./libft/ft_strlenchr.c
+Norme: ./libft/ft_strequ.c
+Norme: ./libft/ft_strlen.c
+Norme: ./libft/ft_strncat.c
+Norme: ./libft/ft_strmap.c
+Norme: ./libft/ft_strncmp.c
+Norme: ./libft/ft_strmapi.c
+Norme: ./libft/ft_strncpy.c
+Norme: ./libft/ft_strnew.c
+Norme: ./libft/ft_strndup.c
+Norme: ./libft/ft_strrchr.c
+Norme: ./libft/ft_strnequ.c
+Norme: ./libft/ft_strnstr.c
+Norme: ./libft/ft_strsub.c
+Norme: ./libft/ft_strstr.c
+Norme: ./libft/ft_swap.c
+Norme: ./libft/ft_strsplit.c
+Norme: ./libft/ft_strtrim.c
+Norme: ./libft/ft_tablen_str.c
+Norme: ./libft/ft_tabjoin_str.c
+Norme: ./libft/ft_tolower.c
+Norme: ./libft/ft_tabjoin_int.c
+Norme: ./libft/ft_tabjoin_tabstr.c
+Norme: ./libft/ft_toupper.c
+Norme: ./libft/get_next_line.c
+Norme: ./libft/ft_wchar_display.c
 Norme: ./libft/ft_printf.h
 Norme: ./INCLUDES/nm_otool.h
 Error (line 39): C++ comment
