@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 15:39:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 10:38:52 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/18 11:07:55 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ void						ft_display_symbols(t_symbol_display *list)
 	while (list)
 	{
 		if (list->type != 'U')
-			printf("%016lx %c %s\n", list->value, list->type, list->name);
+			ft_printf("%016lx %c %s\n", list->value, list->type, list->name);
 		else
-			printf("%16c %c %s\n", ' ', list->type, list->name);
+			ft_printf("%16c %c %s\n", ' ', list->type, list->name);
 		list = list->next;
 	}
 }
