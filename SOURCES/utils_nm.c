@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 10:47:25 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 12:49:23 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ char						ft_section_type(t_section_64 *section)
 	res = !ft_strcmp(section->sectname, "__text") ? 'T' : res;
 	res = !ft_strcmp(section->sectname, "__data") ? 'D' : res;
 	res = !ft_strcmp(section->sectname, "__bss") ? 'B' : res;
-	res = !ft_strcmp(section->sectname, "__common") ? 'C' : res;
+	res = !ft_strcmp(section->sectname, "__common") &&
+			ft_strcmp(section->segname, "__DATA") ? 'C' : res;
 	return (res);
 }
