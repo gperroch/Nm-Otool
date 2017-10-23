@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 15:39:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 11:07:55 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 18:52:09 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab,
 		nlist = (struct nlist_64*)((char*)nlist + sizeof(struct nlist_64));
 		symbol_counter++;
 	}
+
 	return (list);
 }
 

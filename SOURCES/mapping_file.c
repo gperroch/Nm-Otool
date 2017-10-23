@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 13:44:28 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 10:19:50 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 18:54:34 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,17 @@ int				ft_mapping_file(char *file_name, void **file_content,
 		return (-1);
 	close(fd);
 	return (0);
+}
+
+void				ft_free_list_symbols(t_symbol_display *list)
+{
+	t_symbol_display			*tmp;
+
+	while (list)
+	{
+		tmp = list;
+		list = list->next;
+		if (tmp)
+			free(tmp);
+	}
 }

@@ -6,13 +6,11 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/01 12:06:51 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/19 11:19:47 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 13:06:42 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
-
-// PROBLEME SUR UN .so
 
 static void					ft_analyse_file(void *file_content, char *file_name)
 {

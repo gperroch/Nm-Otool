@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 12:56:06 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 19:26:09 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ void						ft_find_texttext_static_library(void *file_content,
 	char *argv);
 void						ft_dump_mem(void *ptr, int len, int col,
 	void *header);
-
+void				ft_free_list_symbols(t_symbol_display *list);
+void			ft_free_static_library_symbols(t_lib_symbol *list);
 #endif

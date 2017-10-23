@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 12:47:23 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 18:54:26 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void				ft_analyse_file(void *file_content, char *file_name,
 {
 	t_mach_header_64	*header;
 	char				*file_start;
+	t_symbol_display	*list;
 
 	header = file_content;
 	file_start = ft_strncpy(ft_strnew(7), file_content, 7);
@@ -26,7 +27,7 @@ static void				ft_analyse_file(void *file_content, char *file_name,
 	{
 		if (argc > 2)
 			ft_printf("\n%s:\n", file_name);
-		ft_find_symtab(header, 1);
+		list = ft_find_symtab(header, 1);
 	}
 	else if (!ft_strcmp(file_start, "!<arch>"))
 		ft_static_library(file_content, file_name);

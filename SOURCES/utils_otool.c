@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 13:41:07 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/19 12:49:38 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 19:26:22 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void				ft_find_texttext_static_library(void *file_content,
 		ft_find_texttext_section(ptr->file_object);
 		ptr = ptr->next;
 	}
+	ft_free_static_library_symbols(list);
 }
 
 void				*ft_find_ranlib_symbols(void *file_content,

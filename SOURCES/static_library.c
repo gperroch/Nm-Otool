@@ -6,13 +6,26 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:28:40 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 12:49:49 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 19:25:59 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 #define DIFF values[0]
 #define DISTANCE values[1]
+
+void			ft_free_static_library_symbols(t_lib_symbol *list)
+{
+	void			*tmp;
+
+	while (list)
+	{
+		tmp = list;
+		list = list->next;
+		if (tmp)
+			free(tmp);
+	}
+}
 
 void				ft_static_library(void *file_content, char *file_name)
 {
@@ -33,6 +46,7 @@ void				ft_static_library(void *file_content, char *file_name)
 		ranlibs_size -= sizeof(struct ranlib);
 	}
 	ft_display_static_library_symbols(list, file_name);
+	ft_free_static_library_symbols(list);
 }
 
 void				ft_find_ranlib_symtab(void *file_content, t_static_lib *lib,

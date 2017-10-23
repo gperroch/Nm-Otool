@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:26:54 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/18 12:49:34 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 18:51:56 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,20 @@ int						ft_check_symbol_in_file_object(char *symbol_name,
 	void *file_object)
 {
 	t_symbol_display	*list;
+	t_symbol_display	*ptr;
 
 	list = ft_find_symtab(file_object, 0);
-	while (list)
+	ptr = list;
+	while (ptr)
 	{
-		if (!ft_strcmp(list->name, symbol_name) && list->type >= 65
-			&& list->type <= 90 && list->type != 'U')
+		if (!ft_strcmp(ptr->name, symbol_name) && ptr->type >= 65
+			&& ptr->type <= 90 && ptr->type != 'U')
+		{
+			ft_free_list_symbols(list);
 			return (1);
-		list = list->next;
+		}
+		ptr = ptr->next;
 	}
+	ft_free_list_symbols(list);
 	return (0);
 }
