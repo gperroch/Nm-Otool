@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_integers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gperroch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/02 12:20:06 by gperroch          #+#    #+#             */
-/*   Updated: 2016/03/13 13:14:50 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 19:01:03 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,16 +104,25 @@ char				*ft_print_integers(char *convchars, va_list ap)
 	else if (convchars[0] == 'x' || convchars[0] == 'X')
 		base = 16;
 	if (convchars[0] == '%')
+	{
+		free(convchars);
 		return (ft_memset(ft_strnew(1), '%', 1));
+	}
 	arg = va_arg(ap, intmax_t);
 	regex_printed = NULL;
 	regex_printed = ft_particular(arg, convchars, regex_printed);
 	regex_printed = ft_signed_int(arg, convchars, regex_printed);
 	regex_printed = ft_unsigned_int(arg, convchars, base, regex_printed);
 	if (convchars[0] == 'c' && !convchars[1])
+	{
+		free(regex_printed); ///// NEW
 		regex_printed = ft_memset(ft_strnew(1), (int)arg, 1);
+	}
 	else if (convchars[0] == 'c' && convchars[1] == 'l')
+	{
+		free(regex_printed); ///// NEW
 		regex_printed = ft_wchar_display(arg);
+	}
 	if (convchars[0] == 'X')
 		ft_up(regex_printed);
 	return (regex_printed);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_conv.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gperroch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/14 09:06:14 by gperroch          #+#    #+#             */
-/*   Updated: 2016/03/13 12:55:46 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 18:59:38 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,9 @@ char		*ft_print_conv(char *format, va_list ap, char specifier,
 	ft_convchars(format, convchars, specifier);
 	ft_upper_conv(convchars);
 	if (convchars[0] == 's' || convchars[0] == 'p')
-		return (ft_print_ptr(convchars, ap, size_s));
+		regex = ft_print_ptr(convchars, ap, size_s);
 	else
-		return (ft_print_integers(convchars, ap));
+		regex = ft_print_integers(convchars, ap);
+	free(convchars);
+	return (regex);
 }

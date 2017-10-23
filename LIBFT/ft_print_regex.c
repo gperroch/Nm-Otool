@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_regex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gperroch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 18:32:25 by gperroch          #+#    #+#             */
-/*   Updated: 2016/03/13 13:02:24 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 19:19:11 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int			ft_print_regex(char *restrict *format, va_list ap)
 	len += ft_strlen(regex_printed);
 	write(1, regex_printed, len);
 	(len == 0 && (specifier == 'c' || specifier == 'C')) ? (len = 1) : (0);
+	free(regex_printed);
 	return (len);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_precision.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gperroch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 13:41:36 by gperroch          #+#    #+#             */
-/*   Updated: 2016/03/13 14:21:03 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 15:06:22 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,21 @@ int			ft_precision(char *format, char **regex_printed, char spec,
 	if (!ft_calcul(format, spec, &preci))
 		return (0);
 	if ((spec == 's') && preci < len)
+	{
 		tmp = ft_strncpy(ft_strnew(preci), *regex_printed, preci);
+//		printf("FREED4:%p\n", regex_printed); ///// NEW
+		free(*regex_printed); ///// NEW
+	}
 	if ((spec == 'S') && preci < len)
 		(*regex_printed)[preci - (preci % size_s)] = 0;
 	((*regex_printed)[0] == '-' && preci > len - 1) ? (len--) : (0);
 	if (spec != 's' && spec != 'S' && spec != 'c' && spec != 'p' && preci > len)
+	{
 		tmp = ft_strjoin(ft_memset(ft_strnew(preci - len),
 					'0', (preci - len)), *regex_printed);
+//		printf("FREED5:%p\n", regex_printed); ///// NEW
+		free(*regex_printed); ///// NEW
+	}
 	if (tmp)
 	{
 		(tmp[preci - len] == '-' && preci >= len) ? (tmp[0] = '-') : 0;

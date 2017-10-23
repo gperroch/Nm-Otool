@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_extra.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gperroch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 17:22:08 by gperroch          #+#    #+#             */
-/*   Updated: 2016/03/13 13:58:14 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/19 19:19:28 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int			ft_fieldwidth(char *format, char **regex_printed, char specifier)
 	tmp = ft_memset(ft_strnew(len), ' ', len);
 	field_add = ft_strjoin(tmp, *regex_printed);
 	free(tmp);
+	free(*regex_printed);
 	*regex_printed = ft_strdup(field_add);
 	free(field_add);
 	return (fieldwidth);
