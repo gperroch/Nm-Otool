@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 11:40:05 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 17:27:45 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 18:10:39 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,61 +33,80 @@ int			ft_arch_gateway(int arch, int element)
 
 void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, off_t file_size)
 {
-	struct fat_header	*fat_header;
+	//struct fat_header	*fat_header;
 	void				*fat_arch;
 	uint32_t			i;
 	uint64_t			offset;
-	int					arch;
-	uint32_t			nfat_arch;
+	//int					arch;
+	//uint32_t			nfat_arch;
+	t_generic_file		gen;
 
 	(void)file_name;
-	if (magic == FAT_CIGAM || magic == FAT_CIGAM_64) // Changement de l'endianness
-		file_content = ft_revert_endianness_4bytes(file_content, file_size);
-	fat_header = file_content;
+	if (magic == FAT_CIGAM || magic == FAT_CIGAM_64)
+		gen.endian = BIGEND;
+	else
+		gen.endian = LITTLEEND;
+	gen.arch = magic == FAT_MAGIC || magic == FAT_CIGAM ? 32 : 64;
+	gen.file_size = file_size;
+
+	gen.fat_header = file_content;
 	ft_printf("OK1\n");
-	arch = magic == FAT_MAGIC || magic == FAT_CIGAM ? 32 : 64;
 	i = 0;
-	fat_arch = (char*)fat_header + sizeof(struct fat_header);
-	ft_printf("OK2\n");
-	nfat_arch = fat_header->nfat_arch;
-	//nfat_arch = ft_swap_endian_32bit(fat_header->nfat_arch);
-	while (i < nfat_arch)
+	fat_arch = (char*)(gen.fat_header) + sizeof(struct fat_header);
+	//ft_printf("OK2\n");
+	//gen.nfat_arch = (gen.fat_header)->nfat_arch;
+	gen.nfat_arch = ft_swap_endian_32bit(gen.fat_header->nfat_arch);
+	//nfat_arch = ft_revert_endianness_4bytes(fat_header->nfat_arch);
+	while (i < gen.nfat_arch)
 	{
-		offset = arch == 32 ? ((struct fat_arch*)fat_arch)->offset : ((struct fat_arch_64*)fat_arch)->offset;
-		//offset = ft_swap_endian_32bit(offset);
-		ft_printf("OK3 arch:%d nfat_arch:%x offset:%d sizeof(fat_header->nfat_arch):%d\n", arch, nfat_arch, offset, sizeof(fat_header->nfat_arch));
-		ft_iterate_fat_arch(file_content, offset, arch, file_size);
+		offset = gen.arch == 32 ? ((struct fat_arch*)fat_arch)->offset : ((struct fat_arch_64*)fat_arch)->offset;
+		offset = ft_swap_endian_32bit(offset);
+		ft_printf("OK3 arch:%d nfat_arch:%x offset:%d sizeof(fat_header->nfat_arch):%d\n", gen.arch, gen.nfat_arch, offset, sizeof(gen.fat_header->nfat_arch));
+		ft_iterate_fat_arch(&gen, offset);
 		ft_printf("OK4\n");
-		fat_arch = (char*)fat_arch + ft_arch_gateway(arch, FAT_ARCH);
+		fat_arch = (char*)fat_arch + ft_arch_gateway(gen.arch, FAT_ARCH);
 		ft_printf("OK5\n");
 		i++;
 	}
 	ft_printf("OK6\n");
 }
 
-void					ft_iterate_fat_arch(void *file_content, uint64_t offset, int arch, off_t file_size)
+void					ft_iterate_fat_arch(t_generic_file *gen, uint64_t offset)
 {
-	t_generic_file		gen;
-
-	//(void)file_size;
-	gen.arch = arch;
-	gen.header = (t_mach_header_64 *)((char*)file_content + offset);
+	gen->header = (t_mach_header_64 *)((char*)(gen->fat_header) + offset);
 	//dump_mem(gen.header, 16 * 5, 16, "iterate");
-	/* CHANGER L'ENDIANNESS DU FICHIER */
-	char		*file_copy;
+	/* CHANGER L'ENDIANNESS DU FICHIER */ // A FAIRE AU CAS PAR CAS
+/*	char		*file_copy;
 	ft_printf("content:[%x]\n", ((struct fat_header*)file_content)->magic);
 	file_copy = ft_revert_endianness_4bytes(file_content, file_size);
 	ft_printf("copy after:[%x] [%d/%x]\n", ((struct fat_header*)file_copy)->magic, ((struct fat_header*)file_copy)->nfat_arch);
 	dump_mem(file_copy, 16*5, 16, "copy");
-	dump_mem(file_content, 16*5, 16, "content");
+	dump_mem(file_content, 16*5, 16, "content"); */
 	/////////////////////////////////////
 	ft_printf("OK3A\n");
-	ft_find_symtab(&gen, 1);
+	ft_find_symtab(gen, 1);
 	ft_printf("OK3B\n");
 }
 
-void					*ft_revert_endianness_4bytes(void *file_content, off_t file_size) // ATTENTION AUX NOMBRES DANS LES NOMS DE FONCTION
+int						ft_revert_endianness_4bytes(int nbr) // Merdique. Utiliser l'autre
 {
+	char				*file_copy;
+	char				tmp;
+
+	file_copy = (char*)(&nbr);
+	tmp = file_copy[3];
+	file_copy[3] = file_copy[0];
+	file_copy[0] = tmp;
+	tmp = file_copy[2];
+	file_copy[2] = file_copy[1];
+	file_copy[1] = tmp;
+
+	return (*file_copy);
+}
+
+void					*ft_revert_endianness_4bytes_full(void *file_content, off_t file_size) // ATTENTION AUX NOMBRES DANS LES NOMS DE FONCTION
+{
+	/* VERSION FICHIER COMPLET */
 	char				*file_copy;
 	char				tmp;
 	int					i = 0;

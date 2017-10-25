@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 15:39:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 14:03:35 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 18:20:15 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,43 @@ void						ft_display_symbols(t_symbol_display *list)
 
 
 /* VERSION GATEWAY */
+
+t_symbol_display			*ft_create_symbol_list_bigendian(void *symtab, void *strtab, t_symtab_command *symtab_command, t_generic_file *gen)
+{
+	t_symbol_display		*list;
+	t_symbol_display		*ptr;
+	int				symbol_counter;
+
+	gen->nlist = symtab;
+	gen->nlist_64 = symtab;
+
+	symbol_counter = 0;
+	list = NULL;
+	ft_printf("K2 BIG A\n");
+	while (symbol_counter < ft_swap_endian_32bit(symtab_command->nsyms))
+	{
+		ft_printf("K2 BIG B\n");
+		gen->n_type = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_type) : ft_swap_endian_32bit(gen->nlist_64->n_type);
+		gen->n_sect = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_sect) : ft_swap_endian_32bit(gen->nlist_64->n_sect);
+		gen->n_desc = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_desc) : ft_swap_endian_32bit(gen->nlist_64->n_desc);
+		gen->n_value = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_value) : ft_swap_endian_32bit(gen->nlist_64->n_value);
+		gen->n_strx = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_un.n_strx) : ft_swap_endian_32bit(gen->nlist_64->n_un.n_strx);
+		ft_printf("K2 BIG C\n");
+		if (!(gen->n_type & N_STAB))
+		{
+			ft_init_element(&list, &ptr);
+			ft_set_element(&ptr, gen, strtab);
+		}
+		ft_printf("K2 BIG D\n");
+		gen->nlist = (struct nlist*)((char*)gen->nlist + sizeof(struct nlist));
+		gen->nlist_64 = (struct nlist_64*)((char*)gen->nlist_64 + sizeof(struct nlist_64));
+		ft_printf("K2 BIG E\n");
+		symbol_counter++;
+	}
+	ft_printf("K2 BIG F\n");
+	return (list);
+}
+
 
 t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab, t_symtab_command *symtab_command, t_generic_file *gen)
 {

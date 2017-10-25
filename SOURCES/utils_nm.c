@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 15:45:42 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 18:19:19 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,9 +116,19 @@ t_symbol_display			*ft_find_symtab(t_generic_file *gen, char to_display) // GATE
 	t_symbol_display		*list;
 
 	ft_printf("K1 gen->header:%p gen->arch:%d\n", gen->header, gen->arch);
-	ft_locate_symbol_table(gen, &symtab, &strtab, &symtab_command); // GATEWAY
-	ft_printf("K2\n");
-	list = ft_create_symbol_list(symtab, strtab, symtab_command, gen); // !!!
+	if (gen->endian == LITTLEEND)
+	{
+		ft_locate_symbol_table(gen, &symtab, &strtab, &symtab_command); // GATEWAY
+		ft_printf("K2 LITTLE\n");
+		list = ft_create_symbol_list(symtab, strtab, symtab_command, gen); // !!!
+	}
+	else //if (gen->endian == BIGEND) // GERER ca pour d'autre architectures que FAT
+	{
+		ft_locate_symbol_table_bigendian(gen, &symtab, &strtab, &symtab_command); // GATEWAY
+		ft_printf("K2 BIG\n");
+		list = ft_create_symbol_list_bigendian(symtab, strtab, symtab_command, gen); // !!!
+	}
+	//list = ft_create_symbol_list(symtab, strtab, symtab_command, gen); // !!! // 64bit originel
 	ft_printf("K3\n");
 	ft_sort_list_symbols(&list);
 	ft_printf("K4\n");
@@ -133,7 +143,38 @@ t_symbol_display			*ft_find_symtab(t_generic_file *gen, char to_display) // GATE
 	return (list);
 }
 
-void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strtab, t_symtab_command **symtab_command) // GATEWAY
+void						ft_locate_symbol_table_bigendian(t_generic_file *gen, void **symtab, void **strtab, t_symtab_command **symtab_command) // GATEWAY
+{
+	t_load_command			*load_command;
+	int				lc_counter;
+
+	lc_counter = 0;
+	dump_mem(gen->header, 16 * 5, 16, NULL);
+	ft_printf("K1A ft_arch_gateway(gen->arch, MACH_HEADER):%d sizeof(struct mach_header):%d sizeof(struct mach_header_64):%d\n", ft_arch_gateway(gen->arch, MACH_HEADER), sizeof(struct mach_header), sizeof(struct mach_header_64));
+	load_command = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
+	ft_printf("K1B\n");
+	while (lc_counter < ft_swap_endian_32bit(gen->header->ncmds))
+	{
+		ft_printf("K1B-1\n");
+		load_command = (t_load_command*)((char*)load_command
+			+ ft_swap_endian_32bit(load_command->cmdsize));
+		ft_printf("K1B-2\n");
+		lc_counter++;
+		if (ft_swap_endian_32bit(load_command->cmd) == LC_SYMTAB)
+			lc_counter = ft_swap_endian_32bit(gen->header->ncmds);
+		ft_printf("K1B-3\n");
+	}
+	ft_printf("K1C\n");
+	*symtab_command = (t_symtab_command*)load_command;
+	ft_printf("K1D\n");
+	*symtab = (char*)(gen->header) + ft_swap_endian_32bit((*symtab_command)->symoff);
+	ft_printf("K1E\n");
+	*strtab = (char*)(gen->header) + ft_swap_endian_32bit((*symtab_command)->stroff);
+	ft_printf("K1F\n");
+}
+
+
+void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strtab, t_symtab_command **symtab_command) // GATEWAY // UTILISER DE MANIERE REGULIERE
 {
 	t_load_command			*load_command;
 	uint32_t				lc_counter;
@@ -145,11 +186,14 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 	ft_printf("K1B\n");
 	while (lc_counter < gen->header->ncmds)
 	{
+		ft_printf("K1B-1\n");
 		load_command = (t_load_command*)((char*)load_command
 			+ load_command->cmdsize);
+		ft_printf("K1B-2\n");
 		lc_counter++;
 		if (load_command->cmd == LC_SYMTAB)
 			lc_counter = gen->header->ncmds;
+		ft_printf("K1B-3\n");
 	}
 	ft_printf("K1C\n");
 	*symtab_command = (t_symtab_command*)load_command;

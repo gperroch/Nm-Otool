@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 17:24:16 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 18:16:09 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 #define SIZE_SECTION_64 sizeof(struct section_64)
 #define SIZE_FAT_ARCH_32 sizeof(struct fat_arch)
 #define SIZE_FAT_ARCH_64 sizeof(struct fat_arch_64)
+#define BIGEND 10
+#define LITTLEEND 11
 
 typedef struct load_command			t_load_command;
 typedef struct symtab_command		t_symtab_command;
@@ -56,18 +58,11 @@ typedef struct				s_generic_file
 	int16_t n_desc;     /* see <mach-o/stab.h> */
 	uint32_t n_value;
 	uint32_t n_strx;
-	/* Valeurs de segment_command */
-	uint32_t    cmd;        /* LC_SEGMENT_64 */
- 	uint32_t    cmdsize;    /* includes sizeof section_64 structs */
- 	char        segname[16];    /* segment name */
- 	uint64_t    vmaddr;     /* memory address of this segment */
- 	uint64_t    vmsize;     /* memory size of this segment */
- 	uint64_t    fileoff;    /* file offset of this segment */
- 	uint64_t    filesize;   /* amount to map from the file */
- 	vm_prot_t   maxprot;    /* maximum VM protection */
- 	vm_prot_t   initprot;   /* initial VM protection */
- 	uint32_t    nsects;     /* number of sections in segment */
- 	uint32_t    flags;
+	/* FAT arch */
+	struct fat_header		*fat_header;
+	uint32_t				nfat_arch;
+	int						endian;
+	off_t					file_size;
 	int						arch;
 }							t_generic_file;
 
@@ -130,9 +125,12 @@ void						ft_free_static_library_symbols(t_lib_symbol *list);
 
 int			ft_arch_gateway(int arch, int element);
 void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, off_t file_size);
-void					ft_iterate_fat_arch(void *file_content, uint64_t offset, int arch, off_t file_size);
+void					ft_iterate_fat_arch(t_generic_file *gen, uint64_t offset);
 int						ft_swap_endian_32bit(int nbr);
-void					*ft_revert_endianness_4bytes(void *file_content, off_t file_size);
+void					*ft_revert_endianness_4bytes_full(void *file_content, off_t file_size);
+int						ft_revert_endianness_4bytes(int nbr);
+void					ft_locate_symbol_table_bigendian(t_generic_file *gen, void **symtab, void **strtab, t_symtab_command **symtab_command);
+t_symbol_display			*ft_create_symbol_list_bigendian(void *symtab, void *strtab, t_symtab_command *symtab_command, t_generic_file *gen);
 
 void		dump_mem(void *ptr, int len, int col, char *name);
 #endif
