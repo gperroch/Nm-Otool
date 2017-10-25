@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 13:47:36 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 16:48:58 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,21 @@
 # include <unistd.h>
 # include <mach-o/loader.h>
 # include <mach-o/nlist.h>
+# include <mach-o/fat.h>
 # include "libft.h"
 
 #define MACH_HEADER 1
 #define SEGMENT_COMMAND 2
 #define SECTION 3
+#define FAT_ARCH 4
 #define SIZE_MACH_HEADER_32 sizeof(struct mach_header)
 #define SIZE_MACH_HEADER_64 sizeof(struct mach_header_64)
 #define SIZE_SEGMENT_COMMAND_32 sizeof(struct segment_command)
 #define SIZE_SEGMENT_COMMAND_64 sizeof(struct segment_command_64)
 #define SIZE_SECTION_32 sizeof(struct section)
 #define SIZE_SECTION_64 sizeof(struct section_64)
+#define SIZE_FAT_ARCH_32 sizeof(struct fat_arch)
+#define SIZE_FAT_ARCH_64 sizeof(struct fat_arch_64)
 
 typedef struct load_command			t_load_command;
 typedef struct symtab_command		t_symtab_command;
@@ -101,7 +105,8 @@ t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab, t_symtab_c
 //void						ft_set_element(t_symbol_display **ptr, struct nlist_64 *nlist, struct mach_header_64 *header, void *strtab); // 64bit
 void						ft_set_element(t_symbol_display **ptr, t_generic_file *gen, void *strtab); // GATEWAY
 void						ft_init_element(t_symbol_display **list, t_symbol_display **ptr);
-void						ft_display_symbols(t_symbol_display *list);
+//void						ft_display_symbols(t_symbol_display *list); // 64bit
+void						ft_display_symbols(t_symbol_display *list, t_generic_file *gen); // GATEWAY
 //char						ft_find_section(void *header, int section_number); // 64bit
 char						ft_find_section(t_generic_file *gen); // GATEWAY
 char						ft_section_type(struct section_64 *section);
@@ -124,4 +129,9 @@ void						ft_free_list_symbols(t_symbol_display *list);
 void						ft_free_static_library_symbols(t_lib_symbol *list);
 
 int			ft_arch_gateway(int arch, int element);
+void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, off_t file_size);
+void					ft_iterate_fat_arch(void *file_content, uint64_t offset, int arch, off_t file_size);
+int						ft_swap_endian_32bit(int nbr);
+
+void		dump_mem(void *ptr, int len, int col, char *name);
 #endif

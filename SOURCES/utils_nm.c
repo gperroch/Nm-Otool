@@ -6,11 +6,12 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 13:51:37 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 15:45:42 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
+
 /* VERSION 64bit
 t_symbol_display			*ft_find_symtab(t_mach_header_64 *header, char to_display) // 64bit
 {
@@ -114,20 +115,20 @@ t_symbol_display			*ft_find_symtab(t_generic_file *gen, char to_display) // GATE
 	void					*strtab;
 	t_symbol_display		*list;
 
-	ft_printf("OK1 gen->header:%p gen->arch:%d\n", gen->header, gen->arch);
+	ft_printf("K1 gen->header:%p gen->arch:%d\n", gen->header, gen->arch);
 	ft_locate_symbol_table(gen, &symtab, &strtab, &symtab_command); // GATEWAY
-	ft_printf("OK2\n");
+	ft_printf("K2\n");
 	list = ft_create_symbol_list(symtab, strtab, symtab_command, gen); // !!!
-	ft_printf("OK3\n");
+	ft_printf("K3\n");
 	ft_sort_list_symbols(&list);
-	ft_printf("OK4\n");
+	ft_printf("K4\n");
 	if (to_display)
 	{
-		ft_printf("OK5\n");
-		ft_display_symbols(list);
-		ft_printf("OK6\n");
+		ft_printf("K5\n");
+		ft_display_symbols(list, gen);
+		ft_printf("K6\n");
 		ft_free_list_symbols(list);
-		ft_printf("OK7\n");
+		ft_printf("K7\n");
 	}
 	return (list);
 }
@@ -138,9 +139,10 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 	uint32_t				lc_counter;
 
 	lc_counter = 0;
-	ft_printf("OK1A ft_arch_gateway(gen->arch, MACH_HEADER):%d sizeof(struct mach_header):%d sizeof(struct mach_header_64):%d\n", ft_arch_gateway(gen->arch, MACH_HEADER), sizeof(struct mach_header), sizeof(struct mach_header_64));
+	dump_mem(gen->header, 16 * 5, 16, NULL);
+	ft_printf("K1A ft_arch_gateway(gen->arch, MACH_HEADER):%d sizeof(struct mach_header):%d sizeof(struct mach_header_64):%d\n", ft_arch_gateway(gen->arch, MACH_HEADER), sizeof(struct mach_header), sizeof(struct mach_header_64));
 	load_command = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
-	ft_printf("OK1B\n");
+	ft_printf("K1B\n");
 	while (lc_counter < gen->header->ncmds)
 	{
 		load_command = (t_load_command*)((char*)load_command
@@ -149,13 +151,13 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 		if (load_command->cmd == LC_SYMTAB)
 			lc_counter = gen->header->ncmds;
 	}
-	ft_printf("OK1C\n");
+	ft_printf("K1C\n");
 	*symtab_command = (t_symtab_command*)load_command;
-	ft_printf("OK1D\n");
+	ft_printf("K1D\n");
 	*symtab = (char*)(gen->header) + (*symtab_command)->symoff;
-	ft_printf("OK1E\n");
+	ft_printf("K1E\n");
 	*strtab = (char*)(gen->header) + (*symtab_command)->stroff;
-	ft_printf("OK1F\n");
+	ft_printf("K1F\n");
 }
 
 char						ft_find_section(t_generic_file *gen)

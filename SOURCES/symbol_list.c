@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 15:39:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 12:31:24 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 14:03:35 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,14 +173,24 @@ void						ft_init_element(t_symbol_display **list,
 	}
 }
 
-void						ft_display_symbols(t_symbol_display *list)
+void						ft_display_symbols(t_symbol_display *list, t_generic_file *gen) // A OPTIMISER AU NIVEAU DES STRINGS D'AFFICHAGE // PROBLEME SUR L'ADDRESS
 {
 	while (list)
 	{
-		if (list->type != 'U')
-			ft_printf("%016lx %c %s\n", list->value, list->type, list->name);
-		else
-			ft_printf("%16c %c %s\n", ' ', list->type, list->name);
+		if (gen->arch == 64)
+		{
+			if (list->type != 'U')
+				ft_printf("%016lx %c %s\n", list->value, list->type, list->name);
+			else
+				ft_printf("%16c %c %s\n", ' ', list->type, list->name);
+		}
+		else if (gen->arch == 32)
+		{
+			if (list->type != 'U')
+				ft_printf("%08x %c %s\n", list->value, list->type, list->name);
+			else
+				ft_printf("%8c %c %s\n", ' ', list->type, list->name);
+		}
 		list = list->next;
 	}
 }

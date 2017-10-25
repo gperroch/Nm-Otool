@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2017/10/25 13:46:12 by gperroch         ###   ########.fr        #
+#    Updated: 2017/10/25 15:46:32 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ SRC_NM_NAME =	nm.c \
 				static_library.c \
 				lib_list_symbol.c \
 				mapping_file.c \
-				arch_gateway.c
-#				ft_dump_mem.c
+				arch_gateway.c \
+				dump_mem.c
 
 SRC_OTOOL_PATH = ./SOURCES/
 SRC_OTOOL_NAME =	otool.c \
@@ -34,7 +34,8 @@ SRC_OTOOL_NAME =	otool.c \
 					utils_otool.c \
 					mapping_file.c \
 					ft_dump_mem.c \
-					arch_gateway.c
+					arch_gateway.c \
+					dump_mem.c
 
 OBJ_NM_PATH = ./OBJECTS/
 OBJ_OTOOL_PATH = ./OBJECTS/
