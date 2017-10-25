@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 16:48:58 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 17:24:16 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ int			ft_arch_gateway(int arch, int element);
 void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, off_t file_size);
 void					ft_iterate_fat_arch(void *file_content, uint64_t offset, int arch, off_t file_size);
 int						ft_swap_endian_32bit(int nbr);
+void					*ft_revert_endianness_4bytes(void *file_content, off_t file_size);
 
 void		dump_mem(void *ptr, int len, int col, char *name);
 #endif
