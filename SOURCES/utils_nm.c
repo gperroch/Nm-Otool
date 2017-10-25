@@ -6,12 +6,11 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/19 18:42:19 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/24 15:38:15 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
-void				ft_free_list_symbols(t_symbol_display *list);
 
 t_symbol_display			*ft_find_symtab(t_mach_header_64 *header,
 	char to_display)

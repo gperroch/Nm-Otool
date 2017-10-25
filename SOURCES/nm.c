@@ -6,13 +6,17 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/19 18:54:26 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 10:57:52 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 
-// VERIFIER LES LEAKS
+// 32-bit
+// .dylib
+// Architectures FAT
+// Securite segfault sur les fichiers corrompus
+// Bonus -p -u -U -j -r
 
 static void				ft_analyse_file(void *file_content, char *file_name,
 	int argc)
@@ -23,16 +27,16 @@ static void				ft_analyse_file(void *file_content, char *file_name,
 
 	header = file_content;
 	file_start = ft_strncpy(ft_strnew(7), file_content, 7);
-	if (header->magic == 0xfeedfacf)
+	if (header->magic == 0xfeedfacf) // mach-o 64-bits x86
 	{
 		if (argc > 2)
 			ft_printf("\n%s:\n", file_name);
 		list = ft_find_symtab(header, 1);
 	}
-	else if (!ft_strcmp(file_start, "!<arch>"))
+	else if (!ft_strcmp(file_start, "!<arch>")) // .a
 		ft_static_library(file_content, file_name);
 	else
-		ft_printf("ft_nm: %s %s\n",
+		ft_printf("ft_nm: %s %s\n\n",
 			file_name, "The file was not recognized as a valid object file");
 	free(file_start);
 }
@@ -44,7 +48,6 @@ int						main(int argc, char **argv)
 	void				*file_content;
 	struct stat			stats;
 
-	file_name = "";
 	file_number = 0;
 	if (argc < 2)
 	{
@@ -53,6 +56,8 @@ int						main(int argc, char **argv)
 	}
 	while (++file_number < argc)
 	{
+		file_name = "";
+		file_content = NULL;
 		if (!(argc == 2 && file_number == 1 && !ft_strcmp(file_name, "a.out")))
 			file_name = argv[file_number];
 		if (ft_mapping_file(file_name, &file_content, &stats))

@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 13:41:07 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/19 19:26:22 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/24 15:57:29 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,18 @@ void				ft_iter_texttext_sections(t_load_command *load_command,
 void				ft_find_texttext_static_library(void *file_content,
 	char *argv)
 {
-	t_static_lib	*lib;
 	struct ranlib	*ranlib;
 	long int		ranlibs_size;
 	t_lib_symbol	*list;
 	t_lib_symbol	*ptr;
 
-	lib = file_content;
-	ranlibs_size = lib->ranlibs_size;
+	ranlibs_size = ((t_static_lib*)file_content)->ranlibs_size;
 	ranlib = (struct ranlib*)((char*)file_content + sizeof(t_static_lib));
 	ranlibs_size -= sizeof(struct ranlib);
 	list = NULL;
 	while (ranlibs_size)
 	{
-		ft_find_ranlib_symbols(file_content, ranlib, lib, &list);
+		ft_find_ranlib_symbols(file_content, ranlib, &list);
 		ranlib = (struct ranlib*)((char*)ranlib + sizeof(ranlib));
 		ranlibs_size -= sizeof(struct ranlib);
 	}
@@ -86,7 +84,7 @@ void				ft_find_texttext_static_library(void *file_content,
 }
 
 void				*ft_find_ranlib_symbols(void *file_content,
-	struct ranlib *ranlib, t_static_lib *lib, t_lib_symbol **list)
+	struct ranlib *ranlib, t_lib_symbol **list)
 {
 	t_static_lib	*file_object_header_line;
 	void			*file_object;
@@ -94,12 +92,13 @@ void				*ft_find_ranlib_symbols(void *file_content,
 	char			*symbol_name;
 
 	symbol_name = (char*)file_content + sizeof(t_static_lib)
-		+ lib->ranlibs_size + ranlib->ran_off;
+		+ ((t_static_lib*)file_content)->ranlibs_size + ranlib->ran_off;
 	file_object_header_line = (t_static_lib*)((char*)file_content
 		+ (ranlib->ran_un).ran_strx);
 	file_object = (char*)file_object_header_line
 		+ ft_calculate_distance_file_object(file_object_header_line);
-	file_object_name = (char*)file_content + sizeof(lib->file_identifier)
+	file_object_name = (char*)file_content
+		+ sizeof(((t_static_lib*)file_content)->file_identifier)
 		+ (ranlib->ran_un).ran_strx;
 	ft_list_lib_symbols(list, symbol_name, file_object_name, file_object);
 	return (file_object);

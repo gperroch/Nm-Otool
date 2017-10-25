@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/19 19:26:09 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 10:56:32 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,20 @@
 typedef struct load_command			t_load_command;
 typedef struct symtab_command		t_symtab_command;
 typedef struct mach_header_64		t_mach_header_64;
+typedef struct mach_header			t_mach_header;
 typedef struct segment_command_64	t_segment_command_64;
 typedef struct section_64			t_section_64;
+
+typedef struct				s_generic_mach_header_64
+{
+	t_mach_header_64		header;
+}							t_generic_mach_header_64;
+
+typedef struct				s_generic_mach_header_32
+{
+	t_mach_header			header;
+}							t_generic_mach_header_32;
+
 typedef struct				s_symbol_display
 {
 	long int				value;
@@ -83,7 +95,7 @@ int							ft_mapping_file(char *file_name,
 void						ft_iter_texttext_sections(
 	t_load_command *load_command, t_mach_header_64 *header, uint32_t *ncmds);
 void						*ft_find_ranlib_symbols(void *file_content,
-	struct ranlib *ranlib, t_static_lib *lib, t_lib_symbol **list);
+	struct ranlib *ranlib, t_lib_symbol **list);
 void						ft_find_texttext_section(
 	struct mach_header_64 *header);
 int							ft_calculate_distance_file_object(
@@ -96,6 +108,6 @@ void						ft_find_texttext_static_library(void *file_content,
 	char *argv);
 void						ft_dump_mem(void *ptr, int len, int col,
 	void *header);
-void				ft_free_list_symbols(t_symbol_display *list);
-void			ft_free_static_library_symbols(t_lib_symbol *list);
+void						ft_free_list_symbols(t_symbol_display *list);
+void						ft_free_static_library_symbols(t_lib_symbol *list);
 #endif

@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:28:40 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/19 19:25:59 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/24 15:37:23 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define DIFF values[0]
 #define DISTANCE values[1]
 
-void			ft_free_static_library_symbols(t_lib_symbol *list)
+void				ft_free_static_library_symbols(t_lib_symbol *list)
 {
 	void			*tmp;
 

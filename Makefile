@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2017/10/18 11:10:57 by gperroch         ###   ########.fr        #
+#    Updated: 2017/10/24 15:30:26 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ SRC_NM_NAME =	nm.c \
 				sort_list_symbols.c \
 				static_library.c \
 				lib_list_symbol.c \
-				mapping_file.c \
-				ft_dump_mem.c
+				mapping_file.c
+#				ft_dump_mem.c
 
 SRC_OTOOL_PATH = ./SOURCES/
 SRC_OTOOL_NAME =	otool.c \
@@ -58,11 +58,11 @@ all: $(LIBFT) $(NAME_NM) $(NAME_OTOOL)
 
 $(NAME_NM): $(LIBFT) $(OBJ_NM)
 	$(CC) $^ -o $@ $(LDFLAGS)
-	@echo "$(NAME_NM) complete ! 🍻 "
+	@echo "$(NAME_NM) complete !"
 
 $(NAME_OTOOL): $(LIBFT) $(OBJ_OTOOL)
 	$(CC) $^ -o $@ $(LDFLAGS)
-	@echo "$(NAME_OTOOL) complete ! 🍻 "
+	@echo "$(NAME_OTOOL) complete !"
 
 $(OBJ_NM_PATH)%.o: $(SRC_NM_PATH)%.c
 	@mkdir $(OBJ_NM_PATH) 2> /dev/null || echo  > /dev/null
@@ -82,7 +82,6 @@ clean:
 fclean: clean
 	rm -rf $(NAME_NM) $(NAME_OTOOL)
 	make fclean -C $(LIB_PATH)
-	@echo "Everything's clean, master !"
 
 re: fclean all
 

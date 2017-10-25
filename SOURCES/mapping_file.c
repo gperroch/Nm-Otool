@@ -6,16 +6,16 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 13:44:28 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/19 18:54:34 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/24 15:37:12 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 
-int				ft_mapping_file(char *file_name, void **file_content,
+int						ft_mapping_file(char *file_name, void **file_content,
 	struct stat *stats)
 {
-	int			fd;
+	int					fd;
 
 	fd = open(file_name, O_RDONLY);
 	if (fstat(fd, stats))
@@ -27,9 +27,9 @@ int				ft_mapping_file(char *file_name, void **file_content,
 	return (0);
 }
 
-void				ft_free_list_symbols(t_symbol_display *list)
+void					ft_free_list_symbols(t_symbol_display *list)
 {
-	t_symbol_display			*tmp;
+	t_symbol_display	*tmp;
 
 	while (list)
 	{
