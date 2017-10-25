@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 10:57:52 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/25 13:44:43 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,23 @@
 static void				ft_analyse_file(void *file_content, char *file_name,
 	int argc)
 {
-	t_mach_header_64	*header;
+	//t_mach_header_64	*header;
 	char				*file_start;
 	t_symbol_display	*list;
+	t_generic_file		gen; // GATEWAY
 
-	header = file_content;
+	//header = file_content; // 64bit
+	gen.header = (t_mach_header_64*)file_content; // GATEWAY
+
 	file_start = ft_strncpy(ft_strnew(7), file_content, 7);
-	if (header->magic == 0xfeedfacf) // mach-o 64-bits x86
+	//if (header->magic == 0xfeedfacf || header->magic == 0xfeedface) // 64bit
+	if (gen.header->magic == 0xfeedfacf || gen.header->magic == 0xfeedface) // GATEWAY
 	{
 		if (argc > 2)
 			ft_printf("\n%s:\n", file_name);
-		list = ft_find_symtab(header, 1);
+		gen.arch = gen.header->magic == 0xfeedfacf ? 64 : 32;
+		//list = ft_find_symtab(header, 1); // 64bit
+		list = ft_find_symtab(&gen, 1); // GATEWAY
 	}
 	else if (!ft_strcmp(file_start, "!<arch>")) // .a
 		ft_static_library(file_content, file_name);
