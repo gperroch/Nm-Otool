@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 18:16:09 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/26 16:58:02 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ typedef struct				s_generic_file
 	/* FAT arch */
 	struct fat_header		*fat_header;
 	uint32_t				nfat_arch;
-	int						endian;
+	char					endian_fat;
+	char					endian_mach;
 	off_t					file_size;
 	int						arch;
 }							t_generic_file;

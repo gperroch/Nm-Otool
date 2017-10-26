@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 11:40:05 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 18:10:39 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/26 17:00:28 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int			ft_arch_gateway(int arch, int element)
 void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, off_t file_size)
 {
 	//struct fat_header	*fat_header;
-	void				*fat_arch;
+	void				*fat_arch_header;
 	uint32_t			i;
 	uint64_t			offset;
 	//int					arch;
@@ -43,29 +43,30 @@ void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, of
 
 	(void)file_name;
 	if (magic == FAT_CIGAM || magic == FAT_CIGAM_64)
-		gen.endian = BIGEND;
+		gen.endian_fat = BIGEND;
 	else
-		gen.endian = LITTLEEND;
+		gen.endian_fat = LITTLEEND;
 	gen.arch = magic == FAT_MAGIC || magic == FAT_CIGAM ? 32 : 64;
 	gen.file_size = file_size;
 
 	gen.fat_header = file_content;
 	ft_printf("OK1\n");
 	i = 0;
-	fat_arch = (char*)(gen.fat_header) + sizeof(struct fat_header);
+	fat_arch_header = (char*)(gen.fat_header) + sizeof(struct fat_header);
 	//ft_printf("OK2\n");
 	//gen.nfat_arch = (gen.fat_header)->nfat_arch;
 	gen.nfat_arch = ft_swap_endian_32bit(gen.fat_header->nfat_arch);
 	//nfat_arch = ft_revert_endianness_4bytes(fat_header->nfat_arch);
 	while (i < gen.nfat_arch)
 	{
-		offset = gen.arch == 32 ? ((struct fat_arch*)fat_arch)->offset : ((struct fat_arch_64*)fat_arch)->offset;
-		offset = ft_swap_endian_32bit(offset);
+		offset = gen.arch == 32 ? ((struct fat_arch*)fat_arch_header)->offset : ((struct fat_arch_64*)fat_arch_header)->offset;
+		if (gen.endian_fat == BIGEND)
+			offset = ft_swap_endian_32bit(offset); // Attention a l'endianness, peut differer entre le fat_header et entre les mach_header
 		ft_printf("OK3 arch:%d nfat_arch:%x offset:%d sizeof(fat_header->nfat_arch):%d\n", gen.arch, gen.nfat_arch, offset, sizeof(gen.fat_header->nfat_arch));
 		ft_iterate_fat_arch(&gen, offset);
-		ft_printf("OK4\n");
-		fat_arch = (char*)fat_arch + ft_arch_gateway(gen.arch, FAT_ARCH);
-		ft_printf("OK5\n");
+		ft_printf("OK4 fat_arch_header[%p] sizeof(struct fat_arch)=%d\n", fat_arch_header, sizeof(struct fat_arch));
+		fat_arch_header = (char*)fat_arch_header + ft_arch_gateway(gen.arch, FAT_ARCH);
+		ft_printf("OK5 fat_arch_header[%p]\n", fat_arch_header);
 		i++;
 	}
 	ft_printf("OK6\n");
@@ -74,6 +75,11 @@ void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, of
 void					ft_iterate_fat_arch(t_generic_file *gen, uint64_t offset)
 {
 	gen->header = (t_mach_header_64 *)((char*)(gen->fat_header) + offset);
+	if (gen->header->magic == MH_CIGAM || gen->header->magic == MH_CIGAM_64)
+		gen->endian_mach = BIGEND;
+	else if (gen->header->magic == MH_MAGIC || gen->header->magic == MH_MAGIC_64)
+		gen->endian_mach = LITTLEEND;
+	ft_printf("\t\tmach_header: magic:%x\n", gen->header->magic);
 	//dump_mem(gen.header, 16 * 5, 16, "iterate");
 	/* CHANGER L'ENDIANNESS DU FICHIER */ // A FAIRE AU CAS PAR CAS
 /*	char		*file_copy;

@@ -1,0 +1,603 @@
+OK1
+OK3 arch:32 nfat_arch:2 offset:4096 sizeof(fat_header->nfat_arch):4
+OK3A
+K1 gen->header:0x10f5df000 gen->arch:32
+K1A ft_arch_gateway(gen->arch, MACH_HEADER):28 sizeof(struct mach_header):28 sizeof(struct mach_header_64):32
+K1B
+K1B-1
+K1B-2
+K1B-3
+K1B-1
+K1B-2
+K1B-3
+K1B-1
+K1B-2
+K1B-3
+K1B-1
+K1B-2
+K1B-3
+K1B-1
+K1B-2
+K1B-3
+K1C
+K1D
+K1E
+K1F
+K2 BIG
+K2 BIG A
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG B
+K2 BIG C
+K2 BIG D
+K2 BIG E
+K2 BIG F
+K3
+K4
+K5
+00002fc0 u +[SSAudioDeviceCenter initialize]
+00002d84 u -[SSAudioDevice canBeDefaultDevice]
+00002e10 u -[SSAudioDevice canBeDefaultSystemDevice]
+00002bf4 u -[SSAudioDevice compare:]
+00002e9c u -[SSAudioDevice coreAudioDeviceID]
+00002f30 u -[SSAudioDevice coreAudioIsInput]
+00002ea4 u -[SSAudioDevice coreAudioSourceType]
+00002f3c u -[SSAudioDevice coreAudioTransportType]
+00002a60 u -[SSAudioDevice dealloc]
+00002aa4 u -[SSAudioDevice description]
+00002eac u -[SSAudioDevice fetchCoreAudioSourceType]
+000029e0 u -[SSAudioDevice initWithAudioDeviceID:source:isInput:]
+00002b34 u -[SSAudioDevice isEqual:]
+00002c58 u -[SSAudioDevice name]
+00003104 u -[SSAudioDeviceCenter _allDevicesWithDeviceID:isInput:]
+0000363c u -[SSAudioDeviceCenter _defaultDeviceOfClass:]
+00003c8c u -[SSAudioDeviceCenter _devicePropertyChanged:]
+00003780 u -[SSAudioDeviceCenter _getAndSetVolume:forInput:]
+00003c84 u -[SSAudioDeviceCenter _headphoneDevice]
+000032bc u -[SSAudioDeviceCenter _loadDeviceList:]
+000035ac u -[SSAudioDeviceCenter _setDefaultDeviceOfClass:to:]
+0000374c u -[SSAudioDeviceCenter _stringForCAError:]
+00004140 u -[SSAudioDeviceCenter audioFollowsJack]
+0000309c u -[SSAudioDeviceCenter dealloc]
+0000345c u -[SSAudioDeviceCenter deviceWithID:isInput:]
+000034ec u -[SSAudioDeviceCenter devicesWithTransportType:isInput:]
+00003058 u -[SSAudioDeviceCenter init]
+0000343c u -[SSAudioDeviceCenter inputDevices]
+00003b20 u -[SSAudioDeviceCenter inputVolume]
+0000344c u -[SSAudioDeviceCenter outputDevices]
+00003b48 u -[SSAudioDeviceCenter outputVolume]
+000036e0 u -[SSAudioDeviceCenter selectedInputDevice]
+0000370c u -[SSAudioDeviceCenter selectedOutputDevice]
+00003738 u -[SSAudioDeviceCenter selectedSystemDevice]
+00003f94 u -[SSAudioDeviceCenter setAudioFollowsJack:]
+00003b38 u -[SSAudioDeviceCenter setInputVolume:]
+00003b60 u -[SSAudioDeviceCenter setOutputVolume:]
+000036c8 u -[SSAudioDeviceCenter setSelectedInputDevice:]
+000036f4 u -[SSAudioDeviceCenter setSelectedOutputDevice:]
+00003720 u -[SSAudioDeviceCenter setSelectedSystemDevice:]
+00003c04 u -[SSAudioDeviceCenter setSystemVolume:]
+00003efc u -[SSAudioDeviceCenter supportsAudioFollowsJack]
+00003b70 u -[SSAudioDeviceCenter systemVolume]
+00000000 u .objc_class_name_NSAutoreleasePool
+00000000 u .objc_class_name_NSDictionary
+00000000 u .objc_class_name_NSMutableArray
+00000000 u .objc_class_name_NSNumber
+00000000 u .objc_class_name_NSObject
+00000000 u .objc_class_name_NSString
+00000000 u .objc_class_name_NSURL
+00006108 u .objc_class_name_SSAudioDevice
+00006138 u .objc_class_name_SSAudioDeviceCenter
+00000000 u _AudioDeviceAddPropertyListener
+00000000 u _AudioDeviceGetProperty
+00000000 u _AudioDeviceGetPropertyInfo
+00000000 u _AudioDeviceRemovePropertyListener
+00000000 u _AudioHardwareGetProperty
+00000000 u _AudioHardwareGetPropertyInfo
+000051cc u _AudioHardwareServiceGetPropertyDataPtr
+000051d4 u _AudioHardwareServiceHasPropertyPtr
+000051d0 u _AudioHardwareServiceSetPropertyDataPtr
+00000000 u _AudioHardwareSetProperty
+00004fcc u _C.198.95165
+00004fc4 u _C.199.95166
+00004fbc u _C.200.95167
+00000000 u _CFBundleCreate
+00000000 u _CFBundleGetFunctionPointerForName
+00000000 u _GetSysBeepVolume
+00000000 u _NSLog
+0000500c u _NXArgc
+00005008 u _NXArgv
+00000000 u _SetSysBeepVolume
+00000000 u _UTCreateStringForOSType
+00000000 u ___CFConstantStringClassReference
+00005188 u ___darwin_gcc3_preregister_frame_info
+00000000 u ___keymgr_dwarf2_register_sections
+00005000 u ___progname
+00000000 u __cthread_init_routine
+00002388 u __dyld_func_lookup
+00001000 u __mh_execute_header
+00002024 u __start
+00000000 u _atexit
+0000518c u _catch_exception_raise
+00005190 u _catch_exception_raise_state
+00005194 u _catch_exception_raise_state_identity
+00005198 u _clock_alarm_reply
+00003dd4 u _devicePropertyChanged
+0000519c u _do_mach_notify_dead_name
+000051a0 u _do_mach_notify_no_senders
+000051a4 u _do_mach_notify_port_deleted
+000051a8 u _do_mach_notify_send_once
+000051ac u _do_seqnos_mach_notify_dead_name
+000051b0 u _do_seqnos_mach_notify_no_senders
+000051b4 u _do_seqnos_mach_notify_port_deleted
+000051b8 u _do_seqnos_mach_notify_send_once
+00005004 u _environ
+00000000 u _errno
+00000000 u _exit
+00000000 u _free
+00000000 u _mach_init_routine
+00002398 u _main
+00000000 u _malloc
+00000000 u _objc_msgSendSuper
+00005010 u _pointer_to__darwin_gcc3_preregister_frame_info
+00000000 u _pow
+00000000 u _printf$LDBL128
+00000000 u _puts
+000051bc u _receive_samples
+00000000 u _strcmp
+00000000 u _sysctlbyname
+00002370 u dyld_stub_binding_helper
+00001ff0 u start
+K6
+K7
+OK3B
+OK4 fat_arch_header[0x10f5de008]
+OK5 fat_arch_header[0x10f5de01c]
+OK3 arch:32 nfat_arch:2 offset:36864 sizeof(fat_header->nfat_arch):4
+OK3A
+K1 gen->header:0x10f5e7000 gen->arch:32
+K1A ft_arch_gateway(gen->arch, MACH_HEADER):28 sizeof(struct mach_header):28 sizeof(struct mach_header_64):32
+K1B
+K1B-1
+K1B-2
