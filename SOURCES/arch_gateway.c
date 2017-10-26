@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 11:40:05 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/26 18:07:26 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/26 18:13:21 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,17 @@ int			ft_arch_gateway(int arch, int element)
 	return (ret);
 }
 
-void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, off_t file_size)
+void					ft_fat_arch(void *file_content, char *file_name,
+	unsigned int magic, off_t file_size)
 {
-//	void				*fat_arch_header;
 	uint32_t			i;
-//	uint64_t			offset;
 	t_generic_file		gen;
-//	char				*cputype;
 
-	i = 0;
+	i = -1;
 	gen.arch = magic == FAT_MAGIC || magic == FAT_CIGAM ? 32 : 64;
 	gen.file_size = file_size;
 	gen.file_name = file_name;
 	gen.fat_header = file_content;
-//	fat_arch_header = (char*)(gen.fat_header) + sizeof(struct fat_header);
 	if (magic == FAT_CIGAM || magic == FAT_CIGAM_64)
 	{
 		gen.endian_fat = BIGEND;
@@ -57,19 +54,8 @@ void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, of
 	}
 	else
 		return ; // Message d'erreur
-	while (i < gen.nfat_arch)
-	{
-	/*	fat_arch_header = (char*)(gen.fat_header) + sizeof(struct fat_header) + i * ft_arch_gateway(gen.arch, FAT_ARCH);
-		cputype = ft_get_arch_type(ft_swap_endian_32bit(((struct fat_arch_64*)fat_arch_header)->cputype));
-		ft_printf("\n%s (for architecture %s):\n", file_name, cputype);
-		free(cputype);
-		offset = gen.arch == 32 ? ((struct fat_arch*)fat_arch_header)->offset : ((struct fat_arch_64*)fat_arch_header)->offset;
-		if (gen.endian_fat == BIGEND)
-			offset = ft_swap_endian_32bit(offset); // Attention a l'endianness, peut differer entre le fat_header et entre les mach_header
-	*/	ft_iterate_fat_arch(&gen, i);
-		// fat_arch_header = (char*)fat_arch_header + ft_arch_gateway(gen.arch, FAT_ARCH);
-		i++;
-	}
+	while (++i < gen.nfat_arch)
+		ft_iterate_fat_arch(&gen, i);
 }
 
 
@@ -77,21 +63,20 @@ void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i)
 {
 	char				*cputype;
 	uint64_t			offset;
-	void				*fat_arch_header;
+	void				*fat_arch;
 
-	fat_arch_header = (char*)(gen->fat_header) + sizeof(struct fat_header) + i * ft_arch_gateway(gen->arch, FAT_ARCH);
+	fat_arch = (char*)(gen->fat_header) + sizeof(struct fat_header) + i * ft_arch_gateway(gen->arch, FAT_ARCH);
 	if (gen->endian_fat == BIGEND)
-		cputype = ft_get_arch_type(ft_swap_endian_32bit(((struct fat_arch_64*)fat_arch_header)->cputype));
+		cputype = ft_get_arch_type(ft_swap_endian_32bit(((struct fat_arch_64*)fat_arch)->cputype));
 	else if (gen->endian_fat == LITTLEEND)
-		cputype = ft_get_arch_type(((struct fat_arch_64*)fat_arch_header)->cputype);
+		cputype = ft_get_arch_type(((struct fat_arch_64*)fat_arch)->cputype);
 	else
 		cputype = ft_strdup("undefined");
 	ft_printf("\n%s (for architecture %s):\n", gen->file_name, cputype);
 	free(cputype);
-	offset = gen->arch == 32 ? ((struct fat_arch*)fat_arch_header)->offset : ((struct fat_arch_64*)fat_arch_header)->offset;
+	offset = gen->arch == 32 ? ((struct fat_arch*)fat_arch)->offset : ((struct fat_arch_64*)fat_arch)->offset;
 	if (gen->endian_fat == BIGEND)
 		offset = ft_swap_endian_32bit(offset); // Attention a l'endianness, peut differer entre le fat_header et entre les mach_header
-
 	gen->header = (t_mach_header_64 *)((char*)(gen->fat_header) + offset);
 	if (gen->header->magic == MH_CIGAM || gen->header->magic == MH_CIGAM_64)
 		gen->endian_mach = BIGEND;

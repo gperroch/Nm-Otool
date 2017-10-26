@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/26 17:07:13 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/26 18:29:42 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,30 +115,22 @@ t_symbol_display			*ft_find_symtab(t_generic_file *gen, char to_display) // GATE
 	void					*strtab;
 	t_symbol_display		*list;
 
-//	ft_printf("K1 gen->header:%p gen->arch:%d\n", gen->header, gen->arch);
 	if (gen->endian_mach == LITTLEEND)
 	{
 		ft_locate_symbol_table(gen, &symtab, &strtab, &symtab_command); // GATEWAY
-//		ft_printf("K2 LITTLE\n");
 		list = ft_create_symbol_list(symtab, strtab, symtab_command, gen); // !!!
 	}
 	else //if (gen->endian == BIGEND) // GERER ca pour d'autre architectures que FAT
 	{
 		ft_locate_symbol_table_bigendian(gen, &symtab, &strtab, &symtab_command); // GATEWAY
-//		ft_printf("K2 BIG\n");
 		list = ft_create_symbol_list_bigendian(symtab, strtab, symtab_command, gen); // !!!
 	}
 	//list = ft_create_symbol_list(symtab, strtab, symtab_command, gen); // !!! // 64bit originel
-//	ft_printf("K3\n");
 	ft_sort_list_symbols(&list);
-//	ft_printf("K4\n");
 	if (to_display)
 	{
-//		ft_printf("K5\n");
 		ft_display_symbols(list, gen);
-//		ft_printf("K6\n");
 		ft_free_list_symbols(list);
-//		ft_printf("K7\n");
 	}
 	return (list);
 }
@@ -149,28 +141,18 @@ void						ft_locate_symbol_table_bigendian(t_generic_file *gen, void **symtab, v
 	int				lc_counter;
 
 	lc_counter = 0;
-//	dump_mem(gen->header, 16 * 5, 16, NULL);
-//	ft_printf("BIG K1A ft_arch_gateway(gen->arch, MACH_HEADER):%d sizeof(struct mach_header):%d sizeof(struct mach_header_64):%d\n", ft_arch_gateway(gen->arch, MACH_HEADER), sizeof(struct mach_header), sizeof(struct mach_header_64));
 	load_command = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
-//	ft_printf("BIG K1B.-------mach_header[%p] - - - load_command[%p]\n", gen->header, load_command);
 	while (lc_counter < ft_swap_endian_32bit(gen->header->ncmds))
 	{
-//		ft_printf("BIG K1B-1 ft_swap_endian_32bit(gen->header->ncmds)=%d, gen->header->ncmds=%d\n", ft_swap_endian_32bit(gen->header->ncmds), gen->header->ncmds);
 		load_command = (t_load_command*)((char*)load_command
 			+ ft_swap_endian_32bit(load_command->cmdsize));
-//		ft_printf("BIG K1B-2\n");
 		lc_counter++;
 		if (ft_swap_endian_32bit(load_command->cmd) == LC_SYMTAB)
 			lc_counter = ft_swap_endian_32bit(gen->header->ncmds);
-//		ft_printf("BIG K1B-3\n");
 	}
-//	ft_printf("BIG K1C\n");
 	*symtab_command = (t_symtab_command*)load_command;
-//	ft_printf("BIG K1D\n");
 	*symtab = (char*)(gen->header) + ft_swap_endian_32bit((*symtab_command)->symoff);
-//	ft_printf("BIG K1E\n");
 	*strtab = (char*)(gen->header) + ft_swap_endian_32bit((*symtab_command)->stroff);
-//	ft_printf("BIG K1F\n");
 }
 
 
@@ -180,28 +162,18 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 	uint32_t				lc_counter;
 
 	lc_counter = 0;
-//	dump_mem(gen->header, 16 * 5, 16, NULL);
-//	ft_printf("LITTLE K1A ft_arch_gateway(gen->arch, MACH_HEADER):%d sizeof(struct mach_header):%d sizeof(struct mach_header_64):%d\n", ft_arch_gateway(gen->arch, MACH_HEADER), sizeof(struct mach_header), sizeof(struct mach_header_64));
 	load_command = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
-//	ft_printf("LITTLE K1B\n");
 	while (lc_counter < gen->header->ncmds)
 	{
-//		ft_printf("LITTLE K1B-1\n");
 		load_command = (t_load_command*)((char*)load_command
 			+ load_command->cmdsize);
-//		ft_printf("LITTLE K1B-2\n");
 		lc_counter++;
 		if (load_command->cmd == LC_SYMTAB)
 			lc_counter = gen->header->ncmds;
-//		ft_printf("LITTLE K1B-3\n");
 	}
-//	ft_printf("LITTLE K1C\n");
 	*symtab_command = (t_symtab_command*)load_command;
-//	ft_printf("LITTLE K1D\n");
 	*symtab = (char*)(gen->header) + (*symtab_command)->symoff;
-//	ft_printf("LITTLE K1E\n");
 	*strtab = (char*)(gen->header) + (*symtab_command)->stroff;
-//	ft_printf("LITTLE K1F\n");
 }
 
 char						ft_find_section(t_generic_file *gen)

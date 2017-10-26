@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 15:39:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/26 17:11:21 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/26 18:29:29 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,28 +109,22 @@ t_symbol_display			*ft_create_symbol_list_bigendian(void *symtab, void *strtab, 
 
 	symbol_counter = 0;
 	list = NULL;
-//	ft_printf("K2 BIG A\n");
 	while (symbol_counter < ft_swap_endian_32bit(symtab_command->nsyms))
 	{
-//		ft_printf("K2 BIG B\n");
 		gen->n_type = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_type) : ft_swap_endian_32bit(gen->nlist_64->n_type);
 		gen->n_sect = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_sect) : ft_swap_endian_32bit(gen->nlist_64->n_sect);
 		gen->n_desc = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_desc) : ft_swap_endian_32bit(gen->nlist_64->n_desc);
 		gen->n_value = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_value) : ft_swap_endian_32bit(gen->nlist_64->n_value);
 		gen->n_strx = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_un.n_strx) : ft_swap_endian_32bit(gen->nlist_64->n_un.n_strx);
-//		ft_printf("K2 BIG C\n");
 		if (!(gen->n_type & N_STAB))
 		{
 			ft_init_element(&list, &ptr);
 			ft_set_element(&ptr, gen, strtab);
 		}
-//		ft_printf("K2 BIG D\n");
 		gen->nlist = (struct nlist*)((char*)gen->nlist + sizeof(struct nlist));
 		gen->nlist_64 = (struct nlist_64*)((char*)gen->nlist_64 + sizeof(struct nlist_64));
-//		ft_printf("K2 BIG E\n");
 		symbol_counter++;
 	}
-//	ft_printf("K2 BIG F\n");
 	return (list);
 }
 
@@ -180,13 +174,14 @@ void						ft_set_element(t_symbol_display **ptr, t_generic_file *gen, void *strt
 	//(*ptr)->name = &((char*)strtab)[(nlist->n_un).n_strx]; // !!
 	(*ptr)->name = &((char*)strtab)[gen->n_strx];
 	(*ptr)->type = 'U';
+	ft_printf("gen->n_type:%d N_UNDF[%d] N_ABS[%d] N_INDR[%d] N_PBUD[%d]\n", gen->n_type, N_UNDF, N_ABS, N_INDR, N_PBUD);
 	(*ptr)->type = gen->n_type & N_STAB ? '-' : (*ptr)->type;
 	(*ptr)->type = (gen->n_type & N_TYPE) & N_UNDF ? 'U' : (*ptr)->type;
 	(*ptr)->type = (gen->n_type & N_TYPE) & N_ABS ? 'A' : (*ptr)->type;
 	(*ptr)->type = (gen->n_type & N_TYPE) & N_INDR ? 'I' : (*ptr)->type;
 	(*ptr)->type = (gen->n_type & N_TYPE) & N_PBUD ? 'U' : (*ptr)->type;
 	//(*ptr)->type = (gen->n_type & N_TYPE) & N_SECT ? ft_find_section(header, gen->n_sect) : (*ptr)->type; // CHANGER FIND_SECTION // 64bit
-	(*ptr)->type = (gen->n_type & N_TYPE) & N_SECT ? ft_find_section(gen) : (*ptr)->type; // CHANGER FIND_SECTION // 64bit
+		(*ptr)->type = (gen->n_type & N_TYPE) & N_SECT ? ft_find_section(gen) : (*ptr)->type; // CHANGER FIND_SECTION // 64bit
 	if (!(gen->n_type & N_EXT))
 		(*ptr)->type = ft_tolower((*ptr)->type);
 }

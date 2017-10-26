@@ -1,4 +1,138 @@
-1c1
-< /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/nm: /System/Library/Accessibility/BundlesBase/com.apple.Maps.axbundle/Versions/A/Resources/ro.lproj/Accessibility.strings The file was not recognized as a valid object file
----
-> ft_nm: /System/Library/Accessibility/BundlesBase/com.apple.Maps.axbundle/Versions/A/Resources/ro.lproj/Accessibility.strings The file was not recognized as a valid object file
+0a1,137
+> 
+> /usr/bin/apt (for architecture i386):
+> gen->n_type:15 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:1 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+>          U _CFArrayAppendArray
+>          U _CFArrayAppendValue
+>          U _CFArrayCreateMutable
+>          U _CFArrayGetCount
+>          U _CFArrayGetTypeID
+>          U _CFArrayGetValueAtIndex
+>          U _CFBooleanGetTypeID
+>          U _CFBooleanGetValue
+>          U _CFDictionaryCreateMutable
+>          U _CFDictionaryGetValue
+>          U _CFDictionarySetValue
+>          U _CFGetTypeID
+>          U _CFNumberGetTypeID
+>          U _CFNumberGetValue
+>          U _CFRelease
+>          U _CFRetain
+>          U _CFStringCompare
+>          U _CFStringCreateArrayBySeparatingStrings
+>          U _CFStringCreateWithCString
+>          U _CFStringGetCString
+>          U _CFStringGetCStringPtr
+>          U _CFStringGetIntValue
+>          U _CFStringGetTypeID
+>          U _CFStringHasPrefix
+>          U _JLCreateJVMListForTaskVersionAndArch
+>          U _JLIsRuntimeInstalledForTask
+>          U _JLRequestRuntimeInstall
+>          U __NSGetEnviron
+>          U ___CFConstantStringClassReference
+>          U ___snprintf_chk
+>          U ___stack_chk_fail
+>          U ___stack_chk_guard
+>          U ___stderrp
+>          U ___stdinp
+>          U ___stdoutp
+> 00001000 T __mh_execute_header
+>          U _execv
+>          U _exit
+>          U _fileno
+>          U _fprintf
+>          U _fwrite$UNIX2003
+>          U _getenv
+>          U _getpwuid
+>          U _getuid
+>          U _isatty
+>          U _kCFBooleanTrue
+>          U _kCFTypeArrayCallBacks
+>          U _kCFTypeDictionaryKeyCallBacks
+>          U _kCFTypeDictionaryValueCallBacks
+>          U _posix_spawn
+>          U _posix_spawnattr_destroy
+>          U _posix_spawnattr_init
+>          U _posix_spawnattr_setbinpref_np
+>          U _posix_spawnattr_setflags
+>          U _realpath$DARWIN_EXTSN
+>          U _setenv$UNIX2003
+>          U _stat$INODE64
+>          U _strcmp
+>          U dyld_stub_binder
+> 
+> /usr/bin/apt (for architecture x86_64):
+> gen->n_type:7 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:18 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:7 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:0 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
+> gen->n_type:25 N_UNDF[0] N_ABS[2] N_INDR[10] N_PBUD[12]
