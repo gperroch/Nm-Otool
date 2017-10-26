@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 11:40:05 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/26 17:00:28 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/26 18:07:26 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,104 +33,71 @@ int			ft_arch_gateway(int arch, int element)
 
 void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, off_t file_size)
 {
-	//struct fat_header	*fat_header;
-	void				*fat_arch_header;
+//	void				*fat_arch_header;
 	uint32_t			i;
-	uint64_t			offset;
-	//int					arch;
-	//uint32_t			nfat_arch;
+//	uint64_t			offset;
 	t_generic_file		gen;
+//	char				*cputype;
 
-	(void)file_name;
-	if (magic == FAT_CIGAM || magic == FAT_CIGAM_64)
-		gen.endian_fat = BIGEND;
-	else
-		gen.endian_fat = LITTLEEND;
+	i = 0;
 	gen.arch = magic == FAT_MAGIC || magic == FAT_CIGAM ? 32 : 64;
 	gen.file_size = file_size;
-
+	gen.file_name = file_name;
 	gen.fat_header = file_content;
-	ft_printf("OK1\n");
-	i = 0;
-	fat_arch_header = (char*)(gen.fat_header) + sizeof(struct fat_header);
-	//ft_printf("OK2\n");
-	//gen.nfat_arch = (gen.fat_header)->nfat_arch;
-	gen.nfat_arch = ft_swap_endian_32bit(gen.fat_header->nfat_arch);
-	//nfat_arch = ft_revert_endianness_4bytes(fat_header->nfat_arch);
+//	fat_arch_header = (char*)(gen.fat_header) + sizeof(struct fat_header);
+	if (magic == FAT_CIGAM || magic == FAT_CIGAM_64)
+	{
+		gen.endian_fat = BIGEND;
+		gen.nfat_arch = ft_swap_endian_32bit(gen.fat_header->nfat_arch);
+	}
+	else if (magic == FAT_MAGIC || magic == FAT_MAGIC_64)
+	{
+		gen.endian_fat = LITTLEEND;
+		gen.nfat_arch = gen.fat_header->nfat_arch;
+	}
+	else
+		return ; // Message d'erreur
 	while (i < gen.nfat_arch)
 	{
+	/*	fat_arch_header = (char*)(gen.fat_header) + sizeof(struct fat_header) + i * ft_arch_gateway(gen.arch, FAT_ARCH);
+		cputype = ft_get_arch_type(ft_swap_endian_32bit(((struct fat_arch_64*)fat_arch_header)->cputype));
+		ft_printf("\n%s (for architecture %s):\n", file_name, cputype);
+		free(cputype);
 		offset = gen.arch == 32 ? ((struct fat_arch*)fat_arch_header)->offset : ((struct fat_arch_64*)fat_arch_header)->offset;
 		if (gen.endian_fat == BIGEND)
 			offset = ft_swap_endian_32bit(offset); // Attention a l'endianness, peut differer entre le fat_header et entre les mach_header
-		ft_printf("OK3 arch:%d nfat_arch:%x offset:%d sizeof(fat_header->nfat_arch):%d\n", gen.arch, gen.nfat_arch, offset, sizeof(gen.fat_header->nfat_arch));
-		ft_iterate_fat_arch(&gen, offset);
-		ft_printf("OK4 fat_arch_header[%p] sizeof(struct fat_arch)=%d\n", fat_arch_header, sizeof(struct fat_arch));
-		fat_arch_header = (char*)fat_arch_header + ft_arch_gateway(gen.arch, FAT_ARCH);
-		ft_printf("OK5 fat_arch_header[%p]\n", fat_arch_header);
+	*/	ft_iterate_fat_arch(&gen, i);
+		// fat_arch_header = (char*)fat_arch_header + ft_arch_gateway(gen.arch, FAT_ARCH);
 		i++;
 	}
-	ft_printf("OK6\n");
 }
 
-void					ft_iterate_fat_arch(t_generic_file *gen, uint64_t offset)
+
+void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i)
 {
+	char				*cputype;
+	uint64_t			offset;
+	void				*fat_arch_header;
+
+	fat_arch_header = (char*)(gen->fat_header) + sizeof(struct fat_header) + i * ft_arch_gateway(gen->arch, FAT_ARCH);
+	if (gen->endian_fat == BIGEND)
+		cputype = ft_get_arch_type(ft_swap_endian_32bit(((struct fat_arch_64*)fat_arch_header)->cputype));
+	else if (gen->endian_fat == LITTLEEND)
+		cputype = ft_get_arch_type(((struct fat_arch_64*)fat_arch_header)->cputype);
+	else
+		cputype = ft_strdup("undefined");
+	ft_printf("\n%s (for architecture %s):\n", gen->file_name, cputype);
+	free(cputype);
+	offset = gen->arch == 32 ? ((struct fat_arch*)fat_arch_header)->offset : ((struct fat_arch_64*)fat_arch_header)->offset;
+	if (gen->endian_fat == BIGEND)
+		offset = ft_swap_endian_32bit(offset); // Attention a l'endianness, peut differer entre le fat_header et entre les mach_header
+
 	gen->header = (t_mach_header_64 *)((char*)(gen->fat_header) + offset);
 	if (gen->header->magic == MH_CIGAM || gen->header->magic == MH_CIGAM_64)
 		gen->endian_mach = BIGEND;
 	else if (gen->header->magic == MH_MAGIC || gen->header->magic == MH_MAGIC_64)
 		gen->endian_mach = LITTLEEND;
-	ft_printf("\t\tmach_header: magic:%x\n", gen->header->magic);
-	//dump_mem(gen.header, 16 * 5, 16, "iterate");
-	/* CHANGER L'ENDIANNESS DU FICHIER */ // A FAIRE AU CAS PAR CAS
-/*	char		*file_copy;
-	ft_printf("content:[%x]\n", ((struct fat_header*)file_content)->magic);
-	file_copy = ft_revert_endianness_4bytes(file_content, file_size);
-	ft_printf("copy after:[%x] [%d/%x]\n", ((struct fat_header*)file_copy)->magic, ((struct fat_header*)file_copy)->nfat_arch);
-	dump_mem(file_copy, 16*5, 16, "copy");
-	dump_mem(file_content, 16*5, 16, "content"); */
-	/////////////////////////////////////
-	ft_printf("OK3A\n");
 	ft_find_symtab(gen, 1);
-	ft_printf("OK3B\n");
-}
-
-int						ft_revert_endianness_4bytes(int nbr) // Merdique. Utiliser l'autre
-{
-	char				*file_copy;
-	char				tmp;
-
-	file_copy = (char*)(&nbr);
-	tmp = file_copy[3];
-	file_copy[3] = file_copy[0];
-	file_copy[0] = tmp;
-	tmp = file_copy[2];
-	file_copy[2] = file_copy[1];
-	file_copy[1] = tmp;
-
-	return (*file_copy);
-}
-
-void					*ft_revert_endianness_4bytes_full(void *file_content, off_t file_size) // ATTENTION AUX NOMBRES DANS LES NOMS DE FONCTION
-{
-	/* VERSION FICHIER COMPLET */
-	char				*file_copy;
-	char				tmp;
-	int					i = 0;
-
-	file_copy = (char*)malloc(file_size);
-	ft_memcpy(file_copy, file_content, file_size);
-	ft_printf("copy before:[%x] [%d/%x]\n", ((struct fat_header*)file_copy)->magic, ((struct fat_header*)file_copy)->nfat_arch);
-	while (i < file_size - 3)
-	{
-		tmp = file_copy[i + 3];
-		file_copy[i + 3] = file_copy[i + 0];
-		file_copy[i + 0] = tmp;
-		tmp = file_copy[i + 2];
-		file_copy[i + 2] = file_copy[i + 1];
-		file_copy[i + 1] = tmp;
-		i += 4;
-	}
-	return (file_copy);
 }
 
 int						ft_swap_endian_32bit(int nbr) // ATTENTION AUX NOMBRES DANS LES NOMS DE FONCTION
@@ -142,4 +109,19 @@ int						ft_swap_endian_32bit(int nbr) // ATTENTION AUX NOMBRES DANS LES NOMS DE
 				((nbr>>8)&0xff00) | // move byte 2 to byte 1
 				((nbr<<24)&0xff000000); // byte 0 to byte 3
 	return (swapped);
+}
+
+char					*ft_get_arch_type(int cputype) // Traiter tous les types et sous-types. Tester avec d'autres cputype et cpusubtype
+{
+	char				*str;
+
+	if (cputype == CPU_TYPE_X86)
+		str = ft_strdup("i386");
+	else if (cputype == CPU_TYPE_X86_64)
+		str = ft_strdup("x86_64");
+	else if (cputype == CPU_TYPE_POWERPC)
+		str = ft_strdup("ppc");
+	else
+		str = ft_strdup("undefined");
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/26 16:58:02 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/26 18:07:41 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define NM_OTOOL_H
 
 # include <mach-o/ranlib.h>
+# include <mach/machine.h>
 # include <sys/stat.h>
 # include <sys/mman.h>
 # include <stdio.h>
@@ -64,6 +65,7 @@ typedef struct				s_generic_file
 	char					endian_fat;
 	char					endian_mach;
 	off_t					file_size;
+	char					*file_name;
 	int						arch;
 }							t_generic_file;
 
@@ -126,12 +128,13 @@ void						ft_free_static_library_symbols(t_lib_symbol *list);
 
 int			ft_arch_gateway(int arch, int element);
 void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, off_t file_size);
-void					ft_iterate_fat_arch(t_generic_file *gen, uint64_t offset);
+void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i);
 int						ft_swap_endian_32bit(int nbr);
 void					*ft_revert_endianness_4bytes_full(void *file_content, off_t file_size);
 int						ft_revert_endianness_4bytes(int nbr);
 void					ft_locate_symbol_table_bigendian(t_generic_file *gen, void **symtab, void **strtab, t_symtab_command **symtab_command);
 t_symbol_display			*ft_create_symbol_list_bigendian(void *symtab, void *strtab, t_symtab_command *symtab_command, t_generic_file *gen);
+char					*ft_get_arch_type(int cputype);
 
 void		dump_mem(void *ptr, int len, int col, char *name);
 #endif

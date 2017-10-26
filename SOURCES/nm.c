@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/25 17:18:46 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/26 17:10:40 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void				ft_analyse_file(void *file_content, char *file_name, int argc, of
 	{
 		if (argc > 2)
 			ft_printf("\n%s:\n", file_name);
-		dump_mem(file_content, 16* 10, 16, "INIT");
+//		dump_mem(file_content, 16* 10, 16, "INIT");
 		ft_fat_arch(file_content, file_name, ((struct fat_header*)file_content)->magic, file_size);
 	}
 	else if (!ft_strcmp(file_start, "!<arch>")) // .a
