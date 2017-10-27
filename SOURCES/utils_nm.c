@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/27 16:39:10 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/27 17:50:21 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,11 +117,11 @@ t_symbol_display			*ft_find_symtab(t_generic_file *gen, char to_display) // GATE
 
 	if (gen->file_start == NULL)
 		gen->file_start = gen->header;
-	//ft_printf("file_start[%p] fat_header[%p] mach_header[%p]\n", gen->file_start, gen->fat_header, gen->header);
 	if (gen->endian_mach == LITTLEEND)
 	{
 		ft_locate_symbol_table(gen, &symtab, &strtab, &symtab_command); // GATEWAY
 		list = ft_create_symbol_list(symtab, strtab, symtab_command, gen); // !!!
+		ft_printf("LIST[%p]\n", list);
 	}
 	else if (gen->endian_mach == BIGEND) // GERER ca pour d'autre architectures que FAT
 	{
@@ -192,10 +192,8 @@ char						ft_find_section_bigendian(t_generic_file *gen)
 
 	section_counter = 0;
 	load_cmd = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
-//	ft_printf("==>MACH_ENDIAN[%d] load_cmd[%p] max_addr[%p] file_start[%p] fat_header[%p] header[%p] file_size[%d]\n", gen->endian_mach, load_cmd, (char*)(gen->file_start) + gen->file_size, gen->fat_header, gen->header, gen->file_size);
 	while (section_counter < gen->n_sect)
 	{
-//		ft_printf("section_counter:%d gen->n_sect:%d\n", section_counter, gen->n_sect);
 		if (!ft_bounds_security(gen, load_cmd))
 			return (0);
 		if (ft_swap_endian_32bit(load_cmd->cmd) == LC_SEGMENT)
@@ -204,7 +202,6 @@ char						ft_find_section_bigendian(t_generic_file *gen)
 			section_counter += ((t_segment_command_64*)load_cmd)->nsects;
 		if (section_counter < gen->n_sect)
 		{
-//			ft_printf("load_cmd->cmdsize:%d\n", ft_swap_endian_32bit(load_cmd->cmdsize));
 			load_cmd = (t_load_command*)((char*)load_cmd + ft_swap_endian_32bit(load_cmd->cmdsize));
 		}
 	}
@@ -237,9 +234,12 @@ char						ft_find_section(t_generic_file *gen)
 
 	section_counter = 0;
 	load_cmd = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
-//	ft_printf("==>MACH_ENDIAN[%d] load_cmd[%p] max_addr[%p] file_start[%p] fat_header[%p] header[%p] file_size[%d]\n", gen->endian_mach, load_cmd, (char*)(gen->file_start) + gen->file_size, gen->fat_header, gen->header, gen->file_size);
+	ft_printf("magic:[%x]\n", gen->header->magic);
+	dump_mem(gen->header, sizeof(struct mach_header_64), sizeof(struct mach_header_64), "mach");
+	dump_mem(load_cmd, sizeof(struct load_command), sizeof(struct load_command), "load");
 	while (section_counter < gen->n_sect)
 	{
+		//ft_printf("OK1 section_counter[%6d] gen->n_sect[%6d] load_command[%10p] load_command->cmd[%6d]\n", section_counter, gen->n_sect, load_cmd, load_cmd->cmd);
 		if (!ft_bounds_security(gen, load_cmd))
 			return (0);
 		if (load_cmd->cmd == LC_SEGMENT)
@@ -271,21 +271,14 @@ char						ft_section_type(t_section_64 *section)
 {
 	char					res;
 
+	if (!ft_has_print(section->sectname))
+		return (0);
 	res = 'S';
 	res = !ft_strcmp(section->sectname, "__text") ? 'T' : res;
 	res = !ft_strcmp(section->sectname, "__data") ? 'D' : res;
 	res = !ft_strcmp(section->sectname, "__bss") ? 'B' : res;
 	res = !ft_strcmp(section->sectname, "__common") &&
 			ft_strcmp(section->segname, "__DATA") ? 'C' : res;
-	if (!ft_has_print(section->sectname))
-	//if (!ft_strcmp(section->sectname, ""))
-	{
-//		ft_printf("RETURN DU FT_SECTION_TYPE res:[%c] section->sectname:[%8s] section->segname:[%8s]\n", res, section->sectname, section->segname);
-//		ft_printf("\nSECTION SANS NOM\n\n");
-		return (0);
-	}
-	//if (res == 'T')
-//	ft_printf("res:[%c] section->sectname:[%8s][len:%d] section->segname:[%8s][len:%d]\n", res, section->sectname, ft_strlen(section->sectname), section->segname, ft_strlen(section->segname));
 	return (res);
 }
 

@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/27 14:36:13 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/27 17:35:06 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 // Bonus -p -u -U -j -r
 // Big endian et Little endian
 // POUR OTOOL AUSSI
+
+// Boucle infinie sur /usr/bin/a2p
 
 static void				ft_analyse_file(void *file_content, char *file_name, int argc, off_t file_size)
 {
