@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 11:40:05 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/26 18:13:21 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/27 15:10:37 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void					ft_fat_arch(void *file_content, char *file_name,
 	gen.file_size = file_size;
 	gen.file_name = file_name;
 	gen.fat_header = file_content;
+	gen.file_start = file_content;
 	if (magic == FAT_CIGAM || magic == FAT_CIGAM_64)
 	{
 		gen.endian_fat = BIGEND;
@@ -66,6 +67,8 @@ void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i)
 	void				*fat_arch;
 
 	fat_arch = (char*)(gen->fat_header) + sizeof(struct fat_header) + i * ft_arch_gateway(gen->arch, FAT_ARCH);
+	if (!ft_bounds_security(gen, fat_arch))
+		return ;
 	if (gen->endian_fat == BIGEND)
 		cputype = ft_get_arch_type(ft_swap_endian_32bit(((struct fat_arch_64*)fat_arch)->cputype));
 	else if (gen->endian_fat == LITTLEEND)
@@ -78,6 +81,8 @@ void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i)
 	if (gen->endian_fat == BIGEND)
 		offset = ft_swap_endian_32bit(offset); // Attention a l'endianness, peut differer entre le fat_header et entre les mach_header
 	gen->header = (t_mach_header_64 *)((char*)(gen->fat_header) + offset);
+	if (!ft_bounds_security(gen, gen->header))
+		return ;
 	if (gen->header->magic == MH_CIGAM || gen->header->magic == MH_CIGAM_64)
 		gen->endian_mach = BIGEND;
 	else if (gen->header->magic == MH_MAGIC || gen->header->magic == MH_MAGIC_64)
@@ -109,4 +114,17 @@ char					*ft_get_arch_type(int cputype) // Traiter tous les types et sous-types.
 	else
 		str = ft_strdup("undefined");
 	return (str);
+}
+
+int							ft_bounds_security(t_generic_file *gen, void *ptr)
+{
+	void					*max_addr;
+
+	max_addr = (char*)(gen->file_start) + gen->file_size;
+	if ((char*)ptr - (char*)max_addr > 0)
+	{
+		ft_printf("ft_nm: %s truncated or malformed object max_addr[%p] ptr[%p]\n\n", gen->file_name, max_addr, ptr);
+		return (0);
+	}
+	return (1);
 }

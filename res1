@@ -1,322 +1,225 @@
-[?1049h[?1h=[1;94r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[94;1H"/dev/fd/11" [fifo/socket] 225L, 8979C[94;11H2[94;14H[K[94;14H[fifo/socket] 225L, 8979C[1;1H[96m[48;5;242m  [m[93m  1 [m[73C[7m|[m
-[96m[48;5;242m  [m[93m  2 [m/usr/bin/audiodevice (for architecture ppc):[29C[7m|[m
-[96m[48;5;242m  [m[93m  3 [m[45m00002fc0 [m[1m[101mt[m[45m +[SSAudioDeviceCenter initialize]                             [m[7m|[m
-[96m[48;5;242m  [m[93m  4 [m[45m00002d84 [m[1m[101mt[m[45m -[SSAudioDevice canBeDefaultDevice]                           [m[7m|[m
-[96m[48;5;242m  [m[93m  5 [m[45m00002e10 [m[1m[101mt[m[45m -[SSAudioDevice canBeDefaultSystemDevice]                     [m[7m|[m
-[96m[48;5;242m  [m[93m  6 [m[45m00002bf4 [m[1m[101mt[m[45m -[SSAudioDevice compare:]                                     [m[7m|[m
-[96m[48;5;242m  [m[93m  7 [m[45m00002e9c [m[1m[101mt[m[45m -[SSAudioDevice coreAudioDeviceID]                            [m[7m|[m
-[96m[48;5;242m  [m[93m  8 [m[45m00002f30 [m[1m[101mt[m[45m -[SSAudioDevice coreAudioIsInput]                             [m[7m|[m
-[96m[48;5;242m  [m[93m  9 [m[45m00002ea4 [m[1m[101mt[m[45m -[SSAudioDevice coreAudioSourceType]                          [m[7m|[m
-[96m[48;5;242m  [m[93m 10 [m[45m00002f3c [m[1m[101mt[m[45m -[SSAudioDevice coreAudioTransportType]                       [m[7m|[m
-[96m[48;5;242m  [m[93m 11 [m[45m00002a60 [m[1m[101mt[m[45m -[SSAudioDevice dealloc]                                      [m[7m|[m
-[96m[48;5;242m  [m[93m 12 [m[45m00002aa4 [m[1m[101mt[m[45m -[SSAudioDevice description]                                  [m[7m|[m
-[96m[48;5;242m  [m[93m 13 [m[45m00002eac [m[1m[101mt[m[45m -[SSAudioDevice fetchCoreAudioSourceType]                     [m[7m|[m
-[96m[48;5;242m  [m[93m 14 [m[45m000029e0 [m[1m[101mt[m[45m -[SSAudioDevice initWithAudioDeviceID:source:isInput:]        [m[7m|[m
-[96m[48;5;242m  [m[93m 15 [m[45m00002b34 [m[1m[101mt[m[45m -[SSAudioDevice isEqual:]                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 16 [m[45m00002c58 [m[1m[101mt[m[45m -[SSAudioDevice name]                                         [m[7m|[m
-[96m[48;5;242m  [m[93m 17 [m[45m00003104 [m[1m[101mt[m[45m -[SSAudioDeviceCenter _allDevicesWithDeviceID:isInput:]       [m[7m|[m
-[96m[48;5;242m  [m[93m 18 [m[45m0000363c [m[1m[101mt[m[45m -[SSAudioDeviceCenter _defaultDeviceOfClass:]                 [m[7m|[m
-[96m[48;5;242m  [m[93m 19 [m[45m00003c8c [m[1m[101mt[m[45m -[SSAudioDeviceCenter _devicePropertyChanged:]                [m[7m|[m
-[96m[48;5;242m  [m[93m 20 [m[45m00003780 [m[1m[101mt[m[45m -[SSAudioDeviceCenter _getAndSetVolume:forInput:]             [m[7m|[m
-[96m[48;5;242m  [m[93m 21 [m[45m00003c84 [m[1m[101mt[m[45m -[SSAudioDeviceCenter _headphoneDevice]                       [m[7m|[m
-[96m[48;5;242m  [m[93m 22 [m[45m000032bc [m[1m[101mt[m[45m -[SSAudioDeviceCenter _loadDeviceList:]                       [m[7m|[m
-[96m[48;5;242m  [m[93m 23 [m[45m000035ac [m[1m[101mt[m[45m -[SSAudioDeviceCenter _setDefaultDeviceOfClass:to:]           [m[7m|[m
-[96m[48;5;242m  [m[93m 24 [m[45m0000374c [m[1m[101mt[m[45m -[SSAudioDeviceCenter _stringForCAError:]                     [m[7m|[m
-[96m[48;5;242m  [m[93m 25 [m[45m00004140 [m[1m[101mt[m[45m -[SSAudioDeviceCenter audioFollowsJack]                       [m[7m|[m
-[96m[48;5;242m  [m[93m 26 [m[45m0000309c [m[1m[101mt[m[45m -[SSAudioDeviceCenter dealloc]                                [m[7m|[m
-[96m[48;5;242m  [m[93m 27 [m[45m0000345c [m[1m[101mt[m[45m -[SSAudioDeviceCenter deviceWithID:isInput:]                  [m[7m|[m
-[96m[48;5;242m  [m[93m 28 [m[45m000034ec [m[1m[101mt[m[45m -[SSAudioDeviceCenter devicesWithTransportType:isInput:]      [m[7m|[m
-[96m[48;5;242m  [m[93m 29 [m[45m00003058 [m[1m[101mt[m[45m -[SSAudioDeviceCenter init]                                   [m[7m|[m
-[96m[48;5;242m  [m[93m 30 [m[45m0000343c [m[1m[101mt[m[45m -[SSAudioDeviceCenter inputDevices]                           [m[7m|[m
-[96m[48;5;242m  [m[93m 31 [m[45m00003b20 [m[1m[101mt[m[45m -[SSAudioDeviceCenter inputVolume]                            [m[7m|[m
-[96m[48;5;242m  [m[93m 32 [m[45m0000344c [m[1m[101mt[m[45m -[SSAudioDeviceCenter outputDevices]                          [m[7m|[m
-[96m[48;5;242m  [m[93m 33 [m[45m00003b48 [m[1m[101mt[m[45m -[SSAudioDeviceCenter outputVolume]                           [m[7m|[m
-[96m[48;5;242m  [m[93m 34 [m[45m000036e0 [m[1m[101mt[m[45m -[SSAudioDeviceCenter selectedInputDevice]                    [m[7m|[m
-[96m[48;5;242m  [m[93m 35 [m[45m0000370c [m[1m[101mt[m[45m -[SSAudioDeviceCenter selectedOutputDevice]                   [m[7m|[m
-[96m[48;5;242m  [m[93m 36 [m[45m00003738 [m[1m[101mt[m[45m -[SSAudioDeviceCenter selectedSystemDevice]                   [m[7m|[m
-[96m[48;5;242m  [m[93m 37 [m[45m00003f94 [m[1m[101mt[m[45m -[SSAudioDeviceCenter setAudioFollowsJack:]                   [m[7m|[m
-[96m[48;5;242m  [m[93m 38 [m[45m00003b38 [m[1m[101mt[m[45m -[SSAudioDeviceCenter setInputVolume:]                        [m[7m|[m
-[96m[48;5;242m  [m[93m 39 [m[45m00003b60 [m[1m[101mt[m[45m -[SSAudioDeviceCenter setOutputVolume:]                       [m[7m|[m
-[96m[48;5;242m  [m[93m 40 [m[45m000036c8 [m[1m[101mt[m[45m -[SSAudioDeviceCenter setSelectedInputDevice:]                [m[7m|[m
-[96m[48;5;242m  [m[93m 41 [m[45m000036f4 [m[1m[101mt[m[45m -[SSAudioDeviceCenter setSelectedOutputDevice:]               [m[7m|[m
-[96m[48;5;242m  [m[93m 42 [m[45m00003720 [m[1m[101mt[m[45m -[SSAudioDeviceCenter setSelectedSystemDevice:]               [m[7m|[m
-[96m[48;5;242m  [m[93m 43 [m[45m00003c04 [m[1m[101mt[m[45m -[SSAudioDeviceCenter setSystemVolume:]                       [m[7m|[m
-[96m[48;5;242m  [m[93m 44 [m[45m00003efc [m[1m[101mt[m[45m -[SSAudioDeviceCenter supportsAudioFollowsJack]               [m[7m|[m
-[96m[48;5;242m  [m[93m 45 [m[45m00003b70 [m[1m[101mt[m[45m -[SSAudioDeviceCenter systemVolume]                           [m[7m|[m
-[96m[48;5;242m  [m[93m 46 [m[1m[101m         U[m[45m .objc_class_name_NSAutoreleasePool                            [m[7m|[m
-[96m[48;5;242m  [m[93m 47 [m[1m[101m         U[m[45m .objc_class_name_NSDictionary                                 [m[7m|[m
-[96m[48;5;242m  [m[93m 48 [m[1m[101m         U[m[45m .objc_class_name_NSMutableArray                               [m[7m|[m
-[96m[48;5;242m  [m[93m 49 [m[1m[101m         U[m[45m .objc_class_name_NSNumber                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 50 [m[1m[101m         U[m[45m .objc_class_name_NSObject                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 51 [m[1m[101m         U[m[45m .objc_class_name_NSString                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 52 [m[1m[101m         U[m[45m .objc_class_name_NSURL                                        [m[7m|[m
-[96m[48;5;242m  [m[93m 53 [m[45m00006108 [m[1m[101mS[m[45m .objc_class_name_SSAudioDevice                                [m[7m|[m
-[96m[48;5;242m  [m[93m 54 [m[45m00006138 [m[1m[101mS[m[45m .objc_class_name_SSAudioDeviceCenter                          [m[7m|[m
-[96m[48;5;242m  [m[93m 55 [m[1m[101m         U[m[45m _AudioDeviceAddPropertyListener                               [m[7m|[m
-[96m[48;5;242m  [m[93m 56 [m[1m[101m         U[m[45m _AudioDeviceGetProperty                                       [m[7m|[m
-[96m[48;5;242m  [m[93m 57 [m[1m[101m         U[m[45m _AudioDeviceGetPropertyInfo                                   [m[7m|[m
-[96m[48;5;242m  [m[93m 58 [m[1m[101m         U[m[45m _AudioDeviceRemovePropertyListener                            [m[7m|[m
-[96m[48;5;242m  [m[93m 59 [m[1m[101m         U[m[45m _AudioHardwareGetProperty                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 60 [m[1m[101m         U[m[45m _AudioHardwareGetPropertyInfo                                 [m[7m|[m
-[96m[48;5;242m  [m[93m 61 [m[45m000051cc [m[1m[101mb[m[45m _AudioHardwareServiceGetPropertyDataPtr                       [m[7m|[m
-[96m[48;5;242m  [m[93m 62 [m[45m000051d4 [m[1m[101mb[m[45m _AudioHardwareServiceHasPropertyPtr                           [m[7m|[m
-[96m[48;5;242m  [m[93m 63 [m[45m000051d0 [m[1m[101mb[m[45m _AudioHardwareServiceSetPropertyDataPtr                       [m[7m|[m
-[96m[48;5;242m  [m[93m 64 [m[1m[101m         U[m[45m _AudioHardwareSetProperty                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 65 [m[45m00004fcc [m[1m[101ms[m[45m _C.198.95165                                                  [m[7m|[m
-[96m[48;5;242m  [m[93m 66 [m[45m00004fc4 [m[1m[101ms[m[45m _C.199.95166                                                  [m[7m|[m
-[96m[48;5;242m  [m[93m 67 [m[45m00004fbc [m[1m[101ms[m[45m _C.200.95167                                                  [m[7m|[m
-[96m[48;5;242m  [m[93m 68 [m[1m[101m         U[m[45m _CFBundleCreate                                               [m[7m|[m
-[96m[48;5;242m  [m[93m 69 [m[1m[101m         U[m[45m _CFBundleGetFunctionPointerForName                            [m[7m|[m
-[96m[48;5;242m  [m[93m 70 [m[1m[101m         U[m[45m _GetSysBeepVolume                                             [m[7m|[m
-[96m[48;5;242m  [m[93m 71 [m[1m[101m         U[m[45m _NSLog                                                        [m[7m|[m
-[96m[48;5;242m  [m[93m 72 [m[45m0000500c [m[1m[101mD[m[45m _NXArgc                                                       [m[7m|[m
-[96m[48;5;242m  [m[93m 73 [m[45m00005008 [m[1m[101mD[m[45m _NXArgv                                                       [m[7m|[m
-[96m[48;5;242m  [m[93m 74 [m[1m[101m         U[m[45m _SetSysBeepVolume                                             [m[7m|[m
-[96m[48;5;242m  [m[93m 75 [m[1m[101m         U[m[45m _UTCreateStringForOSType                                      [m[7m|[m
-[96m[48;5;242m  [m[93m 76 [m[1m[101m         U[m[45m ___CFConstantStringClassReference                             [m[7m|[m
-[96m[48;5;242m  [m[93m 77 [m[45m00005188 [m[1m[101mS[m[45m ___darwin_gcc3_preregister_frame_info                         [m[7m|[m
-[96m[48;5;242m  [m[93m 78 [m[1m[101m         U[m[45m ___keymgr_dwarf2_register_sections                            [m[7m|[m
-[96m[48;5;242m  [m[93m 79 [m[45m00005000 [m[1m[101mD[m[45m ___progname                                                   [m[7m|[m
-[96m[48;5;242m  [m[93m 80 [m[1m[101m         U[m[45m __cthread_init_routine                                        [m[7m|[m
-[96m[48;5;242m  [m[93m 81 [m[45m00002388 [m[1m[101mt[m[45m __dyld_func_lookup                                            [m[7m|[m
-[96m[48;5;242m  [m[93m 82 [m[45m00001000 [m[1m[101mA[m[45m __mh_execute_header                                           [m[7m|[m
-[96m[48;5;242m  [m[93m 83 [m[45m00002024 [m[1m[101mt[m[45m __start                                                       [m[7m|[m
-[96m[48;5;242m  [m[93m 84 [m[1m[101m         U[m[45m _atexit                                                       [m[7m|[m
-[96m[48;5;242m  [m[93m 85 [m[45m0000518c [m[1m[101mS[m[45m _catch_exception_raise                                        [m[7m|[m
-[96m[48;5;242m  [m[93m 86 [m[45m00005190 [m[1m[101mS[m[45m _catch_exception_raise_state                                  [m[7m|[m
-[96m[48;5;242m  [m[93m 87 [m[45m00005194 [m[1m[101mS[m[45m _catch_exception_raise_state_identity                         [m[7m|[m
-[96m[48;5;242m  [m[93m 88 [m[45m00005198 [m[1m[101mS[m[45m _clock_alarm_reply                                            [m[7m|[m
-[96m[48;5;242m  [m[93m 89 [m[45m00003dd4 [m[1m[101mt[m[45m _devicePropertyChanged                                        [m[7m|[m
-[96m[48;5;242m  [m[93m 90 [m[45m0000519c [m[1m[101mS[m[45m _do_mach_notify_dead_name                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 91 [m[45m000051a0 [m[1m[101mS[m[45m _do_mach_notify_no_senders                                    [m[7m|[m
-[96m[48;5;242m  [m[93m 92 [m[45m000051a4 [m[1m[101mS[m[45m _do_mach_notify_port_deleted                                  [m[7m|[m
-[1m[7m/dev/fd/11                                                                      [m[1;81H[96m[48;5;242m  [m[93m  1 [m[2;81H[96m[48;5;242m  [m[93m  2 [m/usr/bin/audiodevice (for architecture ppc):[3;81H[96m[48;5;242m  [m[93m  3 [m[45m00002fc0 [m[1m[101mu[m[45m +[SSAudioDeviceCenter initialize]                            [m[4;81H[96m[48;5;242m  [m[93m  4 [m[45m00002d84 [m[1m[101mu[m[45m -[SSAudioDevice canBeDefaultDevice]                          [m[5;81H[96m[48;5;242m  [m[93m  5 [m[45m00002e10 [m[1m[101mu[m[45m -[SSAudioDevice canBeDefaultSystemDevice]                    [m[6;81H[96m[48;5;242m  [m[93m  6 [m[45m00002bf4 [m[1m[101mu[m[45m -[SSAudioDevice compare:]                                    [m[7;81H[96m[48;5;242m  [m[93m  7 [m[45m00002e9c [m[1m[101mu[m[45m -[SSAudioDevice coreAudioDeviceID]                           [m[8;81H[96m[48;5;242m  [m[93m  8 [m[45m00002f30 [m[1m[101mu[m[45m -[SSAudioDevice coreAudioIsInput]                            [m[9;81H[96m[48;5;242m  [m[93m  9 [m[45m00002ea4 [m[1m[101mu[m[45m -[SSAudioDevice coreAudioSourceType]                         [m[10;81H[96m[48;5;242m  [m[93m 10 [m[45m00002f3c [m[1m[101mu[m[45m -[SSAudioDevice coreAudioTransportType]                      [m[11;81H[96m[48;5;242m  [m[93m 11 [m[45m00002a60 [m[1m[101mu[m[45m -[SSAudioDevice dealloc]                                     [m[12;81H[96m[48;5;242m  [m[93m 12 [m[45m00002aa4 [m[1m[101mu[m[45m -[SSAudioDevice description]                                 [m[13;81H[96m[48;5;242m  [m[93m 13 [m[45m00002eac [m[1m[101mu[m[45m -[SSAudioDevice fetchCoreAudioSourceType]                    [m[14;81H[96m[48;5;242m  [m[93m 14 [m[45m000029e0 [m[1m[101mu[m[45m -[SSAudioDevice initWithAudioDeviceID:source:isInput:]       [m[15;81H[96m[48;5;242m  [m[93m 15 [m[45m00002b34 [m[1m[101mu[m[45m -[SSAudioDevice isEqual:]                                    [m[16;81H[96m[48;5;242m  [m[93m 16 [m[45m00002c58 [m[1m[101mu[m[45m -[SSAudioDevice name]                                        [m[17;81H[96m[48;5;242m  [m[93m 17 [m[45m00003104 [m[1m[101mu[m[45m -[SSAudioDeviceCenter _allDevicesWithDeviceID:isInput:]      [m[18;81H[96m[48;5;242m  [m[93m 18 [m[45m0000363c [m[1m[101mu[m[45m -[SSAudioDeviceCenter _defaultDeviceOfClass:]                [m[19;81H[96m[48;5;242m  [m[93m 19 [m[45m00003c8c [m[1m[101mu[m[45m -[SSAudioDeviceCenter _devicePropertyChanged:]               [m[20;81H[96m[48;5;242m  [m[93m 20 [m[45m00003780 [m[1m[101mu[m[45m -[SSAudioDeviceCenter _getAndSetVolume:forInput:]            [m[21;81H[96m[48;5;242m  [m[93m 21 [m[45m00003c84 [m[1m[101mu[m[45m -[SSAudioDeviceCenter _headphoneDevice]                      [m[22;81H[96m[48;5;242m  [m[93m 22 [m[45m000032bc [m[1m[101mu[m[45m -[SSAudioDeviceCenter _loadDeviceList:]                      [m[23;81H[96m[48;5;242m  [m[93m 23 [m[45m000035ac [m[1m[101mu[m[45m -[SSAudioDeviceCenter _setDefaultDeviceOfClass:to:]          [m[24;81H[96m[48;5;242m  [m[93m 24 [m[45m0000374c [m[1m[101mu[m[45m -[SSAudioDeviceCenter _stringForCAError:]                    [m[25;81H[96m[48;5;242m  [m[93m 25 [m[45m00004140 [m[1m[101mu[m[45m -[SSAudioDeviceCenter audioFollowsJack]                      [m[26;81H[96m[48;5;242m  [m[93m 26 [m[45m0000309c [m[1m[101mu[m[45m -[SSAudioDeviceCenter dealloc]                               [m[27;81H[96m[48;5;242m  [m[93m 27 [m[45m0000345c [m[1m[101mu[m[45m -[SSAudioDeviceCenter deviceWithID:isInput:]                 [m[28;81H[96m[48;5;242m  [m[93m 28 [m[45m000034ec [m[1m[101mu[m[45m -[SSAudioDeviceCenter devicesWithTransportType:isInput:]     [m[29;81H[96m[48;5;242m  [m[93m 29 [m[45m00003058 [m[1m[101mu[m[45m -[SSAudioDeviceCenter init]                                  [m[30;81H[96m[48;5;242m  [m[93m 30 [m[45m0000343c [m[1m[101mu[m[45m -[SSAudioDeviceCenter inputDevices]                          [m[31;81H[96m[48;5;242m  [m[93m 31 [m[45m00003b20 [m[1m[101mu[m[45m -[SSAudioDeviceCenter inputVolume]                           [m[32;81H[96m[48;5;242m  [m[93m 32 [m[45m0000344c [m[1m[101mu[m[45m -[SSAudioDeviceCenter outputDevices]                         [m[33;81H[96m[48;5;242m  [m[93m 33 [m[45m00003b48 [m[1m[101mu[m[45m -[SSAudioDeviceCenter outputVolume]                          [m[34;81H[96m[48;5;242m  [m[93m 34 [m[45m000036e0 [m[1m[101mu[m[45m -[SSAudioDeviceCenter selectedInputDevice]                   [m[35;81H[96m[48;5;242m  [m[93m 35 [m[45m0000370c [m[1m[101mu[m[45m -[SSAudioDeviceCenter selectedOutputDevice]                  [m[36;81H[96m[48;5;242m  [m[93m 36 [m[45m00003738 [m[1m[101mu[m[45m -[SSAudioDeviceCenter selectedSystemDevice]                  [m[37;81H[96m[48;5;242m  [m[93m 37 [m[45m00003f94 [m[1m[101mu[m[45m -[SSAudioDeviceCenter setAudioFollowsJack:]                  [m[38;81H[96m[48;5;242m  [m[93m 38 [m[45m00003b38 [m[1m[101mu[m[45m -[SSAudioDeviceCenter setInputVolume:]                       [m[39;81H[96m[48;5;242m  [m[93m 39 [m[45m00003b60 [m[1m[101mu[m[45m -[SSAudioDeviceCenter setOutputVolume:]                      [m[40;81H[96m[48;5;242m  [m[93m 40 [m[45m000036c8 [m[1m[101mu[m[45m -[SSAudioDeviceCenter setSelectedInputDevice:]               [m[41;81H[96m[48;5;242m  [m[93m 41 [m[45m000036f4 [m[1m[101mu[m[45m -[SSAudioDeviceCenter setSelectedOutputDevice:]              [m[42;81H[96m[48;5;242m  [m[93m 42 [m[45m00003720 [m[1m[101mu[m[45m -[SSAudioDeviceCenter setSelectedSystemDevice:]              [m[43;81H[96m[48;5;242m  [m[93m 43 [m[45m00003c04 [m[1m[101mu[m[45m -[SSAudioDeviceCenter setSystemVolume:]                      [m[44;81H[96m[48;5;242m  [m[93m 44 [m[45m00003efc [m[1m[101mu[m[45m -[SSAudioDeviceCenter supportsAudioFollowsJack]              [m[45;81H[96m[48;5;242m  [m[93m 45 [m[45m00003b70 [m[1m[101mu[m[45m -[SSAudioDeviceCenter systemVolume]                          [m[46;81H[96m[48;5;242m  [m[93m 46 [m[1m[101m00000000 u[m[45m .objc_class_name_NSAutoreleasePool                           [m[47;81H[96m[48;5;242m  [m[93m 47 [m[1m[101m00000000 u[m[45m .objc_class_name_NSDictionary                                [m[48;81H[96m[48;5;242m  [m[93m 48 [m[1m[101m00000000 u[m[45m .objc_class_name_NSMutableArray                              [m[49;81H[96m[48;5;242m  [m[93m 49 [m[1m[101m00000000 u[m[45m .objc_class_name_NSNumber                                    [m[50;81H[96m[48;5;242m  [m[93m 50 [m[1m[101m00000000 u[m[45m .objc_class_name_NSObject                                    [m[51;81H[96m[48;5;242m  [m[93m 51 [m[1m[101m00000000 u[m[45m .objc_class_name_NSString                                    [m[52;81H[96m[48;5;242m  [m[93m 52 [m[1m[101m00000000 u[m[45m .objc_class_name_NSURL                                       [m[53;81H[96m[48;5;242m  [m[93m 53 [m[45m00006108 [m[1m[101mu[m[45m .objc_class_name_SSAudioDevice                               [m[54;81H[96m[48;5;242m  [m[93m 54 [m[45m00006138 [m[1m[101mu[m[45m .objc_class_name_SSAudioDeviceCenter                         [m[55;81H[96m[48;5;242m  [m[93m 55 [m[1m[101m00000000 u[m[45m _AudioDeviceAddPropertyListener                              [m[56;81H[96m[48;5;242m  [m[93m 56 [m[1m[101m00000000 u[m[45m _AudioDeviceGetProperty                                      [m[57;81H[96m[48;5;242m  [m[93m 57 [m[1m[101m00000000 u[m[45m _AudioDeviceGetPropertyInfo                                  [m[58;81H[96m[48;5;242m  [m[93m 58 [m[1m[101m00000000 u[m[45m _AudioDeviceRemovePropertyListener                           [m[59;81H[96m[48;5;242m  [m[93m 59 [m[1m[101m00000000 u[m[45m _AudioHardwareGetProperty                                    [m[60;81H[96m[48;5;242m  [m[93m 60 [m[1m[101m00000000 u[m[45m _AudioHardwareGetPropertyInfo                                [m[61;81H[96m[48;5;242m  [m[93m 61 [m[45m000051cc [m[1m[101mu[m[45m _AudioHardwareServiceGetPropertyDataPtr                      [m[62;81H[96m[48;5;242m  [m[93m 62 [m[45m000051d4 [m[1m[101mu[m[45m _AudioHardwareServiceHasPropertyPtr                          [m[63;81H[96m[48;5;242m  [m[93m 63 [m[45m000051d0 [m[1m[101mu[m[45m _AudioHardwareServiceSetPropertyDataPtr                      [m[64;81H[96m[48;5;242m  [m[93m 64 [m[1m[101m00000000 u[m[45m _AudioHardwareSetProperty                                    [m[65;81H[96m[48;5;242m  [m[93m 65 [m[45m00004fcc [m[1m[101mu[m[45m _C.198.95165                                                 [m[66;81H[96m[48;5;242m  [m[93m 66 [m[45m00004fc4 [m[1m[101mu[m[45m _C.199.95166                                                 [m[67;81H[96m[48;5;242m  [m[93m 67 [m[45m00004fbc [m[1m[101mu[m[45m _C.200.95167                                                 [m[68;81H[96m[48;5;242m  [m[93m 68 [m[1m[101m00000000 u[m[45m _CFBundleCreate                                              [m[69;81H[96m[48;5;242m  [m[93m 69 [m[1m[101m00000000 u[m[45m _CFBundleGetFunctionPointerForName                           [m[70;81H[96m[48;5;242m  [m[93m 70 [m[1m[101m00000000 u[m[45m _GetSysBeepVolume                                            [m[71;81H[96m[48;5;242m  [m[93m 71 [m[1m[101m00000000 u[m[45m _NSLog                                                       [m[72;81H[96m[48;5;242m  [m[93m 72 [m[45m0000500c [m[1m[101mu[m[45m _NXArgc                                                      [m[73;81H[96m[48;5;242m  [m[93m 73 [m[45m00005008 [m[1m[101mu[m[45m _NXArgv                                                      [m[74;81H[96m[48;5;242m  [m[93m 74 [m[1m[101m00000000 u[m[45m _SetSysBeepVolume                                            [m[75;81H[96m[48;5;242m  [m[93m 75 [m[1m[101m00000000 u[m[45m _UTCreateStringForOSType                                     [m[76;81H[96m[48;5;242m  [m[93m 76 [m[1m[101m00000000 u[m[45m ___CFConstantStringClassReference                            [m[77;81H[96m[48;5;242m  [m[93m 77 [m[45m00005188 [m[1m[101mu[m[45m ___darwin_gcc3_preregister_frame_info                        [m[78;81H[96m[48;5;242m  [m[93m 78 [m[1m[101m00000000 u[m[45m ___keymgr_dwarf2_register_sections                           [m[79;81H[96m[48;5;242m  [m[93m 79 [m[45m00005000 [m[1m[101mu[m[45m ___progname                                                  [m[80;81H[96m[48;5;242m  [m[93m 80 [m[1m[101m00000000 u[m[45m __cthread_init_routine                                       [m[81;81H[96m[48;5;242m  [m[93m 81 [m[45m00002388 [m[1m[101mu[m[45m __dyld_func_lookup                                           [m[82;81H[96m[48;5;242m  [m[93m 82 [m[45m00001000 [m[1m[101mu[m[45m __mh_execute_header                                          [m[83;81H[96m[48;5;242m  [m[93m 83 [m[45m00002024 [m[1m[101mu[m[45m __start                                                      [m[84;81H[96m[48;5;242m  [m[93m 84 [m[1m[101m00000000 u[m[45m _atexit                                                      [m[85;81H[96m[48;5;242m  [m[93m 85 [m[45m0000518c [m[1m[101mu[m[45m _catch_exception_raise                                       [m[86;81H[96m[48;5;242m  [m[93m 86 [m[45m00005190 [m[1m[101mu[m[45m _catch_exception_raise_state                                 [m[87;81H[96m[48;5;242m  [m[93m 87 [m[45m00005194 [m[1m[101mu[m[45m _catch_exception_raise_state_identity                        [m[88;81H[96m[48;5;242m  [m[93m 88 [m[45m00005198 [m[1m[101mu[m[45m _clock_alarm_reply                                           [m[89;81H[96m[48;5;242m  [m[93m 89 [m[45m00003dd4 [m[1m[101mu[m[45m _devicePropertyChanged                                       [m[90;81H[96m[48;5;242m  [m[93m 90 [m[45m0000519c [m[1m[101mu[m[45m _do_mach_notify_dead_name                                    [m[91;81H[96m[48;5;242m  [m[93m 91 [m[45m000051a0 [m[1m[101mu[m[45m _do_mach_notify_no_senders                                   [m[92;81H[96m[48;5;242m  [m[93m 92 [m[45m000051a4 [m[1m[101mu[m[45m _do_mach_notify_port_deleted                                 [m[93;81H[7m/dev/fd/12                                                                    [1;7H[?12l[?25h[?25l[m[94;1HType  :quit<Enter>  to exit Vim[94;32H[K[1;7H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[2;7H[?12l[?25h[?25l[3;7H[?12l[?25h[?25l[4;7H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1;1H[96m[48;5;242m  [m[93m 47 [m[1m[101m         U[m[45m .objc_class_name_NSDictionary                                 [m
-[96m[48;5;242m  [m[93m 48 [m[1m[101m         U[m[45m .objc_class_name_NSMutableArray                               [m
-[96m[48;5;242m  [m[93m 49 [m[1m[101m         U[m[45m .objc_class_name_NSNumber                                     [m
-[96m[48;5;242m  [m[93m 50 [m[1m[101m         U[m[45m .objc_class_name_NSObject                                     [m
-[96m[48;5;242m  [m[93m 51 [m[1m[101m         U[m[45m .objc_class_name_NSString                                     [m
-[96m[48;5;242m  [m[93m 52 [m[1m[101m         U[m[45m .objc_class_name_NSURL                                        [m
-[96m[48;5;242m  [m[93m 53 [m[45m00006108 [m[1m[101mS[m[45m .objc_class_name_SSAudioDevice                                [m
-[96m[48;5;242m  [m[93m 54 [m[45m00006138 [m[1m[101mS[m[45m .objc_class_name_SSAudioDeviceCenter                          [m
-[96m[48;5;242m  [m[93m 55 [m[1m[101m         U[m[45m _AudioDeviceAddPropertyListener                               [m
-[96m[48;5;242m  [m[93m 56 [m[1m[101m         U[m[45m _AudioDeviceGetProperty                                       [m
-[96m[48;5;242m  [m[93m 57 [m[1m[101m         U[m[45m _AudioDeviceGetPropertyInfo                                   [m
-[96m[48;5;242m  [m[93m 58 [m[1m[101m         U[m[45m _AudioDeviceRemovePropertyListener                            [m
-[96m[48;5;242m  [m[93m 59 [m[1m[101m         U[m[45m _AudioHardwareGetProperty                                     [m
-[96m[48;5;242m  [m[93m 60 [m[1m[101m         U[m[45m _AudioHardwareGetPropertyInfo                                 [m
-[96m[48;5;242m  [m[93m 61 [m[45m000051cc [m[1m[101mb[m[45m _AudioHardwareServiceGetPropertyDataPtr                       [m
-[96m[48;5;242m  [m[93m 62 [m[45m000051d4 [m[1m[101mb[m[45m _AudioHardwareServiceHasPropertyPtr                           [m
-[96m[48;5;242m  [m[93m 63 [m[45m000051d0 [m[1m[101mb[m[45m _AudioHardwareServiceSetPropertyDataPtr                       [m
-[96m[48;5;242m  [m[93m 64 [m[1m[101m         U[m[45m _AudioHardwareSetProperty                                     [m
-[96m[48;5;242m  [m[93m 65 [m[45m00004fcc [m[1m[101ms[m[45m _C.198.95165                                                  [m
-[96m[48;5;242m  [m[93m 66 [m[45m00004fc4 [m[1m[101ms[m[45m _C.199.95166                                                  [m
-[96m[48;5;242m  [m[93m 67 [m[45m00004fbc [m[1m[101ms[m[45m _C.200.95167                                                  [m
-[96m[48;5;242m  [m[93m 68 [m[1m[101m         U[m[45m _CFBundleCreate                                               [m
-[96m[48;5;242m  [m[93m 69 [m[1m[101m         U[m[45m _CFBundleGetFunctionPointerForName                            [m
-[96m[48;5;242m  [m[93m 70 [m[1m[101m         U[m[45m _GetSysBeepVolume                                             [m
-[96m[48;5;242m  [m[93m 71 [m[1m[101m         U[m[45m _NSLog                                                        [m
-[96m[48;5;242m  [m[93m 72 [m[45m0000500c [m[1m[101mD[m[45m _NXArgc                                                       [m
-[96m[48;5;242m  [m[93m 73 [m[45m00005008 [m[1m[101mD[m[45m _NXArgv                                                       [m
-[96m[48;5;242m  [m[93m 74 [m[1m[101m         U[m[45m _SetSysBeepVolume                                             [m
-[96m[48;5;242m  [m[93m 75 [m[1m[101m         U[m[45m _UTCreateStringForOSType                                      [m
-[96m[48;5;242m  [m[93m 76 [m[1m[101m         U[m[45m ___CFConstantStringClassReference                             [m
-[96m[48;5;242m  [m[93m 77 [m[45m00005188 [m[1m[101mS[m[45m ___darwin_gcc3_preregister_frame_info                         [m
-[96m[48;5;242m  [m[93m 78 [m[1m[101m         U[m[45m ___keymgr_dwarf2_register_sections                            [m
-[96m[48;5;242m  [m[93m 79 [m[45m00005000 [m[1m[101mD[m[45m ___progname                                                   [m
-[96m[48;5;242m  [m[93m 80 [m[1m[101m         U[m[45m __cthread_init_routine                                        [m
-[96m[48;5;242m  [m[93m 81 [m[45m00002388 [m[1m[101mt[m[45m __dyld_func_lookup                                            [m
-[96m[48;5;242m  [m[93m 82 [m[45m00001000 [m[1m[101mA[m[45m __mh_execute_header                                           [m
-[96m[48;5;242m  [m[93m 83 [m[45m00002024 [m[1m[101mt[m[45m __start                                                       [m
-[96m[48;5;242m  [m[93m 84 [m[1m[101m         U[m[45m _atexit                                                       [m
-[96m[48;5;242m  [m[93m 85 [m[45m0000518c [m[1m[101mS[m[45m _catch_exception_raise                                        [m
-[96m[48;5;242m  [m[93m 86 [m[45m00005190 [m[1m[101mS[m[45m _catch_exception_raise_state                                  [m
-[96m[48;5;242m  [m[93m 87 [m[45m00005194 [m[1m[101mS[m[45m _catch_exception_raise_state_identity                         [m
-[96m[48;5;242m  [m[93m 88 [m[45m00005198 [m[1m[101mS[m[45m _clock_alarm_reply                                            [m
-[96m[48;5;242m  [m[93m 89 [m[45m00003dd4 [m[1m[101mt[m[45m _devicePropertyChanged                                        [m
-[96m[48;5;242m  [m[93m 90 [m[45m0000519c [m[1m[101mS[m[45m _do_mach_notify_dead_name                                     [m
-[96m[48;5;242m  [m[93m 91 [m[45m000051a0 [m[1m[101mS[m[45m _do_mach_notify_no_senders                                    [m
-[96m[48;5;242m  [m[93m 92 [m[45m000051a4 [m[1m[101mS[m[45m _do_mach_notify_port_deleted                                  [m
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               [47;1H[96m[48;5;242m  [m[93m 93 [m[45m000051a8 [m[1m[101mS[m[45m _do_mach_notify_send_once                                     [m
-[96m[48;5;242m  [m[93m 94 [m[45m000051ac [m[1m[101mS[m[45m _do_seqnos_mach_notify_dead_name                              [m
-[96m[48;5;242m  [m[93m 95 [m[45m000051b0 [m[1m[101mS[m[45m _do_seqnos_mach_notify_no_senders                             [m
-[96m[48;5;242m  [m[93m 96 [m[45m000051b4 [m[1m[101mS[m[45m _do_seqnos_mach_notify_port_deleted                           [m
-[96m[48;5;242m  [m[93m 97 [m[45m000051b8 [m[1m[101mS[m[45m _do_seqnos_mach_notify_send_once                              [m
-[96m[48;5;242m  [m[93m 98 [m[45m00005004 [m[1m[101mD[m[45m _environ                                                      [m
-[96m[48;5;242m  [m[93m 99 [m[1m[101m         U[m[45m _errno                                                        [m
-[96m[48;5;242m  [m[93m100 [m[1m[101m         U[m[45m _exit                                                         [m
-[96m[48;5;242m  [m[93m101 [m[1m[101m         U[m[45m _free                                                         [m
-[96m[48;5;242m  [m[93m102 [m[1m[101m         U[m[45m _mach_init_routine                                            [m
-[96m[48;5;242m  [m[93m103 [m[45m00002398 [m[1m[101mt[m[45m _main                                                         [m
-[96m[48;5;242m  [m[93m104 [m[1m[101m         U[m[45m _malloc                                                       [m
-[96m[48;5;242m  [m[93m105 [m[1m[101m         U[m[45m _objc_msgSendSuper                                            [m
-[96m[48;5;242m  [m[93m106 [m[45m00005010 [m[1m[101md[m[45m _pointer_to__darwin_gcc3_preregister_frame_info               [m
-[96m[48;5;242m  [m[93m107 [m[1m[101m         U[m[45m _pow                                                          [m
-[96m[48;5;242m  [m[93m108 [m[1m[101m         U[m[45m _printf$LDBL128                                               [m
-[96m[48;5;242m  [m[93m109 [m[1m[101m         U[m[45m _puts                                                         [m
-[96m[48;5;242m  [m[93m110 [m[45m000051bc [m[1m[101mS[m[45m _receive_samples                                              [m
-[96m[48;5;242m  [m[93m111 [m[1m[101m         U[m[45m _strcmp                                                       [m
-[96m[48;5;242m  [m[93m112 [m[1m[101m         U[m[45m _sysctlbyname                                                 [m
-[96m[48;5;242m  [m[93m113 [m[45m00002370 [m[1m[101mt[m[45m dyld_stub_binding_helper                                      [m
-[96m[48;5;242m  [m[93m114 [m[45m00001ff0 [m[1m[101mT[m[45m start                                                         [m
-[96m[48;5;242m  [m[93m115 [m
-[96m[48;5;242m  [m[93m116 [m/usr/bin/audiodevice (for architecture i386):
-[96m[48;5;242m  [m[93m117 [m000033a6 t +[SSAudioDeviceCenter initialize]
-[96m[48;5;242m  [m[93m118 [m000031a4 t -[SSAudioDevice canBeDefaultDevice]
-[96m[48;5;242m  [m[93m119 [m0000321e t -[SSAudioDevice canBeDefaultSystemDevice]
-[96m[48;5;242m  [m[93m120 [m00003029 t -[SSAudioDevice compare:]
-[96m[48;5;242m+ 121 +-- 65 lines: 00003298 t -[SSAudioDevice coreAudioDeviceID]--------------
-  [m[93m186 [m[9CU _UTCreateStringForOSType
-[96m[48;5;242m  [m[93m187 [m[9CU ___CFConstantStringClassReference
-[96m[48;5;242m  [m[93m188 [m[9CU ___keymgr_dwarf2_register_sections
-[96m[48;5;242m  [m[93m189 [m00005000 D ___progname
-[96m[48;5;242m  [m[93m190 [m[9CU __cthread_init_routine
-[96m[48;5;242m  [m[93m191 [m00002674 t __dyld_func_lookup
-[96m[48;5;242m  [m[93m192 [m[45m00001000 [m[1m[101mA[m[45m __mh_execute_header                                           [m
-[96m[48;5;242m  [m[93m193 [m00002586 t __start
-[96m[48;5;242m  [m[93m194 [m[9CU _atexit
-[96m[48;5;242m  [m[93m195 [m00005118 S _catch_exception_raise
-[96m[48;5;242m  [m[93m196 [m0000511c S _catch_exception_raise_state
-[96m[48;5;242m  [m[93m197 [m00005120 S _catch_exception_raise_state_identity
-[96m[48;5;242m  [m[93m198 [m00005124 S _clock_alarm_reply
-[96m[48;5;242m+ 199 +-- 27 lines: 000040e8 t _devicePropertyChanged--------------------------
-  
-  
-  [m[90;3H[94m~                                                                            [91;3H~                                                                            [92;3H~                                                                            [m[1;81H[96m[48;5;242m  [m[93m 47 [m[1m[101m00000000 u[m[45m .objc_class_name_NSDictionary                                [m[2;81H[96m[48;5;242m  [m[93m 48 [m[1m[101m00000000 u[m[45m .objc_class_name_NSMutableArray                              [m[3;81H[96m[48;5;242m  [m[93m 49 [m[1m[101m00000000 u[m[45m .objc_class_name_NSNumber                                    [m[4;81H[96m[48;5;242m  [m[93m 50 [m[1m[101m00000000 u[m[45m .objc_class_name_NSObject                                    [m[5;81H[96m[48;5;242m  [m[93m 51 [m[1m[101m00000000 u[m[45m .objc_class_name_NSString                                    [m[6;81H[96m[48;5;242m  [m[93m 52 [m[1m[101m00000000 u[m[45m .objc_class_name_NSURL                                       [m[7;81H[96m[48;5;242m  [m[93m 53 [m[45m00006108 [m[1m[101mu[m[45m .objc_class_name_SSAudioDevice                               [m[8;81H[96m[48;5;242m  [m[93m 54 [m[45m00006138 [m[1m[101mu[m[45m .objc_class_name_SSAudioDeviceCenter                         [m[9;81H[96m[48;5;242m  [m[93m 55 [m[1m[101m00000000 u[m[45m _AudioDeviceAddPropertyListener                              [m[10;81H[96m[48;5;242m  [m[93m 56 [m[1m[101m00000000 u[m[45m _AudioDeviceGetProperty                                      [m[11;81H[96m[48;5;242m  [m[93m 57 [m[1m[101m00000000 u[m[45m _AudioDeviceGetPropertyInfo                                  [m[12;81H[96m[48;5;242m  [m[93m 58 [m[1m[101m00000000 u[m[45m _AudioDeviceRemovePropertyListener                           [m[13;81H[96m[48;5;242m  [m[93m 59 [m[1m[101m00000000 u[m[45m _AudioHardwareGetProperty                                    [m[14;81H[96m[48;5;242m  [m[93m 60 [m[1m[101m00000000 u[m[45m _AudioHardwareGetPropertyInfo                                [m[15;81H[96m[48;5;242m  [m[93m 61 [m[45m000051cc [m[1m[101mu[m[45m _AudioHardwareServiceGetPropertyDataPtr                      [m[16;81H[96m[48;5;242m  [m[93m 62 [m[45m000051d4 [m[1m[101mu[m[45m _AudioHardwareServiceHasPropertyPtr                          [m[17;81H[96m[48;5;242m  [m[93m 63 [m[45m000051d0 [m[1m[101mu[m[45m _AudioHardwareServiceSetPropertyDataPtr                      [m[18;81H[96m[48;5;242m  [m[93m 64 [m[1m[101m00000000 u[m[45m _AudioHardwareSetProperty                                    [m[19;81H[96m[48;5;242m  [m[93m 65 [m[45m00004fcc [m[1m[101mu[m[45m _C.198.95165                                                 [m[20;81H[96m[48;5;242m  [m[93m 66 [m[45m00004fc4 [m[1m[101mu[m[45m _C.199.95166                                                 [m[21;81H[96m[48;5;242m  [m[93m 67 [m[45m00004fbc [m[1m[101mu[m[45m _C.200.95167                                                 [m[22;81H[96m[48;5;242m  [m[93m 68 [m[1m[101m00000000 u[m[45m _CFBundleCreate                                              [m[23;81H[96m[48;5;242m  [m[93m 69 [m[1m[101m00000000 u[m[45m _CFBundleGetFunctionPointerForName                           [m[24;81H[96m[48;5;242m  [m[93m 70 [m[1m[101m00000000 u[m[45m _GetSysBeepVolume                                            [m[25;81H[96m[48;5;242m  [m[93m 71 [m[1m[101m00000000 u[m[45m _NSLog                                                       [m[26;81H[96m[48;5;242m  [m[93m 72 [m[45m0000500c [m[1m[101mu[m[45m _NXArgc                                                      [m[27;81H[96m[48;5;242m  [m[93m 73 [m[45m00005008 [m[1m[101mu[m[45m _NXArgv                                                      [m[28;81H[96m[48;5;242m  [m[93m 74 [m[1m[101m00000000 u[m[45m _SetSysBeepVolume                                            [m[29;81H[96m[48;5;242m  [m[93m 75 [m[1m[101m00000000 u[m[45m _UTCreateStringForOSType                                     [m[30;81H[96m[48;5;242m  [m[93m 76 [m[1m[101m00000000 u[m[45m ___CFConstantStringClassReference                            [m[31;81H[96m[48;5;242m  [m[93m 77 [m[45m00005188 [m[1m[101mu[m[45m ___darwin_gcc3_preregister_frame_info                        [m[32;81H[96m[48;5;242m  [m[93m 78 [m[1m[101m00000000 u[m[45m ___keymgr_dwarf2_register_sections                           [m[33;81H[96m[48;5;242m  [m[93m 79 [m[45m00005000 [m[1m[101mu[m[45m ___progname                                                  [m[34;81H[96m[48;5;242m  [m[93m 80 [m[1m[101m00000000 u[m[45m __cthread_init_routine                                       [m[35;81H[96m[48;5;242m  [m[93m 81 [m[45m00002388 [m[1m[101mu[m[45m __dyld_func_lookup                                           [m[36;81H[96m[48;5;242m  [m[93m 82 [m[45m00001000 [m[1m[101mu[m[45m __mh_execute_header                                          [m[37;81H[96m[48;5;242m  [m[93m 83 [m[45m00002024 [m[1m[101mu[m[45m __start                                                      [m[38;81H[96m[48;5;242m  [m[93m 84 [m[1m[101m00000000 u[m[45m _atexit                                                      [m[39;81H[96m[48;5;242m  [m[93m 85 [m[45m0000518c [m[1m[101mu[m[45m _catch_exception_raise                                       [m[40;81H[96m[48;5;242m  [m[93m 86 [m[45m00005190 [m[1m[101mu[m[45m _catch_exception_raise_state                                 [m[41;81H[96m[48;5;242m  [m[93m 87 [m[45m00005194 [m[1m[101mu[m[45m _catch_exception_raise_state_identity                        [m[42;81H[96m[48;5;242m  [m[93m 88 [m[45m00005198 [m[1m[101mu[m[45m _clock_alarm_reply                                           [m[43;81H[96m[48;5;242m  [m[93m 89 [m[45m00003dd4 [m[1m[101mu[m[45m _devicePropertyChanged                                       [m[44;81H[96m[48;5;242m  [m[93m 90 [m[45m0000519c [m[1m[101mu[m[45m _do_mach_notify_dead_name                                    [m[45;81H[96m[48;5;242m  [m[93m 91 [m[45m000051a0 [m[1m[101mu[m[45m _do_mach_notify_no_senders                                   [m[46;81H[96m[48;5;242m  [m[93m 92 [m[45m000051a4 [m[1m[101mu[m[45m _do_mach_notify_port_deleted                                 [m[47;81H                                                                              [48;81H                                                                              [49;81H                                                                              [50;81H                                                                              [51;81H                                                                              [52;81H                                                                              [53;81H                                                                              [54;81H                                                                              [55;81H                                                                              [56;81H                                                                              [57;81H                                                                              [58;81H                                                                              [59;81H                                                                              [60;81H                                                                              [61;81H                                                                              [62;81H                                                                              [63;81H                                                                              [64;81H                                                                              [65;81H                                                                              [66;81H                                                                              [67;81H                                                                              [68;81H                                                                              [69;81H                                                                              [70;81H                                                                              [71;81H                                                                              [72;81H                                                                              [73;81H                                                                              [74;81H                                                                              [75;81H                                                                              [76;81H                                                                              [77;81H                                                                              [78;81H                                                                              [79;81H                                                                              [80;81H                                                                              [81;81H                                                                              [82;81H                                                                              [83;81H                                                                              [84;81H                                                                              [85;81H                                                                              [86;81H                                                                              [87;81H                                                                              [88;81H                                                                              [89;81H                                                                              [90;81H                                                                              [91;81H                                                                              [92;81H                                                                              [47;81H[96m[48;5;242m  [m[93m 93 [m[45m000051a8 [m[1m[101mu[m[45m _do_mach_notify_send_once                                    [m[48;81H[96m[48;5;242m  [m[93m 94 [m[45m000051ac [m[1m[101mu[m[45m _do_seqnos_mach_notify_dead_name                             [m[49;81H[96m[48;5;242m  [m[93m 95 [m[45m000051b0 [m[1m[101mu[m[45m _do_seqnos_mach_notify_no_senders                            [m[50;81H[96m[48;5;242m  [m[93m 96 [m[45m000051b4 [m[1m[101mu[m[45m _do_seqnos_mach_notify_port_deleted                          [m[51;81H[96m[48;5;242m  [m[93m 97 [m[45m000051b8 [m[1m[101mu[m[45m _do_seqnos_mach_notify_send_once                             [m[52;81H[96m[48;5;242m  [m[93m 98 [m[45m00005004 [m[1m[101mu[m[45m _environ                                                     [m[53;81H[96m[48;5;242m  [m[93m 99 [m[1m[101m00000000 u[m[45m _errno                                                       [m[54;81H[96m[48;5;242m  [m[93m100 [m[1m[101m00000000 u[m[45m _exit                                                        [m[55;81H[96m[48;5;242m  [m[93m101 [m[1m[101m00000000 u[m[45m _free                                                        [m[56;81H[96m[48;5;242m  [m[93m102 [m[1m[101m00000000 u[m[45m _mach_init_routine                                           [m[57;81H[96m[48;5;242m  [m[93m103 [m[45m00002398 [m[1m[101mu[m[45m _main                                                        [m[58;81H[96m[48;5;242m  [m[93m104 [m[1m[101m00000000 u[m[45m _malloc                                                      [m[59;81H[96m[48;5;242m  [m[93m105 [m[1m[101m00000000 u[m[45m _objc_msgSendSuper                                           [m[60;81H[96m[48;5;242m  [m[93m106 [m[45m00005010 [m[1m[101mu[m[45m _pointer_to__darwin_gcc3_preregister_frame_info              [m[61;81H[96m[48;5;242m  [m[93m107 [m[1m[101m00000000 u[m[45m _pow                                                         [m[62;81H[96m[48;5;242m  [m[93m108 [m[1m[101m00000000 u[m[45m _printf$LDBL128                                              [m[63;81H[96m[48;5;242m  [m[93m109 [m[1m[101m00000000 u[m[45m _puts                                                        [m[64;81H[96m[48;5;242m  [m[93m110 [m[45m000051bc [m[1m[101mu[m[45m _receive_samples                                             [m[65;81H[96m[48;5;242m  [m[93m111 [m[1m[101m00000000 u[m[45m _strcmp                                                      [m[66;81H[96m[48;5;242m  [m[93m112 [m[1m[101m00000000 u[m[45m _sysctlbyname                                                [m[67;81H[96m[48;5;242m  [m[93m113 [m[45m00002370 [m[1m[101mu[m[45m dyld_stub_binding_helper                                     [m[68;81H[96m[48;5;242m  [m[93m114 [m[45m00001ff0 [m[1m[101mu[m[45m start                                                        [m[69;81H[96m[48;5;242m  [m[93m115 [m[70;81H[96m[48;5;242m  [m[93m116 [m/usr/bin/audiodevice (for architecture i386):[71;81H[96m[48;5;242m  [m[93m117 [m000033a6 t +[SSAudioDeviceCenter initialize][72;81H[96m[48;5;242m  [m[93m118 [m000031a4 t -[SSAudioDevice canBeDefaultDevice][73;81H[96m[48;5;242m  [m[93m119 [m0000321e t -[SSAudioDevice canBeDefaultSystemDevice][74;81H[96m[48;5;242m  [m[93m120 [m00003029 t -[SSAudioDevice compare:][75;81H[96m[48;5;242m+ 121 +-- 65 lines: 00003298 t -[SSAudioDevice coreAudioDeviceID]-------------[76;81H  [m[93m186 [m[9CU _UTCreateStringForOSType[77;81H[96m[48;5;242m  [m[93m187 [m[9CU ___CFConstantStringClassReference[78;81H[96m[48;5;242m  [m[93m188 [m[9CU ___keymgr_dwarf2_register_sections[79;81H[96m[48;5;242m  [m[93m189 [m00005000 D ___progname[80;81H[96m[48;5;242m  [m[93m190 [m[9CU __cthread_init_routine[81;81H[96m[48;5;242m  [m[93m191 [m00002674 t __dyld_func_lookup[82;81H[96m[48;5;242m  [m[93m192 [m[45m00001000 [m[1m[101mS[m[45m __mh_execute_header                                          [m[83;81H[96m[48;5;242m  [m[93m193 [m00002586 t __start[84;81H[96m[48;5;242m  [m[93m194 [m[9CU _atexit[85;81H[96m[48;5;242m  [m[93m195 [m00005118 S _catch_exception_raise[86;81H[96m[48;5;242m  [m[93m196 [m0000511c S _catch_exception_raise_state[87;81H[96m[48;5;242m  [m[93m197 [m00005120 S _catch_exception_raise_state_identity[88;81H[96m[48;5;242m  [m[93m198 [m00005124 S _clock_alarm_reply[89;81H[96m[48;5;242m+ 199 +-- 27 lines: 000040e8 t _devicePropertyChanged-------------------------[90;81H  [91;81H  [92;81H  [m[90;83H[94m~                                                                           [91;83H~                                                                           [92;83H~                                                                           [m[94;1H[K[4;16H[?12l[?25h[?25l[50;7H[?12l[?25h[?25l[89;7H[?12l[?25h[27m[m[H[2J[?25l[1;1H[96m[48;5;242m  [m[93m 47 [m[1m[101m         U[m[45m .objc_class_name_NSDictionary                                 [m[7m|[m
-[96m[48;5;242m  [m[93m 48 [m[1m[101m         U[m[45m .objc_class_name_NSMutableArray                               [m[7m|[m
-[96m[48;5;242m  [m[93m 49 [m[1m[101m         U[m[45m .objc_class_name_NSNumber                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 50 [m[1m[101m         U[m[45m .objc_class_name_NSObject                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 51 [m[1m[101m         U[m[45m .objc_class_name_NSString                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 52 [m[1m[101m         U[m[45m .objc_class_name_NSURL                                        [m[7m|[m
-[96m[48;5;242m  [m[93m 53 [m[45m00006108 [m[1m[101mS[m[45m .objc_class_name_SSAudioDevice                                [m[7m|[m
-[96m[48;5;242m  [m[93m 54 [m[45m00006138 [m[1m[101mS[m[45m .objc_class_name_SSAudioDeviceCenter                          [m[7m|[m
-[96m[48;5;242m  [m[93m 55 [m[1m[101m         U[m[45m _AudioDeviceAddPropertyListener                               [m[7m|[m
-[96m[48;5;242m  [m[93m 56 [m[1m[101m         U[m[45m _AudioDeviceGetProperty                                       [m[7m|[m
-[96m[48;5;242m  [m[93m 57 [m[1m[101m         U[m[45m _AudioDeviceGetPropertyInfo                                   [m[7m|[m
-[96m[48;5;242m  [m[93m 58 [m[1m[101m         U[m[45m _AudioDeviceRemovePropertyListener                            [m[7m|[m
-[96m[48;5;242m  [m[93m 59 [m[1m[101m         U[m[45m _AudioHardwareGetProperty                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 60 [m[1m[101m         U[m[45m _AudioHardwareGetPropertyInfo                                 [m[7m|[m
-[96m[48;5;242m  [m[93m 61 [m[45m000051cc [m[1m[101mb[m[45m _AudioHardwareServiceGetPropertyDataPtr                       [m[7m|[m
-[96m[48;5;242m  [m[93m 62 [m[45m000051d4 [m[1m[101mb[m[45m _AudioHardwareServiceHasPropertyPtr                           [m[7m|[m
-[96m[48;5;242m  [m[93m 63 [m[45m000051d0 [m[1m[101mb[m[45m _AudioHardwareServiceSetPropertyDataPtr                       [m[7m|[m
-[96m[48;5;242m  [m[93m 64 [m[1m[101m         U[m[45m _AudioHardwareSetProperty                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 65 [m[45m00004fcc [m[1m[101ms[m[45m _C.198.95165                                                  [m[7m|[m
-[96m[48;5;242m  [m[93m 66 [m[45m00004fc4 [m[1m[101ms[m[45m _C.199.95166                                                  [m[7m|[m
-[96m[48;5;242m  [m[93m 67 [m[45m00004fbc [m[1m[101ms[m[45m _C.200.95167                                                  [m[7m|[m
-[96m[48;5;242m  [m[93m 68 [m[1m[101m         U[m[45m _CFBundleCreate                                               [m[7m|[m
-[96m[48;5;242m  [m[93m 69 [m[1m[101m         U[m[45m _CFBundleGetFunctionPointerForName                            [m[7m|[m
-[96m[48;5;242m  [m[93m 70 [m[1m[101m         U[m[45m _GetSysBeepVolume                                             [m[7m|[m
-[96m[48;5;242m  [m[93m 71 [m[1m[101m         U[m[45m _NSLog                                                        [m[7m|[m
-[96m[48;5;242m  [m[93m 72 [m[45m0000500c [m[1m[101mD[m[45m _NXArgc                                                       [m[7m|[m
-[96m[48;5;242m  [m[93m 73 [m[45m00005008 [m[1m[101mD[m[45m _NXArgv                                                       [m[7m|[m
-[96m[48;5;242m  [m[93m 74 [m[1m[101m         U[m[45m _SetSysBeepVolume                                             [m[7m|[m
-[96m[48;5;242m  [m[93m 75 [m[1m[101m         U[m[45m _UTCreateStringForOSType                                      [m[7m|[m
-[96m[48;5;242m  [m[93m 76 [m[1m[101m         U[m[45m ___CFConstantStringClassReference                             [m[7m|[m
-[96m[48;5;242m  [m[93m 77 [m[45m00005188 [m[1m[101mS[m[45m ___darwin_gcc3_preregister_frame_info                         [m[7m|[m
-[96m[48;5;242m  [m[93m 78 [m[1m[101m         U[m[45m ___keymgr_dwarf2_register_sections                            [m[7m|[m
-[96m[48;5;242m  [m[93m 79 [m[45m00005000 [m[1m[101mD[m[45m ___progname                                                   [m[7m|[m
-[96m[48;5;242m  [m[93m 80 [m[1m[101m         U[m[45m __cthread_init_routine                                        [m[7m|[m
-[96m[48;5;242m  [m[93m 81 [m[45m00002388 [m[1m[101mt[m[45m __dyld_func_lookup                                            [m[7m|[m
-[96m[48;5;242m  [m[93m 82 [m[45m00001000 [m[1m[101mA[m[45m __mh_execute_header                                           [m[7m|[m
-[96m[48;5;242m  [m[93m 83 [m[45m00002024 [m[1m[101mt[m[45m __start                                                       [m[7m|[m
-[96m[48;5;242m  [m[93m 84 [m[1m[101m         U[m[45m _atexit                                                       [m[7m|[m
-[96m[48;5;242m  [m[93m 85 [m[45m0000518c [m[1m[101mS[m[45m _catch_exception_raise                                        [m[7m|[m
-[96m[48;5;242m  [m[93m 86 [m[45m00005190 [m[1m[101mS[m[45m _catch_exception_raise_state                                  [m[7m|[m
-[96m[48;5;242m  [m[93m 87 [m[45m00005194 [m[1m[101mS[m[45m _catch_exception_raise_state_identity                         [m[7m|[m
-[96m[48;5;242m  [m[93m 88 [m[45m00005198 [m[1m[101mS[m[45m _clock_alarm_reply                                            [m[7m|[m
-[96m[48;5;242m  [m[93m 89 [m[45m00003dd4 [m[1m[101mt[m[45m _devicePropertyChanged                                        [m[7m|[m
-[96m[48;5;242m  [m[93m 90 [m[45m0000519c [m[1m[101mS[m[45m _do_mach_notify_dead_name                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 91 [m[45m000051a0 [m[1m[101mS[m[45m _do_mach_notify_no_senders                                    [m[7m|[m
-[96m[48;5;242m  [m[93m 92 [m[45m000051a4 [m[1m[101mS[m[45m _do_mach_notify_port_deleted                                  [m[7m|[m
-[96m[48;5;242m  [m[93m 93 [m[45m000051a8 [m[1m[101mS[m[45m _do_mach_notify_send_once                                     [m[7m|[m
-[96m[48;5;242m  [m[93m 94 [m[45m000051ac [m[1m[101mS[m[45m _do_seqnos_mach_notify_dead_name                              [m[7m|[m
-[96m[48;5;242m  [m[93m 95 [m[45m000051b0 [m[1m[101mS[m[45m _do_seqnos_mach_notify_no_senders                             [m[7m|[m
-[96m[48;5;242m  [m[93m 96 [m[45m000051b4 [m[1m[101mS[m[45m _do_seqnos_mach_notify_port_deleted                           [m[7m|[m
-[96m[48;5;242m  [m[93m 97 [m[45m000051b8 [m[1m[101mS[m[45m _do_seqnos_mach_notify_send_once                              [m[7m|[m
-[96m[48;5;242m  [m[93m 98 [m[45m00005004 [m[1m[101mD[m[45m _environ                                                      [m[7m|[m
-[96m[48;5;242m  [m[93m 99 [m[1m[101m         U[m[45m _errno                                                        [m[7m|[m
-[96m[48;5;242m  [m[93m100 [m[1m[101m         U[m[45m _exit                                                         [m[7m|[m
-[96m[48;5;242m  [m[93m101 [m[1m[101m         U[m[45m _free                                                         [m[7m|[m
-[96m[48;5;242m  [m[93m102 [m[1m[101m         U[m[45m _mach_init_routine                                            [m[7m|[m
-[96m[48;5;242m  [m[93m103 [m[45m00002398 [m[1m[101mt[m[45m _main                                                         [m[7m|[m
-[96m[48;5;242m  [m[93m104 [m[1m[101m         U[m[45m _malloc                                                       [m[7m|[m
-[96m[48;5;242m  [m[93m105 [m[1m[101m         U[m[45m _objc_msgSendSuper                                            [m[7m|[m
-[96m[48;5;242m  [m[93m106 [m[45m00005010 [m[1m[101md[m[45m _pointer_to__darwin_gcc3_preregister_frame_info               [m[7m|[m
-[96m[48;5;242m  [m[93m107 [m[1m[101m         U[m[45m _pow                                                          [m[7m|[m
-[96m[48;5;242m  [m[93m108 [m[1m[101m         U[m[45m _printf$LDBL128                                               [m[7m|[m
-[96m[48;5;242m  [m[93m109 [m[1m[101m         U[m[45m _puts                                                         [m[7m|[m
-[96m[48;5;242m  [m[93m110 [m[45m000051bc [m[1m[101mS[m[45m _receive_samples                                              [m[7m|[m
-[96m[48;5;242m  [m[93m111 [m[1m[101m         U[m[45m _strcmp                                                       [m[7m|[m
-[96m[48;5;242m  [m[93m112 [m[1m[101m         U[m[45m _sysctlbyname                                                 [m[7m|[m
-[96m[48;5;242m  [m[93m113 [m[45m00002370 [m[1m[101mt[m[45m dyld_stub_binding_helper                                      [m[7m|[m
-[96m[48;5;242m  [m[93m114 [m[45m00001ff0 [m[1m[101mT[m[45m start                                                         [m[7m|[m
-[96m[48;5;242m  [m[93m115 [m[73C[7m|[m
-[96m[48;5;242m  [m[93m116 [m/usr/bin/audiodevice (for architecture i386):[28C[7m|[m
-[96m[48;5;242m  [m[93m117 [m000033a6 t +[SSAudioDeviceCenter initialize][29C[7m|[m
-[96m[48;5;242m  [m[93m118 [m000031a4 t -[SSAudioDevice canBeDefaultDevice][27C[7m|[m
-[96m[48;5;242m  [m[93m119 [m0000321e t -[SSAudioDevice canBeDefaultSystemDevice][21C[7m|[m
-[96m[48;5;242m  [m[93m120 [m00003029 t -[SSAudioDevice compare:][37C[7m|[m
-[96m[48;5;242m+ 121 +-- 65 lines: 00003298 t -[SSAudioDevice coreAudioDeviceID]--------------[m[7m|[m
-[96m[48;5;242m  [m[93m186 [m[9CU _UTCreateStringForOSType[38C[7m|[m
-[96m[48;5;242m  [m[93m187 [m[9CU ___CFConstantStringClassReference[29C[7m|[m
-[96m[48;5;242m  [m[93m188 [m[9CU ___keymgr_dwarf2_register_sections[28C[7m|[m
-[96m[48;5;242m  [m[93m189 [m00005000 D ___progname[51C[7m|[m
-[96m[48;5;242m  [m[93m190 [m[9CU __cthread_init_routine[40C[7m|[m
-[96m[48;5;242m  [m[93m191 [m00002674 t __dyld_func_lookup[44C[7m|[m
-[96m[48;5;242m  [m[93m192 [m[45m00001000 [m[1m[101mA[m[45m __mh_execute_header                                           [m[7m|[m
-[96m[48;5;242m  [m[93m193 [m00002586 t __start[55C[7m|[m
-[96m[48;5;242m  [m[93m194 [m[9CU _atexit[55C[7m|[m
-[96m[48;5;242m  [m[93m195 [m00005118 S _catch_exception_raise[40C[7m|[m
-[96m[48;5;242m  [m[93m196 [m0000511c S _catch_exception_raise_state[34C[7m|[m
-[96m[48;5;242m  [m[93m197 [m00005120 S _catch_exception_raise_state_identity[25C[7m|[m
-[96m[48;5;242m  [m[93m198 [m00005124 S _clock_alarm_reply[44C[7m|[m
-[96m[48;5;242m+ 199 +-- 27 lines: 000040e8 t _devicePropertyChanged--------------------------[m[7m|[90;80H|[91;80H|[92;80H|[m[90;1H[96m[48;5;242m  
-  
-  [m[90;3H[94m~                                                                            [91;3H~                                                                            [92;3H~                                                                            [m
-[1m[7m/dev/fd/11                                                                      [m[1;81H[96m[48;5;242m  [m[93m 47 [m[1m[101m00000000 u[m[45m .objc_cl[m[2;81H[96m[48;5;242m  [m[93m 48 [m[1m[101m00000000 u[m[45m .objc_cl[m[3;81H[96m[48;5;242m  [m[93m 49 [m[1m[101m00000000 u[m[45m .objc_cl[m[4;81H[96m[48;5;242m  [m[93m 50 [m[1m[101m00000000 u[m[45m .objc_cl[m[5;81H[96m[48;5;242m  [m[93m 51 [m[1m[101m00000000 u[m[45m .objc_cl[m[6;81H[96m[48;5;242m  [m[93m 52 [m[1m[101m00000000 u[m[45m .objc_cl[m[7;81H[96m[48;5;242m  [m[93m 53 [m[45m00006108 [m[1m[101mu[m[45m .objc_cl[m[8;81H[96m[48;5;242m  [m[93m 54 [m[45m00006138 [m[1m[101mu[m[45m .objc_cl[m[9;81H[96m[48;5;242m  [m[93m 55 [m[1m[101m00000000 u[m[45m _AudioDe[m[10;81H[96m[48;5;242m  [m[93m 56 [m[1m[101m00000000 u[m[45m _AudioDe[m[11;81H[96m[48;5;242m  [m[93m 57 [m[1m[101m00000000 u[m[45m _AudioDe[m[12;81H[96m[48;5;242m  [m[93m 58 [m[1m[101m00000000 u[m[45m _AudioDe[m[13;81H[96m[48;5;242m  [m[93m 59 [m[1m[101m00000000 u[m[45m _AudioHa[m[14;81H[96m[48;5;242m  [m[93m 60 [m[1m[101m00000000 u[m[45m _AudioHa[m[15;81H[96m[48;5;242m  [m[93m 61 [m[45m000051cc [m[1m[101mu[m[45m _AudioHa[m[16;81H[96m[48;5;242m  [m[93m 62 [m[45m000051d4 [m[1m[101mu[m[45m _AudioHa[m[17;81H[96m[48;5;242m  [m[93m 63 [m[45m000051d0 [m[1m[101mu[m[45m _AudioHa[m[18;81H[96m[48;5;242m  [m[93m 64 [m[1m[101m00000000 u[m[45m _AudioHa[m[19;81H[96m[48;5;242m  [m[93m 65 [m[45m00004fcc [m[1m[101mu[m[45m _C.198.9[m[20;81H[96m[48;5;242m  [m[93m 66 [m[45m00004fc4 [m[1m[101mu[m[45m _C.199.9[m[21;81H[96m[48;5;242m  [m[93m 67 [m[45m00004fbc [m[1m[101mu[m[45m _C.200.9[m[22;81H[96m[48;5;242m  [m[93m 68 [m[1m[101m00000000 u[m[45m _CFBundl[m[23;81H[96m[48;5;242m  [m[93m 69 [m[1m[101m00000000 u[m[45m _CFBundl[m[24;81H[96m[48;5;242m  [m[93m 70 [m[1m[101m00000000 u[m[45m _GetSysB[m[25;81H[96m[48;5;242m  [m[93m 71 [m[1m[101m00000000 u[m[45m _NSLog  [m[26;81H[96m[48;5;242m  [m[93m 72 [m[45m0000500c [m[1m[101mu[m[45m _NXArgc [m[27;81H[96m[48;5;242m  [m[93m 73 [m[45m00005008 [m[1m[101mu[m[45m _NXArgv [m[28;81H[96m[48;5;242m  [m[93m 74 [m[1m[101m00000000 u[m[45m _SetSysB[m[29;81H[96m[48;5;242m  [m[93m 75 [m[1m[101m00000000 u[m[45m _UTCreat[m[30;81H[96m[48;5;242m  [m[93m 76 [m[1m[101m00000000 u[m[45m ___CFCon[m[31;81H[96m[48;5;242m  [m[93m 77 [m[45m00005188 [m[1m[101mu[m[45m ___darwi[m[32;81H[96m[48;5;242m  [m[93m 78 [m[1m[101m00000000 u[m[45m ___keymg[m[33;81H[96m[48;5;242m  [m[93m 79 [m[45m00005000 [m[1m[101mu[m[45m ___progn[m[34;81H[96m[48;5;242m  [m[93m 80 [m[1m[101m00000000 u[m[45m __cthrea[m[35;81H[96m[48;5;242m  [m[93m 81 [m[45m00002388 [m[1m[101mu[m[45m __dyld_f[m[36;81H[96m[48;5;242m  [m[93m 82 [m[45m00001000 [m[1m[101mu[m[45m __mh_exe[m[37;81H[96m[48;5;242m  [m[93m 83 [m[45m00002024 [m[1m[101mu[m[45m __start [m[38;81H[96m[48;5;242m  [m[93m 84 [m[1m[101m00000000 u[m[45m _atexit [m[39;81H[96m[48;5;242m  [m[93m 85 [m[45m0000518c [m[1m[101mu[m[45m _catch_e[m[40;81H[96m[48;5;242m  [m[93m 86 [m[45m00005190 [m[1m[101mu[m[45m _catch_e[m[41;81H[96m[48;5;242m  [m[93m 87 [m[45m00005194 [m[1m[101mu[m[45m _catch_e[m[42;81H[96m[48;5;242m  [m[93m 88 [m[45m00005198 [m[1m[101mu[m[45m _clock_a[m[43;81H[96m[48;5;242m  [m[93m 89 [m[45m00003dd4 [m[1m[101mu[m[45m _deviceP[m[44;81H[96m[48;5;242m  [m[93m 90 [m[45m0000519c [m[1m[101mu[m[45m _do_mach[m[45;81H[96m[48;5;242m  [m[93m 91 [m[45m000051a0 [m[1m[101mu[m[45m _do_mach[m[46;81H[96m[48;5;242m  [m[93m 92 [m[45m000051a4 [m[1m[101mu[m[45m _do_mach[m[47;81H[96m[48;5;242m  [m[93m 93 [m[45m000051a8 [m[1m[101mu[m[45m _do_mach[m[48;81H[96m[48;5;242m  [m[93m 94 [m[45m000051ac [m[1m[101mu[m[45m _do_seqn[m[49;81H[96m[48;5;242m  [m[93m 95 [m[45m000051b0 [m[1m[101mu[m[45m _do_seqn[m[50;81H[96m[48;5;242m  [m[93m 96 [m[45m000051b4 [m[1m[101mu[m[45m _do_seqn[m[51;81H[96m[48;5;242m  [m[93m 97 [m[45m000051b8 [m[1m[101mu[m[45m _do_seqn[m[52;81H[96m[48;5;242m  [m[93m 98 [m[45m00005004 [m[1m[101mu[m[45m _environ[m[53;81H[96m[48;5;242m  [m[93m 99 [m[1m[101m00000000 u[m[45m _errno  [m[54;81H[96m[48;5;242m  [m[93m100 [m[1m[101m00000000 u[m[45m _exit   [m[55;81H[96m[48;5;242m  [m[93m101 [m[1m[101m00000000 u[m[45m _free   [m[56;81H[96m[48;5;242m  [m[93m102 [m[1m[101m00000000 u[m[45m _mach_in[m[57;81H[96m[48;5;242m  [m[93m103 [m[45m00002398 [m[1m[101mu[m[45m _main   [m[58;81H[96m[48;5;242m  [m[93m104 [m[1m[101m00000000 u[m[45m _malloc [m[59;81H[96m[48;5;242m  [m[93m105 [m[1m[101m00000000 u[m[45m _objc_ms[m[60;81H[96m[48;5;242m  [m[93m106 [m[45m00005010 [m[1m[101mu[m[45m _pointer[m[61;81H[96m[48;5;242m  [m[93m107 [m[1m[101m00000000 u[m[45m _pow    [m[62;81H[96m[48;5;242m  [m[93m108 [m[1m[101m00000000 u[m[45m _printf$[m[63;81H[96m[48;5;242m  [m[93m109 [m[1m[101m00000000 u[m[45m _puts   [m[64;81H[96m[48;5;242m  [m[93m110 [m[45m000051bc [m[1m[101mu[m[45m _receive[m[65;81H[96m[48;5;242m  [m[93m111 [m[1m[101m00000000 u[m[45m _strcmp [m[66;81H[96m[48;5;242m  [m[93m112 [m[1m[101m00000000 u[m[45m _sysctlb[m[67;81H[96m[48;5;242m  [m[93m113 [m[45m00002370 [m[1m[101mu[m[45m dyld_stu[m[68;81H[96m[48;5;242m  [m[93m114 [m[45m00001ff0 [m[1m[101mu[m[45m start   [m[69;81H[96m[48;5;242m  [m[93m115 [m[70;81H[96m[48;5;242m  [m[93m116 [m/usr/bin/audiodevic[71;81H[96m[48;5;242m  [m[93m117 [m000033a6 t +[SSAudi[72;81H[96m[48;5;242m  [m[93m118 [m000031a4 t -[SSAudi[73;81H[96m[48;5;242m  [m[93m119 [m0000321e t -[SSAudi[74;81H[96m[48;5;242m  [m[93m120 [m00003029 t -[SSAudi[75;81H[96m[48;5;242m+ 121 +-- 65 lines: 00003[76;81H  [m[93m186 [m[9CU _UTCreat[77;81H[96m[48;5;242m  [m[93m187 [m[9CU ___CFCon[78;81H[96m[48;5;242m  [m[93m188 [m[9CU ___keymg[79;81H[96m[48;5;242m  [m[93m189 [m00005000 D ___progn[80;81H[96m[48;5;242m  [m[93m190 [m[9CU __cthrea[81;81H[96m[48;5;242m  [m[93m191 [m00002674 t __dyld_f[82;81H[96m[48;5;242m  [m[93m192 [m[45m00001000 [m[1m[101mS[m[45m __mh_exe[m[83;81H[96m[48;5;242m  [m[93m193 [m00002586 t __start[84;81H[96m[48;5;242m  [m[93m194 [m[9CU _atexit[85;81H[96m[48;5;242m  [m[93m195 [m00005118 S _catch_e[86;81H[96m[48;5;242m  [m[93m196 [m0000511c S _catch_e[87;81H[96m[48;5;242m  [m[93m197 [m00005120 S _catch_e[88;81H[96m[48;5;242m  [m[93m198 [m00005124 S _clock_a[89;81H[96m[48;5;242m+ 199 +-- 27 lines: 00004[90;81H  [91;81H  [92;81H  [m[90;83H[94m~                      [91;83H~                      [92;83H~                      [m[93;81H[7m/dev/fd/12               [89;7H[?12l[?25h[94;1H[m[?1l>[?1049lVim: Caught deadly signal HUP
-Vim: Finished.
-[94;1H
+
+/usr/bin/audiodevice (for architecture ppc):
+00002fc0 t +[SSAudioDeviceCenter initialize]
+00002d84 t -[SSAudioDevice canBeDefaultDevice]
+00002e10 t -[SSAudioDevice canBeDefaultSystemDevice]
+00002bf4 t -[SSAudioDevice compare:]
+00002e9c t -[SSAudioDevice coreAudioDeviceID]
+00002f30 t -[SSAudioDevice coreAudioIsInput]
+00002ea4 t -[SSAudioDevice coreAudioSourceType]
+00002f3c t -[SSAudioDevice coreAudioTransportType]
+00002a60 t -[SSAudioDevice dealloc]
+00002aa4 t -[SSAudioDevice description]
+00002eac t -[SSAudioDevice fetchCoreAudioSourceType]
+000029e0 t -[SSAudioDevice initWithAudioDeviceID:source:isInput:]
+00002b34 t -[SSAudioDevice isEqual:]
+00002c58 t -[SSAudioDevice name]
+00003104 t -[SSAudioDeviceCenter _allDevicesWithDeviceID:isInput:]
+0000363c t -[SSAudioDeviceCenter _defaultDeviceOfClass:]
+00003c8c t -[SSAudioDeviceCenter _devicePropertyChanged:]
+00003780 t -[SSAudioDeviceCenter _getAndSetVolume:forInput:]
+00003c84 t -[SSAudioDeviceCenter _headphoneDevice]
+000032bc t -[SSAudioDeviceCenter _loadDeviceList:]
+000035ac t -[SSAudioDeviceCenter _setDefaultDeviceOfClass:to:]
+0000374c t -[SSAudioDeviceCenter _stringForCAError:]
+00004140 t -[SSAudioDeviceCenter audioFollowsJack]
+0000309c t -[SSAudioDeviceCenter dealloc]
+0000345c t -[SSAudioDeviceCenter deviceWithID:isInput:]
+000034ec t -[SSAudioDeviceCenter devicesWithTransportType:isInput:]
+00003058 t -[SSAudioDeviceCenter init]
+0000343c t -[SSAudioDeviceCenter inputDevices]
+00003b20 t -[SSAudioDeviceCenter inputVolume]
+0000344c t -[SSAudioDeviceCenter outputDevices]
+00003b48 t -[SSAudioDeviceCenter outputVolume]
+000036e0 t -[SSAudioDeviceCenter selectedInputDevice]
+0000370c t -[SSAudioDeviceCenter selectedOutputDevice]
+00003738 t -[SSAudioDeviceCenter selectedSystemDevice]
+00003f94 t -[SSAudioDeviceCenter setAudioFollowsJack:]
+00003b38 t -[SSAudioDeviceCenter setInputVolume:]
+00003b60 t -[SSAudioDeviceCenter setOutputVolume:]
+000036c8 t -[SSAudioDeviceCenter setSelectedInputDevice:]
+000036f4 t -[SSAudioDeviceCenter setSelectedOutputDevice:]
+00003720 t -[SSAudioDeviceCenter setSelectedSystemDevice:]
+00003c04 t -[SSAudioDeviceCenter setSystemVolume:]
+00003efc t -[SSAudioDeviceCenter supportsAudioFollowsJack]
+00003b70 t -[SSAudioDeviceCenter systemVolume]
+         U .objc_class_name_NSAutoreleasePool
+         U .objc_class_name_NSDictionary
+         U .objc_class_name_NSMutableArray
+         U .objc_class_name_NSNumber
+         U .objc_class_name_NSObject
+         U .objc_class_name_NSString
+         U .objc_class_name_NSURL
+00006108 T .objc_class_name_SSAudioDevice
+00006138 T .objc_class_name_SSAudioDeviceCenter
+         U _AudioDeviceAddPropertyListener
+         U _AudioDeviceGetProperty
+         U _AudioDeviceGetPropertyInfo
+         U _AudioDeviceRemovePropertyListener
+         U _AudioHardwareGetProperty
+         U _AudioHardwareGetPropertyInfo
+000051cc t _AudioHardwareServiceGetPropertyDataPtr
+000051d4 t _AudioHardwareServiceHasPropertyPtr
+000051d0 t _AudioHardwareServiceSetPropertyDataPtr
+         U _AudioHardwareSetProperty
+00004fcc t _C.198.95165
+00004fc4 t _C.199.95166
+00004fbc t _C.200.95167
+         U _CFBundleCreate
+         U _CFBundleGetFunctionPointerForName
+         U _GetSysBeepVolume
+         U _NSLog
+0000500c T _NXArgc
+00005008 T _NXArgv
+         U _SetSysBeepVolume
+         U _UTCreateStringForOSType
+         U ___CFConstantStringClassReference
+00005188 T ___darwin_gcc3_preregister_frame_info
+         U ___keymgr_dwarf2_register_sections
+00005000 T ___progname
+         U __cthread_init_routine
+00002388 t __dyld_func_lookup
+00001000 A __mh_execute_header
+00002024 t __start
+         U _atexit
+0000518c T _catch_exception_raise
+00005190 T _catch_exception_raise_state
+00005194 T _catch_exception_raise_state_identity
+00005198 T _clock_alarm_reply
+00003dd4 t _devicePropertyChanged
+0000519c T _do_mach_notify_dead_name
+000051a0 T _do_mach_notify_no_senders
+000051a4 T _do_mach_notify_port_deleted
+000051a8 T _do_mach_notify_send_once
+000051ac T _do_seqnos_mach_notify_dead_name
+000051b0 T _do_seqnos_mach_notify_no_senders
+000051b4 T _do_seqnos_mach_notify_port_deleted
+000051b8 T _do_seqnos_mach_notify_send_once
+00005004 T _environ
+         U _errno
+         U _exit
+         U _free
+         U _mach_init_routine
+00002398 t _main
+         U _malloc
+         U _objc_msgSendSuper
+00005010 t _pointer_to__darwin_gcc3_preregister_frame_info
+         U _pow
+         U _printf$LDBL128
+         U _puts
+000051bc T _receive_samples
+         U _strcmp
+         U _sysctlbyname
+00002370 t dyld_stub_binding_helper
+00001ff0 T start
+
+/usr/bin/audiodevice (for architecture i386):
+000033a6 t +[SSAudioDeviceCenter initialize]
+000031a4 t -[SSAudioDevice canBeDefaultDevice]
+0000321e t -[SSAudioDevice canBeDefaultSystemDevice]
+00003029 t -[SSAudioDevice compare:]
+00003298 t -[SSAudioDevice coreAudioDeviceID]
+00003324 t -[SSAudioDevice coreAudioIsInput]
+000032a3 t -[SSAudioDevice coreAudioSourceType]
+00003330 t -[SSAudioDevice coreAudioTransportType]
+00002eda t -[SSAudioDevice dealloc]
+00002f04 t -[SSAudioDevice description]
+000032ae t -[SSAudioDevice fetchCoreAudioSourceType]
+00002e7a t -[SSAudioDevice initWithAudioDeviceID:source:isInput:]
+00002f88 t -[SSAudioDevice isEqual:]
+00003079 t -[SSAudioDevice name]
+000034a6 t -[SSAudioDeviceCenter _allDevicesWithDeviceID:isInput:]
+000039a2 t -[SSAudioDeviceCenter _defaultDeviceOfClass:]
+00003fbd t -[SSAudioDeviceCenter _devicePropertyChanged:]
+00003b1c t -[SSAudioDeviceCenter _getAndSetVolume:forInput:]
+00003fb6 t -[SSAudioDeviceCenter _headphoneDevice]
+00003652 t -[SSAudioDeviceCenter _loadDeviceList:]
+00003932 t -[SSAudioDeviceCenter _setDefaultDeviceOfClass:to:]
+00003af9 t -[SSAudioDeviceCenter _stringForCAError:]
+00004444 t -[SSAudioDeviceCenter audioFollowsJack]
+00003450 t -[SSAudioDeviceCenter dealloc]
+00003813 t -[SSAudioDeviceCenter deviceWithID:isInput:]
+0000388d t -[SSAudioDeviceCenter devicesWithTransportType:isInput:]
+00003426 t -[SSAudioDeviceCenter init]
+000037cb t -[SSAudioDeviceCenter inputDevices]
+00003e34 t -[SSAudioDeviceCenter inputVolume]
+000037ef t -[SSAudioDeviceCenter outputDevices]
+00003e8d t -[SSAudioDeviceCenter outputVolume]
+00003a37 t -[SSAudioDeviceCenter selectedInputDevice]
+00003a86 t -[SSAudioDeviceCenter selectedOutputDevice]
+00003ad5 t -[SSAudioDeviceCenter selectedSystemDevice]
+00004296 t -[SSAudioDeviceCenter setAudioFollowsJack:]
+00003e60 t -[SSAudioDeviceCenter setInputVolume:]
+00003eb9 t -[SSAudioDeviceCenter setOutputVolume:]
+00003a0c t -[SSAudioDeviceCenter setSelectedInputDevice:]
+00003a5b t -[SSAudioDeviceCenter setSelectedOutputDevice:]
+00003aaa t -[SSAudioDeviceCenter setSelectedSystemDevice:]
+00003f59 t -[SSAudioDeviceCenter setSystemVolume:]
+00004202 t -[SSAudioDeviceCenter supportsAudioFollowsJack]
+00003ee6 t -[SSAudioDeviceCenter systemVolume]
+         U .objc_class_name_NSAutoreleasePool
+         U .objc_class_name_NSDictionary
+         U .objc_class_name_NSMutableArray
+         U .objc_class_name_NSNumber
+         U .objc_class_name_NSObject
+         U .objc_class_name_NSString
+         U .objc_class_name_NSURL
+00006120 S .objc_class_name_SSAudioDevice
+00006160 S .objc_class_name_SSAudioDeviceCenter
+         U _AudioDeviceAddPropertyListener
+         U _AudioDeviceGetProperty
+         U _AudioDeviceGetPropertyInfo
+         U _AudioDeviceRemovePropertyListener
+         U _AudioHardwareGetProperty
+         U _AudioHardwareGetPropertyInfo
+00005158 b _AudioHardwareServiceGetPropertyDataPtr
+00005160 b _AudioHardwareServiceHasPropertyPtr
+0000515c b _AudioHardwareServiceSetPropertyDataPtr
+         U _AudioHardwareSetProperty
+         U _CFBundleCreate
+         U _CFBundleGetFunctionPointerForName
+         U _GetSysBeepVolume
+         U _NSLog
+0000500c D _NXArgc
+00005008 D _NXArgv
+         U _SetSysBeepVolume
+         U _UTCreateStringForOSType
+         U ___CFConstantStringClassReference
+         U ___keymgr_dwarf2_register_sections
+00005000 D ___progname
+         U __cthread_init_routine
+00002674 t __dyld_func_lookup
+00001000 A __mh_execute_header
+00002586 t __start
+         U _atexit
+00005118 S _catch_exception_raise
+0000511c S _catch_exception_raise_state
+00005120 S _catch_exception_raise_state_identity
+00005124 S _clock_alarm_reply
+000040e8 t _devicePropertyChanged
+00005128 S _do_mach_notify_dead_name
+0000512c S _do_mach_notify_no_senders
+00005130 S _do_mach_notify_port_deleted
+00005134 S _do_mach_notify_send_once
+00005138 S _do_seqnos_mach_notify_dead_name
+0000513c S _do_seqnos_mach_notify_no_senders
+00005140 S _do_seqnos_mach_notify_port_deleted
+00005144 S _do_seqnos_mach_notify_send_once
+00005004 D _environ
+         U _errno
+         U _exit
+         U _free
+         U _mach_init_routine
+0000267a t _main
+         U _malloc
+         U _objc_msgSend
+         U _objc_msgSendSuper
+         U _objc_msgSend_fpret
+         U _pow
+         U _printf
+         U _puts
+00005148 S _receive_samples
+         U _strcmp
+         U _sysctlbyname
+00002668 t dyld_stub_binding_helper
+0000255c T start

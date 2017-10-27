@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 10:56:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/26 18:17:12 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/27 14:36:13 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ static void				ft_analyse_file(void *file_content, char *file_name, int argc, of
 	t_generic_file		gen; // GATEWAY
 
 	//header = file_content; // 64bit
+	ft_bzero(&gen, sizeof(t_generic_file));
 	gen.header = (t_mach_header_64*)file_content; // GATEWAY
+	gen.file_start = NULL;
+	gen.file_size = file_size;
+	gen.file_name = file_name;
 
 	file_start = ft_strncpy(ft_strnew(7), file_content, 7);
 	//if (header->magic == 0xfeedfacf || header->magic == 0xfeedface) // 64bit
@@ -36,6 +40,9 @@ static void				ft_analyse_file(void *file_content, char *file_name, int argc, of
 	{
 		if (argc > 2)
 			ft_printf("\n%s:\n", file_name);
+		gen.endian_mach = LITTLEEND;
+		if (gen.header->magic == MH_CIGAM || gen.header->magic == MH_CIGAM_64)
+			gen.endian_mach = BIGEND;
 		gen.arch = gen.header->magic == 0xfeedfacf ? 64 : 32;
 		//list = ft_find_symtab(header, 1); // 64bit
 		list = ft_find_symtab(&gen, 1); // GATEWAY

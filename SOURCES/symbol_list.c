@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 15:39:00 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/26 18:29:29 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/27 16:39:20 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,11 +109,14 @@ t_symbol_display			*ft_create_symbol_list_bigendian(void *symtab, void *strtab, 
 
 	symbol_counter = 0;
 	list = NULL;
+//	dump_mem(symtab, ft_swap_endian_32bit(symtab_command->nsyms) * sizeof(struct nlist_64), 12, "nlist");
 	while (symbol_counter < ft_swap_endian_32bit(symtab_command->nsyms))
 	{
-		gen->n_type = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_type) : ft_swap_endian_32bit(gen->nlist_64->n_type);
-		gen->n_sect = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_sect) : ft_swap_endian_32bit(gen->nlist_64->n_sect);
-		gen->n_desc = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_desc) : ft_swap_endian_32bit(gen->nlist_64->n_desc);
+		if (!ft_bounds_security(gen, gen->nlist) || !ft_bounds_security(gen, gen->nlist_64))
+			return (NULL);
+		gen->n_type = gen->arch == 32 ? gen->nlist->n_type : gen->nlist_64->n_type;
+		gen->n_sect = gen->arch == 32 ? gen->nlist->n_sect : gen->nlist_64->n_sect;
+		gen->n_desc = gen->arch == 32 ? gen->nlist->n_desc : gen->nlist_64->n_desc;
 		gen->n_value = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_value) : ft_swap_endian_32bit(gen->nlist_64->n_value);
 		gen->n_strx = gen->arch == 32 ? ft_swap_endian_32bit(gen->nlist->n_un.n_strx) : ft_swap_endian_32bit(gen->nlist_64->n_un.n_strx);
 		if (!(gen->n_type & N_STAB))
@@ -141,12 +144,13 @@ t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab, t_symtab_c
 	gen->nlist = symtab; // GATEWAY
 	gen->nlist_64 = symtab; // GATEWAY
 
-
-
 	symbol_counter = 0;
 	list = NULL;
+//	dump_mem(symtab, symtab_command->nsyms * sizeof(struct nlist_64), 12, "nlist2");
 	while (symbol_counter < symtab_command->nsyms)
 	{
+		if (!ft_bounds_security(gen, gen->nlist) || !ft_bounds_security(gen, gen->nlist_64))
+			return (NULL);
 		gen->n_type = gen->arch == 32 ? gen->nlist->n_type : gen->nlist_64->n_type;
 		gen->n_sect = gen->arch == 32 ? gen->nlist->n_sect : gen->nlist_64->n_sect;
 		gen->n_desc = gen->arch == 32 ? gen->nlist->n_desc : gen->nlist_64->n_desc;
@@ -170,18 +174,37 @@ t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab, t_symtab_c
 //void						ft_set_element(t_symbol_display **ptr, struct nlist *nlist, t_mach_header_64 *header, void *strtab) // 32bit
 void						ft_set_element(t_symbol_display **ptr, t_generic_file *gen, void *strtab) // GATEWAY
 {
+	char					tmp_type;
+
 	(*ptr)->value = gen->n_value;
 	//(*ptr)->name = &((char*)strtab)[(nlist->n_un).n_strx]; // !!
 	(*ptr)->name = &((char*)strtab)[gen->n_strx];
 	(*ptr)->type = 'U';
-	ft_printf("gen->n_type:%d N_UNDF[%d] N_ABS[%d] N_INDR[%d] N_PBUD[%d]\n", gen->n_type, N_UNDF, N_ABS, N_INDR, N_PBUD);
+//	ft_printf("gen->n_type:\033[0;31m%6d\033[0m, gen->n_sect:\033[0;31m%6d\033[0m, gen->n_desc:\033[0;31m%6d\033[0m, gen->n_value:\033[0;31m%6d\033[0m, gen->n_strx:\033[0;31m%6d\033[0m\n", gen->n_type, gen->n_sect, gen->n_desc, gen->n_value, gen->n_strx);
+	//ft_printf("N_UNDF[%d] N_ABS[%d] N_INDR[%d] N_PBUD[%d]\n", N_UNDF, N_ABS, N_INDR, N_PBUD);
 	(*ptr)->type = gen->n_type & N_STAB ? '-' : (*ptr)->type;
 	(*ptr)->type = (gen->n_type & N_TYPE) & N_UNDF ? 'U' : (*ptr)->type;
-	(*ptr)->type = (gen->n_type & N_TYPE) & N_ABS ? 'A' : (*ptr)->type;
 	(*ptr)->type = (gen->n_type & N_TYPE) & N_INDR ? 'I' : (*ptr)->type;
+	(*ptr)->type = (gen->n_type & N_TYPE) & N_ABS ? 'A' : (*ptr)->type;
 	(*ptr)->type = (gen->n_type & N_TYPE) & N_PBUD ? 'U' : (*ptr)->type;
 	//(*ptr)->type = (gen->n_type & N_TYPE) & N_SECT ? ft_find_section(header, gen->n_sect) : (*ptr)->type; // CHANGER FIND_SECTION // 64bit
-		(*ptr)->type = (gen->n_type & N_TYPE) & N_SECT ? ft_find_section(gen) : (*ptr)->type; // CHANGER FIND_SECTION // 64bit
+	//ft_printf("ptr->type:%c\n", (*ptr)->type);
+//	if ((gen->n_type & N_TYPE) & N_SECT)
+//		ft_printf("GEN->N_SECT:%d\n", gen->n_sect);
+	tmp_type = (*ptr)->type;
+	if (gen->endian_mach == LITTLEEND)
+	{
+		tmp_type = (gen->n_type & N_TYPE) & N_SECT ? ft_find_section(gen) : (*ptr)->type; // CHANGER FIND_SECTION // 64bit
+//		ft_printf("LITTLE TMP_TYPE:[%d] PTR->TYPE:[%c]\n", tmp_type, (*ptr)->type);
+	}
+	else if (gen->endian_mach == BIGEND)
+	{
+		tmp_type = (gen->n_type & N_TYPE) & N_SECT ? ft_find_section_bigendian(gen) : (*ptr)->type; // CHANGER FIND_SECTION // 64bit
+//		ft_printf("BIG TMP_TYPE:[%d] PTR->TYPE:[%c]\n", tmp_type, (*ptr)->type);
+	}
+	if (tmp_type)
+		(*ptr)->type = tmp_type;
+//	ft_printf("AFTER TMP_TYPE:[%d] PTR->TYPE:[%c] PTR->NAME:[%-60s]\n", tmp_type, (*ptr)->type, (*ptr)->name);
 	if (!(gen->n_type & N_EXT))
 		(*ptr)->type = ft_tolower((*ptr)->type);
 }
@@ -211,17 +234,17 @@ void						ft_display_symbols(t_symbol_display *list, t_generic_file *gen) // A O
 	{
 		if (gen->arch == 64)
 		{
-			if (list->type != 'U')
-				ft_printf("%016lx %c %s\n", list->value, list->type, list->name);
-			else
+			if (list->type == 'U' || list->type == 'u')
 				ft_printf("%16c %c %s\n", ' ', list->type, list->name);
+			else
+				ft_printf("%016lx %c %s\n", list->value + 0x100000000, list->type, list->name); // Bizzare de devoir faire ca
 		}
 		else if (gen->arch == 32)
 		{
-			if (list->type != 'U')
-				ft_printf("%08x %c %s\n", list->value, list->type, list->name);
-			else
+			if (list->type == 'U' || list->type == 'u')
 				ft_printf("%8c %c %s\n", ' ', list->type, list->name);
+			else
+				ft_printf("%08x %c %s\n", list->value, list->type, list->name);
 		}
 		list = list->next;
 	}

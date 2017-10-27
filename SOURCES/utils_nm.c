@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/26 18:29:42 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/27 16:39:10 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,12 +115,15 @@ t_symbol_display			*ft_find_symtab(t_generic_file *gen, char to_display) // GATE
 	void					*strtab;
 	t_symbol_display		*list;
 
+	if (gen->file_start == NULL)
+		gen->file_start = gen->header;
+	//ft_printf("file_start[%p] fat_header[%p] mach_header[%p]\n", gen->file_start, gen->fat_header, gen->header);
 	if (gen->endian_mach == LITTLEEND)
 	{
 		ft_locate_symbol_table(gen, &symtab, &strtab, &symtab_command); // GATEWAY
 		list = ft_create_symbol_list(symtab, strtab, symtab_command, gen); // !!!
 	}
-	else //if (gen->endian == BIGEND) // GERER ca pour d'autre architectures que FAT
+	else if (gen->endian_mach == BIGEND) // GERER ca pour d'autre architectures que FAT
 	{
 		ft_locate_symbol_table_bigendian(gen, &symtab, &strtab, &symtab_command); // GATEWAY
 		list = ft_create_symbol_list_bigendian(symtab, strtab, symtab_command, gen); // !!!
@@ -147,6 +150,8 @@ void						ft_locate_symbol_table_bigendian(t_generic_file *gen, void **symtab, v
 		load_command = (t_load_command*)((char*)load_command
 			+ ft_swap_endian_32bit(load_command->cmdsize));
 		lc_counter++;
+		if (!ft_bounds_security(gen, load_command))
+			return ;
 		if (ft_swap_endian_32bit(load_command->cmd) == LC_SYMTAB)
 			lc_counter = ft_swap_endian_32bit(gen->header->ncmds);
 	}
@@ -168,12 +173,57 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 		load_command = (t_load_command*)((char*)load_command
 			+ load_command->cmdsize);
 		lc_counter++;
+		if (!ft_bounds_security(gen, load_command))
+			return ;
 		if (load_command->cmd == LC_SYMTAB)
 			lc_counter = gen->header->ncmds;
 	}
 	*symtab_command = (t_symtab_command*)load_command;
 	*symtab = (char*)(gen->header) + (*symtab_command)->symoff;
 	*strtab = (char*)(gen->header) + (*symtab_command)->stroff;
+}
+
+char						ft_find_section_bigendian(t_generic_file *gen)
+{
+	t_load_command			*load_cmd;
+	void					*segment_command;
+	void					*section;
+	int						section_counter;
+
+	section_counter = 0;
+	load_cmd = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
+//	ft_printf("==>MACH_ENDIAN[%d] load_cmd[%p] max_addr[%p] file_start[%p] fat_header[%p] header[%p] file_size[%d]\n", gen->endian_mach, load_cmd, (char*)(gen->file_start) + gen->file_size, gen->fat_header, gen->header, gen->file_size);
+	while (section_counter < gen->n_sect)
+	{
+//		ft_printf("section_counter:%d gen->n_sect:%d\n", section_counter, gen->n_sect);
+		if (!ft_bounds_security(gen, load_cmd))
+			return (0);
+		if (ft_swap_endian_32bit(load_cmd->cmd) == LC_SEGMENT)
+			section_counter += ((t_segment_command*)load_cmd)->nsects;
+		else if (ft_swap_endian_32bit(load_cmd->cmd) == LC_SEGMENT_64)
+			section_counter += ((t_segment_command_64*)load_cmd)->nsects;
+		if (section_counter < gen->n_sect)
+		{
+//			ft_printf("load_cmd->cmdsize:%d\n", ft_swap_endian_32bit(load_cmd->cmdsize));
+			load_cmd = (t_load_command*)((char*)load_cmd + ft_swap_endian_32bit(load_cmd->cmdsize));
+		}
+	}
+	if (!ft_bounds_security(gen, load_cmd))
+		return (0);
+	if (load_cmd->cmd == LC_SEGMENT)
+		section_counter -= (((t_segment_command*)load_cmd)->nsects - 1); // !!!
+	else if (load_cmd->cmd == LC_SEGMENT_64)
+		section_counter -= (((t_segment_command_64*)load_cmd)->nsects - 1); // t_segment_command_64 !!!
+	segment_command = load_cmd;
+	section = (char*)segment_command + ft_arch_gateway(gen->arch, SEGMENT_COMMAND);//sizeof(t_segment_command_64);
+	while (section_counter < gen->n_sect)
+	{
+		section = (char*)section + ft_arch_gateway(gen->arch, SECTION);//sizeof(t_section_64);
+		if (!ft_bounds_security(gen, section))
+			return (0);
+		section_counter++;
+	}
+	return (ft_section_type(section));
 }
 
 char						ft_find_section(t_generic_file *gen)
@@ -186,11 +236,12 @@ char						ft_find_section(t_generic_file *gen)
 	int						section_counter;
 
 	section_counter = 0;
-	//load_cmd = (t_load_command*)((char*)header + sizeof(t_mach_header_64)); // 64bit
-	//load_cmd = (t_load_command*)((char*)header + sizeof(t_mach_header)); // 32bit
 	load_cmd = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
+//	ft_printf("==>MACH_ENDIAN[%d] load_cmd[%p] max_addr[%p] file_start[%p] fat_header[%p] header[%p] file_size[%d]\n", gen->endian_mach, load_cmd, (char*)(gen->file_start) + gen->file_size, gen->fat_header, gen->header, gen->file_size);
 	while (section_counter < gen->n_sect)
 	{
+		if (!ft_bounds_security(gen, load_cmd))
+			return (0);
 		if (load_cmd->cmd == LC_SEGMENT)
 			section_counter += ((t_segment_command*)load_cmd)->nsects;
 		else if (load_cmd->cmd == LC_SEGMENT_64)
@@ -198,6 +249,8 @@ char						ft_find_section(t_generic_file *gen)
 		if (section_counter < gen->n_sect)
 			load_cmd = (t_load_command*)((char*)load_cmd + load_cmd->cmdsize);
 	}
+	if (!ft_bounds_security(gen, load_cmd))
+		return (0);
 	if (load_cmd->cmd == LC_SEGMENT)
 		section_counter -= (((t_segment_command*)load_cmd)->nsects - 1); // !!!
 	else if (load_cmd->cmd == LC_SEGMENT_64)
@@ -207,6 +260,8 @@ char						ft_find_section(t_generic_file *gen)
 	while (section_counter < gen->n_sect)
 	{
 		section = (char*)section + ft_arch_gateway(gen->arch, SECTION);//sizeof(t_section_64);
+		if (!ft_bounds_security(gen, section))
+			return (0);
 		section_counter++;
 	}
 	return (ft_section_type(section));
@@ -222,5 +277,30 @@ char						ft_section_type(t_section_64 *section)
 	res = !ft_strcmp(section->sectname, "__bss") ? 'B' : res;
 	res = !ft_strcmp(section->sectname, "__common") &&
 			ft_strcmp(section->segname, "__DATA") ? 'C' : res;
+	if (!ft_has_print(section->sectname))
+	//if (!ft_strcmp(section->sectname, ""))
+	{
+//		ft_printf("RETURN DU FT_SECTION_TYPE res:[%c] section->sectname:[%8s] section->segname:[%8s]\n", res, section->sectname, section->segname);
+//		ft_printf("\nSECTION SANS NOM\n\n");
+		return (0);
+	}
+	//if (res == 'T')
+//	ft_printf("res:[%c] section->sectname:[%8s][len:%d] section->segname:[%8s][len:%d]\n", res, section->sectname, ft_strlen(section->sectname), section->segname, ft_strlen(section->segname));
 	return (res);
+}
+
+int						ft_has_print(char *str)
+{
+	char				has_print;
+	int					len;
+
+	has_print = 0;
+	len = ft_strlen(str);
+	while (len > 0)
+	{
+		if (ft_isprint(str[len - 1]))
+			has_print = 1;
+		len--;
+	}
+	return (has_print);
 }

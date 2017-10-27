@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/26 18:29:46 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/27 16:33:00 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,13 @@ typedef struct				s_generic_file
 	char					endian_mach;
 	off_t					file_size;
 	char					*file_name;
+	void					*file_start;
 	int						arch;
 }							t_generic_file;
 
 typedef struct				s_symbol_display
 {
-	long int				value;
+	uint64_t				value;
 	char					type;
 	char					*name;
 	struct s_symbol_display	*next;
@@ -135,6 +136,9 @@ int						ft_revert_endianness_4bytes(int nbr);
 void					ft_locate_symbol_table_bigendian(t_generic_file *gen, void **symtab, void **strtab, t_symtab_command **symtab_command);
 t_symbol_display			*ft_create_symbol_list_bigendian(void *symtab, void *strtab, t_symtab_command *symtab_command, t_generic_file *gen);
 char					*ft_get_arch_type(int cputype);
+int							ft_bounds_security(t_generic_file *gen, void *ptr);
+char						ft_find_section_bigendian(t_generic_file *gen);
+int						ft_has_print(char *str);
 
 void		dump_mem(void *ptr, int len, int col, char *name);
 #endif
