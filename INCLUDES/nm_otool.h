@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/27 16:33:00 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/31 15:16:19 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include <mach-o/nlist.h>
 # include <mach-o/fat.h>
 # include "libft.h"
+
+# include <errno.h>
 
 #define MACH_HEADER 1
 #define SEGMENT_COMMAND 2

@@ -1,14 +1,16 @@
-import sys, os
+import sys, os, re
 
 path = sys.argv[1]
 currentpath = os.path.dirname(os.path.abspath(__file__))
 fd = open(currentpath + "/result_tests", "a")
 
+outp = input("Write the results in files ?(y/n): ")
 for dirpath, dirnames, filenames in os.walk(path):
 	for filename in filenames:
-		cmd_ft_nm = currentpath + "/ft_nm " + dirpath + "/" + filename + " &> " + currentpath + "/result_ft_nm"
-		cmd_nm = "nm " + dirpath + "/" + filename + " &> " + currentpath + "/result_nm"
-		cmd_comparison = "diff " + currentpath + "/result_nm " + currentpath + "/result_ft_nm" + " &> " + currentpath + "/result_diff"
+		cmd_ft_nm = re.escape(currentpath) + "/ft_nm " + re.escape(dirpath) + "/" + re.escape(filename) + " &> " + re.escape(currentpath) + "/result_ft_nm"
+		cmd_nm = "nm " + re.escape(dirpath) + "/" + re.escape(filename) + " &> " + re.escape(currentpath) + "/result_nm"
+		cmd_comparison = "diff " + re.escape(currentpath) + "/result_nm " + re.escape(currentpath) + "/result_ft_nm" + " &> " + re.escape(currentpath) + "/result_diff"
+	#	print("Starting test on: " + re.escape(dirpath) + "/" + re.escape(filename))
 		os.system(cmd_ft_nm)
 		os.system(cmd_nm)
 		os.system(cmd_comparison)
@@ -24,12 +26,21 @@ for dirpath, dirnames, filenames in os.walk(path):
 			if nm_line.endswith("The file was not recognized as a valid object file\n")\
 			and ft_nm_line.endswith("The file was not recognized as a valid object file\n"):
 				print("File: " + dirpath + "/" + filename + " not recognized by both nm and ft_nm.")
-			else:
+			elif nm_line.endswith("Permission denied.\n") and ft_nm_line.endswith("Permission denied.\n"):
+				print("File: " + dirpath + "/" + filename + " permission denied on both nm and ft_nm.")
+			elif nm_line.endswith("No such file or directory.\n") and ft_nm_line.endswith("No such file or directory.\n"):
+				print("File: " + dirpath + "/" + filename + " file not found by both nm and ft_nm.")
+			elif outp.startswith("y"):
 				fd.write("Different results on: " + dirpath + "/" + filename + "\n")
+			else:
+				print("Different results on: " + dirpath + "/" + filename)
+		elif outp.startswith("n"):
+			print("OK: " + dirpath + "/" + filename)
 
 		cmp_file.close()
 		nm_file.close()
 		ft_nm_file.close()
+#		input()
 
 ## Boucle qui parcours le result_tests et recupere toutes les extensions des
 ## fichiers en erreur, ainsi qu'un fichier d'exemple a chaque ('supprime' les

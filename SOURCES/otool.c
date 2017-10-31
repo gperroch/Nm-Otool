@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/01 12:06:51 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/19 13:06:42 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/31 14:56:18 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int							main(int argc, char **argv)
 	struct stat				stats;
 	int						file_number;
 	char					*file_name;
+	int						mapping_result;
 
 	if (argc < 2)
 	{
@@ -51,11 +52,18 @@ int							main(int argc, char **argv)
 	while (file_number < argc)
 	{
 		file_name = argv[file_number];
-		if (!ft_mapping_file(file_name, &file_content, &stats))
+		if ((mapping_result = ft_mapping_file(file_name, &file_content, &stats)) > 0)
 		{
 			ft_analyse_file(file_content, file_name);
 			munmap(file_content, stats.st_size);
 		}
+		else if (mapping_result == 0)
+			ft_printf("ft_otool: %s: %s\n", file_name, "Permission denied.");
+		else if (mapping_result == -1)
+			ft_printf("ERROR in ft_mapping_file() for %s.\n", file_name);
+		else
+			ft_printf("ft_otool: '%s': %s\n",
+				file_name, "The file was not recognized as a valid object file"); // A mutualiser avec le message de ft_analyse
 		file_number++;
 	}
 	return (0);

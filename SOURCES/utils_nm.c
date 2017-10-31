@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:52:12 by gperroch          #+#    #+#             */
-/*   Updated: 2017/10/27 17:50:21 by gperroch         ###   ########.fr       */
+/*   Updated: 2017/10/31 17:37:00 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ t_symbol_display			*ft_find_symtab(t_generic_file *gen, char to_display) // GATE
 	{
 		ft_locate_symbol_table(gen, &symtab, &strtab, &symtab_command); // GATEWAY
 		list = ft_create_symbol_list(symtab, strtab, symtab_command, gen); // !!!
-		ft_printf("LIST[%p]\n", list);
+//		ft_printf("LIST[%p]\n", list);
 	}
 	else if (gen->endian_mach == BIGEND) // GERER ca pour d'autre architectures que FAT
 	{
@@ -234,12 +234,12 @@ char						ft_find_section(t_generic_file *gen)
 
 	section_counter = 0;
 	load_cmd = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
-	ft_printf("magic:[%x]\n", gen->header->magic);
+	ft_printf("magic:[%x], gen->n_sect:%d\n", gen->header->magic, gen->n_sect);
 	dump_mem(gen->header, sizeof(struct mach_header_64), sizeof(struct mach_header_64), "mach");
 	dump_mem(load_cmd, sizeof(struct load_command), sizeof(struct load_command), "load");
 	while (section_counter < gen->n_sect)
 	{
-		//ft_printf("OK1 section_counter[%6d] gen->n_sect[%6d] load_command[%10p] load_command->cmd[%6d]\n", section_counter, gen->n_sect, load_cmd, load_cmd->cmd);
+//		ft_printf("OK1 section_counter[%6d] gen->n_sect[%6d] load_command[%10p] load_command->cmd[%6d]\n", section_counter, gen->n_sect, load_cmd, load_cmd->cmd);
 		if (!ft_bounds_security(gen, load_cmd))
 			return (0);
 		if (load_cmd->cmd == LC_SEGMENT)
