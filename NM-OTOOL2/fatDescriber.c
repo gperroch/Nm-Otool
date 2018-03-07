@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 10:35:17 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/07 10:46:24 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/07 14:37:39 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,16 @@
 # include <mach-o/nlist.h>
 # include <mach-o/fat.h>
 # include "libft.h"
+# include "nm_otool.h"
 
 static void				ft_analyse_file(void *file_content, char *file_name, int argc, off_t file_size);
+uint32_t				bigtolittle32(uint32_t n);
+uint64_t				bigtolittle64(uint64_t n);
+union FatArch
+{
+	struct fat_arch_64	*fatArch64;
+	struct fat_arch		*fatArch32;
+};
 
 int		main(int argc, char** argv)
 {
@@ -36,7 +44,7 @@ int		main(int argc, char** argv)
 	if ((mapping_result = ft_mapping_file(file_name, &file_content, &stats)) > 0)
 		ft_analyse_file(file_content, file_name, argc, stats.st_size);
 	else
-		ft_printf("fatDescriber: %s %s\n\n", file_name, "An error occured.");
+		printf("fatDescriber: %s %s\n\n", file_name, "An error occured.");
 
 	munmap(file_content, stats.st_size);
 	return (0);
@@ -44,28 +52,81 @@ int		main(int argc, char** argv)
 
 static void				ft_analyse_file(void *file_content, char *file_name, int argc, off_t file_size)
 {
-	ft_printf("OK./n");
-/*	char				*file_start;
-	t_symbol_display	*list;
-	t_generic_file		gen; // GATEWAY
+	printf("OK.\n");
+	struct fat_header	*fatHeader;
+ 	union FatArch 		fatArch;
 
-	ft_bzero(&gen, sizeof(t_generic_file));
-	gen.header = (t_mach_header_64*)file_content; // GATEWAY
-	gen.file_start = NULL;
-	gen.file_size = file_size;
-	gen.file_name = file_name;
+	uint32_t			numberArch;
+	uint32_t			count;
+	uint32_t			sizeFatArch;
 
-	else if (((struct fat_header*)file_content)->magic == FAT_MAGIC || ((struct fat_header*)file_content)->magic == FAT_MAGIC_64
-		|| ((struct fat_header*)file_content)->magic == FAT_CIGAM || ((struct fat_header*)file_content)->magic == FAT_CIGAM_64)
-	{
-		if (argc > 2)
-			ft_printf("\n%s:\n", file_name);
-		ft_fat_arch(file_content, file_name, ((struct fat_header*)file_content)->magic, file_size);
-	}
-	else if (!ft_strcmp(file_start, "!<arch>")) // .a
-		ft_static_library(file_content, file_name);
+	/// FAT HEADER ///
+
+	fatHeader = file_content;
+	numberArch = fatHeader->nfat_arch;
+	if (fatHeader->magic == FAT_MAGIC)
+		printf("32bit Big-endian\n");
+	else if (fatHeader->magic == FAT_CIGAM)
+		printf("32bit Little-endian\n");
+	else if (fatHeader->magic == FAT_MAGIC_64)
+		printf("64bit Big-endian\n");
+	else if (fatHeader->magic == FAT_CIGAM_64)
+		printf("64bit Little-endian\n");
 	else
-		ft_printf("ft_nm: %s %s\n\n",
-			file_name, "The file was not recognized as a valid object file");
-	free(file_start);*/
+	{
+		printf("Not a FAT file. Exit.\n");
+		return;
+	}
+
+	if (fatHeader->magic == FAT_CIGAM || fatHeader->magic == FAT_CIGAM_64) // Fichier fat en little-endian, passe le nfat_arch de little a big
+	{
+/*		numberArch = ((fatHeader->nfat_arch>>24)&0xff) | // move byte 3 to byte 0
+                    ((fatHeader->nfat_arch<<8)&0xff0000) | // move byte 1 to byte 2
+                    ((fatHeader->nfat_arch>>8)&0xff00) | // move byte 2 to byte 1
+                    ((fatHeader->nfat_arch<<24)&0xff000000); // byte 0 to byte 3
+					*/
+		numberArch = bigtolittle32(fatHeader->nfat_arch);
+	}
+	if (fatHeader->magic == FAT_CIGAM || fatHeader->magic == FAT_MAGIC)
+		sizeFatArch = sizeof(struct fat_arch);
+	else
+		sizeFatArch = sizeof(struct fat_arch_64);
+	printf("magic = %x, nfat_arch = %u\n", fatHeader->magic, numberArch);
+
+	/// FAT ARCH ///
+	count = 1;
+
+	while (count <= numberArch)
+	{
+		fatArch.fatArch32 = (struct fat_arch*)((char*)fatHeader + sizeof(fatHeader) + (count - 1) * sizeFatArch);
+		printf("size= %lu, cputype = %d, cpusubtype = %d, offset = %u, size = %u, align = %u\n", sizeof(struct fat_arch), bigtolittle64(fatArch.fatArch32->cputype), bigtolittle64(fatArch.fatArch32->cpusubtype),
+		bigtolittle32(fatArch.fatArch32->offset), bigtolittle32(fatArch.fatArch32->size), bigtolittle32(fatArch.fatArch32->align));
+		count++;
+	}
+}
+
+uint32_t		bigtolittle32(uint32_t n)
+{
+	uint32_t	res;
+	res = ((n>>24)&0xff) | // move byte 3 to byte 0
+		((n<<8)&0xff0000) | // move byte 1 to byte 2
+		((n>>8)&0xff00) | // move byte 2 to byte 1
+		((n<<24)&0xff000000); // byte 0 to byte 3
+
+	return res;
+}
+
+uint64_t		bigtolittle64(uint64_t n)
+{
+	uint64_t	res;
+	res = ((n>>56)&0xff) |
+		((n<<56)&0xff00000000000000) |
+		((n>>40)&0xff00) |
+		((n<<40)&0xff000000000000) |
+		((n>>24)&0xff0000) |
+		((n<<24)&0xff0000000000) |
+		((n<<8)&0xff000000) |
+		((n>>8)&0xff00000000);
+
+	return res;
 }
