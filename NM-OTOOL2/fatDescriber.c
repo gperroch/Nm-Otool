@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 10:35:17 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/07 14:37:39 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/07 14:55:15 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include "nm_otool.h"
 
 static void				ft_analyse_file(void *file_content, char *file_name, int argc, off_t file_size);
+void					ft_describe_arch(void *file_content, uint32_t offset);
+void		dump_mem(void *ptr, int len, int col, char *name);
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);
 union FatArch
@@ -79,14 +81,7 @@ static void				ft_analyse_file(void *file_content, char *file_name, int argc, of
 	}
 
 	if (fatHeader->magic == FAT_CIGAM || fatHeader->magic == FAT_CIGAM_64) // Fichier fat en little-endian, passe le nfat_arch de little a big
-	{
-/*		numberArch = ((fatHeader->nfat_arch>>24)&0xff) | // move byte 3 to byte 0
-                    ((fatHeader->nfat_arch<<8)&0xff0000) | // move byte 1 to byte 2
-                    ((fatHeader->nfat_arch>>8)&0xff00) | // move byte 2 to byte 1
-                    ((fatHeader->nfat_arch<<24)&0xff000000); // byte 0 to byte 3
-					*/
 		numberArch = bigtolittle32(fatHeader->nfat_arch);
-	}
 	if (fatHeader->magic == FAT_CIGAM || fatHeader->magic == FAT_MAGIC)
 		sizeFatArch = sizeof(struct fat_arch);
 	else
@@ -99,10 +94,19 @@ static void				ft_analyse_file(void *file_content, char *file_name, int argc, of
 	while (count <= numberArch)
 	{
 		fatArch.fatArch32 = (struct fat_arch*)((char*)fatHeader + sizeof(fatHeader) + (count - 1) * sizeFatArch);
-		printf("size= %lu, cputype = %d, cpusubtype = %d, offset = %u, size = %u, align = %u\n", sizeof(struct fat_arch), bigtolittle64(fatArch.fatArch32->cputype), bigtolittle64(fatArch.fatArch32->cpusubtype),
+		printf("cputype = %d, cpusubtype = %d, offset = %u, size = %u, align = %u\n", bigtolittle64(fatArch.fatArch32->cputype), bigtolittle64(fatArch.fatArch32->cpusubtype),
 		bigtolittle32(fatArch.fatArch32->offset), bigtolittle32(fatArch.fatArch32->size), bigtolittle32(fatArch.fatArch32->align));
+		ft_describe_arch(file_content, bigtolittle32(fatArch.fatArch32->offset));
 		count++;
 	}
+}
+
+void			ft_describe_arch(void *file_content, uint32_t offset)
+{
+	void 		*arch;
+
+	arch = (char*)file_content + offset;
+	dump_mem(arch, 6 * 32, 32, arch);
 }
 
 uint32_t		bigtolittle32(uint32_t n)
