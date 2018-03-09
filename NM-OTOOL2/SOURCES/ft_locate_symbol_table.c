@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 13:01:38 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 16:41:50 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/09 17:22:11 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 		load_command = (t_load_command*)((char*)load_command + cmdsize);
 		lc_counter++;
 		if (!ft_bounds_security(gen, load_command))
+		{
+			printf("ICI\n");
 			return ;
+		}
 		if (load_command->cmd == LC_SYMTAB)
 			lc_counter = lc_max;
 	}

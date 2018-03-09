@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 16:30:05 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/09 16:58:52 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void						ft_free_list_symbols(t_symbol_display *list);
 void						ft_free_static_library_symbols(t_lib_symbol *list);
 
 int			ft_arch_gateway(int arch, int element);
-void					ft_fat_arch(void *file_content, char *file_name, unsigned int magic, off_t file_size);
+
 void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i);
 int						ft_swap_endian_32bit(int nbr);
 void					*ft_revert_endianness_4bytes_full(void *file_content, off_t file_size);
@@ -156,6 +156,7 @@ void	ft_proceed_macho(t_generic_file *gen, int argc);
 void	ft_analyse_file(void *file_content, int argc, char *file_name, off_t file_size);
 void	ft_describe_arch(void *file_content, uint32_t offset);
 void	ft_errors(int type, int value, char *file_name);
+void					ft_fat_arch(t_generic_file *gen);
 
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);
