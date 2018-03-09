@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 17:26:40 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 10:13:30 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/09 14:07:33 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@
 # include <mach-o/fat.h>
 # include "libft.h"
 # include "nm_otool.h"
-
-void		ft_errors(int type, int value, char *file_name);
-void			ft_analyse_file(void *file_content);
 
 int						main(int argc, char **argv)
 {
@@ -57,8 +54,7 @@ int						main(int argc, char **argv)
 		if ((mapping_result = ft_mapping_file(file_name, &file_content, &stats)) > 0)
 		{
 			//ft_analyse_file(file_content, file_name, argc, stats.st_size); // Cette fonction va radicalement changer. Osef des params
-			ft_analyse_file(file_content);
-			ft_printf("FT_ANALYSE.......\n");
+			ft_analyse_file(file_content, argc);
 			munmap(file_content, stats.st_size);
 		}
 		else if (mapping_result == -1)

@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 10:35:17 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/07 14:55:15 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/09 12:49:38 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,6 @@
 # include "libft.h"
 # include "nm_otool.h"
 
-static void				ft_analyse_file(void *file_content, char *file_name, int argc, off_t file_size);
-void					ft_describe_arch(void *file_content, uint32_t offset);
-void		dump_mem(void *ptr, int len, int col, char *name);
-uint32_t				bigtolittle32(uint32_t n);
-uint64_t				bigtolittle64(uint64_t n);
-union FatArch
-{
-	struct fat_arch_64	*fatArch64;
-	struct fat_arch		*fatArch32;
-};
-
 int		main(int argc, char** argv)
 {
 	char				*file_name;
@@ -44,7 +33,7 @@ int		main(int argc, char** argv)
 
 	file_name = argv[1];
 	if ((mapping_result = ft_mapping_file(file_name, &file_content, &stats)) > 0)
-		ft_analyse_file(file_content, file_name, argc, stats.st_size);
+		ft_analyse_file(file_content);
 	else
 		printf("fatDescriber: %s %s\n\n", file_name, "An error occured.");
 
@@ -52,7 +41,7 @@ int		main(int argc, char** argv)
 	return (0);
 }
 
-static void				ft_analyse_file(void *file_content, char *file_name, int argc, off_t file_size)
+void				ft_analyse_file(void *file_content)
 {
 	printf("OK.\n");
 	struct fat_header	*fatHeader;
