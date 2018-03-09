@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 13:54:09 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/09 16:30:05 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@
 # include "libft.h"
 
 # include <errno.h>
+
+#define ARGS_NUMBER 1
+#define INVALID_FILE 2
+#define MAPPING_ERROR 3
+#define NOT_EXISTING 4
+#define NO_PERM 5
 
 #define MACH_HEADER 1
 #define SEGMENT_COMMAND 2
@@ -142,16 +148,12 @@ int							ft_bounds_security(t_generic_file *gen, void *ptr);
 char						ft_find_section_bigendian(t_generic_file *gen);
 int						ft_has_print(char *str);
 //////////////////////////////////////////////////////////////////
-void	ft_proceed_lib(void *file_content, int argc);
-void	ft_proceed_fat_big32(void *file_content, int argc);
-void	ft_proceed_fat_big64(void *file_content, int argc);
-void	ft_proceed_fat_little32(void *file_content, int argc);
-void	ft_proceed_fat_little64(void *file_content, int argc);
-void	ft_proceed_macho_big32(void *file_content, int argc);
-void	ft_proceed_macho_big64(void *file_content, int argc);
-void	ft_proceed_macho_little32(void *file_content, int argc);
-void	ft_proceed_macho_little64(void *file_content, int argc);
-void	ft_analyse_file(void *file_content, int argc);
+#define LIB_MASK 0x213c6172
+#define LIB_MASK_2 0x72613c21
+void	ft_proceed_lib(t_generic_file *gen, int argc);
+void	ft_proceed_fat(t_generic_file *gen, int argc);
+void	ft_proceed_macho(t_generic_file *gen, int argc);
+void	ft_analyse_file(void *file_content, int argc, char *file_name, off_t file_size);
 void	ft_describe_arch(void *file_content, uint32_t offset);
 void	ft_errors(int type, int value, char *file_name);
 

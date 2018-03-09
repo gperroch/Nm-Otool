@@ -6,27 +6,11 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 17:26:40 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 14:07:33 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/09 16:30:21 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define ARGS_NUMBER 1
-#define INVALID_FILE 2
-#define MAPPING_ERROR 3
-#define NOT_EXISTING 4
-#define NO_PERM 5
 
-# include <mach-o/ranlib.h>
-# include <mach/machine.h>
-# include <sys/stat.h>
-# include <sys/mman.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <mach-o/loader.h>
-# include <mach-o/nlist.h>
-# include <mach-o/fat.h>
-# include "libft.h"
 # include "nm_otool.h"
 
 int						main(int argc, char **argv)
@@ -53,8 +37,7 @@ int						main(int argc, char **argv)
 			file_name = argv[file_number];
 		if ((mapping_result = ft_mapping_file(file_name, &file_content, &stats)) > 0)
 		{
-			//ft_analyse_file(file_content, file_name, argc, stats.st_size); // Cette fonction va radicalement changer. Osef des params
-			ft_analyse_file(file_content, argc);
+			ft_analyse_file(file_content, argc, file_name, stats.st_size);
 			munmap(file_content, stats.st_size);
 		}
 		else if (mapping_result == -1)
@@ -64,7 +47,7 @@ int						main(int argc, char **argv)
 		else if (errno == ENOENT)
 			ft_errors(NOT_EXISTING, 0, file_name);
 		else
-			ft_errors(INVALID_FILE, 0, file_name); // ... ajouter des params variables pour ft_errors
+			ft_errors(INVALID_FILE, 0, file_name);
 	}
 	return (0);
 }

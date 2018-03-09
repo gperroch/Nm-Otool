@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 14:36:04 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 14:54:37 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/09 16:47:06 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char						ft_find_section(t_generic_file *gen)
 	load_cmd = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
 	while (section_counter < gen->n_sect)
 	{
-//		if (!ft_bounds_security(gen, load_cmd)) // Necessite gen.file_size et gen.file_start pour fonctionner
-//			return (0);
+		if (!ft_bounds_security(gen, load_cmd))
+			return (0);
 		if ((gen->endian_mach == LITTLEEND && ft_swap_endian_32bit(load_cmd->cmd) == LC_SEGMENT) || (gen->endian_mach == BIGEND && load_cmd->cmd == LC_SEGMENT)) // Les swap ne sont pas pour le big mais le little
 			section_counter += ((t_segment_command*)load_cmd)->nsects;
 		else if ((gen->endian_mach == LITTLEEND && ft_swap_endian_32bit(load_cmd->cmd) == LC_SEGMENT_64) || (gen->endian_mach == BIGEND && load_cmd->cmd == LC_SEGMENT_64))
@@ -34,8 +34,8 @@ char						ft_find_section(t_generic_file *gen)
 		else if (section_counter < gen->n_sect && gen->endian_mach == BIGEND)
 			load_cmd = (t_load_command*)((char*)load_cmd + load_cmd->cmdsize);
 	}
-//	if (!ft_bounds_security(gen, load_cmd)) // Necessite gen.file_size et gen.file_start pour fonctionner
-//		return (0);
+	if (!ft_bounds_security(gen, load_cmd))
+		return (0);
 	if (load_cmd->cmd == LC_SEGMENT)
 		section_counter -= (((t_segment_command*)load_cmd)->nsects - 1); // !!!
 	else if (load_cmd->cmd == LC_SEGMENT_64)
@@ -45,8 +45,8 @@ char						ft_find_section(t_generic_file *gen)
 	while (section_counter < gen->n_sect)
 	{
 		section = (char*)section + ft_arch_gateway(gen->arch, SECTION);//sizeof(t_section_64);
-//		if (!ft_bounds_security(gen, section)) // Necessite gen.file_size et gen.file_start pour fonctionner
-//			return (0);
+		if (!ft_bounds_security(gen, section))
+			return (0);
 		section_counter++;
 	}
 	return (ft_section_type(section));

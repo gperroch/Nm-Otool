@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 13:01:38 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 14:32:55 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/09 16:41:50 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,7 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 
 	lc_counter = 0;
 	load_command = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
-	if (gen->endian_mach == LITTLEEND)	// ternaire
-		lc_max = ft_swap_endian_32bit(gen->header->ncmds);
-	else
-		lc_max = gen->header->ncmds;
-
-
+	lc_max = gen->endian_mach == LITTLEEND ? ft_swap_endian_32bit(gen->header->ncmds) : gen->header->ncmds;
 	while (lc_counter < lc_max)
 	{
 		if (gen->endian_mach == LITTLEEND)
@@ -35,21 +30,14 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 			cmdsize = load_command->cmdsize;
 		load_command = (t_load_command*)((char*)load_command + cmdsize);
 		lc_counter++;
-/*		if (!ft_bounds_security(gen, load_command)) // Necessite gen.file_size et gen.file_start pour fonctionner
-			return ;*/
+		if (!ft_bounds_security(gen, load_command))
+			return ;
 		if (load_command->cmd == LC_SYMTAB)
 			lc_counter = lc_max;
 	}
 	*symtab_command = (t_symtab_command*)load_command;
-
-	if (gen->endian_mach == LITTLEEND) // ternaire
-	{
-		*symtab = (char*)(gen->header) + ft_swap_endian_32bit((*symtab_command)->symoff);
-		*strtab = (char*)(gen->header) + ft_swap_endian_32bit((*symtab_command)->stroff);
-	}
-	else
-	{
-		*symtab = (char*)(gen->header) + (*symtab_command)->symoff;
-		*strtab = (char*)(gen->header) + (*symtab_command)->stroff;
-	}
+	*symtab = (char*)(gen->header);
+	*strtab = (char*)(gen->header);
+	*symtab += gen->endian_mach == LITTLEEND ? ft_swap_endian_32bit((*symtab_command)->symoff) : (*symtab_command)->symoff;
+	*strtab += gen->endian_mach == LITTLEEND ? ft_swap_endian_32bit((*symtab_command)->stroff) : (*symtab_command)->stroff;
 }
