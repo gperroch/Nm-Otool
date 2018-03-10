@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 13:01:38 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 17:22:11 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/10 13:30:37 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 
 	lc_counter = 0;
 	load_command = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
+	//dump_mem(gen->header, 32*6, 32, "gen");
+	//printf("1ICI %p %d\n", gen->header, gen->header->ncmds);
 	lc_max = gen->endian_mach == LITTLEEND ? ft_swap_endian_32bit(gen->header->ncmds) : gen->header->ncmds;
 	while (lc_counter < lc_max)
 	{
@@ -31,10 +33,7 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 		load_command = (t_load_command*)((char*)load_command + cmdsize);
 		lc_counter++;
 		if (!ft_bounds_security(gen, load_command))
-		{
-			printf("ICI\n");
 			return ;
-		}
 		if (load_command->cmd == LC_SYMTAB)
 			lc_counter = lc_max;
 	}

@@ -6,19 +6,20 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 10:00:26 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 17:37:40 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/10 13:33:19 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 
-void				ft_analyse_file(void *file_content, int argc, char *file_name, off_t file_size)
+t_symbol_display	*ft_analyse_file(void *file_content, int argc, char *file_name, off_t file_size)
 {
 	unsigned int	start;
 	t_generic_file	gen;
-	void 			(*proceeding_function)(t_generic_file*, int);
+	t_symbol_display			*(*proceeding_function)(t_generic_file*, int);
 
 	proceeding_function = NULL;
+	// Sortir la creation de gen et mettre en param de ft_analyse_file la variable d'affichage (1/0)
 	ft_bzero(&gen, sizeof(t_generic_file));
 	gen.file_size = file_size;
 	gen.file_name = file_name;
@@ -48,49 +49,8 @@ void				ft_analyse_file(void *file_content, int argc, char *file_name, off_t fil
 		gen.endian_fat = LITTLEEND;
 
 	if (proceeding_function)
-		(*proceeding_function)(&gen, argc);
+		return ((*proceeding_function)(&gen, argc));
 	else
 		ft_errors(INVALID_FILE, 0, file_name);
-}
-
-////// MACH_O NM //////
-void	ft_proceed_macho(t_generic_file *gen, int argc)
-{
-	t_symbol_display	*list;
-
-	if (argc > 2)
-		ft_printf("\n%s:\n", gen->file_name);
-	gen->header = (t_mach_header_64*)gen->file_start;
-	list = ft_find_symtab(gen, 1); // GATEWAY
-}
-
-////// FAT NM //////
-void	ft_proceed_fat(t_generic_file *gen, int argc)
-{
-	gen->fat_header = (struct fat_header*)(gen->file_start);
-	if (argc > 2)
-		ft_printf("\n%s:\n", gen->file_name);
-	ft_fat_arch(gen); // Changer les params et gen
-}
-
-
-
-////// FAT OTOOL //////
-/*
-void	ft_proceed_fat(t_generic_file *gen, int argc)
-{
-	ft_printf("Traitement fat big 32bit.\n");
-}
-*/
-////// MACH_O OTOOL //////
-/*
-void	ft_proceed_macho(t_generic_file *gen, int argc)
-{
-}
-*/
-
-
-void	ft_proceed_lib(t_generic_file *gen, int argc)
-{
-	ft_printf("Traitement lib.\n");
+	return (NULL);
 }

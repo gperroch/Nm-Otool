@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 16:58:52 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/10 14:02:40 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,9 @@ char						ft_find_section(t_generic_file *gen); // GATEWAY
 char						ft_section_type(struct section_64 *section);
 void						ft_sort_list_symbols(t_symbol_display **list);
 void						ft_set_previous_and_next(t_symbol_display *ptr, t_symbol_display *ptr2, t_symbol_display **list);
-void						ft_static_library(void *file_content, char *file_name);
-void						ft_display_static_library_symbols(t_lib_symbol *list, char *file_name);
-void						ft_find_ranlib_symtab(void *file_content, t_static_lib *lib, struct ranlib *ranlib, t_lib_symbol **list);
+
+
+
 int							ft_add_symbol_to_list(t_lib_symbol *ptr, t_lib_symbol *new_symbol, char *file_object_name);
 int							ft_mapping_file(char *file_name, void **file_content, struct stat *stats);
 void						ft_iter_texttext_sections(t_load_command *load_command, t_mach_header_64 *header, uint32_t *ncmds);
@@ -150,13 +150,16 @@ int						ft_has_print(char *str);
 //////////////////////////////////////////////////////////////////
 #define LIB_MASK 0x213c6172
 #define LIB_MASK_2 0x72613c21
-void	ft_proceed_lib(t_generic_file *gen, int argc);
-void	ft_proceed_fat(t_generic_file *gen, int argc);
-void	ft_proceed_macho(t_generic_file *gen, int argc);
-void	ft_analyse_file(void *file_content, int argc, char *file_name, off_t file_size);
+t_symbol_display			*ft_proceed_lib(t_generic_file *gen, int argc);
+t_symbol_display			*ft_proceed_fat(t_generic_file *gen, int argc);
+t_symbol_display			*ft_proceed_macho(t_generic_file *gen, int argc);
+t_symbol_display			*ft_analyse_file(void *file_content, int argc, char *file_name, off_t file_size);
 void	ft_describe_arch(void *file_content, uint32_t offset);
 void	ft_errors(int type, int value, char *file_name);
 void					ft_fat_arch(t_generic_file *gen);
+void						ft_static_library(t_generic_file *gen);
+void						ft_find_ranlib_symtab(t_generic_file *gen, t_static_lib *lib, struct ranlib *ranlib, t_lib_symbol **list);
+void						ft_display_static_library_symbols(t_lib_symbol *list, t_generic_file *gen);
 
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);
