@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/10 14:02:40 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/12 14:00:18 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,9 +124,9 @@ void						ft_set_previous_and_next(t_symbol_display *ptr, t_symbol_display *ptr2
 
 int							ft_add_symbol_to_list(t_lib_symbol *ptr, t_lib_symbol *new_symbol, char *file_object_name);
 int							ft_mapping_file(char *file_name, void **file_content, struct stat *stats);
-void						ft_iter_texttext_sections(t_load_command *load_command, t_mach_header_64 *header, uint32_t *ncmds);
+
 void						*ft_find_ranlib_symbols(void *file_content, struct ranlib *ranlib, t_lib_symbol **list);
-void						ft_find_texttext_section(struct mach_header_64 *header);
+
 int							ft_calculate_distance_file_object(t_static_lib *file_object_header_line);
 void						ft_list_lib_symbols(t_lib_symbol **list, char *symbol_name, char *file_object_name, void *file_object);
 int							ft_check_symbol_in_file_object(char *symbol_name, void *file_object);
@@ -160,6 +160,8 @@ void					ft_fat_arch(t_generic_file *gen);
 void						ft_static_library(t_generic_file *gen);
 void						ft_find_ranlib_symtab(t_generic_file *gen, t_static_lib *lib, struct ranlib *ranlib, t_lib_symbol **list);
 void						ft_display_static_library_symbols(t_lib_symbol *list, t_generic_file *gen);
+void						ft_find_texttext_section(struct mach_header_64 *header, int arch);
+void						ft_iter_texttext_sections(t_load_command *load_command, t_mach_header_64 *header, uint32_t *ncmds, int arch);
 
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);

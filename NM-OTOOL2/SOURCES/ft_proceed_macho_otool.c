@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/10 11:16:02 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/10 15:39:51 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/12 14:11:03 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,25 @@ t_symbol_display			*ft_proceed_macho(t_generic_file *gen, int argc)
 {
 	ft_printf("%s:\nContents of (__TEXT,__text) section\n", gen->file_name);
 	gen->header = gen->file_start;
-	ft_find_texttext_section(gen->header);
+	ft_find_texttext_section(gen->header, gen->arch);
 	return (NULL);
 }
 
-void				ft_find_texttext_section(t_mach_header_64 *header)
+void				ft_find_texttext_section(t_mach_header_64 *header, int arch) // FUSIONNER CES FONCTIONS AVEC CELLES POUR NM. Attention, celles-ci gerent les 32 et 64 bits, pas celles de NM(?).
 {
 	t_load_command	*load_command;
 	uint32_t		ncmds;
+	int				size_mach_header;
 
 	ncmds = 0;
-	load_command = (t_load_command*)((char*)header + sizeof(t_mach_header_64));
+	if (arch == 32)
+		size_mach_header = sizeof(t_mach_header);
+	else
+		size_mach_header = sizeof(t_mach_header_64);
+	load_command = (t_load_command*)((char*)header + size_mach_header);
 	while (ncmds < header->ncmds)
 	{
-		ft_iter_texttext_sections(load_command, header, &ncmds);
+		ft_iter_texttext_sections(load_command, header, &ncmds, arch);
 		load_command = (t_load_command*)((char*)load_command
 			+ load_command->cmdsize);
 		ncmds++;
@@ -37,15 +42,21 @@ void				ft_find_texttext_section(t_mach_header_64 *header)
 }
 
 void				ft_iter_texttext_sections(t_load_command *load_command,
-	t_mach_header_64 *header, uint32_t *ncmds)
+	t_mach_header_64 *header, uint32_t *ncmds, int arch)
 {
 	uint32_t		nsects;
 	t_section_64	*section;
 	void			*content;
+	int				size_segment_command;
+
+	if (arch == 32)
+		size_segment_command = sizeof(t_segment_command);
+	else
+		size_segment_command = sizeof(t_segment_command_64);
 
 	nsects = 0;
 	section = (t_section_64*)((char*)load_command
-		+ sizeof(t_segment_command_64));
+		+ size_segment_command);
 	while (nsects < ((struct segment_command*)load_command)->nsects
 		&& ft_strcmp(section->sectname, "__text")
 		&& ft_strcmp(section->segname, "__TEXT"))
@@ -85,7 +96,7 @@ void				ft_find_texttext_static_library(void *file_content,
 	{
 		ft_printf("%s(%s):\nContents of (__TEXT,__text) section\n",
 			argv, ptr->file_object_name);
-		ft_find_texttext_section(ptr->file_object);
+		ft_find_texttext_section(ptr->file_object, 64); // BESOIN DE l'ARCHITECTURE
 		ptr = ptr->next;
 	}
 	ft_free_static_library_symbols(list);
