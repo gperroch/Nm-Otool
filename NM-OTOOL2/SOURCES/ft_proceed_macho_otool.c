@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/10 11:16:02 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/12 14:11:03 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/12 15:14:08 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_symbol_display			*ft_proceed_macho(t_generic_file *gen, int argc)
 {
+	(void)argc; // ??
 	ft_printf("%s:\nContents of (__TEXT,__text) section\n", gen->file_name);
 	gen->header = gen->file_start;
 	ft_find_texttext_section(gen->header, gen->arch);

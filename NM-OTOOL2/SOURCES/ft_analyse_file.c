@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 10:00:26 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/10 13:33:19 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/12 15:17:03 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,9 @@ t_symbol_display	*ft_analyse_file(void *file_content, int argc, char *file_name,
 
 	proceeding_function = NULL;
 	// Sortir la creation de gen et mettre en param de ft_analyse_file la variable d'affichage (1/0)
-	ft_bzero(&gen, sizeof(t_generic_file));
-	gen.file_size = file_size;
-	gen.file_name = file_name;
-	gen.file_start = file_content;
-	gen.endian_mach = BIGEND;
-	gen.endian_fat = BIGEND;
-	gen.arch = 64;
+	gen = *ft_init_gen(file_name, file_content, file_size);
 
 	start = *((unsigned int*)file_content);
-
 
 	if (start == LIB_MASK || *((unsigned int*)file_content) == LIB_MASK_2) // ?????
 		proceeding_function = ft_proceed_lib;

@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 17:26:40 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 17:38:06 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/12 14:16:02 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,15 @@ int						main(int argc, char **argv)
 	int					mapping_result;
 
 	file_number = 0;
-	file_name = ""; // A tester en conjonction avec la ligne 31;
+	file_name = "";
 	if (argc < 2)
 	{
-		ft_errors(ARGS_NUMBER, argc, ""); // Pour nm rien ne se passe. Pour Otool si argc < 2 => exit
-		file_name = ft_strdup("a.out"); // Passe ici uniquement dans le cas de NM. Ft_errors exit le programme obligatoirement dans le cas de otool (argc < 2)
+		ft_errors(ARGS_NUMBER, argc, "");
+		file_name = ft_strdup("a.out");
 		argc++;
 	}
 	while (++file_number < argc)
 	{
-		//file_name = ""; // Pourquoi la ligne 26 donc ?? Sortir celle-ci avant la ligne 23 ??
 		file_content = NULL;
 		if (!(argc == 2 && file_number == 1 && !ft_strcmp(file_name, "a.out"))) // Va certainement poser probleme pour otool
 			file_name = argv[file_number];
