@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2018/03/14 12:05:21 by gperroch         ###   ########.fr        #
+#    Updated: 2018/03/14 14:32:27 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC_NM_NAME =	main.c \
 				ft_create_symbol_list.c \
 				ft_locate_symbol_table.c \
 				ft_find_section.c \
-				ft_fat_arch_nm.c \
+				ft_fat_arch.c \
 				ft_proceed_macho_nm.c \
 				ft_proceed_fat_nm.c \
 				ft_proceed_lib_nm.c \
@@ -47,6 +47,7 @@ SRC_NM_NAME =	main.c \
 				ft_static_library.c \
 				ft_find_ranlib_symtab.c \
 				ft_display_static_library_symbols.c \
+				ft_find_arch64.c \
 				dump_mem.c \
 				ft_dump_mem.c
 
@@ -59,7 +60,7 @@ SRC_OTOOL_NAME =	main.c \
 					ft_create_symbol_list.c \
 					ft_locate_symbol_table.c \
 					ft_find_section.c \
-					ft_fat_arch_otool.c \
+					ft_fat_arch.c \
 					ft_proceed_macho_otool.c \
 					ft_proceed_fat_otool.c \
 					ft_proceed_lib_otool.c \
@@ -86,6 +87,7 @@ SRC_OTOOL_NAME =	main.c \
 					ft_find_texttext_static_library.c \
 					ft_find_ranlib_symbols.c \
 					ft_calculate_distance_file_object.c \
+					ft_find_arch64.c \
 					dump_mem.c \
 					ft_dump_mem.c
 

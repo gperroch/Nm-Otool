@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/12 17:51:37 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/14 14:45:05 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct				s_generic_file
 	char					*file_name;
 	void					*file_start;
 	int						arch;
+	char					isLib;
 }							t_generic_file;
 
 typedef struct				s_symbol_display
@@ -138,7 +139,7 @@ void						ft_free_static_library_symbols(t_lib_symbol *list);
 
 int			ft_arch_gateway(int arch, int element);
 
-void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i);
+
 int						ft_swap_endian_32bit(int nbr);
 void					*ft_revert_endianness_4bytes_full(void *file_content, off_t file_size);
 int						ft_revert_endianness_4bytes(int nbr);
@@ -164,6 +165,8 @@ void						ft_display_static_library_symbols(t_lib_symbol *list, t_generic_file *
 void						ft_find_texttext_section(struct mach_header_64 *header, int arch);
 void						ft_iter_texttext_sections(t_load_command *load_command, t_mach_header_64 *header, uint32_t *ncmds, int arch);
 t_generic_file				*ft_init_gen(char *file_name, void *file_content, off_t file_size);
+void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyOne);
+int					ft_find_arch64(t_generic_file *gen, uint32_t i);
 
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);

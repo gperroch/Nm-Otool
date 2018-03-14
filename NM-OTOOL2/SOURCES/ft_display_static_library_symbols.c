@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/12 18:03:55 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/12 18:04:19 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/14 14:48:48 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void				ft_display_static_library_symbols(t_lib_symbol *list,
 		gen2.endian_fat = gen->endian_fat;
 		gen2.arch = gen->arch;
 		gen2.header = list->file_object;
+		gen2.isLib = 1;
 /*		start = *((unsigned int*)(list->file_object));
 		if (start == MH_MAGIC || start == MH_CIGAM)
 			gen.arch = 32;
