@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 13:01:38 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/10 15:20:18 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/14 18:46:10 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strt
 			cmdsize = ft_swap_endian_32bit(load_command->cmdsize);
 		else
 			cmdsize = load_command->cmdsize;
+		//ft_printf("[%d]/[%d] size = %d\n", lc_counter, lc_max, cmdsize);
 		load_command = (t_load_command*)((char*)load_command + cmdsize);
 		lc_counter++;
 		if (!ft_bounds_security(gen, load_command))
 			return ;
-		if (load_command->cmd == LC_SYMTAB)
+		if ((gen->endian_mach == BIGEND && load_command->cmd == LC_SYMTAB) ||
+		(gen->endian_mach == LITTLEEND && ft_swap_endian_32bit(load_command->cmd) == LC_SYMTAB))
 			lc_counter = lc_max;
 	}
 	*symtab_command = (t_symtab_command*)load_command;

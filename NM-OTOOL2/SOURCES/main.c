@@ -6,12 +6,13 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 17:26:40 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/12 14:16:02 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/14 19:04:17 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 # include "nm_otool.h"
+
+// Proteger les malloc
 
 int						main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 14:36:04 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/09 16:47:06 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/14 18:07:49 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char						ft_find_section(t_generic_file *gen)
 
 	section_counter = 0;
 	load_cmd = (t_load_command*)((char*)(gen->header) + ft_arch_gateway(gen->arch, MACH_HEADER)); // GATEWAY
+//	ft_printf("gen->n_sect[%d]\n", gen->n_sect);
 	while (section_counter < gen->n_sect)
 	{
 		if (!ft_bounds_security(gen, load_cmd))
@@ -36,8 +37,17 @@ char						ft_find_section(t_generic_file *gen)
 	}
 	if (!ft_bounds_security(gen, load_cmd))
 		return (0);
+/*	if ((gen->endian_mach == BIGEND && load_cmd->cmd == LC_SEGMENT))
+		section_counter -= (((t_segment_command*)load_cmd)->nsects - 1);
+	else if (gen->endian_mach == LITTLEEND && ft_swap_endian_32bit(load_cmd->cmd) == LC_SEGMENT)
+		section_counter -= (ft_swap_endian_32bit(((t_segment_command*)load_cmd)->nsects) - 1);
+	else if (gen->endian_mach == BIGEND && load_cmd->cmd == LC_SEGMENT_64)
+		section_counter -= (((t_segment_command_64*)load_cmd)->nsects - 1);
+	else if (gen->endian_mach == LITTLEEND && ft_swap_endian_32bit(load_cmd->cmd) == LC_SEGMENT_64)
+		section_counter -= (ft_swap_endian_32bit(((t_segment_command_64*)load_cmd)->nsects) - 1);
+*/
 	if (load_cmd->cmd == LC_SEGMENT)
-		section_counter -= (((t_segment_command*)load_cmd)->nsects - 1); // !!!
+		section_counter -= (((t_segment_command*)load_cmd)->nsects - 1);
 	else if (load_cmd->cmd == LC_SEGMENT_64)
 		section_counter -= (((t_segment_command_64*)load_cmd)->nsects - 1); // t_segment_command_64 !!!
 	segment_command = load_cmd;
@@ -49,5 +59,5 @@ char						ft_find_section(t_generic_file *gen)
 			return (0);
 		section_counter++;
 	}
-	return (ft_section_type(section));
+	return (ft_section_type(section, gen));
 }

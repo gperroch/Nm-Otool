@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/14 14:45:05 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/14 17:41:36 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void						ft_init_element(t_symbol_display **list, t_symbol_display **ptr);
 void						ft_display_symbols(t_symbol_display *list, t_generic_file *gen); // GATEWAY
 //char						ft_find_section(void *header, int section_number); // 64bit
 char						ft_find_section(t_generic_file *gen); // GATEWAY
-char						ft_section_type(struct section_64 *section);
+
 void						ft_sort_list_symbols(t_symbol_display **list);
 void						ft_set_previous_and_next(t_symbol_display *ptr, t_symbol_display *ptr2, t_symbol_display **list);
 
@@ -167,6 +167,8 @@ void						ft_iter_texttext_sections(t_load_command *load_command, t_mach_header_
 t_generic_file				*ft_init_gen(char *file_name, void *file_content, off_t file_size);
 void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyOne);
 int					ft_find_arch64(t_generic_file *gen, uint32_t i);
+char						ft_section_type(struct section_64 *section, t_generic_file *gen);
+
 
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);
