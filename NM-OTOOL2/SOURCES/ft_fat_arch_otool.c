@@ -6,11 +6,13 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 16:53:48 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/12 17:55:21 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/14 11:58:14 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
+
+// Si identique a l'autre fat_arch, fusionner
 
 void					ft_fat_arch(t_generic_file *gen)
 {

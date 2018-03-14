@@ -6,11 +6,13 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/10 11:15:07 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/10 13:09:06 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/14 11:59:00 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
+
+// Si identique a l'autre proceed_fat, fusionner
 
 t_symbol_display			*ft_proceed_fat(t_generic_file *gen, int argc)
 {

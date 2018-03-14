@@ -6,13 +6,14 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/10 11:16:40 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/10 18:53:43 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/14 11:59:06 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 
 // Arreter l'iteration sur les architectures inutiles
+// Si identique a l'autre proceed_fat, fusionner
 
 t_symbol_display			*ft_proceed_fat(t_generic_file *gen, int argc) // Contenu de la fonction copie sur ft_proceed_fat_nm, va surement devoir changer
 {

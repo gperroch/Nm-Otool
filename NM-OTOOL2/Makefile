@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2018/03/12 18:04:34 by gperroch         ###   ########.fr        #
+#    Updated: 2018/03/14 12:05:21 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,11 @@ SRC_OTOOL_NAME =	main.c \
 					ft_get_arch_type.c \
 					ft_bounds_security.c \
 					ft_swap_endian_32bit.c \
+					ft_find_texttext_section.c \
+					ft_iter_texttext_sections.c \
+					ft_find_texttext_static_library.c \
+					ft_find_ranlib_symbols.c \
+					ft_calculate_distance_file_object.c \
 					dump_mem.c \
 					ft_dump_mem.c
 
