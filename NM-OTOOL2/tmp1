@@ -1,225 +1,446 @@
-
-/usr/bin/audiodevice (for architecture ppc):
-00002fc0 t +[SSAudioDeviceCenter initialize]
-00002d84 t -[SSAudioDevice canBeDefaultDevice]
-00002e10 t -[SSAudioDevice canBeDefaultSystemDevice]
-00002bf4 t -[SSAudioDevice compare:]
-00002e9c t -[SSAudioDevice coreAudioDeviceID]
-00002f30 t -[SSAudioDevice coreAudioIsInput]
-00002ea4 t -[SSAudioDevice coreAudioSourceType]
-00002f3c t -[SSAudioDevice coreAudioTransportType]
-00002a60 t -[SSAudioDevice dealloc]
-00002aa4 t -[SSAudioDevice description]
-00002eac t -[SSAudioDevice fetchCoreAudioSourceType]
-000029e0 t -[SSAudioDevice initWithAudioDeviceID:source:isInput:]
-00002b34 t -[SSAudioDevice isEqual:]
-00002c58 t -[SSAudioDevice name]
-00003104 t -[SSAudioDeviceCenter _allDevicesWithDeviceID:isInput:]
-0000363c t -[SSAudioDeviceCenter _defaultDeviceOfClass:]
-00003c8c t -[SSAudioDeviceCenter _devicePropertyChanged:]
-00003780 t -[SSAudioDeviceCenter _getAndSetVolume:forInput:]
-00003c84 t -[SSAudioDeviceCenter _headphoneDevice]
-000032bc t -[SSAudioDeviceCenter _loadDeviceList:]
-000035ac t -[SSAudioDeviceCenter _setDefaultDeviceOfClass:to:]
-0000374c t -[SSAudioDeviceCenter _stringForCAError:]
-00004140 t -[SSAudioDeviceCenter audioFollowsJack]
-0000309c t -[SSAudioDeviceCenter dealloc]
-0000345c t -[SSAudioDeviceCenter deviceWithID:isInput:]
-000034ec t -[SSAudioDeviceCenter devicesWithTransportType:isInput:]
-00003058 t -[SSAudioDeviceCenter init]
-0000343c t -[SSAudioDeviceCenter inputDevices]
-00003b20 t -[SSAudioDeviceCenter inputVolume]
-0000344c t -[SSAudioDeviceCenter outputDevices]
-00003b48 t -[SSAudioDeviceCenter outputVolume]
-000036e0 t -[SSAudioDeviceCenter selectedInputDevice]
-0000370c t -[SSAudioDeviceCenter selectedOutputDevice]
-00003738 t -[SSAudioDeviceCenter selectedSystemDevice]
-00003f94 t -[SSAudioDeviceCenter setAudioFollowsJack:]
-00003b38 t -[SSAudioDeviceCenter setInputVolume:]
-00003b60 t -[SSAudioDeviceCenter setOutputVolume:]
-000036c8 t -[SSAudioDeviceCenter setSelectedInputDevice:]
-000036f4 t -[SSAudioDeviceCenter setSelectedOutputDevice:]
-00003720 t -[SSAudioDeviceCenter setSelectedSystemDevice:]
-00003c04 t -[SSAudioDeviceCenter setSystemVolume:]
-00003efc t -[SSAudioDeviceCenter supportsAudioFollowsJack]
-00003b70 t -[SSAudioDeviceCenter systemVolume]
-         U .objc_class_name_NSAutoreleasePool
-         U .objc_class_name_NSDictionary
-         U .objc_class_name_NSMutableArray
-         U .objc_class_name_NSNumber
-         U .objc_class_name_NSObject
-         U .objc_class_name_NSString
-         U .objc_class_name_NSURL
-00006108 S .objc_class_name_SSAudioDevice
-00006138 S .objc_class_name_SSAudioDeviceCenter
-         U _AudioDeviceAddPropertyListener
-         U _AudioDeviceGetProperty
-         U _AudioDeviceGetPropertyInfo
-         U _AudioDeviceRemovePropertyListener
-         U _AudioHardwareGetProperty
-         U _AudioHardwareGetPropertyInfo
-000051cc b _AudioHardwareServiceGetPropertyDataPtr
-000051d4 b _AudioHardwareServiceHasPropertyPtr
-000051d0 b _AudioHardwareServiceSetPropertyDataPtr
-         U _AudioHardwareSetProperty
-00004fcc s _C.198.95165
-00004fc4 s _C.199.95166
-00004fbc s _C.200.95167
-         U _CFBundleCreate
-         U _CFBundleGetFunctionPointerForName
-         U _GetSysBeepVolume
-         U _NSLog
-0000500c D _NXArgc
-00005008 D _NXArgv
-         U _SetSysBeepVolume
-         U _UTCreateStringForOSType
-         U ___CFConstantStringClassReference
-00005188 S ___darwin_gcc3_preregister_frame_info
-         U ___keymgr_dwarf2_register_sections
-00005000 D ___progname
-         U __cthread_init_routine
-00002388 t __dyld_func_lookup
-00001000 A __mh_execute_header
-00002024 t __start
-         U _atexit
-0000518c S _catch_exception_raise
-00005190 S _catch_exception_raise_state
-00005194 S _catch_exception_raise_state_identity
-00005198 S _clock_alarm_reply
-00003dd4 t _devicePropertyChanged
-0000519c S _do_mach_notify_dead_name
-000051a0 S _do_mach_notify_no_senders
-000051a4 S _do_mach_notify_port_deleted
-000051a8 S _do_mach_notify_send_once
-000051ac S _do_seqnos_mach_notify_dead_name
-000051b0 S _do_seqnos_mach_notify_no_senders
-000051b4 S _do_seqnos_mach_notify_port_deleted
-000051b8 S _do_seqnos_mach_notify_send_once
-00005004 D _environ
-         U _errno
-         U _exit
-         U _free
-         U _mach_init_routine
-00002398 t _main
-         U _malloc
-         U _objc_msgSendSuper
-00005010 d _pointer_to__darwin_gcc3_preregister_frame_info
-         U _pow
-         U _printf$LDBL128
-         U _puts
-000051bc S _receive_samples
-         U _strcmp
-         U _sysctlbyname
-00002370 t dyld_stub_binding_helper
-00001ff0 T start
-
-/usr/bin/audiodevice (for architecture i386):
-000033a6 t +[SSAudioDeviceCenter initialize]
-000031a4 t -[SSAudioDevice canBeDefaultDevice]
-0000321e t -[SSAudioDevice canBeDefaultSystemDevice]
-00003029 t -[SSAudioDevice compare:]
-00003298 t -[SSAudioDevice coreAudioDeviceID]
-00003324 t -[SSAudioDevice coreAudioIsInput]
-000032a3 t -[SSAudioDevice coreAudioSourceType]
-00003330 t -[SSAudioDevice coreAudioTransportType]
-00002eda t -[SSAudioDevice dealloc]
-00002f04 t -[SSAudioDevice description]
-000032ae t -[SSAudioDevice fetchCoreAudioSourceType]
-00002e7a t -[SSAudioDevice initWithAudioDeviceID:source:isInput:]
-00002f88 t -[SSAudioDevice isEqual:]
-00003079 t -[SSAudioDevice name]
-000034a6 t -[SSAudioDeviceCenter _allDevicesWithDeviceID:isInput:]
-000039a2 t -[SSAudioDeviceCenter _defaultDeviceOfClass:]
-00003fbd t -[SSAudioDeviceCenter _devicePropertyChanged:]
-00003b1c t -[SSAudioDeviceCenter _getAndSetVolume:forInput:]
-00003fb6 t -[SSAudioDeviceCenter _headphoneDevice]
-00003652 t -[SSAudioDeviceCenter _loadDeviceList:]
-00003932 t -[SSAudioDeviceCenter _setDefaultDeviceOfClass:to:]
-00003af9 t -[SSAudioDeviceCenter _stringForCAError:]
-00004444 t -[SSAudioDeviceCenter audioFollowsJack]
-00003450 t -[SSAudioDeviceCenter dealloc]
-00003813 t -[SSAudioDeviceCenter deviceWithID:isInput:]
-0000388d t -[SSAudioDeviceCenter devicesWithTransportType:isInput:]
-00003426 t -[SSAudioDeviceCenter init]
-000037cb t -[SSAudioDeviceCenter inputDevices]
-00003e34 t -[SSAudioDeviceCenter inputVolume]
-000037ef t -[SSAudioDeviceCenter outputDevices]
-00003e8d t -[SSAudioDeviceCenter outputVolume]
-00003a37 t -[SSAudioDeviceCenter selectedInputDevice]
-00003a86 t -[SSAudioDeviceCenter selectedOutputDevice]
-00003ad5 t -[SSAudioDeviceCenter selectedSystemDevice]
-00004296 t -[SSAudioDeviceCenter setAudioFollowsJack:]
-00003e60 t -[SSAudioDeviceCenter setInputVolume:]
-00003eb9 t -[SSAudioDeviceCenter setOutputVolume:]
-00003a0c t -[SSAudioDeviceCenter setSelectedInputDevice:]
-00003a5b t -[SSAudioDeviceCenter setSelectedOutputDevice:]
-00003aaa t -[SSAudioDeviceCenter setSelectedSystemDevice:]
-00003f59 t -[SSAudioDeviceCenter setSystemVolume:]
-00004202 t -[SSAudioDeviceCenter supportsAudioFollowsJack]
-00003ee6 t -[SSAudioDeviceCenter systemVolume]
-         U .objc_class_name_NSAutoreleasePool
-         U .objc_class_name_NSDictionary
-         U .objc_class_name_NSMutableArray
-         U .objc_class_name_NSNumber
-         U .objc_class_name_NSObject
-         U .objc_class_name_NSString
-         U .objc_class_name_NSURL
-00006120 S .objc_class_name_SSAudioDevice
-00006160 S .objc_class_name_SSAudioDeviceCenter
-         U _AudioDeviceAddPropertyListener
-         U _AudioDeviceGetProperty
-         U _AudioDeviceGetPropertyInfo
-         U _AudioDeviceRemovePropertyListener
-         U _AudioHardwareGetProperty
-         U _AudioHardwareGetPropertyInfo
-00005158 b _AudioHardwareServiceGetPropertyDataPtr
-00005160 b _AudioHardwareServiceHasPropertyPtr
-0000515c b _AudioHardwareServiceSetPropertyDataPtr
-         U _AudioHardwareSetProperty
-         U _CFBundleCreate
-         U _CFBundleGetFunctionPointerForName
-         U _GetSysBeepVolume
-         U _NSLog
-0000500c D _NXArgc
-00005008 D _NXArgv
-         U _SetSysBeepVolume
-         U _UTCreateStringForOSType
-         U ___CFConstantStringClassReference
-         U ___keymgr_dwarf2_register_sections
-00005000 D ___progname
-         U __cthread_init_routine
-00002674 t __dyld_func_lookup
-00001000 A __mh_execute_header
-00002586 t __start
-         U _atexit
-00005118 S _catch_exception_raise
-0000511c S _catch_exception_raise_state
-00005120 S _catch_exception_raise_state_identity
-00005124 S _clock_alarm_reply
-000040e8 t _devicePropertyChanged
-00005128 S _do_mach_notify_dead_name
-0000512c S _do_mach_notify_no_senders
-00005130 S _do_mach_notify_port_deleted
-00005134 S _do_mach_notify_send_once
-00005138 S _do_seqnos_mach_notify_dead_name
-0000513c S _do_seqnos_mach_notify_no_senders
-00005140 S _do_seqnos_mach_notify_port_deleted
-00005144 S _do_seqnos_mach_notify_send_once
-00005004 D _environ
-         U _errno
-         U _exit
-         U _free
-         U _mach_init_routine
-0000267a t _main
-         U _malloc
-         U _objc_msgSend
-         U _objc_msgSendSuper
-         U _objc_msgSend_fpret
-         U _pow
-         U _printf
-         U _puts
-00005148 S _receive_samples
-         U _strcmp
-         U _sysctlbyname
-00002668 t dyld_stub_binding_helper
-0000255c T start
+                 U __Unwind_Resume
+0000000100005a5e T __ZN3MXF3SDK10Exceptions10AlreadySetD0Ev
+0000000100005a44 T __ZN3MXF3SDK10Exceptions10AlreadySetD1Ev
+0000000100005aa6 T __ZN3MXF3SDK10Exceptions12InvalidStateD0Ev
+0000000100005a8c T __ZN3MXF3SDK10Exceptions12InvalidStateD1Ev
+0000000100005aee T __ZN3MXF3SDK10Exceptions12InvalidValueD0Ev
+0000000100005ad4 T __ZN3MXF3SDK10Exceptions12InvalidValueD1Ev
+                 U __ZN3MXF3SDK10Exceptions13BaseExceptionC2EPKcS4_i
+                 U __ZN3MXF3SDK10Exceptions13BaseExceptionD2Ev
+000000010000c3d4 T __ZN3MXF3SDK10Exceptions13InvalidFormatD0Ev
+000000010000c3ba T __ZN3MXF3SDK10Exceptions13InvalidFormatD1Ev
+0000000100005a16 T __ZN3MXF3SDK10Exceptions16InvalidStructureD0Ev
+00000001000059fc T __ZN3MXF3SDK10Exceptions16InvalidStructureD1Ev
+000000010000588a T __ZN3MXF3SDK10Exceptions9AssertionD0Ev
+0000000100005870 T __ZN3MXF3SDK10Exceptions9AssertionD1Ev
+                 U __ZN3MXF3SDK16GenericContainer13SoundAnalyzer19essenceAnalyzerTypeEv
+                 U __ZN3MXF3SDK16GenericContainer13SoundAnalyzerC2Ev
+                 U __ZN3MXF3SDK16GenericContainer13SoundAnalyzerD2Ev
+00000001000058b8 T __ZN3MXF3SDK16GenericContainer15EssenceAnalyzer10proposeKeyERKNS0_3KLV3KeyE
+00000001000058d6 T __ZN3MXF3SDK16GenericContainer15EssenceAnalyzer19customizeDescriptorERNS0_8Metadata10Structural14FileDescriptorE
+                 U __ZN3MXF3SDK16GenericContainer15MetadataBuilder17getLastSourceClipEPNS0_8Metadata10Structural8SequenceE
+                 U __ZN3MXF3SDK16GenericContainer15MetadataBuilder18createEssenceTrackERKNS0_5Types14UniversalLabelEj
+                 U __ZN3MXF3SDK16GenericContainer15MetadataBuilder18updateEssenceTrackEPNS0_8Metadata10Structural13TimelineTrackE
+                 U __ZN3MXF3SDK16GenericContainer15MetadataBuilder22setDescriptorToPackageEPNS0_8Metadata10Structural14FileDescriptorE
+                 U __ZN3MXF3SDK16GenericContainer15MetadataBuilder6finishEv
+                 U __ZN3MXF3SDK16GenericContainer15MetadataBuilderC2ERNS0_8Metadata17PartitionMetadataEPNS3_10Structural13SourcePackageEPNS6_18MultipleDescriptorEjjRKNS0_9Templates8RationalIiEESF_
+                 U __ZN3MXF3SDK16GenericContainer15MetadataBuilderD2Ev
+0000000100005b36 T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl11setDurationERKNS0_9Templates8RationalIiEE
+00000001000058e2 T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl13frameCompleteEv
+000000010000593a T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl13maximumToSkipEy
+00000001000058ee T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl14decodeTimecodeERKNS0_6DataIO5SliceERKNS3_5ChainE
+0000000100005952 T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl14wrappingSchemeEh
+00000001000058dc T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl17setEditUnitParamsERaRh
+000000010000595c T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl22setBoundedEditUnitSizeEi
+0000000100006c90 T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl4doneEv
+000000010000a232 T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl7preloadEv
+000000010000590a T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl8editRateERKNS0_9Templates8RationalIiEE
+00000001000071d6 T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_impl9nextBlockEyRNS1_8EditUnitE
+0000000100006a26 T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_implD0Ev
+0000000100008e4e T __ZN3MXF3SDK16GenericContainer20EssenceAnalyzer_implD1Ev
+                 U __ZN3MXF3SDK16GenericContainer4MPEG7ESAudio22ESAudioEssenceAnalyzerC1ERNS0_6DataIO11SliceReaderEbh
+                 U __ZN3MXF3SDK16GenericContainer4MPEG7ESAudio22ESAudioEssenceAnalyzerdlEPvm
+                 U __ZN3MXF3SDK16GenericContainer4MPEG7ESAudio22ESAudioEssenceAnalyzernwEm
+000000010000b67e T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReader15decodePCMFormatERKNS0_7Essence4Wave14FormatPCMChunkE
+000000010000b6c8 T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReader16decodeMPEGFormatERKNS0_7Essence4Wave16FormatMPEG1ChunkE
+000000010000bf66 T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReader21handleFormatMPEGChunkESt8auto_ptrINS0_6DataIO5SliceEE
+000000010000c082 T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReader24handleUnknownFormatChunkEtSt8auto_ptrINS0_6DataIO5SliceEE
+000000010000b5c8 T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReader26decodeMPEGExtensibleFormatERKNS0_7Essence4Wave21FormatExtensibleChunkE
+000000010000c162 T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReader27handleFormatExtensibleChunkESt8auto_ptrINS0_6DataIO5SliceEE
+000000010000b95c T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReader29handleBroadcastExtensionChunkEy
+000000010000b4da T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReader7preloadEv
+000000010000bea0 T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReaderC1ENS0_9Templates9SharedPtrINS0_6DataIO11SliceSourceENS4_13LockedCounterEEE
+000000010000bc92 T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReaderC2ENS0_9Templates9SharedPtrINS0_6DataIO11SliceSourceENS4_13LockedCounterEEE
+000000010000bbd8 T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReaderD0Ev
+000000010000bf5a T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReaderD1Ev
+000000010000beac T __ZN3MXF3SDK16GenericContainer4Wave18WaveExtendedReaderD2Ev
+00000001000042fe T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer10wrapInAES3Eb
+0000000100004244 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer11setDurationERKNS0_9Templates8RationalIiEE
+0000000100004ab4 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer11setMetadataERNS0_8Metadata17PartitionMetadataEPNS4_10Structural13SourcePackageEjj
+0000000100004d68 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer12nextEditUnitERNS1_8EditUnitE
+000000010000413a T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer13maximumToSkipEy
+0000000100004606 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer14groupEditUnitsEj
+00000001000042e6 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer14wrappingSchemeEh
+0000000100004172 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer19boundedEditUnitSizeEi
+0000000100004378 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer20setPreChargeDurationERKNS0_9Templates8RationalIiEE
+0000000100004334 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer20startSilenceDurationENS0_9Templates8RationalIxEE
+0000000100004310 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer28fillUpFinalEditUnitWithZerosEb
+0000000100004354 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer28minimumSamplesAtLastEditUnitEt
+00000001000062e6 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl10doFinalizeEv
+00000001000069cc T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl10readHeaderEv
+0000000100005b4e T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl11synchronizeEyRNS0_6DataIO10SyncResultE
+0000000100005968 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl12decodeHeaderERKNS0_6DataIO5SliceE
+000000010000597c T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl12validateBodyERKNS0_6DataIO5ChainE
+0000000100005de4 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl13maximumToSkipEy
+00000001000061ca T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl14updateMetadataERKNS0_6DataIO5ChainE
+0000000100006388 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl14wrappingSchemeEh
+000000010000685e T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl15setMetadataImplERNS0_8Metadata17PartitionMetadataEPNS5_10Structural13SourcePackageEPNS8_18MultipleDescriptorEjj
+00000001000065e8 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl23delegateToMPEG1AnalyzerEv
+00000001000063e6 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl25calculateEditUnitDurationERKNS0_6DataIO5ChainE
+000000010000a7e8 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl7readPCMERNS0_6DataIO5ChainE
+0000000100008b18 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl8editRateERKNS0_9Templates8RationalIiEE
+000000010000b36c T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl8readBodyERNS0_6DataIO5ChainE
+0000000100007956 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImplC2ERNS1_15EssenceAnalyzerENS0_9Templates9SharedPtrINS0_6DataIO11SliceSourceENS7_13LockedCounterEEE
+0000000100009968 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImplD0Ev
+00000001000090ac T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImplD1Ev
+0000000100004120 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImpldaEPvS5_
+00000001000040fa T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImpldaEPvm
+0000000100004110 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImpldlEPvS5_
+00000001000045d6 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImpldlEPvm
+00000001000040ee T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImplnaEm
+0000000100004116 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImplnaEmPv
+00000001000045fa T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImplnwEm
+0000000100004106 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImplnwEmPv
+000000010000422e T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4doneEv
+00000001000041f4 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer7preloadEv
+000000010000419c T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer8editRateERKNS0_9Templates8RationalIiEE
+0000000100004cd0 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer8finalizeEv
+0000000100004968 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerC1ENS0_9Templates9SharedPtrINS0_6DataIO11SliceSourceENS4_13LockedCounterEEE
+000000010000478c T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerC2ENS0_9Templates9SharedPtrINS0_6DataIO11SliceSourceENS4_13LockedCounterEEE
+0000000100004502 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerD0Ev
+00000001000045be T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerD1Ev
+0000000100004566 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerD2Ev
+00000001000044f0 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerdaEPvS4_
+00000001000045ca T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerdaEPvm
+00000001000044e0 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerdlEPvS4_
+00000001000044f6 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerdlEPvm
+00000001000045ee T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzernaEm
+00000001000044e6 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzernaEmPv
+00000001000045e2 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzernwEm
+00000001000044d6 T __ZN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzernwEmPv
+000000010000c5fa T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector13updateDMTrackEv
+000000010000dc3e T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector14receiveHeadersERKNS2_18WaveExtendedReaderERKNS0_9Templates8RationalIiEEj
+000000010000cd14 T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector16createDescriptorERKNS2_18WaveExtendedReaderE
+000000010000d5a8 T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector19appendCodingHistoryERKNS2_18WaveExtendedReaderERKNS0_5Types9TimestampE
+000000010000ceba T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector19createClipFrameworkERKNS2_18WaveExtendedReaderE
+000000010000d938 T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector19updateSourcePackageERKNS2_18WaveExtendedReaderE
+000000010000caf0 T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector20createAES3DescriptorERKNS2_18WaveExtendedReaderE
+000000010000dbba T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector21parseBExtInfoMetadataERKNS2_18WaveExtendedReaderE
+000000010000c5de T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector22forceGenericDescriptorEb
+000000010000c82a T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector28createGenericSoundDescriptorEPNS0_8Metadata10Structural29GenericSoundEssenceDescriptorERKNS2_18WaveExtendedReaderE
+000000010000c780 T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector6finishEv
+000000010000c5ae T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollectorC1ERNS0_8Metadata17PartitionMetadataEPNS4_10Structural13SourcePackageEPNS7_18MultipleDescriptorEjjRKNS0_5Types14UniversalLabelEbRKNS0_9Templates8RationalIiEESK_
+000000010000c4f0 T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollectorC2ERNS0_8Metadata17PartitionMetadataEPNS4_10Structural13SourcePackageEPNS7_18MultipleDescriptorEjjRKNS0_5Types14UniversalLabelEbRKNS0_9Templates8RationalIiEESK_
+000000010000de30 T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollectorD0Ev
+000000010000ddc8 T __ZN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollectorD1Ev
+                 U __ZN3MXF3SDK3KLV3KeyC1ERKS2_
+                 U __ZN3MXF3SDK5Types10DataStreamC1EPKhj
+                 U __ZN3MXF3SDK5Types10DataStreamD1Ev
+                 U __ZN3MXF3SDK5Types10ISO7StringC1EPKc
+                 U __ZN3MXF3SDK5Types10ISO7StringdlEPvm
+                 U __ZN3MXF3SDK5Types10ISO7StringnwEm
+                 U __ZN3MXF3SDK5Types11UTF16StringC1EPKw
+                 U __ZN3MXF3SDK5Types11UTF16StringD1Ev
+                 U __ZN3MXF3SDK5Types11UTF16StringdlEPvm
+                 U __ZN3MXF3SDK5Types11UTF16StringnwEm
+                 U __ZN3MXF3SDK5Types14UniversalLabelC1EPKh
+                 U __ZN3MXF3SDK5Types14UniversalLabelC1EPKwNS1_32StringRepresentationEncodingTypeE
+                 U __ZN3MXF3SDK5Types14UniversalLabelC1ERKS2_
+                 U __ZN3MXF3SDK5Types14UniversalLabelD1Ev
+                 U __ZN3MXF3SDK5Types14UniversalLabelixEi
+                 U __ZN3MXF3SDK5Types4Int8C1Ea
+                 U __ZN3MXF3SDK5Types4Int8D1Ev
+                 U __ZN3MXF3SDK5Types4UUIDC1EPKwNS1_32StringRepresentationEncodingTypeE
+                 U __ZN3MXF3SDK5Types4UUIDdlEPvm
+                 U __ZN3MXF3SDK5Types4UUIDnwEm
+                 U __ZN3MXF3SDK5Types5UInt8C1Eh
+                 U __ZN3MXF3SDK5Types5UInt8D1Ev
+                 U __ZN3MXF3SDK5Types6LengthC1ERKx
+                 U __ZN3MXF3SDK5Types6LengthD1Ev
+                 U __ZN3MXF3SDK5Types6UInt16C1Et
+                 U __ZN3MXF3SDK5Types6UInt16D1Ev
+                 U __ZN3MXF3SDK5Types6UInt32C1Ej
+                 U __ZN3MXF3SDK5Types6UInt32D1Ev
+                 U __ZN3MXF3SDK5Types6UMID32C1EPKh
+                 U __ZN3MXF3SDK5Types6UMID32C1EPKwNS1_32StringRepresentationEncodingTypeE
+                 U __ZN3MXF3SDK5Types6UMID32D1Ev
+                 U __ZN3MXF3SDK5Types7BooleanC1Eb
+                 U __ZN3MXF3SDK5Types7BooleanD1Ev
+                 U __ZN3MXF3SDK5Types8PositionC1ERKx
+                 U __ZN3MXF3SDK5Types8PositionD1Ev
+                 U __ZN3MXF3SDK5Types8RationalC1ERKNS0_9Templates8RationalIiEE
+                 U __ZN3MXF3SDK5Types8RationalC1Eii
+                 U __ZN3MXF3SDK5Types8RationalD1Ev
+                 U __ZN3MXF3SDK5Types8RationalaSERKS2_
+                 U __ZN3MXF3SDK5Types9Factories3UID17generateBasicUMIDENS3_12MaterialTypeENS3_18MaterialNumberTypeENS3_18InstanceNumberTypeENS3_15TimeSnapVersionEj
+                 U __ZN3MXF3SDK5Types9Factories9TimeStamp14getCurrentDateEv
+                 U __ZN3MXF3SDK5Types9TimestampC1ERKS2_
+                 U __ZN3MXF3SDK5Types9TimestampC1ERKtRKhS6_S6_S6_S6_S4_
+                 U __ZN3MXF3SDK5Types9TimestampD1Ev
+                 U __ZN3MXF3SDK5Types9TimestampaSERKS2_
+                 U __ZN3MXF3SDK5TypeseqERKNS1_14UniversalLabelES4_
+                 U __ZN3MXF3SDK5TypesneERKNS1_6UMID32ES4_
+                 U __ZN3MXF3SDK5Utils15stringToWstringERKSs
+0000000100005fe4 T __ZN3MXF3SDK5Utils21greatestCommonDividerIiEET_S3_S3_
+0000000100005e86 T __ZN3MXF3SDK5Utils21greatestCommonDividerIxEET_S3_S3_
+                 U __ZN3MXF3SDK5Utils8TimeCodeC1Ev
+                 U __ZN3MXF3SDK5Utils8TimeCodeD1Ev
+                 U __ZN3MXF3SDK5Utils8TimeCodeaSERKS2_
+                 U __ZN3MXF3SDK6DataIO11SliceReader11readAlignedEy
+                 U __ZN3MXF3SDK6DataIO11SliceReader4readEyRNS1_5ChainE
+                 U __ZN3MXF3SDK6DataIO11SliceReaderC1ENS0_9Templates9SharedPtrINS1_11SliceSourceENS3_13LockedCounterEEE
+                 U __ZN3MXF3SDK6DataIO11SliceReaderD1Ev
+                 U __ZN3MXF3SDK6DataIO11SliceReaderdlEPvm
+                 U __ZN3MXF3SDK6DataIO11SliceReadernwEm
+                 U __ZN3MXF3SDK6DataIO5Chain7chopEndEyRS2_
+                 U __ZN3MXF3SDK6DataIO5SliceC1Ev
+                 U __ZN3MXF3SDK6DataIO5SlicedlEPvm
+                 U __ZN3MXF3SDK6DataIO5SlicenwEm
+                 U __ZN3MXF3SDK6DataIO6Memory18MemoryBlockFactory8instanceEv
+                 U __ZN3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReader15decodePCMFormatERKNS1_4Wave14FormatPCMChunkE
+                 U __ZN3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReader17handleFormatChunkEy
+                 U __ZN3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReader20handleFormatPCMChunkESt8auto_ptrINS0_6DataIO5SliceEE
+                 U __ZN3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReader27handleFormatExtensibleChunkESt8auto_ptrINS0_6DataIO5SliceEE
+                 U __ZN3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReader7preloadEv
+                 U __ZN3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReaderC2ENS0_9Templates9SharedPtrINS0_6DataIO11SliceSourceENS5_13LockedCounterEEE
+                 U __ZN3MXF3SDK7Essence4AES313ChannelStatus14lockIndicationEb
+                 U __ZN3MXF3SDK7Essence4AES313ChannelStatus15professionalUseEb
+                 U __ZN3MXF3SDK7Essence4AES313ChannelStatus17samplingFrequencyERKNS0_9Templates8RationalIiEE
+                 U __ZN3MXF3SDK7Essence4AES313ChannelStatus19audioSignalEmphasisENS3_19AudioSignalEmphasisE
+                 U __ZN3MXF3SDK7Essence4AES313ChannelStatus9linearPCMEb
+                 U __ZN3MXF3SDK7Essence4AES313ChannelStatusC1Ev
+                 U __ZN3MXF3SDK7Essence4AES313ChannelStatusD1Ev
+                 U __ZN3MXF3SDK7Essence4Wave10WaveReader17gotoNextDataChunkEv
+000000010000c3b4 T __ZN3MXF3SDK7Essence4Wave10WaveReader18handleUnknownChunkERKSbIhSt11char_traitsIhESaIhEEy
+000000010000c3ae T __ZN3MXF3SDK7Essence4Wave10WaveReader20handleDataChunkBeginEy
+                 U __ZN3MXF3SDK7Essence4Wave10WaveReader4readEy
+                 U __ZN3MXF3SDK7Essence4Wave10WaveReader4skipEy
+                 U __ZN3MXF3SDK7Essence4Wave10WaveReader9nextChunkEv
+                 U __ZN3MXF3SDK7Essence4Wave10WaveReaderD2Ev
+                 U __ZN3MXF3SDK7Essence4Wave10WaveReaderdlEPvm
+                 U __ZN3MXF3SDK7Essence4Wave10WaveReadernwEm
+0000000100012cf0 s __ZN3MXF3SDK7Essence4Wave27FORMAT_EXTENSIBLE_PCM_LABELE
+0000000100012ce0 s __ZN3MXF3SDK7Essence4Wave28FORMAT_EXTENSIBLE_MPEG_LABELE
+                 U __ZN3MXF3SDK7Essence5Audio21SampleAlignmentVector25fillSampleAlignmentVectorERSt6vectorIhSaIhEEjNS0_9Templates8RationalIiEE
+                 U __ZN3MXF3SDK8Metadata10Structural10SourceClip11sourceTrackEPKNS2_5TrackE
+                 U __ZN3MXF3SDK8Metadata10Structural10SourceClip13sourcePackageEPKNS2_14GenericPackageE
+                 U __ZN3MXF3SDK8Metadata10Structural13SourcePackage10descriptorEPNS2_17GenericDescriptorE
+                 U __ZN3MXF3SDK8Metadata10Structural13addSourceClipERNS1_17PartitionMetadataEPNS2_8SequenceERKNS0_5Types14UniversalLabelEyx
+                 U __ZN3MXF3SDK8Metadata10Structural14ContentStorage13appendPackageEPNS2_14GenericPackageE
+                 U __ZN3MXF3SDK8Metadata10Structural14FileDescriptor10sampleRateEPKNS0_5Types8RationalE
+                 U __ZN3MXF3SDK8Metadata10Structural14FileDescriptor11linkedTrackEPKNS2_5TrackE
+                 U __ZN3MXF3SDK8Metadata10Structural14FileDescriptor16essenceContainerEPKNS0_5Types14UniversalLabelE
+                 U __ZN3MXF3SDK8Metadata10Structural14FileDescriptor17containerDurationEPKNS0_5Types6LengthE
+                 U __ZN3MXF3SDK8Metadata10Structural17DataDefinitionULs19descriptiveMetadataEv
+                 U __ZN3MXF3SDK8Metadata10Structural17DataDefinitionULs5audioEv
+000000010000e0f8 T __ZN3MXF3SDK8Metadata10Structural17createMetadataSetINS2_13SourcePackageEEEPT_RNS1_17PartitionMetadataERKNS0_3KLV3KeyE
+000000010000dea0 T __ZN3MXF3SDK8Metadata10Structural17createMetadataSetINS2_26AES3AudioEssenceDescriptorEEEPT_RNS1_17PartitionMetadataERKNS0_3KLV3KeyE
+000000010000df36 T __ZN3MXF3SDK8Metadata10Structural17createMetadataSetINS2_26WAVEAudioEssenceDescriptorEEEPT_RNS1_17PartitionMetadataERKNS0_3KLV3KeyE
+000000010000e062 T __ZN3MXF3SDK8Metadata10Structural17createMetadataSetINS2_27WAVEAudioPhysicalDescriptorEEEPT_RNS1_17PartitionMetadataERKNS0_3KLV3KeyE
+000000010000dfcc T __ZN3MXF3SDK8Metadata10Structural17createMetadataSetINS2_29GenericSoundEssenceDescriptorEEEPT_RNS1_17PartitionMetadataERKNS0_3KLV3KeyE
+                 U __ZN3MXF3SDK8Metadata10Structural19createTimelineTrackERNS1_17PartitionMetadataERNS2_14GenericPackageERKNS0_5Types14UniversalLabelEjjNS7_8PositionENS0_9Templates8RationalIiEEx
+                 U __ZN3MXF3SDK8Metadata10Structural22StructuralMetadataKeys13sourcePackageEv
+                 U __ZN3MXF3SDK8Metadata10Structural22StructuralMetadataKeys26aes3AudioEssenceDescriptorEv
+                 U __ZN3MXF3SDK8Metadata10Structural22StructuralMetadataKeys26waveAudioEssenceDescriptorEv
+                 U __ZN3MXF3SDK8Metadata10Structural22StructuralMetadataKeys27waveAudioPhysicalDescriptorEv
+                 U __ZN3MXF3SDK8Metadata10Structural22StructuralMetadataKeys29genericSoundEssenceDescriptorEv
+                 U __ZN3MXF3SDK8Metadata10Structural26AES3AudioEssenceDescriptor20addChannelStatusModeEjRKNS0_5Types5UInt8E
+                 U __ZN3MXF3SDK8Metadata10Structural26AES3AudioEssenceDescriptor25addFixedChannelStatusDataEjRKNS0_5Types10DataStreamE
+                 U __ZN3MXF3SDK8Metadata10Structural26WAVEAudioEssenceDescriptor10blockAlignEPKNS0_5Types6UInt16E
+                 U __ZN3MXF3SDK8Metadata10Structural26WAVEAudioEssenceDescriptor6avgBpsEPKNS0_5Types6UInt32E
+                 U __ZN3MXF3SDK8Metadata10Structural27WAVEAudioPhysicalDescriptor13codingHistoryEPKNS0_5Types11UTF16StringE
+                 U __ZN3MXF3SDK8Metadata10Structural29GenericSoundEssenceDescriptor12channelCountEPKNS0_5Types6UInt32E
+                 U __ZN3MXF3SDK8Metadata10Structural29GenericSoundEssenceDescriptor13audioRefLevelEPKNS0_5Types4Int8E
+                 U __ZN3MXF3SDK8Metadata10Structural29GenericSoundEssenceDescriptor14lockedUnlockedEPKNS0_5Types7BooleanE
+                 U __ZN3MXF3SDK8Metadata10Structural29GenericSoundEssenceDescriptor16quantizationBitsEPKNS0_5Types6UInt32E
+                 U __ZN3MXF3SDK8Metadata10Structural29GenericSoundEssenceDescriptor17audioSamplingRateEPKNS0_5Types8RationalE
+                 U __ZN3MXF3SDK8Metadata10Structural29GenericSoundEssenceDescriptor23soundEssenceCompressionEPKNS0_5Types14UniversalLabelE
+                 U __ZN3MXF3SDK8Metadata10Structural29GenericSoundEssenceDescriptor8dialNormEPKNS0_5Types4Int8E
+                 U __ZN3MXF3SDK8Metadata10Structural8Sequence8durationEPKNS0_5Types6LengthE
+                 U __ZN3MXF3SDK8Metadata13SimpleElement3setESt8auto_ptrINS0_5Types14SimpleDataTypeEEb
+                 U __ZN3MXF3SDK8Metadata16ReferenceElement3setEPKNS1_11MetadataSetE
+                 U __ZN3MXF3SDK8Metadata17PartitionMetadata17createMetadataSetERKNS0_3KLV3KeyE
+                 U __ZN3MXF3SDK8Metadata4DMS115DMS1MetadataULs10clipNumberEv
+                 U __ZN3MXF3SDK8Metadata4DMS115DMS1MetadataULs10contactUIDEv
+                 U __ZN3MXF3SDK8Metadata4DMS115DMS1MetadataULs14annotationSetsEv
+                 U __ZN3MXF3SDK8Metadata4DMS115DMS1MetadataULs15contactsListSetEv
+                 U __ZN3MXF3SDK8Metadata4DMS115DMS1MetadataULs16organisationSetsEv
+                 U __ZN3MXF3SDK8Metadata4DMS115DMS1MetadataULs20organisationMainNameEv
+                 U __ZN3MXF3SDK8Metadata4DMS115DMS1MetadataULs21annotationDescriptionEv
+                 U __ZN3MXF3SDK8Metadata4DMS116DMS1MetadataKeys10annotationEv
+                 U __ZN3MXF3SDK8Metadata4DMS116DMS1MetadataKeys12contactsListEv
+                 U __ZN3MXF3SDK8Metadata4DMS116DMS1MetadataKeys12organisationEv
+                 U __ZN3MXF3SDK8Metadata4DMS119createClipFrameworkERNS1_17PartitionMetadataEPNS1_10Structural13TimelineTrackERKSsNS2_21ClipFrameworkClipKindE
+                 U __ZN3MXF3SDK8Platform12malloc_alloc10deallocateEPvm
+                 U __ZN3MXF3SDK8Platform12malloc_alloc8allocateEm
+                 U __ZN3MXF3SDK8Platform15Synchronization20interlockedDecrementERi
+                 U __ZN3MXF3SDK8Platform15Synchronization20interlockedIncrementERi
+                 U __ZN3MXF3SDK8Platform15stringToWstringEPKc
+0000000100006040 T __ZN3MXF3SDK9Templates8RationalIiE9normalizeEv
+0000000100005f02 T __ZN3MXF3SDK9Templates8RationalIxE9normalizeEv
+0000000100013a30 D __ZN82_GLOBAL__N_MXF_SDK_GenericContainer_Wave_WaveEssenceAnalyzer.cpp_00000000_F66CDB6018WaveUniversalLabelE
+000000010000e18e T __ZN84_GLOBAL__N_MXF_SDK_GenericContainer_Wave_WaveMetadataCollector.cpp_00000000_653BA20610readNumberIhEET_PKci
+000000010000e57c T __ZN84_GLOBAL__N_MXF_SDK_GenericContainer_Wave_WaveMetadataCollector.cpp_00000000_653BA20610readNumberItEET_PKci
+                 U __ZN9__gnu_cxx18__exchange_and_addEPVii
+000000010000584c T __ZNK3MXF3SDK10Exceptions10AlreadySet9errorCodeEv
+0000000100005864 T __ZNK3MXF3SDK10Exceptions12InvalidState9errorCodeEv
+0000000100005840 T __ZNK3MXF3SDK10Exceptions12InvalidValue9errorCodeEv
+                 U __ZNK3MXF3SDK10Exceptions13BaseException4whatEv
+                 U __ZNK3MXF3SDK10Exceptions13BaseException7messageEv
+000000010000c3a2 T __ZNK3MXF3SDK10Exceptions13InvalidFormat9errorCodeEv
+0000000100005858 T __ZNK3MXF3SDK10Exceptions16InvalidStructure9errorCodeEv
+0000000100005834 T __ZNK3MXF3SDK10Exceptions9Assertion9errorCodeEv
+                 U __ZNK3MXF3SDK16GenericContainer15MetadataBuilder11trackNumberEv
+                 U __ZNK3MXF3SDK16GenericContainer15MetadataBuilder13sourcePackageEv
+                 U __ZNK3MXF3SDK16GenericContainer15MetadataBuilder17partitionMetadataEv
+                 U __ZNK3MXF3SDK16GenericContainer15MetadataBuilder7trackIdEv
+0000000100006108 T __ZNK3MXF3SDK16GenericContainer20EssenceAnalyzer_impl11getDurationEv
+000000010000592c T __ZNK3MXF3SDK16GenericContainer20EssenceAnalyzer_impl13maximumToSkipEv
+0000000100005948 T __ZNK3MXF3SDK16GenericContainer20EssenceAnalyzer_impl14wrappingSchemeEv
+0000000100005910 T __ZNK3MXF3SDK16GenericContainer20EssenceAnalyzer_impl15currentTimeCodeEv
+00000001000059e2 T __ZNK3MXF3SDK16GenericContainer20EssenceAnalyzer_impl20getPreChargeDurationEv
+0000000100006122 T __ZNK3MXF3SDK16GenericContainer20EssenceAnalyzer_impl8editRateEv
+000000010000b434 T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader11hasBExtInfoEv
+000000010000b422 T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader11hasWaveInfoEv
+000000010000b45a T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader14bextOriginatorEv
+000000010000b450 T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader15bextDescriptionEv
+000000010000b412 T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader15compressionTypeEv
+000000010000b4ca T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader17bextCodingHistoryEv
+000000010000b47a T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader19bextOriginationDateEv
+000000010000b48a T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader19bextOriginationTimeEv
+000000010000b49a T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader20bextTimeReferenceLowEv
+000000010000b446 T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader20totalDataChunkLengthEv
+000000010000b4aa T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader21bextTimeReferenceHighEv
+000000010000b46a T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader23bextOriginatorReferenceEv
+000000010000b4ba T __ZNK3MXF3SDK16GenericContainer4Wave18WaveExtendedReader8bextUMIDEv
+0000000100004258 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer11getDurationEv
+0000000100004126 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer13maximumToSkipEv
+00000001000041d4 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer14universalLabelEv
+000000010000420a T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer15currentTimeCodeEv
+00000001000042a0 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer15requiredKAGSizeEv
+0000000100004974 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer17audioSamplingRateEv
+00000001000043d8 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer18essenceElementTypeEv
+0000000100004394 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer18itemTypeIdentifierEv
+0000000100004162 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer19boundedEditUnitSizeEv
+000000010000427c T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer20getPreChargeDurationEv
+0000000100004186 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer28containsTemporalDependenciesEv
+0000000100004322 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer28fillUpFinalEditUnitWithZerosEv
+0000000100004366 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer28minimumSamplesAtLastEditUnitEv
+0000000100005daa T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl13maximumToSkipEv
+000000010000637e T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl14wrappingSchemeEv
+0000000100005bea T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl17getUniversalLabelEv
+0000000100005d3e T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl19boundedEditUnitSizeEv
+0000000100005e30 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl28containsTemporalDependenciesEv
+00000001000064f2 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl5isCBEEv
+0000000100008d74 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4Impl8editRateEv
+000000010000414e T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer5isCBEEv
+00000001000041b0 T __ZNK3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer8editRateEv
+000000010000c816 T __ZNK3MXF3SDK16GenericContainer4Wave21WaveMetadataCollector10sampleRateEv
+                 U __ZNK3MXF3SDK5Types5Int645valueEv
+                 U __ZNK3MXF3SDK6DataIO11SliceReader11endOfStreamEv
+                 U __ZNK3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReader13bitsPerSampleEv
+                 U __ZNK3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReader16numberBlockAlignEv
+                 U __ZNK3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReader16numberOfChannelsEv
+                 U __ZNK3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReader16samplesPerSecondEv
+                 U __ZNK3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReader17avgBytesPerSecondEv
+                 U __ZNK3MXF3SDK7Essence4AES313ChannelStatus14serializedSizeEv
+                 U __ZNK3MXF3SDK7Essence4AES313ChannelStatus9rawBufferEv
+                 U __ZNK3MXF3SDK7Essence4Wave10WaveReader11endOfStreamEv
+                 U __ZNK3MXF3SDK7Essence4Wave10WaveReader14absoluteOffsetEv
+                 U __ZNK3MXF3SDK8Metadata10Structural13SourcePackage10descriptorEv
+                 U __ZNK3MXF3SDK8Metadata10Structural7Preface14contentStorageEv
+                 U __ZNK3MXF3SDK8Metadata10Structural8Sequence14dataDefinitionEv
+                 U __ZNK3MXF3SDK8Metadata10Structural8Sequence19structuralComponentEj
+                 U __ZNK3MXF3SDK8Metadata10Structural8Sequence8durationEv
+                 U __ZNSbIwSt11char_traitsIwESaIwEE4_Rep10_M_destroyERKS1_
+                 U __ZNSbIwSt11char_traitsIwESaIwEE4_Rep20_S_empty_rep_storageE
+                 U __ZNSirsERy
+000000010000c402 T __ZNSs12_S_constructIPKcEEPcT_S3_RKSaIcESt20forward_iterator_tag
+                 U __ZNSs4_Rep10_M_destroyERKSaIcE
+                 U __ZNSs4_Rep11_S_terminalE
+                 U __ZNSs4_Rep20_S_empty_rep_storageE
+                 U __ZNSs4_Rep9_S_createEmmRKSaIcE
+                 U __ZNSs6appendEPKcm
+                 U __ZNSs6assignERKSs
+                 U __ZNSsC1EPKcRKSaIcE
+000000010000c4e4 T __ZNSsC1IPKcEET_S2_RKSaIcE
+000000010000c4bc T __ZNSsC2IPKcEET_S2_RKSaIcE
+                 U __ZNSt19basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKSsSt13_Ios_Openmode
+                 U __ZNSt6localeD1Ev
+000000010000657c T __ZNSt6vectorIhSaIhEE5eraseEN9__gnu_cxx17__normal_iteratorIPhS1_EES5_
+                 U __ZNSt8ios_baseD2Ev
+                 U __ZSt19__throw_logic_errorPKc
+0000000100005b1c T __ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES4_EvT_S7_T0_
+0000000100005e6c T __ZSt8_DestroyIPhSaIhEEvT_S2_T0_
+0000000100013ca0 S __ZTIN3MXF3SDK10Exceptions10AlreadySetE
+0000000100013b00 S __ZTIN3MXF3SDK10Exceptions12InvalidStateE
+0000000100013a40 S __ZTIN3MXF3SDK10Exceptions12InvalidValueE
+                 U __ZTIN3MXF3SDK10Exceptions13BaseExceptionE
+0000000100013ea0 S __ZTIN3MXF3SDK10Exceptions13InvalidFormatE
+0000000100013e80 S __ZTIN3MXF3SDK10Exceptions13NotEnoughDataE
+0000000100013e10 S __ZTIN3MXF3SDK10Exceptions16InvalidStructureE
+0000000100013aa0 S __ZTIN3MXF3SDK10Exceptions9AssertionE
+                 U __ZTIN3MXF3SDK16GenericContainer13SoundAnalyzerE
+                 U __ZTIN3MXF3SDK16GenericContainer15MetadataBuilderE
+0000000100013c90 S __ZTIN3MXF3SDK16GenericContainer20EssenceAnalyzer_implE
+0000000100013920 S __ZTIN3MXF3SDK16GenericContainer4Wave18WaveExtendedReaderE
+0000000100013c70 S __ZTIN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImplE
+0000000100013800 S __ZTIN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerE
+00000001000139e0 S __ZTIN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollectorE
+                 U __ZTIN3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReaderE
+                 U __ZTIN3MXF3SDK8Metadata10Structural13SourcePackageE
+                 U __ZTIN3MXF3SDK8Metadata10Structural14FileDescriptorE
+                 U __ZTIN3MXF3SDK8Metadata10Structural17GenericDescriptorE
+                 U __ZTIN3MXF3SDK8Metadata10Structural18MultipleDescriptorE
+                 U __ZTIN3MXF3SDK8Metadata10Structural19StructuralComponentE
+                 U __ZTIN3MXF3SDK8Metadata10Structural26AES3AudioEssenceDescriptorE
+                 U __ZTIN3MXF3SDK8Metadata10Structural26WAVEAudioEssenceDescriptorE
+                 U __ZTIN3MXF3SDK8Metadata10Structural27WAVEAudioPhysicalDescriptorE
+                 U __ZTIN3MXF3SDK8Metadata10Structural29GenericSoundEssenceDescriptorE
+                 U __ZTIN3MXF3SDK8Metadata10Structural9DMSegmentE
+                 U __ZTIN3MXF3SDK8Metadata11MetadataSetE
+                 U __ZTIN3MXF3SDK8Metadata13SimpleElementE
+                 U __ZTIN3MXF3SDK8Metadata16ReferenceElementE
+                 U __ZTIN3MXF3SDK8Metadata26CollectionReferenceElementE
+                 U __ZTIN3MXF3SDK8Metadata7ElementE
+0000000100010350 S __ZTSN3MXF3SDK10Exceptions10AlreadySetE
+00000001000102b0 S __ZTSN3MXF3SDK10Exceptions12InvalidStateE
+0000000100010260 S __ZTSN3MXF3SDK10Exceptions12InvalidValueE
+00000001000103d0 S __ZTSN3MXF3SDK10Exceptions13InvalidFormatE
+00000001000103a8 S __ZTSN3MXF3SDK10Exceptions13NotEnoughDataE
+0000000100010378 S __ZTSN3MXF3SDK10Exceptions16InvalidStructureE
+0000000100010288 S __ZTSN3MXF3SDK10Exceptions9AssertionE
+00000001000102d8 S __ZTSN3MXF3SDK16GenericContainer20EssenceAnalyzer_implE
+000000010000fd58 S __ZTSN3MXF3SDK16GenericContainer4Wave18WaveExtendedReaderE
+0000000100010310 S __ZTSN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImplE
+000000010000f7f8 S __ZTSN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerE
+0000000100010060 S __ZTSN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollectorE
+                 U __ZTTSt19basic_istringstreamIcSt11char_traitsIcESaIcEE
+                 U __ZTVN10__cxxabiv117__class_type_infoE
+                 U __ZTVN10__cxxabiv120__si_class_type_infoE
+0000000100013cc0 S __ZTVN3MXF3SDK10Exceptions10AlreadySetE
+0000000100013b20 S __ZTVN3MXF3SDK10Exceptions12InvalidStateE
+0000000100013a60 S __ZTVN3MXF3SDK10Exceptions12InvalidValueE
+0000000100013ec0 S __ZTVN3MXF3SDK10Exceptions13InvalidFormatE
+0000000100013e40 S __ZTVN3MXF3SDK10Exceptions16InvalidStructureE
+0000000100013ac0 S __ZTVN3MXF3SDK10Exceptions9AssertionE
+0000000100013d00 S __ZTVN3MXF3SDK16GenericContainer20EssenceAnalyzer_implE
+0000000100013940 S __ZTVN3MXF3SDK16GenericContainer4Wave18WaveExtendedReaderE
+0000000100013b60 S __ZTVN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzer4ImplE
+0000000100013820 S __ZTVN3MXF3SDK16GenericContainer4Wave19WaveEssenceAnalyzerE
+0000000100013a00 S __ZTVN3MXF3SDK16GenericContainer4Wave21WaveMetadataCollectorE
+                 U __ZTVN3MXF3SDK7Essence10Converters15S331MMuxHelpers13PCMWaveReaderE
+                 U __ZTVSt15basic_streambufIcSt11char_traitsIcEE
+                 U __ZTVSt15basic_stringbufIcSt11char_traitsIcESaIcEE
+                 U __ZTVSt19basic_istringstreamIcSt11char_traitsIcESaIcEE
+                 U __ZTVSt9basic_iosIcSt11char_traitsIcEE
+                 U __ZdlPv
+                 U __Znwm
+                 U ___cxa_allocate_exception
+                 U ___cxa_bad_cast
+                 U ___cxa_begin_catch
+                 U ___cxa_call_unexpected
+                 U ___cxa_end_catch
+                 U ___cxa_free_exception
+                 U ___cxa_pure_virtual
+                 U ___cxa_rethrow
+                 U ___cxa_throw
+                 U ___dynamic_cast
+                 U ___gxx_personality_v0
+00000001000040e8 t __dyld_func_lookup
+0000000100000000 t __mh_dylib_header
+                 U _memcmp
+                 U _memcpy
+                 U _memmove
+                 U _memset
+00000001000040d4 t dyld_stub_binding_helper

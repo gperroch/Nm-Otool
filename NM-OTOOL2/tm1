@@ -15,9 +15,9 @@
                  U _FSEventStreamStart
                  U _FSEventStreamStop
                  U _FSEventStreamUnscheduleFromRunLoop
-0000000000002e60 t __GLOBAL__I_a
-00000000000018ea T __Z15async_propagateP10uv_async_s
-0000000000001c99 T __Z18HandleStreamEventsPK15__FSEventStreamPvmS2_PKjPKy
+0000000100002e60 t __GLOBAL__I_a
+00000001000018ea T __Z15async_propagateP10uv_async_s
+0000000100001c99 T __Z18HandleStreamEventsPK15__FSEventStreamPvmS2_PKjPKy
                  U __ZN2v811HandleScope12CreateHandleEPNS_8internal6ObjectE
                  U __ZN2v811HandleScope8RawCloseEPPNS_8internal6ObjectE
                  U __ZN2v811HandleScopeC1Ev
@@ -54,46 +54,46 @@
                  U __ZN2v88External3NewEPv
                  U __ZN2v88Template3SetENS_6HandleINS_6StringEEENS1_INS_4DataEEENS_17PropertyAttributeE
                  U __ZN2v89UndefinedEv
-0000000000002848 t __ZN3Nan3impL23FunctionCallbackWrapperERKN2v89ArgumentsE
-0000000000002d0e T __ZN3Nan8CallbackC2ERKN2v85LocalINS1_8FunctionEEE
-000000000000219e T __ZN3fse8FSEvents10InitializeEN2v86HandleINS1_6ObjectEEE
-0000000000001b20 T __ZN3fse8FSEvents10asyncStartEv
-0000000000001d80 T __ZN3fse8FSEvents10threadStopEv
-000000000000187e T __ZN3fse8FSEvents11lockingStopEv
-0000000000001b8e T __ZN3fse8FSEvents11threadStartEv
-0000000000001b58 T __ZN3fse8FSEvents12asyncTriggerEv
-000000000000179a T __ZN3fse8FSEvents12lockingStartEv
-0000000000001db6 T __ZN3fse8FSEvents3NewERKN3Nan20FunctionCallbackInfoIN2v85ValueEEE
-0000000000001fd0 T __ZN3fse8FSEvents4StopERKN3Nan20FunctionCallbackInfoIN2v85ValueEEE
-00000000000018be T __ZN3fse8FSEvents4lockEv
-00000000000020b4 T __ZN3fse8FSEvents5StartERKN3Nan20FunctionCallbackInfoIN2v85ValueEEE
-00000000000018d4 T __ZN3fse8FSEvents6unlockEv
-0000000000001b6e T __ZN3fse8FSEvents9asyncStopEv
-0000000000001a50 T __ZN3fse8FSEvents9emitEventEPKcjy
-0000000000001bba T __ZN3fse8FSEvents9threadRunEPv
-00000000000017b6 T __ZN3fse8FSEventsC1EPKcPN3Nan8CallbackE
-00000000000016da T __ZN3fse8FSEventsC2EPKcPN3Nan8CallbackE
-00000000000018a2 T __ZN3fse8FSEventsD0Ev
-0000000000001898 T __ZN3fse8FSEventsD1Ev
-00000000000017c0 T __ZN3fse8FSEventsD2Ev
-0000000000002c3a T __ZN4node10ObjectWrap12WeakCallbackEN2v810PersistentINS1_5ValueEEEPv
-00000000000029de T __ZN4node10ObjectWrap3RefEv
-0000000000002a20 T __ZN4node10ObjectWrap5UnrefEv
-0000000000002e36 T __ZN4node10ObjectWrapD0Ev
-0000000000002e2c T __ZN4node10ObjectWrapD1Ev
-0000000000002924 T __ZN4node10ObjectWrapD2Ev
+0000000100002848 t __ZN3Nan3impL23FunctionCallbackWrapperERKN2v89ArgumentsE
+0000000100002d0e T __ZN3Nan8CallbackC2ERKN2v85LocalINS1_8FunctionEEE
+000000010000219e T __ZN3fse8FSEvents10InitializeEN2v86HandleINS1_6ObjectEEE
+0000000100001b20 T __ZN3fse8FSEvents10asyncStartEv
+0000000100001d80 T __ZN3fse8FSEvents10threadStopEv
+000000010000187e T __ZN3fse8FSEvents11lockingStopEv
+0000000100001b8e T __ZN3fse8FSEvents11threadStartEv
+0000000100001b58 T __ZN3fse8FSEvents12asyncTriggerEv
+000000010000179a T __ZN3fse8FSEvents12lockingStartEv
+0000000100001db6 T __ZN3fse8FSEvents3NewERKN3Nan20FunctionCallbackInfoIN2v85ValueEEE
+0000000100001fd0 T __ZN3fse8FSEvents4StopERKN3Nan20FunctionCallbackInfoIN2v85ValueEEE
+00000001000018be T __ZN3fse8FSEvents4lockEv
+00000001000020b4 T __ZN3fse8FSEvents5StartERKN3Nan20FunctionCallbackInfoIN2v85ValueEEE
+00000001000018d4 T __ZN3fse8FSEvents6unlockEv
+0000000100001b6e T __ZN3fse8FSEvents9asyncStopEv
+0000000100001a50 T __ZN3fse8FSEvents9emitEventEPKcjy
+0000000100001bba T __ZN3fse8FSEvents9threadRunEPv
+00000001000017b6 T __ZN3fse8FSEventsC1EPKcPN3Nan8CallbackE
+00000001000016da T __ZN3fse8FSEventsC2EPKcPN3Nan8CallbackE
+00000001000018a2 T __ZN3fse8FSEventsD0Ev
+0000000100001898 T __ZN3fse8FSEventsD1Ev
+00000001000017c0 T __ZN3fse8FSEventsD2Ev
+0000000100002c3a T __ZN4node10ObjectWrap12WeakCallbackEN2v810PersistentINS1_5ValueEEEPv
+00000001000029de T __ZN4node10ObjectWrap3RefEv
+0000000100002a20 T __ZN4node10ObjectWrap5UnrefEv
+0000000100002e36 T __ZN4node10ObjectWrapD0Ev
+0000000100002e2c T __ZN4node10ObjectWrapD1Ev
+0000000100002924 T __ZN4node10ObjectWrapD2Ev
                  U __ZN4node12MakeCallbackEN2v86HandleINS0_6ObjectEEENS1_INS0_8FunctionEEEiPNS1_INS0_5ValueEEE
                  U __ZNK2v85Value8ToStringEv
                  U __ZNK2v85Value9ToIntegerEv
                  U __ZNK2v86String6LengthEv
                  U __ZNK2v86String9WriteUtf8EPciPii
                  U __ZNK2v88External5ValueEv
-0000000000002d9e T __ZNK3Nan8Callback5Call_EN2v85LocalINS1_6ObjectEEEiPNS2_INS1_5ValueEEE
+0000000100002d9e T __ZNK3Nan8Callback5Call_EN2v85LocalINS1_6ObjectEEEiPNS2_INS1_5ValueEEE
                  U __ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc
                  U __ZNSo3putEc
                  U __ZNSo5flushEv
-0000000000002ad2 T __ZNSt6vectorIP9fse_eventSaIS1_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS1_S3_EERKS1_
-00000000000029a8 T __ZNSt6vectorIP9fse_eventSaIS1_EE9push_backERKS1_
+0000000100002ad2 T __ZNSt6vectorIP9fse_eventSaIS1_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS1_S3_EERKS1_
+00000001000029a8 T __ZNSt6vectorIP9fse_eventSaIS1_EE9push_backERKS1_
                  U __ZNSt8ios_base4InitC1Ev
                  U __ZNSt8ios_base4InitD1Ev
                  U __ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
@@ -101,17 +101,17 @@
                  U __ZSt20__throw_length_errorPKc
                  U __ZSt20__throw_out_of_rangePKc
                  U __ZSt4cout
-00000000000043b0 b __ZStL8__ioinit
-0000000000004320 S __ZTVN3fse8FSEventsE
-0000000000004380 D __ZTVN4node10ObjectWrapE
+00000001000043b0 b __ZStL8__ioinit
+0000000100004320 S __ZTVN3fse8FSEventsE
+0000000100004380 D __ZTVN4node10ObjectWrapE
                  U __ZdlPv
                  U __Znwm
                  U ___assert_rtn
                  U ___cxa_atexit
                  U ___stack_chk_fail
                  U ___stack_chk_guard
-00000000000016d4 t __dyld_func_lookup
-0000000000004350 D _fse_module
+00000001000016d4 t __dyld_func_lookup
+0000000100004350 D _fse_module
                  U _kCFRunLoopDefaultMode
                  U _malloc
                  U _memcpy
@@ -126,4 +126,4 @@
                  U _uv_async_send
                  U _uv_close
                  U _uv_default_loop
-00000000000016c0 t dyld_stub_binding_helper
+00000001000016c0 t dyld_stub_binding_helper
