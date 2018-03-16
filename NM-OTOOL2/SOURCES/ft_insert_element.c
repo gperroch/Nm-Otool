@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 09:55:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/16 12:07:27 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 14:06:40 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,10 @@ void					ft_insert_element(t_symbol_display **list, t_symbol_display *ptr)
 			ptr2->next = ptr;
 			if (ptr->next)
 				(ptr->next)->previous = ptr;
+			if (ft_strcmp(ptr->name, ptr2->name) == 0 && ptr->value < ptr2->value)
+				ft_set_previous_and_next(ptr2, ptr, list);
 			return ;
 		}
-/*		else if (ft_strcmp(ptr->name, ptr2->name) == 0) //comparaison des adresses. Necessaire si les objets ne sont pas prealablement tries par value.
-		{
-			if (ptr->value < ptr2->value)
-			{
-				ptr->next = ptr2;
-				ptr->previous = ptr2->previous;
-				ptr2->previous = ptr;
-				*list = ptr;
-				return ;
-			}
-			else if (ptr->value > ptr2->value && (ptr2->next == NULL || ptr->value < (ptr2->next)->value))
-			{
-				ptr->next = ptr2->next;
-				ptr->previous = ptr2;
-				ptr2->next = ptr;
-				if (ptr->next)
-					(ptr->next)->previous = ptr;
-				return ;
-			}
-
-		}
-*/		ptr2 = ptr2->next;
+		ptr2 = ptr2->next;
 	}
-	ft_printf("OUT FOR [%s]\n", ptr->name);
 }

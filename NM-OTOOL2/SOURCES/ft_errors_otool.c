@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 09:50:06 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/12 17:53:31 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 14:36:59 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void		ft_errors(int type, int value, char *file_name) // Pour OTOOL
 	}
 	if (type == INVALID_FILE)
 	{
-		ft_printf("ft_otool: '%s': %s\n",
-			file_name, "The file was not recognized as a valid object file"); // A mutualiser avec le message de ft_analyse
+//		ft_printf("ft_otool: '%s': %s\n",
+//			file_name, "The file was not recognized as a valid object file"); // A mutualiser avec le message de ft_analyse
+		ft_printf("%s: is not an object file\n", file_name);
 	}
 	if (type == MAPPING_ERROR)
 		ft_printf("ERROR in ft_mapping_file() for %s.\n", file_name);
