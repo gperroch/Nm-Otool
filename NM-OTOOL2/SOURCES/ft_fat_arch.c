@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 16:53:48 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/16 12:12:10 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 16:53:44 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void					ft_fat_arch(t_generic_file *gen)
 	}
 
 	if (arch_to_display > -1)
-		ft_iterate_fat_arch(gen, arch_to_display, 1);
+		ft_iterate_fat_arch(gen, arch_to_display, 1, gen->otool);
 	else
 	{
 		i = -1;
 		while (++i < gen->nfat_arch)
-			ft_iterate_fat_arch(gen, i, 0); // Attention a ne pas toujours iterer sur toutes les arch. Afficher celle(s) requise(s).
+			ft_iterate_fat_arch(gen, i, 0, gen->otool); // Attention a ne pas toujours iterer sur toutes les arch. Afficher celle(s) requise(s).
 	}
 }

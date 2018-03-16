@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:03:04 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/14 12:03:16 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 17:17:49 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,12 @@ void				ft_find_texttext_static_library(void *file_content,
 	{
 		ft_printf("%s(%s):\nContents of (__TEXT,__text) section\n",
 			argv, ptr->file_object_name);
-		ft_find_texttext_section(ptr->file_object, 64); // BESOIN DE l'ARCHITECTURE
+		// ft_find_texttext_section(ptr->file_object, 64); // BESOIN DE l'ARCHITECTURE
+		/*******/ //GEN A GERER
+		t_generic_file *gen;
+		gen = (t_generic_file*)malloc(sizeof(gen));
+		ft_find_texttext_section(gen);
+		/*******/
 		ptr = ptr->next;
 	}
 	ft_free_static_library_symbols(list);

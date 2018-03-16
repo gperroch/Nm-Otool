@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/16 10:17:43 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 17:22:17 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct mach_header			t_mach_header;
 typedef struct segment_command_64	t_segment_command_64;
 typedef struct segment_command		t_segment_command;
 typedef struct section_64			t_section_64;
+typedef struct section				t_section;
 
 typedef struct				s_generic_file
 {
@@ -78,6 +79,7 @@ typedef struct				s_generic_file
 	void					*file_start;
 	int						arch;
 	char					isLib;
+	int						otool;
 }							t_generic_file;
 
 typedef struct				s_symbol_display
@@ -162,14 +164,15 @@ void					ft_fat_arch(t_generic_file *gen);
 void						ft_static_library(t_generic_file *gen);
 void						ft_find_ranlib_symtab(t_generic_file *gen, t_static_lib *lib, struct ranlib *ranlib, t_lib_symbol **list);
 void						ft_display_static_library_symbols(t_lib_symbol *list, t_generic_file *gen);
-void						ft_find_texttext_section(struct mach_header_64 *header, int arch);
-void						ft_iter_texttext_sections(t_load_command *load_command, t_mach_header_64 *header, uint32_t *ncmds, int arch);
+void						ft_find_texttext_section(t_generic_file *gen);
+void						ft_iter_texttext_sections(t_load_command *load_command, uint32_t *ncmds, t_generic_file *gen);
 t_generic_file				*ft_init_gen(char *file_name, void *file_content, off_t file_size);
-void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyOne);
+void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyOne, int otool);
 int					ft_find_arch64(t_generic_file *gen, uint32_t i);
 char						ft_section_type(struct section_64 *section, t_generic_file *gen);
 t_symbol_display		*ft_create_element(t_generic_file *gen, void *strtab);
 void					ft_insert_element(t_symbol_display **list, t_symbol_display *ptr);
+void				ft_dump_mem_32(void *ptr, int len, int col, void *header);
 
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);

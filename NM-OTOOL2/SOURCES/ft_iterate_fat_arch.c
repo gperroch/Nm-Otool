@@ -6,13 +6,13 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/12 17:42:35 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/16 12:14:46 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 16:53:20 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 
-void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyOne)
+void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyOne, int otool)
 {
 	char				*cputype;
 	uint64_t			offset;
@@ -29,7 +29,7 @@ void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyOne)
 		cputype = ft_strdup("undefined");
 	if (!onlyOne && gen->nfat_arch != 1)
 		ft_printf("\n%s (for architecture %s):\n", gen->file_name, cputype);
-	else if (gen->nfat_arch == 1)
+	else if (gen->nfat_arch == 1 && !otool)
 		ft_printf("%s:\n", gen->file_name);
 	free(cputype);
 	offset = gen->arch == 32 ? ((struct fat_arch*)fat_arch)->offset : ((struct fat_arch_64*)fat_arch)->offset;
