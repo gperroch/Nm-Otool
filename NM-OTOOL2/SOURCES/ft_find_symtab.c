@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 12:57:57 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/14 18:13:52 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 10:19:44 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_symbol_display			*ft_find_symtab(t_generic_file *gen, char to_display) // GATE
 //		gen->file_start = gen->header;
 	ft_locate_symbol_table(gen, &symtab, &strtab, &symtab_command);
 	list = ft_create_symbol_list(symtab, strtab, symtab_command, gen);
-	ft_sort_list_symbols(&list);
+	//ft_sort_list_symbols(&list);
 	if (to_display)
 	{
 		ft_display_symbols(list, gen);

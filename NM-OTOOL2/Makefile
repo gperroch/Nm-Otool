@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2018/03/14 14:32:27 by gperroch         ###   ########.fr        #
+#    Updated: 2018/03/16 10:17:30 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,8 @@ SRC_NM_NAME =	main.c \
 				ft_find_ranlib_symtab.c \
 				ft_display_static_library_symbols.c \
 				ft_find_arch64.c \
+				ft_insert_element.c \
+				ft_create_element.c \
 				dump_mem.c \
 				ft_dump_mem.c
 
@@ -88,6 +90,8 @@ SRC_OTOOL_NAME =	main.c \
 					ft_find_ranlib_symbols.c \
 					ft_calculate_distance_file_object.c \
 					ft_find_arch64.c \
+					ft_insert_element.c \
+					ft_create_element.c \
 					dump_mem.c \
 					ft_dump_mem.c
 

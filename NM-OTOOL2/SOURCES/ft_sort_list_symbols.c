@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/12 15:23:56 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/14 19:02:54 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 09:57:22 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void					ft_sort_list_symbols(t_symbol_display **list)
 	t_symbol_display	*ptr;
 	t_symbol_display	*ptr2;
 	char				modified;
-
+/*
 	t_symbol_display	*tmp;
 	tmp = *list;
 	while (tmp)
@@ -27,7 +27,7 @@ void					ft_sort_list_symbols(t_symbol_display **list)
 		ft_printf("%s\n", tmp->name);
 		tmp = tmp->next;
 	}
-
+*/
 	modified = 1;
 	while (modified)
 	{

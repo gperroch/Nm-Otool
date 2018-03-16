@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 13:23:58 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/14 19:04:55 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 10:29:12 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab, t_symtab_c
 		if (!(gen->n_type & N_STAB))
 		{
 			// Faire le tri ici. Placer le nouvel element au bon endroit.
-			ft_init_element(&list, &ptr);
-			ft_set_element(&ptr, gen, strtab);
+//			ft_init_element(&list, &ptr);
+//			ft_set_element(&ptr, gen, strtab);
+			ptr = ft_create_element(gen, strtab);
+			ft_insert_element(&list, ptr);
 		}
 		gen->nlist = (struct nlist*)((char*)gen->nlist + sizeof(struct nlist));
 		gen->nlist_64 = (struct nlist_64*)((char*)gen->nlist_64 + sizeof(struct nlist_64));

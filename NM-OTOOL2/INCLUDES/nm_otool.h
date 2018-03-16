@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/14 17:41:36 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 10:17:43 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,8 @@ t_generic_file				*ft_init_gen(char *file_name, void *file_content, off_t file_s
 void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyOne);
 int					ft_find_arch64(t_generic_file *gen, uint32_t i);
 char						ft_section_type(struct section_64 *section, t_generic_file *gen);
-
+t_symbol_display		*ft_create_element(t_generic_file *gen, void *strtab);
+void					ft_insert_element(t_symbol_display **list, t_symbol_display *ptr);
 
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);
