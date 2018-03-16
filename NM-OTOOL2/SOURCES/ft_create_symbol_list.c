@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 13:23:58 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/16 10:29:12 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 11:35:18 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab, t_symtab_c
 	{
 		if ((gen->arch == 32 && !ft_bounds_security(gen, gen->nlist)) || (gen->arch == 64 && !ft_bounds_security(gen, gen->nlist_64))) // Necessite gen.file_size et gen.file_start pour fonctionner
 			return (NULL);
-		gen->n_type = gen->arch == 32 ? gen->nlist->n_type : gen->nlist_64->n_type;
-		gen->n_sect = gen->arch == 32 ? gen->nlist->n_sect : gen->nlist_64->n_sect;
-		gen->n_desc = gen->arch == 32 ? gen->nlist->n_desc : gen->nlist_64->n_desc;
-		gen->n_value = gen->arch == 32 ? gen->nlist->n_value : gen->nlist_64->n_value;
-		gen->n_strx = gen->arch == 32 ? gen->nlist->n_un.n_strx : gen->nlist_64->n_un.n_strx;
+//		dump_mem()
+		gen->n_type = gen->arch == 32 ? (gen->nlist)->n_type : (gen->nlist_64)->n_type;
+		gen->n_sect = gen->arch == 32 ? (gen->nlist)->n_sect : (gen->nlist_64)->n_sect;
+		gen->n_desc = gen->arch == 32 ? (gen->nlist)->n_desc : (gen->nlist_64)->n_desc;
+		gen->n_value = gen->arch == 32 ? (gen->nlist)->n_value : (gen->nlist_64)->n_value;
+		gen->n_strx = gen->arch == 32 ? (gen->nlist)->n_un.n_strx : (gen->nlist_64)->n_un.n_strx;
 		if (gen->endian_mach == LITTLEEND)
 		{
 			gen->n_value = ft_swap_endian_32bit(gen->n_value);
@@ -45,8 +46,8 @@ t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab, t_symtab_c
 		if (!(gen->n_type & N_STAB))
 		{
 			// Faire le tri ici. Placer le nouvel element au bon endroit.
-//			ft_init_element(&list, &ptr);
-//			ft_set_element(&ptr, gen, strtab);
+//			ft_init_element(&list, &ptr); // A enlever de la compilation et du projet
+//			ft_set_element(&ptr, gen, strtab); // A enlever de la compilation et du projet
 			ptr = ft_create_element(gen, strtab);
 			ft_insert_element(&list, ptr);
 		}

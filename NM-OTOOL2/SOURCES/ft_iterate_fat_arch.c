@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/12 17:42:35 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/14 15:42:43 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 12:14:46 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyOne)
 		cputype = ft_get_arch_type(ft_swap_endian_32bit(((struct fat_arch_64*)fat_arch)->cputype));
 	else
 		cputype = ft_strdup("undefined");
-	if (!onlyOne)
+	if (!onlyOne && gen->nfat_arch != 1)
 		ft_printf("\n%s (for architecture %s):\n", gen->file_name, cputype);
+	else if (gen->nfat_arch == 1)
+		ft_printf("%s:\n", gen->file_name);
 	free(cputype);
 	offset = gen->arch == 32 ? ((struct fat_arch*)fat_arch)->offset : ((struct fat_arch_64*)fat_arch)->offset;
 	if (gen->endian_fat == LITTLEEND)

@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 09:50:36 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/16 09:54:37 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/16 11:15:39 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_symbol_display		*ft_create_element(t_generic_file *gen, void *strtab) // Le pr
 
 	ptr = (t_symbol_display*)malloc(sizeof(t_symbol_display));
 
+	ptr->next = NULL;
+	ptr->previous = NULL;
 	ptr->value = gen->n_value;
 	ptr->name = &((char*)strtab)[gen->n_strx];
 	ptr->type = 'U';
