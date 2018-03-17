@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2018/03/16 10:17:30 by gperroch         ###   ########.fr        #
+#    Updated: 2018/03/17 15:50:22 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SRC_NM_NAME =	main.c \
 				ft_find_arch64.c \
 				ft_insert_element.c \
 				ft_create_element.c \
+				ft_set_gen_nlist_values.c \
 				dump_mem.c \
 				ft_dump_mem.c
 
@@ -92,6 +93,7 @@ SRC_OTOOL_NAME =	main.c \
 					ft_find_arch64.c \
 					ft_insert_element.c \
 					ft_create_element.c \
+					ft_set_gen_nlist_values.c \
 					dump_mem.c \
 					ft_dump_mem.c
 

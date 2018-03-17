@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/16 17:22:17 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/17 17:10:24 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ void						*ft_find_ranlib_symbols(void *file_content, struct ranlib *ranlib, t_l
 int							ft_calculate_distance_file_object(t_static_lib *file_object_header_line);
 void						ft_list_lib_symbols(t_lib_symbol **list, char *symbol_name, char *file_object_name, void *file_object);
 int							ft_check_symbol_in_file_object(char *symbol_name, void *file_object);
-void						ft_find_texttext_static_library(void *file_content, char *argv);
+
 void						ft_dump_mem(void *ptr, int len, int col, void *header);
 void						ft_free_list_symbols(t_symbol_display *list);
 void						ft_free_static_library_symbols(t_lib_symbol *list);
@@ -157,9 +157,9 @@ int						ft_has_print(char *str);
 t_symbol_display			*ft_proceed_lib(t_generic_file *gen, int argc);
 t_symbol_display			*ft_proceed_fat(t_generic_file *gen, int argc);
 t_symbol_display			*ft_proceed_macho(t_generic_file *gen, int argc);
-t_symbol_display			*ft_analyse_file(void *file_content, int argc, char *file_name, off_t file_size);
+void			ft_analyse_file(void *file_content, int argc, char *file_name, off_t file_size);
 void	ft_describe_arch(void *file_content, uint32_t offset);
-void	ft_errors(int type, int value, char *file_name);
+void	ft_errors(int type, char *file_name);
 void					ft_fat_arch(t_generic_file *gen);
 void						ft_static_library(t_generic_file *gen);
 void						ft_find_ranlib_symtab(t_generic_file *gen, t_static_lib *lib, struct ranlib *ranlib, t_lib_symbol **list);
@@ -167,12 +167,14 @@ void						ft_display_static_library_symbols(t_lib_symbol *list, t_generic_file *
 void						ft_find_texttext_section(t_generic_file *gen);
 void						ft_iter_texttext_sections(t_load_command *load_command, uint32_t *ncmds, t_generic_file *gen);
 t_generic_file				*ft_init_gen(char *file_name, void *file_content, off_t file_size);
-void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyOne, int otool);
+void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyone, int otool);
 int					ft_find_arch64(t_generic_file *gen, uint32_t i);
-char						ft_section_type(struct section_64 *section, t_generic_file *gen);
+char						ft_section_type(struct section_64 *section);
 t_symbol_display		*ft_create_element(t_generic_file *gen, void *strtab);
 void					ft_insert_element(t_symbol_display **list, t_symbol_display *ptr);
 void				ft_dump_mem_32(void *ptr, int len, int col, void *header);
+void				ft_set_gen_nlist_values(t_generic_file *gen);
+void						ft_find_texttext_static_library(t_generic_file *gen);
 
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);

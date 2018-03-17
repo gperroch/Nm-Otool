@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 14:36:04 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/16 18:35:34 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/17 17:10:45 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,5 @@ char						ft_find_section(t_generic_file *gen)
 			return (0);
 		section_counter++;
 	}
-	return (ft_section_type(section, gen));
+	return (ft_section_type(section));
 }

@@ -6,13 +6,14 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 09:55:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/16 14:06:40 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/17 16:59:50 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 
-void					ft_insert_element(t_symbol_display **list, t_symbol_display *ptr)
+void					ft_insert_element(t_symbol_display **list,
+	t_symbol_display *ptr)
 {
 	t_symbol_display	*ptr2;
 
@@ -21,7 +22,6 @@ void					ft_insert_element(t_symbol_display **list, t_symbol_display *ptr)
 		*list = ptr;
 		return ;
 	}
-
 	ptr2 = *list;
 	while (ptr2)
 	{
@@ -33,14 +33,16 @@ void					ft_insert_element(t_symbol_display **list, t_symbol_display *ptr)
 			*list = ptr;
 			return ;
 		}
-		else if (ft_strcmp(ptr->name, ptr2->name) >= 0 && (ptr2->next == NULL || ft_strcmp(ptr->name, (ptr2->next)->name) < 0))
+		else if (ft_strcmp(ptr->name, ptr2->name) >= 0 && (ptr2->next == NULL
+			|| ft_strcmp(ptr->name, (ptr2->next)->name) < 0))
 		{
 			ptr->next = ptr2->next;
 			ptr->previous = ptr2;
 			ptr2->next = ptr;
 			if (ptr->next)
 				(ptr->next)->previous = ptr;
-			if (ft_strcmp(ptr->name, ptr2->name) == 0 && ptr->value < ptr2->value)
+			if (ft_strcmp(ptr->name, ptr2->name) == 0
+			&& ptr->value < ptr2->value)
 				ft_set_previous_and_next(ptr2, ptr, list);
 			return ;
 		}

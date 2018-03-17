@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 17:26:40 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/14 19:04:17 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/17 16:10:38 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int						main(int argc, char **argv)
 	file_name = "";
 	if (argc < 2)
 	{
-		ft_errors(ARGS_NUMBER, argc, "");
+		ft_errors(ARGS_NUMBER, "");
 		file_name = ft_strdup("a.out");
 		argc++;
 	}
@@ -41,13 +41,13 @@ int						main(int argc, char **argv)
 			munmap(file_content, stats.st_size);
 		}
 		else if (mapping_result == -1)
-			ft_errors(MAPPING_ERROR, 0, file_name);
+			ft_errors(MAPPING_ERROR, file_name);
 		else if (errno == EACCES)
-			ft_errors(NO_PERM, 0, file_name);
+			ft_errors(NO_PERM, file_name);
 		else if (errno == ENOENT)
-			ft_errors(NOT_EXISTING, 0, file_name);
+			ft_errors(NOT_EXISTING, file_name);
 		else
-			ft_errors(INVALID_FILE, 0, file_name);
+			ft_errors(INVALID_FILE, file_name);
 	}
 	return (0);
 }
