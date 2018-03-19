@@ -6,13 +6,14 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/12 15:23:56 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/16 14:05:47 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/19 13:01:54 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm_otool.h"
 
 // Faire le tri a la creation de la liste.
+// Cette fonction est a enlever si elle n'est plus utilisee !
 
 void					ft_sort_list_symbols(t_symbol_display **list)
 {

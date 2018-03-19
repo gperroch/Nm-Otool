@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:03:04 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/17 16:52:33 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/19 14:00:23 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,12 @@
 
 void				ft_find_texttext_static_library(t_generic_file *gen)
 {
-	struct ranlib	*ranlib;
-	long int		ranlibs_size;
 	t_lib_symbol	*list;
 	t_lib_symbol	*ptr;
 	t_generic_file	*gen2;
 
-	ranlibs_size = ((t_static_lib*)(gen->file_start))->ranlibs_size;
-	ranlib = (struct ranlib*)((char*)(gen->file_start) + sizeof(t_static_lib));
-	ranlibs_size -= sizeof(struct ranlib);
 	list = NULL;
-	while (ranlibs_size)
-	{
-		ft_find_ranlib_symbols((gen->file_start), ranlib, &list);
-		ranlib = (struct ranlib*)((char*)ranlib + sizeof(ranlib));
-		ranlibs_size -= sizeof(struct ranlib);
-	}
+	ft_iter_ranlibs(gen, &list);
 	ptr = list;
 	while (ptr)
 	{

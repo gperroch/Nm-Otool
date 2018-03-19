@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 09:55:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/17 16:59:50 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/19 13:42:08 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,8 @@ void					ft_insert_element(t_symbol_display **list,
 	ptr2 = *list;
 	while (ptr2)
 	{
-		if (ft_strcmp(ptr->name, ptr2->name) < 0)
-		{
-			ptr->next = ptr2;
-			ptr->previous = ptr2->previous;
-			ptr2->previous = ptr;
-			*list = ptr;
+		if (ft_set_element_position(ptr, ptr2, list))
 			return ;
-		}
-		else if (ft_strcmp(ptr->name, ptr2->name) >= 0 && (ptr2->next == NULL
-			|| ft_strcmp(ptr->name, (ptr2->next)->name) < 0))
-		{
-			ptr->next = ptr2->next;
-			ptr->previous = ptr2;
-			ptr2->next = ptr;
-			if (ptr->next)
-				(ptr->next)->previous = ptr;
-			if (ft_strcmp(ptr->name, ptr2->name) == 0
-			&& ptr->value < ptr2->value)
-				ft_set_previous_and_next(ptr2, ptr, list);
-			return ;
-		}
 		ptr2 = ptr2->next;
 	}
 }

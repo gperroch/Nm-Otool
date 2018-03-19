@@ -6,7 +6,7 @@
 #    By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/01 14:54:19 by gperroch          #+#    #+#              #
-#    Updated: 2018/03/17 15:50:22 by gperroch         ###   ########.fr        #
+#    Updated: 2018/03/19 18:35:18 by gperroch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,11 @@ SRC_NM_NAME =	main.c \
 				ft_find_symtab.c \
 				ft_create_symbol_list.c \
 				ft_locate_symbol_table.c \
+				ft_locate_symtab_command.c \
 				ft_find_section.c \
+				ft_iter_sections.c \
+				ft_iter_load_commands.c \
+				ft_set_nsects.c \
 				ft_fat_arch.c \
 				ft_proceed_macho_nm.c \
 				ft_proceed_fat_nm.c \
@@ -40,6 +44,7 @@ SRC_NM_NAME =	main.c \
 				ft_sort_list_symbols.c \
 				ft_set_previous_and_next.c \
 				ft_iterate_fat_arch.c \
+				ft_arch_title.c \
 				ft_arch_gateway.c \
 				ft_get_arch_type.c \
 				ft_bounds_security.c \
@@ -49,6 +54,7 @@ SRC_NM_NAME =	main.c \
 				ft_display_static_library_symbols.c \
 				ft_find_arch64.c \
 				ft_insert_element.c \
+				ft_set_element_position.c \
 				ft_create_element.c \
 				ft_set_gen_nlist_values.c \
 				dump_mem.c \
@@ -62,7 +68,11 @@ SRC_OTOOL_NAME =	main.c \
 					ft_find_symtab.c \
 					ft_create_symbol_list.c \
 					ft_locate_symbol_table.c \
+					ft_locate_symtab_command.c \
 					ft_find_section.c \
+					ft_iter_sections.c \
+					ft_iter_load_commands.c \
+					ft_set_nsects.c \
 					ft_fat_arch.c \
 					ft_proceed_macho_otool.c \
 					ft_proceed_fat_otool.c \
@@ -81,17 +91,21 @@ SRC_OTOOL_NAME =	main.c \
 					ft_sort_list_symbols.c \
 					ft_set_previous_and_next.c \
 					ft_iterate_fat_arch.c \
+					ft_arch_title.c \
 					ft_arch_gateway.c \
 					ft_get_arch_type.c \
 					ft_bounds_security.c \
 					ft_swap_endian_32bit.c \
 					ft_find_texttext_section.c \
 					ft_iter_texttext_sections.c \
+					ft_display_section_content.c \
 					ft_find_texttext_static_library.c \
+					ft_iter_ranlibs.c \
 					ft_find_ranlib_symbols.c \
 					ft_calculate_distance_file_object.c \
 					ft_find_arch64.c \
 					ft_insert_element.c \
+					ft_set_element_position.c \
 					ft_create_element.c \
 					ft_set_gen_nlist_values.c \
 					dump_mem.c \

@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/17 17:10:24 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/19 18:30:33 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,14 @@ void					ft_insert_element(t_symbol_display **list, t_symbol_display *ptr);
 void				ft_dump_mem_32(void *ptr, int len, int col, void *header);
 void				ft_set_gen_nlist_values(t_generic_file *gen);
 void						ft_find_texttext_static_library(t_generic_file *gen);
+void		*ft_locate_symtab_command(uint32_t lc_max, t_generic_file *gen);
+void			ft_arch_title(t_generic_file *gen, int onlyone, int otool, void	*fat_arch);
+int		ft_set_element_position(t_symbol_display *ptr, t_symbol_display *ptr2, t_symbol_display **list);
+void		ft_iter_ranlibs(t_generic_file *gen, t_lib_symbol **list);
+void			ft_display_section_content(t_section_64	*section, uint32_t *ncmds, t_generic_file *gen);
+int				ft_iter_load_commands(t_generic_file *gen, t_load_command **load_cmd);
+void			*ft_iter_sections(t_load_command *load_cmd, t_generic_file *gen, int section_counter);
+uint32_t		ft_set_nsects(t_load_command *load_cmd, t_generic_file *gen);
 
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);

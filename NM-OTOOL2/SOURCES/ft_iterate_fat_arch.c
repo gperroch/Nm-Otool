@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/12 17:42:35 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/17 17:03:54 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/19 13:32:43 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,17 @@
 void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i,
 	int onlyone, int otool)
 {
-	char				*cputype;
 	uint64_t			offset;
 	void				*fat_arch;
 
 	fat_arch = (char*)(gen->fat_header) + sizeof(struct fat_header)
 		+ i * ft_arch_gateway(gen->arch, FAT_ARCH);
 	if (!ft_bounds_security(gen, fat_arch))
-		return ;
-	if (gen->endian_fat == BIGEND)
-		cputype = ft_get_arch_type(((struct fat_arch_64*)fat_arch)->cputype);
-	else if (gen->endian_fat == LITTLEEND)
-		cputype = ft_get_arch_type(ft_swap_endian_32bit(
-			((struct fat_arch_64*)fat_arch)->cputype));
-	else
-		cputype = ft_strdup("undefined");
-	if (!onlyone && gen->nfat_arch != 1)
-		ft_printf("\n%s (for architecture %s):\n", gen->file_name, cputype);
-	else if (gen->nfat_arch == 1 && !otool)
-		ft_printf("%s:\n", gen->file_name);
-	free(cputype);
+	{
+		ft_errors(CORRUPTED, gen->file_name);
+		exit(1);
+	}
+	ft_arch_title(gen, onlyone, otool, fat_arch);
 	offset = gen->arch == 32 ? ((struct fat_arch*)fat_arch)->offset
 		: ((struct fat_arch_64*)fat_arch)->offset;
 	if (gen->endian_fat == LITTLEEND)

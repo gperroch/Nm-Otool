@@ -1,0 +1,66 @@
+Norme: ./ft_analyse_file.c
+Error (line 15): function ft_analyse_file has 26 lines
+Error (line 25): missing newline after if
+Error (line 25): C++ comment
+
+Norme: ./ft_dump_mem.c
+Error (line 15): function ft_dump_mem has 32 lines
+Error (line 38): comment not well formatted
+Error (line 38): must begin only by tabulations
+Error (line 38): C++ comment
+Error (line 38): comment not well placed
+Error (line 39): comment not well formatted
+Error (line 39): comment not well placed
+Error (line 44): comment not well formatted
+Error (line 44): comment not well placed
+Error (line 51): function ft_dump_mem_32 has 32 lines
+Error (line 74): comment not well formatted
+Error (line 74): must begin only by tabulations
+Error (line 74): C++ comment
+Error (line 74): comment not well placed
+Error (line 75): comment not well formatted
+Error (line 75): comment not well placed
+Error (line 80): comment not well formatted
+Error (line 80): comment not well placed
+
+Norme: ./ft_find_section.c
+Error (line 15): declarations in ft_find_section are bad aligned
+Error (line 15): function ft_find_section has 59 lines
+Error (line 15): declarations in ft_find_section must be at the top of the function
+Error (line 15): declarations must be followed by one empty line in ft_find_section
+Error (line 15, col 0): ft_find_section has 6 variables
+Error (line 24): line has 98 characters
+Error (line 36): multiple empty lines
+Error (line 37): multiple empty lines
+Error (line 38): missing newline after if
+Error (line 38): C++ comment
+Error (line 38): line has 212 characters
+Error (line 40): line has 172 characters
+Error (line 43): line has 101 characters
+Error (line 51): C++ comment
+Error (line 61): Empty line
+Error (line 65): C++ comment
+Error (line 67): C++ comment
+Error (line 67): line has 115 characters
+Error (line 70): C++ comment
+Error (line 70): line has 95 characters
+
+Norme: ./ft_sort_list_symbols.c
+Error (line 15): C++ comment
+Error (line 16): C++ comment
+Error (line 18): function ft_sort_list_symbols has 29 lines
+Error (line 18): declarations must be followed by one empty line in ft_sort_list_symbols
+Error (line 23): comment not well formatted
+Error (line 23): comment not well placed
+Error (line 42): bad indentation
+Error (line 42): C++ comment
+Error (line 42): line has 101 characters
+
+Norme: ./main.c
+Error (line 13): wrong number of spaces in preprocessor indentation
+Error (line 15): C++ comment
+Error (line 17): function main has 34 lines
+Error (line 36): missing newline after if
+Error (line 36): C++ comment
+Error (line 36): line has 125 characters
+Error (line 38): line has 86 characters
