@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/19 18:30:33 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/21 17:29:54 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct				s_generic_file
 	uint8_t n_type;     /* type flag, see below */
 	uint8_t n_sect;     /* section number or NO_SECT */
 	int16_t n_desc;     /* see <mach-o/stab.h> */
-	uint32_t n_value;
+	uint64_t n_value;
 	uint32_t n_strx;
 	/* FAT arch */
 	struct fat_header		*fat_header;
@@ -78,7 +78,8 @@ typedef struct				s_generic_file
 	char					*file_name;
 	void					*file_start;
 	int						arch;
-	char					isLib;
+	char					islib;
+	char					isppc;
 	int						otool;
 }							t_generic_file;
 
@@ -135,7 +136,7 @@ int							ft_calculate_distance_file_object(t_static_lib *file_object_header_lin
 void						ft_list_lib_symbols(t_lib_symbol **list, char *symbol_name, char *file_object_name, void *file_object);
 int							ft_check_symbol_in_file_object(char *symbol_name, void *file_object);
 
-void						ft_dump_mem(void *ptr, int len, int col, void *header);
+
 void						ft_free_list_symbols(t_symbol_display *list);
 void						ft_free_static_library_symbols(t_lib_symbol *list);
 
@@ -170,22 +171,25 @@ t_generic_file				*ft_init_gen(char *file_name, void *file_content, off_t file_s
 void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyone, int otool);
 int					ft_find_arch64(t_generic_file *gen, uint32_t i);
 char						ft_section_type(struct section_64 *section);
-t_symbol_display		*ft_create_element(t_generic_file *gen, void *strtab);
-void					ft_insert_element(t_symbol_display **list, t_symbol_display *ptr);
-void				ft_dump_mem_32(void *ptr, int len, int col, void *header);
+t_symbol_display	*ft_create_element(t_generic_file *gen, void *strtab);
+void				ft_insert_element(t_symbol_display **list, t_symbol_display *ptr);
+void					ft_dump_mem(void *ptr, int len, int col, t_generic_file *gen);
+void				ft_dump_mem_32(void *ptr, int len, int col, t_generic_file *gen);
+void				ft_dump_mem_ppc(void **ptr, int *i, char *mem);
 void				ft_set_gen_nlist_values(t_generic_file *gen);
-void						ft_find_texttext_static_library(t_generic_file *gen);
-void		*ft_locate_symtab_command(uint32_t lc_max, t_generic_file *gen);
-void			ft_arch_title(t_generic_file *gen, int onlyone, int otool, void	*fat_arch);
-int		ft_set_element_position(t_symbol_display *ptr, t_symbol_display *ptr2, t_symbol_display **list);
-void		ft_iter_ranlibs(t_generic_file *gen, t_lib_symbol **list);
-void			ft_display_section_content(t_section_64	*section, uint32_t *ncmds, t_generic_file *gen);
-int				ft_iter_load_commands(t_generic_file *gen, t_load_command **load_cmd);
+void				ft_find_texttext_static_library(t_generic_file *gen);
+void				*ft_locate_symtab_command(uint32_t lc_max, t_generic_file *gen);
+void				ft_arch_title(t_generic_file *gen, int onlyone, int otool, void	*fat_arch);
+int					ft_set_element_position(t_symbol_display *ptr, t_symbol_display *ptr2, t_symbol_display **list);
+void				ft_iter_ranlibs(t_generic_file *gen, t_lib_symbol **list);
+void				ft_display_section_content(t_section_64	*section, uint32_t *ncmds, t_generic_file *gen);
+int					ft_iter_load_commands(t_generic_file *gen, t_load_command **load_cmd);
 void			*ft_iter_sections(t_load_command *load_cmd, t_generic_file *gen, int section_counter);
 uint32_t		ft_set_nsects(t_load_command *load_cmd, t_generic_file *gen);
 
 uint32_t				bigtolittle32(uint32_t n);
 uint64_t				bigtolittle64(uint64_t n);
+int				g_isppc;
 union FatArch
 {
 	struct fat_arch_64	*fatArch64;

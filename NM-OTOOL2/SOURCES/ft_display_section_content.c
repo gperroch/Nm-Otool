@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 16:04:28 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/19 16:04:55 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/21 17:31:21 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void			ft_display_section_content(t_section_64 *section,
 	}
 	content = (char*)(gen->header) + sectionoffset;
 	if (gen->arch == 32)
-		ft_dump_mem_32(content, sectionsize, 16, gen->header);
+		ft_dump_mem_32(content, sectionsize, 16, gen);
 	else
-		ft_dump_mem(content, sectionsize, 16, gen->header);
+		ft_dump_mem(content, sectionsize, 16, gen);
 	*ncmds = gen->header->ncmds;
 }
