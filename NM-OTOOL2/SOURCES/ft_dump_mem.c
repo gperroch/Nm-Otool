@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:52:30 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/21 17:31:56 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/21 17:33:32 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void				ft_dump_mem(void *ptr, int len, int col, t_generic_file *gen)
 	init = ptr;
 	i = 0;
 	filetype = ((t_mach_header_64*)(gen->header))->filetype;
-//	ft_printf("g_isppc = %d\n", g_isppc);
 	while (i < len)
 	{
 		if ((i == 0 || i % col == 0) && filetype == MH_OBJECT)

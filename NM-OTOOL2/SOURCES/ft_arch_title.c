@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 13:31:56 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/21 17:32:23 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/21 18:31:01 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ void			ft_arch_title(t_generic_file *gen, int onlyone, int otool,
 		g_isppc = 1;
 	else
 		g_isppc = 0;
-//	ft_printf("g_isppc = %d (arch_title)\n", g_isppc);
 	free(cputype);
 }
