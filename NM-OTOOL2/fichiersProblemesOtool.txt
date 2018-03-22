@@ -1,0 +1,5 @@
+\/Applications\/Adobe\ After\ Effects\ CC\ 2015\/Adobe\ After\ Effects\ CC\ 2015\.app\/Contents\/Frameworks\/AdobeJP2K\.framework/AdobeJP2K
+\/Applications\/Adobe\ After\ Effects\ CC\ 2015\/Adobe\ After\ Effects\ CC\ 2015\.app\/Contents\/Frameworks\/AdobeJP2K\.framework\/Versions\/A/AdobeJP2K
+
+\/Applications\/Adobe\ After\ Effects\ CC\ 2015\/Adobe\ After\ Effects\ CC\ 2015\.app\/Contents\/Frameworks\/AdobePSL\.framework\/Versions\/A\/Resources/AdobePSL\.rsrc
+\/Applications\/Adobe\ After\ Effects\ CC\ 2015\/Adobe\ After\ Effects\ CC\ 2015\.app\/Contents\/Frameworks\/AfterFXLib\.framework\/Versions\/A/AfterFXLib

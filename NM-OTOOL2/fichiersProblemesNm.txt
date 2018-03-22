@@ -1,0 +1,2 @@
+/Applications/Adobe After Effects CC 2015/Adobe After Effects CC 2015.app/Contents/Frameworks/amtlib.framework/Versions/A/Resources/libConfigurer.dylib
+/Applications/Adobe After Effects CC 2015/Adobe After Effects CC 2015.app/Contents/Frameworks/WRServices.framework/WRServices

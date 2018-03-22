@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 13:23:58 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/21 15:38:22 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/22 16:39:45 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab,
 			ptr = ft_create_element(gen, strtab);
 			ft_insert_element(&list, ptr);
 		}
-//		ft_printf("\n", );
 		gen->nlist = (void*)((char*)gen->nlist + sizeof(struct nlist));
 		gen->nlist_64 = (void*)((char*)gen->nlist_64 + sizeof(struct nlist_64));
 	}

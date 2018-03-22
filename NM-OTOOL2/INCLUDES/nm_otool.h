@@ -6,7 +6,7 @@
 /*   By: gperroch <gperroch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 12:04:15 by gperroch          #+#    #+#             */
-/*   Updated: 2018/03/21 17:29:54 by gperroch         ###   ########.fr       */
+/*   Updated: 2018/03/22 16:58:07 by gperroch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,87 +108,71 @@ typedef struct				s_lib_symbol
 	struct s_lib_symbol		*previous;
 }							t_lib_symbol;
 
-//t_symbol_display			*ft_find_symtab(struct mach_header_64 *header, char to_display); // 64bit
-t_symbol_display			*ft_find_symtab(t_generic_file *gen, char to_display); // GATEWAY
-//void						ft_locate_symbol_table(struct mach_header_64 *header, void **symtab, void **strtab, struct symtab_command **symtab_command); // 64bit
-void						ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strtab, t_symtab_command **symtab_command); // GATEWAY
-//t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab, struct symtab_command *symtab_command, struct mach_header_64 *header); // 64bit
-t_symbol_display			*ft_create_symbol_list(void *symtab, void *strtab, t_symtab_command *symtab_command, t_generic_file *gen); // GATEWAY
-//void						ft_set_element(t_symbol_display **ptr, struct nlist_64 *nlist, struct mach_header_64 *header, void *strtab); // 64bit
-void						ft_set_element(t_symbol_display **ptr, t_generic_file *gen, void *strtab); // GATEWAY
-void						ft_init_element(t_symbol_display **list, t_symbol_display **ptr);
-//void						ft_display_symbols(t_symbol_display *list); // 64bit
-void						ft_display_symbols(t_symbol_display *list, t_generic_file *gen); // GATEWAY
-//char						ft_find_section(void *header, int section_number); // 64bit
-char						ft_find_section(t_generic_file *gen); // GATEWAY
 
-void						ft_sort_list_symbols(t_symbol_display **list);
-void						ft_set_previous_and_next(t_symbol_display *ptr, t_symbol_display *ptr2, t_symbol_display **list);
-
-
-
-int							ft_add_symbol_to_list(t_lib_symbol *ptr, t_lib_symbol *new_symbol, char *file_object_name);
-int							ft_mapping_file(char *file_name, void **file_content, struct stat *stats);
-
-void						*ft_find_ranlib_symbols(void *file_content, struct ranlib *ranlib, t_lib_symbol **list);
-
-int							ft_calculate_distance_file_object(t_static_lib *file_object_header_line);
-void						ft_list_lib_symbols(t_lib_symbol **list, char *symbol_name, char *file_object_name, void *file_object);
-int							ft_check_symbol_in_file_object(char *symbol_name, void *file_object);
-
-
-void						ft_free_list_symbols(t_symbol_display *list);
-void						ft_free_static_library_symbols(t_lib_symbol *list);
-
-int			ft_arch_gateway(int arch, int element);
-
-
-int						ft_swap_endian_32bit(int nbr);
-void					*ft_revert_endianness_4bytes_full(void *file_content, off_t file_size);
-int						ft_revert_endianness_4bytes(int nbr);
-void					ft_locate_symbol_table_bigendian(t_generic_file *gen, void **symtab, void **strtab, t_symtab_command **symtab_command);
-t_symbol_display			*ft_create_symbol_list_bigendian(void *symtab, void *strtab, t_symtab_command *symtab_command, t_generic_file *gen);
-char					*ft_get_arch_type(int cputype);
-int							ft_bounds_security(t_generic_file *gen, void *ptr);
-char						ft_find_section_bigendian(t_generic_file *gen);
-int						ft_has_print(char *str);
+t_symbol_display	*ft_find_symtab(t_generic_file *gen, char to_display); // GATEWAY
+void				ft_locate_symbol_table(t_generic_file *gen, void **symtab, void **strtab, t_symtab_command **symtab_command); // GATEWAY
+t_symbol_display	*ft_create_symbol_list(void *symtab, void *strtab, t_symtab_command *symtab_command, t_generic_file *gen); // GATEWAY
+void				ft_set_element(t_symbol_display **ptr, t_generic_file *gen, void *strtab); // GATEWAY
+void				ft_init_element(t_symbol_display **list, t_symbol_display **ptr);
+void				ft_display_symbols(t_symbol_display *list, t_generic_file *gen); // GATEWAY
+char				ft_find_section(t_generic_file *gen); // GATEWAY
+void				ft_sort_list_symbols(t_symbol_display **list);
+void				ft_set_previous_and_next(t_symbol_display *ptr, t_symbol_display *ptr2, t_symbol_display **list);
+int					ft_add_symbol_to_list(t_lib_symbol *ptr, t_lib_symbol *new_symbol, char *file_object_name);
+int					ft_mapping_file(char *file_name, void **file_content, struct stat *stats);
+void				*ft_find_ranlib_symbols(void *file_content, struct ranlib *ranlib, t_lib_symbol **list);
+int					ft_calculate_distance_file_object(t_static_lib *file_object_header_line);
+void				ft_list_lib_symbols(t_lib_symbol **list, char *symbol_name, char *file_object_name, void *file_object);
+int					ft_check_symbol_in_file_object(char *symbol_name, void *file_object);
+void				ft_free_list_symbols(t_symbol_display *list);
+void				ft_free_static_library_symbols(t_lib_symbol *list);
+int					ft_arch_gateway(int arch, int element);
+int					ft_swap_endian_32bit(int nbr);
+void				*ft_revert_endianness_4bytes_full(void *file_content, off_t file_size);
+int					ft_revert_endianness_4bytes(int nbr);
+void				ft_locate_symbol_table_bigendian(t_generic_file *gen, void **symtab, void **strtab, t_symtab_command **symtab_command);
+t_symbol_display	*ft_create_symbol_list_bigendian(void *symtab, void *strtab, t_symtab_command *symtab_command, t_generic_file *gen);
+char				*ft_get_arch_type(int cputype);
+int					ft_bounds_security(t_generic_file *gen, void *ptr);
+char				ft_find_section_bigendian(t_generic_file *gen);
+int					ft_has_print(char *str);
 //////////////////////////////////////////////////////////////////
 #define LIB_MASK 0x213c6172
 #define LIB_MASK_2 0x72613c21
-t_symbol_display			*ft_proceed_lib(t_generic_file *gen, int argc);
-t_symbol_display			*ft_proceed_fat(t_generic_file *gen, int argc);
-t_symbol_display			*ft_proceed_macho(t_generic_file *gen, int argc);
-void			ft_analyse_file(void *file_content, int argc, char *file_name, off_t file_size);
-void	ft_describe_arch(void *file_content, uint32_t offset);
-void	ft_errors(int type, char *file_name);
-void					ft_fat_arch(t_generic_file *gen);
-void						ft_static_library(t_generic_file *gen);
-void						ft_find_ranlib_symtab(t_generic_file *gen, t_static_lib *lib, struct ranlib *ranlib, t_lib_symbol **list);
-void						ft_display_static_library_symbols(t_lib_symbol *list, t_generic_file *gen);
-void						ft_find_texttext_section(t_generic_file *gen);
-void						ft_iter_texttext_sections(t_load_command *load_command, uint32_t *ncmds, t_generic_file *gen);
-t_generic_file				*ft_init_gen(char *file_name, void *file_content, off_t file_size);
-void					ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyone, int otool);
+t_symbol_display	*ft_proceed_lib(t_generic_file *gen, int argc);
+t_symbol_display	*ft_proceed_fat(t_generic_file *gen, int argc);
+t_symbol_display	*ft_proceed_macho(t_generic_file *gen, int argc);
+void				ft_analyse_file(void *file_content, int argc, char *file_name, off_t file_size);
+void				ft_describe_arch(void *file_content, uint32_t offset);
+void				ft_errors(int type, char *file_name);
+void				ft_fat_arch(t_generic_file *gen);
+void				ft_static_library(t_generic_file *gen);
+void				ft_find_ranlib_symtab(t_generic_file *gen, t_static_lib *lib, struct ranlib *ranlib, t_lib_symbol **list);
+void				ft_display_static_library_symbols(t_lib_symbol *list, t_generic_file *gen);
+void				ft_find_texttext_section(t_generic_file *gen);
+void				ft_iter_texttext_sections(t_load_command *load_command, uint32_t *ncmds, t_generic_file *gen);
+t_generic_file		*ft_init_gen(char *file_name, void *file_content, off_t file_size);
+void				ft_iterate_fat_arch(t_generic_file *gen, uint32_t i, int onlyone);
 int					ft_find_arch64(t_generic_file *gen, uint32_t i);
-char						ft_section_type(struct section_64 *section);
+char				ft_section_type(struct section_64 *section);
 t_symbol_display	*ft_create_element(t_generic_file *gen, void *strtab);
 void				ft_insert_element(t_symbol_display **list, t_symbol_display *ptr);
-void					ft_dump_mem(void *ptr, int len, int col, t_generic_file *gen);
+void				ft_dump_mem(void *ptr, int len, int col, t_generic_file *gen);
 void				ft_dump_mem_32(void *ptr, int len, int col, t_generic_file *gen);
 void				ft_dump_mem_ppc(void **ptr, int *i, char *mem);
 void				ft_set_gen_nlist_values(t_generic_file *gen);
 void				ft_find_texttext_static_library(t_generic_file *gen);
 void				*ft_locate_symtab_command(uint32_t lc_max, t_generic_file *gen);
-void				ft_arch_title(t_generic_file *gen, int onlyone, int otool, void	*fat_arch);
+void				ft_arch_title(t_generic_file *gen, int onlyone, void *fat_arch);
 int					ft_set_element_position(t_symbol_display *ptr, t_symbol_display *ptr2, t_symbol_display **list);
 void				ft_iter_ranlibs(t_generic_file *gen, t_lib_symbol **list);
 void				ft_display_section_content(t_section_64	*section, uint32_t *ncmds, t_generic_file *gen);
 int					ft_iter_load_commands(t_generic_file *gen, t_load_command **load_cmd);
-void			*ft_iter_sections(t_load_command *load_cmd, t_generic_file *gen, int section_counter);
-uint32_t		ft_set_nsects(t_load_command *load_cmd, t_generic_file *gen);
+void				*ft_iter_sections(t_load_command *load_cmd, t_generic_file *gen, int section_counter);
+uint32_t			ft_set_nsects(t_load_command *load_cmd, t_generic_file *gen);
 
-uint32_t				bigtolittle32(uint32_t n);
-uint64_t				bigtolittle64(uint64_t n);
+uint32_t			bigtolittle32(uint32_t n);
+uint64_t			bigtolittle64(uint64_t n);
 int				g_isppc;
 union FatArch
 {
@@ -196,6 +180,6 @@ union FatArch
 	struct fat_arch		*fatArch32;
 };
 
-void		dump_mem(void *ptr, int len, int col, char *name);
+void				dump_mem(void *ptr, int len, int col, char *name);
 /////////////////////////////////////////////////////////////////
 #endif
